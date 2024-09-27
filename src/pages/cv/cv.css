@@ -1,0 +1,16 @@
+html, body {
+    height: 100%; /* 确保 HTML 和 Body 填满视口 */
+    margin: 0; /* 清除默认 margin */
+}
+
+.cv {
+    height: 100vh; /* 使容器占满整个视口高度 */
+    width: 100vw; /* 使容器占满整个视口宽度 */
+    overflow: hidden; /* 隐藏任何溢出的内容 */
+}
+
+.pdf-iframe {
+    border: none; /* 去掉边框 */
+    width: 100%; /* 使 iframe 占满宽度 */
+    height: 100%; /* 使 iframe 占满高度 */
+}
