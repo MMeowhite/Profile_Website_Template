@@ -165,19 +165,22 @@ subtitled {
     color: black;
 }
 
+.content {
+    position: relative;
+    margin: 10% 20%;
+}
 
 .content .content-title {
     font-size: 18px;
-    margin: 10% 20%;
+
 }
 
 .content .content-content {
     font-size: 14px;
-    margin: 10% 20%;
 }
 
 .content span {
-    margin-top: 100%;
-    margin-bottom: 100%;
+    display: block; /* 让span作为块级元素 */
+    height: 200px;  /* 设置段落之间的间距 */
 }
 
