@@ -4,7 +4,7 @@ import Main from "../components/Main";
 import CV from "../pages/cv";
 
 
-
+// 全局router配置
 const routers = [
     {
         path: '/',

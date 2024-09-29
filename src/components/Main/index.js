@@ -7,7 +7,7 @@ import "./main.css"
 import Header from "../Header";
 import Footer from "../Footer";
 import {Outlet} from "react-router-dom";
-import { FloatButton } from 'antd';
+import FloatBtn from "../../widget/floatBtn";
 
 
 const Main = () => {
@@ -33,15 +33,7 @@ const Main = () => {
 
   return (
     <div className="main">
-        <FloatButton
-            tooltip={
-                <div>
-                    <div>Documents</div>
-                    <div>Documents</div>
-                    <div>Documents</div>
-                </div>
-            }
-        />
+        <FloatBtn />
         <Header />
         <div id="about"><About /></div>
         <div id="skills"><Skills/></div>

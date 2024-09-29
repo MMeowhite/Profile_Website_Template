@@ -1,22 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import './about.css'
-import aboutMeImg from  '../../assets/images/about_me.svg'
+import aboutMeImg from '../../assets/images/about_me.png'
+import Nav from "../../widget/nav";
+import CommonLeft from "../../components/commonLeft";
 
 
 const About = () => {
-    const handleClick = (event, id) => {
-        event.preventDefault(); // 阻止默认行为
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' }); // 平滑滚动
-            window.location.hash = id; // 更新哈希
-        }
-    };
-
     return (
         <section className="about">
-            <div className="left-container">
+            <CommonLeft>
 
                 {/* title and picture */}
                 <div className="middle">
@@ -36,27 +28,9 @@ const About = () => {
                 </div>
 
                 {/*linked to the selected page*/}
-                <nav className="navigate uppercase">
-                    <ul>
-                        <li>
-                            <Link to="#about" onClick={(e) =>handleClick(e, 'about')}>about</Link>
-                        </li>
-                        <li>
-                            <Link to="#skills" onClick={(e) =>handleClick(e, 'skills')}>skills</Link>
-                        </li>
-                        <li>
-                            <Link to="/cv">cv</Link>
-                        </li>
-                        <li>
-                            <Link to="#contact" onClick={(e) => handleClick(e, 'contact')}>contact</Link>
-                        </li>
-                        <li>
-                            <Link to="#research" onClick={(e) => handleClick(e, 'research')}>research</Link>
-                        </li>
-                    </ul>
-                </nav>
+                <Nav />
 
-            </div>
+            </CommonLeft>
 
             <div className="right-container">
                 <div className="content">
