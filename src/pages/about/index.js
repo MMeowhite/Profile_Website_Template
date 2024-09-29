@@ -3,6 +3,7 @@ import './about.css'
 import aboutMeImg from '../../assets/images/about_me.png'
 import Nav from "../../widget/nav";
 import CommonLeft from "../../components/commonLeft";
+import CommonRight from "../../components/commonRight";
 
 
 const About = () => {
@@ -32,7 +33,7 @@ const About = () => {
 
             </CommonLeft>
 
-            <div className="right-container">
+            <CommonRight>
                 <div className="content">
                     <p className="content-title">
                         Title...
@@ -56,7 +57,7 @@ const About = () => {
                     </p>
                     <span className="paragraph-between"></span>
                 </div>
-            </div>
+            </CommonRight>
         </section>
     )
 }

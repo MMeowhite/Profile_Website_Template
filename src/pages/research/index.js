@@ -1,9 +1,15 @@
 import React from 'react';
+import CommonLeft from "../../components/commonLeft";
+import CommonRight from "../../components/commonRight";
 
 const Research = () => (
     <section id="projects">
-        <h1>Projects</h1>
-        Content
+        <CommonLeft>
+            <h1>project</h1>
+        </CommonLeft>
+        <CommonRight>
+            <h2>project content</h2>
+        </CommonRight>
     </section>
 );
 

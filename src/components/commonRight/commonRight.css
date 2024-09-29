@@ -3,4 +3,6 @@
     padding: 20px;
     background-color: #fafcf3; /* 右侧容器的背景色 */
     color: black; /* 文字颜色为 */
+    flex-direction: column; /* 设置为列方向布局 */
+    align-items: center;
 }
