@@ -13,25 +13,27 @@ const Nav = () => {
     };
 
     return (
-        <nav className="navigate uppercase">
-            <ul>
-                <li>
-                    <Link to="#about" onClick={(e) =>handleClick(e, 'about')}>about</Link>
-                </li>
-                <li>
-                    <Link to="#skills" onClick={(e) =>handleClick(e, 'skills')}>skills</Link>
-                </li>
-                <li>
-                    <Link to="/cv">cv</Link>
-                </li>
-                <li>
-                    <Link to="#contact" onClick={(e) => handleClick(e, 'contact')}>contact</Link>
-                </li>
-                <li>
-                    <Link to="#research" onClick={(e) => handleClick(e, 'research')}>research</Link>
-                </li>
-            </ul>
-        </nav>
+        <div>
+            <nav className="navigate uppercase html-bottom">
+                <ul>
+                    <li>
+                        <Link to="#about" onClick={(e) => handleClick(e, 'about')}>about</Link>
+                    </li>
+                    <li>
+                        <Link to="#skills" onClick={(e) => handleClick(e, 'skills')}>skills</Link>
+                    </li>
+                    <li>
+                        <Link to="/cv">cv</Link>
+                    </li>
+                    <li>
+                        <Link to="#contact" onClick={(e) => handleClick(e, 'contact')}>contact</Link>
+                    </li>
+                    <li>
+                        <Link to="#research" onClick={(e) => handleClick(e, 'research')}>research</Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     )
 }
 

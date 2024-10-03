@@ -40,6 +40,7 @@
     text-decoration: none; /* 去掉链接的下划线 */
     color: #fafcf3; /* 调整字体颜色 */
     font-size: 16px; /* 调衡字体大小 */
+    font-weight: 700;
 }
 
 .navigate ul li a::after {
@@ -47,7 +48,7 @@
     display: block; /* 使其为块元素 */
     width: 100%; /* 宽度与链接相同 */
     height: 2px; /* 下划线高度 */
-    background: black; /* 下划线颜色 */
+    background: #fafcf3; /* 下划线颜色 */
     position: absolute; /* 绝对定位 */
     left: 0; /* 与链接左对齐 */
     bottom: 0; /* 距离底部0像素 */
@@ -57,4 +58,14 @@
 
 .navigate ul li a:hover::after {
     transform: scaleX(1); /* 鼠标悬停时显示下划线 */
+}
+
+.html-bottom {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 你可以根据需要调整其他样式 */
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 8px;
 }

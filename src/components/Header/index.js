@@ -9,12 +9,11 @@ const Header = () => {
             <div className="container-img-content">
                 <img src={logoImg} alt="logo" />
                 <div className="container-content">
-                    <h2>Header</h2>
-                    <p>CV</p>
+                    <h2>Miao Peng</h2>
+                    <p>MEDICINE / BIOINFORMATICS / MATHEMATICS / PHYSICS</p>
                 </div>
             </div>
-
-            <Nav/>
+            <Nav className="nav-container"/>
         </div>
     )
 }

@@ -1,0 +1,12 @@
+.progress-bar-container {
+    width: 100%;
+    background-color: #ffffff; /* 背景颜色 */
+    border-radius: 5px; /* 圆角 */
+    overflow: hidden; /* 超出部分隐藏 */
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #000000; /* 进度条颜色 */
+    transition: width 0.3s ease; /* 动画效果 */
+}

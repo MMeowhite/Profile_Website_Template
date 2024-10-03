@@ -1,8 +1,9 @@
 .container {
-    width: 100%;
-    height: 100vh;
+    width: 100%; /* 宽度为100% */
+    height: 100vh; /* 铺板页面的整个高度 */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     background: linear-gradient(-45deg, #0b1a2e, #0b1a2e, #007581, #0b1a2e);
     background-size: 400% 400%;
@@ -22,8 +23,13 @@
 }
 
 .container-img-content {
-    margin-top: 180px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 100px;
     vertical-align: middle;
+    align-self: center;
 }
 
 .container-img-content img{
@@ -34,13 +40,38 @@
     width: 100%;
     max-width: 300px;
     height: auto; /* 保持纵横比 */
-    position: absolute; /* 使用绝对定位 */
+    position: relative; /* 使用绝对定位 */
     top: 0; /* 根据需要调整 */
     left: 50%; /* 中心对齐，如果需要 */
     transform: translateY(150px) translateX(-50%); /* 向上移动20像素并中心对齐 */
 }
 
-.container-content p,h2{
+.container-content {
+    display: flex; /* flexbox布局 */
+    flex-direction: column; /* 让 h2 和 p 垂直排列 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    text-align: center; /* 使文本居中 */
+    position: relative;
+}
+
+.container-content h2{
+    color: beige;
+    font-size: 32px;
+    width: 100%;
+    margin-top: 150px;
+    margin-bottom: 5px;
+}
+
+.container-content p {
+    color: #94b3ad;
+    font-size: 16px;
+    margin: 15px;
+}
+
+.nav-container {
+    width: 100%; /* Nav 占据整个宽度 */
     display: flex;
-    color: #fafcf3;
+    justify-content: center; /* Nav 内部内容水平居中 */
+    position: relative; /* 保持正常文档流 */
 }
