@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import About from '../../pages/about';
-import Skills from "../../pages/skills";
+import Skill from "../../pages/skills";
 import Contact from '../../pages/contact';
 import Research from "../../pages/research";
+import Home from "../../pages/home"
 import "./main.css"
-import Header from "../Header";
 import Footer from "../Footer";
 import {Outlet} from "react-router-dom";
 import FloatBtn from "../../widget/floatBtn";
@@ -34,11 +34,11 @@ const Main = () => {
   return (
     <div className="main">
         <FloatBtn />
-        <Header />
+        <div id="home"><Home /></div>
         <div id="about"><About /></div>
-        <div id="skills"><Skills/></div>
+        <div id="skill"><Skill /></div>
         <div id="contact"><Contact /></div>
-        <div id="research"><Research/></div>
+        <div id="research"><Research /></div>
         <Outlet /> {/* 用于渲染子路由 */}
         <Footer />
     </div>

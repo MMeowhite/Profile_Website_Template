@@ -55,7 +55,7 @@
     position: relative;
 }
 
-.container-content h2{
+.container-content h2, h3{
     color: beige;
     font-size: 32px;
     width: 100%;

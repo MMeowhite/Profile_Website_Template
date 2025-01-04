@@ -5,7 +5,7 @@ import CommonRight from "../../components/commonRight";
 import aboutMeImg from "../../assets/images/about_me1.svg";
 import Nav from "../../widget/nav";
 
-const Skills = () => (
+const Skill = () => (
     <section id="skills" className="skills">
         <CommonLeft>
             {/* title and picture */}
@@ -34,4 +34,4 @@ const Skills = () => (
     </section>
 );
 
-export default Skills;
+export default Skill;

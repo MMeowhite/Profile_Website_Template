@@ -7,6 +7,19 @@
   ],
   "icons": [],
   "pages": {
+    "home": {
+      "avatar": "/images/avatar.png",
+      "name": "Peng miao",
+      "institution": "Sichuan University",
+      "field": "MEDICINE / BIOINFORMATICS / MATHEMATICS / PHYSICS",
+      "profile": "Hello, I'm Baimiaomiao, welcome to my website!",
+      "icons": {
+        "nameIcon": "",
+        "institutionIcon": "",
+        "fieldIcon": "",
+        "profileIcon": ""
+      }
+    },
     "about": {
       "icons": [
         "/path/to/icon"
@@ -18,15 +31,15 @@
       "contents": {
         "first_paragraph": {
           "title": [
-            "Hello, World1"
+            "First_title..."
           ],
           "content": [
-            "Hello, World1"
+            ""
           ]
         },
         "second_paragraph": {
           "title": [
-            "Hello, World2"
+            "Second_title..."
           ],
           "content": [
             "Hello, World2"
@@ -34,7 +47,7 @@
         },
         "Third_paragraph": {
           "title": [
-            "Hello, World3"
+            "Third_title..."
           ],
           "content": [
             "Hello, World3"
@@ -53,6 +66,33 @@
     "more": {
       "icons": "",
       "widgets": ""
+    }
+  },
+  "widgets": {
+    "navbar": {
+      "item1": {
+        "name": "home",
+        "link": "#home"
+      },
+      "item2": {
+        "name": "about",
+        "link": "#about"
+      },
+      "item3": {
+        "name": "skill",
+        "link": "#skill"
+      },
+      "item4": {
+        "name": "contact",
+        "link": "#contact"
+      },
+      "item5": {
+        "name": "research",
+        "link": "#research"
+      }
+    },
+    "floatBtn": {
+      "icon": "/path/to/icon"
     }
   }
 }
