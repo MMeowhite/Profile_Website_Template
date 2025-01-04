@@ -1,0 +1,26 @@
+# Personal website title
+website_title: "Cat"
+
+# choose your intentional page style
+website_style:
+  - "default"
+  - "dark"
+  - "light"
+
+# website global icons
+icons: []
+
+
+pages:
+  about:
+    icons: ""
+    widgets: ""
+  skill:
+    icons: ""
+    widgets: ""
+  research:
+    icons: ""
+    widgets: ""
+  more:
+    icons: ""
+    widgets: ""

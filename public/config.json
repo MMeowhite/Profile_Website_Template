@@ -1,0 +1,58 @@
+{
+  "website_title": "Cat",
+  "website_style": [
+    "default",
+    "dark",
+    "light"
+  ],
+  "icons": [],
+  "pages": {
+    "about": {
+      "icons": [
+        "/path/to/icon"
+      ],
+      "widgets": [
+        "path/to/widget1",
+        "path/to/widget2"
+      ],
+      "contents": {
+        "first_paragraph": {
+          "title": [
+            "Hello, World1"
+          ],
+          "content": [
+            "Hello, World1"
+          ]
+        },
+        "second_paragraph": {
+          "title": [
+            "Hello, World2"
+          ],
+          "content": [
+            "Hello, World2"
+          ]
+        },
+        "Third_paragraph": {
+          "title": [
+            "Hello, World3"
+          ],
+          "content": [
+            "Hello, World3"
+          ]
+        }
+      }
+    },
+    "skill": {
+      "icons": "",
+      "widgets": ""
+    },
+    "research": {
+      "icons": "",
+      "widgets": ""
+    },
+    "more": {
+      "icons": "",
+      "widgets": ""
+    }
+  }
+}
