@@ -5,7 +5,9 @@
     "dark",
     "light"
   ],
-  "icons": [],
+  "icons": {
+
+  },
   "pages": {
     "home": {
       "avatar": "/images/avatar.png",
@@ -91,8 +93,32 @@
         "link": "#research"
       }
     },
+
     "floatBtn": {
       "icon": "/path/to/icon"
-    }
+    },
+
+    "iconNavComponent": [
+      {
+        "type": "email",
+        "icon": "/images/link_icon/email.png",
+        "link": "mailto:miaopeng@stu.scu.edu.cn"
+      },
+      {
+        "type": "github",
+        "icon": "/images/link_icon/github.png",
+        "link": "https://github.com/Baimiaomiao123"
+      },
+      {
+        "type": "linkedin",
+        "icon": "/images/link_icon/linkedin.png",
+        "link": "https://www.linkedin.com/in/peng-miao-89324a341/"
+      },
+      {
+        "type": "google_scholar",
+        "icon": "/images/link_icon/google-symbol.png",
+        "link": "https://scholar.google.com/citations?user=Y5lz1jMAAAAJ&hl=en"
+      }
+    ]
   }
 }

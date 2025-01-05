@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './home.css'
 import Nav from "../../widget/nav";
+import IconNavComponent from "../../widget/iconNavComponent"
 
 
 const Home = () => {
@@ -35,6 +36,7 @@ const Home = () => {
                     <p id="intro">{profile}</p>
                 </div>
             </div>
+            <IconNavComponent />
             <Nav className="nav-container"/>
         </div>
     )

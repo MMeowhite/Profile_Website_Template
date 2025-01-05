@@ -1,0 +1,110 @@
+/* 整体容器样式 */
+.referenceBox {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 单条文献的外框 */
+.referenceItemFrame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.referenceItemFrame:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片部分的容器 */
+.imgContainer {
+    flex: 0 0 30%; /* 固定图片区域占父容器的25%宽度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.imgContainer img {
+    width: 100%; /* 图片宽度适应容器 */
+    height: auto;
+    object-fit: cover; /* 保持图片比例 */
+    border-radius: 8px;
+}
+
+/* 文本内容部分 */
+.contentContainer {
+    flex: 1; /* 文本部分占用剩余空间 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.referenceItem {
+    display: flex;
+    flex-direction: column; /* 确保子容器是垂直排列的 */
+    align-items: flex-start;
+    gap: 5px; /* 子容器之间的间距 */
+}
+
+/* 文献标题样式 */
+.referenceTitle {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* 作者样式 */
+.referenceAuthors {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #555;
+    margin: 0;
+}
+
+/* 摘要样式 */
+.referenceAbstract {
+    font-size: 1em;
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 简介部分样式 */
+.referenceIntro {
+    font-size: 0.95em;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.referenceIntro b {
+    font-style: normal;
+    color: #555;
+}
+
+.referenceLink {
+    color: inherit;
+    text-decoration: none;
+}
+.referenceLink:hover{
+    border-bottom: 1px dotted #007BFF; /* 添加虚线边框 */
+    padding-bottom: 2px; /* 为了让虚线与文字稍微分开 */
+    color: #0056b3; /* 鼠标悬停时颜色变化 */
+    text-decoration: none; /* 可选：去掉默认的下划线 */
+}

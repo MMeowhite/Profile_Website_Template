@@ -1,8 +1,12 @@
 import React from 'react';
+import PaperBlock from '../../widget/paperBlock'
 
 const Contact = () => {
     return (
-        <h1>Contact page</h1>
+        <div>
+            <h1>Contact page</h1>
+            <PaperBlock />
+        </div>
     )
 }
 

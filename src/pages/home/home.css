@@ -5,12 +5,16 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(-45deg, #0b1a2e, #0b1a2e, #007581, #0b1a2e);
-    background-size: 400% 400%;
-    animation: gradient 25s ease infinite;
+    background-image: url("/public/images/stacked-peaks.svg");
+    background-size: cover; /* 让背景图片覆盖整个页面 */
+    background-position: center; /* 将背景图片居中 */
+    background-repeat: no-repeat; /* 防止背景图片重复 */
+    /*background: linear-gradient(-45deg, #0b1a2e, #0b1a2e, #007581, #0b1a2e);*/
+    /* background-size: 400% 400%;*/
+    /*animation: gradient 25s ease infinite;*/
 }
 
-@keyframes gradient {
+/*@keyframes gradient {
     0% {
         background-position: 0% 50%;
     }
@@ -20,7 +24,7 @@
     100% {
         background-position: 0% 50%;
     }
-}
+}*/
 
 .container-img-content {
     position: relative;
