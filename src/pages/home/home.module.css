@@ -1,42 +1,25 @@
-.container {
+.homeContainer {
+    margin: 0;
+    padding: 0;
     width: 100%; /* 宽度为100% */
     height: 100vh; /* 铺板页面的整个高度 */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-image: url("/public/images/stacked-peaks.svg");
+    /*background-image: url("/public/images/stacked-peaks.svg");*/
+    background: inherit;
     background-size: cover; /* 让背景图片覆盖整个页面 */
     background-position: center; /* 将背景图片居中 */
     background-repeat: no-repeat; /* 防止背景图片重复 */
-    /*background: linear-gradient(-45deg, #0b1a2e, #0b1a2e, #007581, #0b1a2e);*/
-    /* background-size: 400% 400%;*/
-    /*animation: gradient 25s ease infinite;*/
 }
 
-/*@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}*/
-
-.container-img-content {
+.profiles {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 100px;
     vertical-align: middle;
     align-self: center;
 }
 
-.container-img-content img{
+.avatar {
     background-color: transparent;
     border: 0;
     overflow: clip;
@@ -50,6 +33,10 @@
     transform: translateY(150px) translateX(-50%); /* 向上移动20像素并中心对齐 */
 }
 
+.briefInformation {
+
+}
+
 .container-content {
     display: flex; /* flexbox布局 */
     flex-direction: column; /* 让 h2 和 p 垂直排列 */
@@ -60,7 +47,7 @@
 }
 
 .container-content h2, h3{
-    color: beige;
+    color: inherit;
     font-size: 32px;
     width: 100%;
     margin-top: 150px;

@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './nav.css';
 import { Link } from "react-router-dom";
+import {useTheme} from "../../components/themeProvider";
 
 const Nav = () => {
     const [navItemNames, setNavItemName] = useState([]);
     const [navItemLinks, setNavItemLink] = useState([]);
 
+    const { isDarkMode } = useTheme(); // 使用 useTheme 来获取主题状态和切换方法
+    // 解析 json 文件中的 Nav 名称
     useEffect(() => {
         const fetchConfig = async () => {
             try {
                 const response = await fetch("/config.json");
                 const data = await response.json();
 
-                // 获取 navbar 的所有项，动态计算并生成 navItems 数组
                 const navItems = data.widgets.navbar ? Object.keys(data.widgets.navbar) : [];
-
                 const navItemNames = navItems.map(item => data.widgets.navbar[item].name);
                 const navItemLinks = navItems.map(item => data.widgets.navbar[item].link);
 
@@ -27,14 +28,9 @@ const Nav = () => {
         fetchConfig();
     }, []);
 
-    // 当页面加载完成后，检查 URL 中是否有 hash，如果有则将页面滚动到顶部
-    useEffect(() => {
-        if (window.location.hash) {
-            window.scrollTo(0, 0); // 将页面滚动到顶部
-        }
-    }, []);
 
-    // smooth scroll function
+    // 如果button点击后刷新主题模式
+
     const smoothScrollTo = (targetId, duration = 1000) => {
         const targetElement = document.getElementById(targetId);
         if (!targetElement) return;
@@ -56,18 +52,19 @@ const Nav = () => {
             if (progress < duration) {
                 requestAnimationFrame(scrollStep);
             } else {
-                window.scrollTo(0, targetPosition); // 确保最终位置准确
+                window.scrollTo(0, targetPosition);
+                window.location.hash = targetId;
             }
         }
 
         requestAnimationFrame(scrollStep);
     };
 
-    // 修改 handleClick 函数来使用自定义滚动
     const handleClick = (event, id) => {
-        event.preventDefault(); // 阻止默认行为（跳转页面）
-        smoothScrollTo(id, 500); // 使用自定义滚动动画，设置滚动时间为 1500 毫秒
-        window.location.hash = id; // 更新URL哈希
+        // 阻止页面默认跳转
+        event.preventDefault();
+        // 滚动到页面相应位置
+        smoothScrollTo(id, 500);
     };
 
     return (
@@ -77,8 +74,9 @@ const Nav = () => {
                     {navItemNames.length > 0 && navItemNames.map((item, index) => (
                         <li key={index}>
                             <Link
-                                to={navItemLinks[index]}
-                                onClick={(e) => handleClick(e, item)} // 使用原始 item
+                                to="#"
+                                onClick={(e) => handleClick(e, navItemLinks[index])}
+                                className={isDarkMode ? "dark" : "light"}
                             >
                                 {item}
                             </Link>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './home.css'
+import styles from './home.module.css'
 import Nav from "../../widget/nav";
 import IconNavComponent from "../../widget/iconNavComponent"
 
@@ -24,21 +24,23 @@ const Home = () => {
         fetchConfig();
     },[])
 
-
     return (
-        <div className="container">
-            <div className="container-img-content">
-                <img src={avatar} alt="logo" />
-                <div className="container-content">
+        <section className={styles.homeContainer}>
+            <div className={styles.profiles}>
+                <img src={avatar} alt="avatar" className={styles.avatar}/>
+                <div className={styles.briefInformation}>
                     <h2>{name}</h2>
                     <h3>{institution}</h3>
                     <p id="field">{field}</p>
                     <p id="intro">{profile}</p>
                 </div>
+                <IconNavComponent />
+                <Nav className="nav-container"/>
             </div>
-            <IconNavComponent />
-            <Nav className="nav-container"/>
-        </div>
+            <div className={styles}>
+
+            </div>
+        </section>
     )
 }
 

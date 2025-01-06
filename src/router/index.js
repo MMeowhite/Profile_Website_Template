@@ -1,19 +1,18 @@
 import { createBrowserRouter } from 'react-router-dom'
 
+import Layout from "../components/layout";
 import Main from "../components/Main";
-import CV from "../pages/cv";
 
 
-// 全局router配置
+// global router configuration
 const routers = [
     {
         path: '/',
-        Component: Main,
+        element: <Layout />,
+        children: [
+            {path:"/", element: <Main />}
+        ]
     },
-    {
-        path: '/cv',
-        Component: CV,
-    }
 ]
 
 export default createBrowserRouter(routers);

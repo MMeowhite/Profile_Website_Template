@@ -1,6 +1,6 @@
 .navigate{
     display: flex;
-    color: white;
+    color: inherit;
     font-size: 16px;
     cursor: pointer;
     padding: 10px; /* 内边距 */
@@ -27,7 +27,7 @@
     left: -20px;
     top: 45%; /* 垂直居中 */
     transform: translateY(-50%); /* 向上移动圆点一半的高度 */
-    color: white; /* 设置圆点的颜色 */
+    color: inherit; /* 设置圆点的颜色 */
     font-size: 20px; /* 设置圆点的大小 */
 }
 
@@ -38,7 +38,7 @@
 .navigate ul li a {
     background-color: transparent;
     text-decoration: none; /* 去掉链接的下划线 */
-    color: #fafcf3; /* 调整字体颜色 */
+    color: inherit; /* 调整字体颜色 */
     font-size: 16px; /* 调衡字体大小 */
     font-weight: 700;
 }
@@ -48,7 +48,6 @@
     display: block; /* 使其为块元素 */
     width: 100%; /* 宽度与链接相同 */
     height: 2px; /* 下划线高度 */
-    background: #fafcf3; /* 下划线颜色 */
     position: absolute; /* 绝对定位 */
     left: 0; /* 与链接左对齐 */
     bottom: 0; /* 距离底部0像素 */
@@ -56,9 +55,19 @@
     transition: transform 0.3s ease; /* 添加过渡效果 */
 }
 
+.navigate ul li a.light::after {
+    background: #000000; /* Light 模式下的下划线颜色 */
+}
+
+.navigate ul li a.dark::after {
+    background: #ffffff; /* Dark 模式下的下划线颜色 */
+}
+
 .navigate ul li a:hover::after {
     transform: scaleX(1); /* 鼠标悬停时显示下划线 */
 }
+
+
 
 .html-bottom {
     position: relative;

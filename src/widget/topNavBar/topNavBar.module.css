@@ -1,0 +1,83 @@
+/* 导航栏基础样式 */
+.navbar {
+    position: fixed; /* 固定显示 */
+    top: 0;
+    width: 100%; /* 宽度为100% */
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease; /* 平滑过渡效果 */
+    z-index: 1000; /* 确保导航栏在最前 */
+}
+
+/* 浅色模式样式 */
+.lightMode {
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.3)
+    );
+    color: #000000;
+}
+
+/* 深色模式样式 */
+.darkMode {
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.3)
+    );
+    color: #ffffff;
+}
+
+/* 左侧样式 */
+.left {
+    width: 30%;
+}
+
+.name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* 右侧链接容器 */
+.right {
+    width: 70%;
+    display: flex;
+    gap: 100px;
+}
+
+/* 链接样式 */
+.link {
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+/* 浅色模式下的链接颜色 */
+.lightMode .link {
+    color: #000000;
+}
+
+/* 深色模式下的链接颜色 */
+.darkMode .link {
+    color: #ffffff;
+}
+
+/* 主题切换按钮样式 */
+.themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit; /* 跟随主题字体颜色 */
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+.themeToggle:hover {
+    transform: scale(1.2); /* 鼠标悬停时放大效果 */
+}

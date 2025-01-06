@@ -51,7 +51,7 @@
 
 /* 鼠标悬停时，给链接添加高亮效果 */
 .navLink:hover {
-    border-color: #000000; /* 改变边框颜色 */
+    border-color: inherit; /* 改变边框颜色 */
     border-style: dashed;
 }
 
