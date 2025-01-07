@@ -1,9 +1,0 @@
-.floatBtn {
-    position: fixed;
-    top: 24px;
-    left: 24px;
-    display: block;
-    transform-origin: center center;
-    z-index: 10000;
-    font-size: 11px;
-}

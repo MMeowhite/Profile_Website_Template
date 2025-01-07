@@ -36,23 +36,26 @@
     justify-content: center; /* 水平居中对齐 */
     text-decoration: none; /* 去除链接下划线 */
     color: inherit; /* 保持继承颜色 */
-    width: 40px; /* 给链接设置固定宽度 */
-    height: 40px; /* 给链接设置固定高度 */
+    width: 50px; /* 给链接设置固定宽度 */
+    height: 50px; /* 给链接设置固定高度 */
     border: 2px solid transparent; /* 给链接加框，方便调试 */
     border-radius: 8px; /* 如果需要可以加圆角 */
 }
 
 /* 图片样式 */
 .iconStyle {
-    width: 30px; /* 图标宽度 */
-    height: 30px; /* 图标高度 */
+    width: 40px; /* 图标宽度 */
+    height: 40px; /* 图标高度 */
     object-fit: contain; /* 保持图标的纵横比 */
+    color: inherit;
 }
 
 /* 鼠标悬停时，给链接添加高亮效果 */
 .navLink:hover {
     border-color: inherit; /* 改变边框颜色 */
     border-style: dashed;
+    width: 60px;
+    height: 60px;
 }
 
 /* 响应式设计 */

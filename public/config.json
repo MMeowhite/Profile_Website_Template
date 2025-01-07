@@ -11,16 +11,10 @@
   "pages": {
     "home": {
       "avatar": "/images/avatar.png",
-      "name": "Peng miao",
+      "name": "Baimiaomiao",
       "institution": "Sichuan University",
       "field": "MEDICINE / BIOINFORMATICS / MATHEMATICS / PHYSICS",
-      "profile": "Hello, I'm Baimiaomiao, welcome to my website!",
-      "icons": {
-        "nameIcon": "",
-        "institutionIcon": "",
-        "fieldIcon": "",
-        "profileIcon": ""
-      }
+      "profile": "Hello, I'm Baimiaomiao, welcome to my website!"
     },
     "about": {
       "icons": [
@@ -101,23 +95,28 @@
     "iconNavComponent": [
       {
         "type": "email",
-        "icon": "/images/link_icon/email.png",
+        "icon": "/images/link_icon/gmail.svg",
         "link": "mailto:miaopeng@stu.scu.edu.cn"
       },
       {
         "type": "github",
-        "icon": "/images/link_icon/github.png",
+        "icon": "/images/link_icon/github.svg",
         "link": "https://github.com/Baimiaomiao123"
       },
       {
         "type": "linkedin",
-        "icon": "/images/link_icon/linkedin.png",
+        "icon": "/images/link_icon/linkedin.svg",
         "link": "https://www.linkedin.com/in/peng-miao-89324a341/"
       },
       {
         "type": "google_scholar",
-        "icon": "/images/link_icon/google-symbol.png",
+        "icon": "/images/link_icon/googlescholar.svg",
         "link": "https://scholar.google.com/citations?user=Y5lz1jMAAAAJ&hl=en"
+      },
+      {
+        "type": "youtube",
+        "icon": "/images/link_icon/youtube.svg",
+        "link": "https://www.youtube.com/@pengmiao-bmm"
       }
     ]
   }
