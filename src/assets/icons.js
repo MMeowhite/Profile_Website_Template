@@ -5,8 +5,8 @@ import React from 'react';
 const icons = {
     sun: () => (
         <svg
-            width="24"
-            height="18"
+            width="32"
+            height="26"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentcolor"
@@ -27,8 +27,8 @@ const icons = {
     ),
     moon: () => (
         <svg
-            width="24"
-            height="18"
+            width="32"
+            height="26"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentcolor"

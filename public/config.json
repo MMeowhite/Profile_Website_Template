@@ -1,10 +1,5 @@
 {
   "website_title": "Cat",
-  "website_style": [
-    "default",
-    "dark",
-    "light"
-  ],
   "icons": {
 
   },
@@ -87,6 +82,29 @@
         "link": "#research"
       }
     },
+
+    "topNavBar": [
+      {
+        "name": "Bio",
+        "link": ""
+      },
+      {
+        "name": "experience",
+        "link": ""
+      },
+      {
+        "name": "research",
+        "link": ""
+      },
+      {
+        "name": "publication",
+        "link": ""
+      },
+      {
+        "name": "blog",
+        "link": ""
+      }
+    ],
 
     "floatBtn": {
       "icon": "/path/to/icon"
