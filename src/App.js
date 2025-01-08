@@ -1,30 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { RouterProvider } from "react-router-dom"
 import routers from "./router";
 import {ThemeProvider} from "./components/themeProvider";
+import useConfig from "./utils/useConfig"
 
 
 function App() {
-    useEffect(() => {
-        const fetchConfig = async () => {
-            try {
-                const response = await fetch("/config.json");
-                const data = await response.json();
-                document.title = data.website_title ? data.website_title : data.pages.home.name
-            } catch (error) {
-                console.log('Error loading the config', error);
-            }
-        };
-        fetchConfig();
-    }, []);
+    const { configValue: website_title} = useConfig('website_title');
 
+    // setting website title
+    document.title = website_title
 
   return (
       // global theme setting
       <ThemeProvider>
+
           {/* router setting*/}
           <RouterProvider router={routers} />
+
       </ThemeProvider>
       )
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import "./skills.css"
-import CommonLeft from "../../components/commonLeft";
-import CommonRight from "../../components/commonRight";
-import aboutMeImg from "../../assets/images/about_me1.svg";
-import Nav from "../../widget/nav";
+import CommonLeft from "../../../components/commonLeft";
+import CommonRight from "../../../components/commonRight";
+import aboutMeImg from "../../../assets/images/about_me1.svg";
+import Nav from "../../../widget/nav";
 
 const Skill = () => (
     <section id="skills" className="skills">

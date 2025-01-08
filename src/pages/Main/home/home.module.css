@@ -20,17 +20,8 @@
 }
 
 .avatar {
-    background-color: transparent;
-    border: 0;
-    overflow: clip;
-    overflow-clip-margin: content-box;
-    width: 100%;
-    max-width: 300px;
-    height: auto; /* 保持纵横比 */
-    position: relative; /* 使用绝对定位 */
-    top: 0; /* 根据需要调整 */
-    left: 50%; /* 中心对齐，如果需要 */
-    transform: translateY(150px) translateX(-50%); /* 向上移动20像素并中心对齐 */
+    background-color: inherit;
+    border: 1px solid;
 }
 
 .briefInformation {

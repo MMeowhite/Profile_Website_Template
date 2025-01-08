@@ -1,46 +1,67 @@
 import React, { useState, useEffect } from "react";
 import styles from './paperBlock.module.css';
 import { parseReferenceContent } from "../../utils/referencesParser";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import useConfig from "../../utils/useConfig";
 
 const PaperBlock = () => {
     const [references, setReferences] = useState([]);
+    const { configValue: referenceConfig, loading, error } = useConfig('references');
 
+    // 如果引用数据来自外部 .bib 文件，按需替换 fetch 的 URL
+    const fetchReferences = async (url) => {
+        try {
+            const response = await fetch(url);
+            const text = await response.text();
+            const parsedData = parseReferenceContent(text);
+            setReferences(parsedData); // 更新引用数据
+        } catch (error) {
+            console.error("Error loading reference file:", error);
+        }
+    };
+
+    // 使用 useEffect 来获取引用文件的 URL 或直接的引用数据
     useEffect(() => {
-        const fetchReferences = async () => {
-            try {
-                const response = await fetch('/references.bib'); // 获取文件
-                const text = await response.text(); // 获取文件内容
-                const parsedData = parseReferenceContent(text); // 自动判断并解析数据
-                console.log(parsedData)
-                setReferences(parsedData); // 设置解析后的数据
-            } catch (error) {
-                console.error("Error loading reference file:", error);
+        if (referenceConfig) {
+            // 获取配置中的 bib 文件路径
+            const bibFileUrl = referenceConfig;
+
+            if (bibFileUrl) {
+                fetchReferences(bibFileUrl); // 加载并解析 bib 文件
             }
-        };
+        }
+    }, [referenceConfig]); // 依赖 referenceConfig
 
-        fetchReferences(); // 调用 fetch 函数
-    }, []); // 只在组件挂载时运行一次
+    // 显示加载状态
+    if (loading) {
+        return <div>Loading references...</div>;
+    }
 
+    // 显示错误状态
+    if (error) {
+        return <div>Error loading configuration: {error}</div>;
+    }
+
+    // 如果没有引用数据，则显示一个占位符或提示
     if (references.length === 0) {
-        return <div>Loading...</div>; // 如果数据尚未加载，显示加载状态
+        return <div>No references available</div>;
     }
 
     return (
         <div className={styles.referenceBox}>
             {references.map((reference, index) => {
-                // Safety check for authors (it could be undefined or not an array)
+                // 安全检查作者字段
                 const authors = Array.isArray(reference.authors) ? reference.authors.join(", ") : "Unknown Authors";
+                const imageSrc = reference.image || '/images/avatar.png'; // 图片，如果没有则使用默认图片
 
                 return (
                     <div key={index} className={styles.referenceItemFrame}>
                         {/* Image Section */}
                         <div className={styles.imgContainer}>
-                            {/* image placeholder or content */}
-                            <img src="/images/avatar.png" alt="hello" />
+                            <img src={imageSrc} alt="Author" className={styles.referenceImage} />
                         </div>
 
-                        {/* Words Section */}
+                        {/* Content Section */}
                         <div className={styles.contentContainer}>
                             <div className={styles.referenceItem}>
                                 <h4 className={styles.referenceTitle}>{reference.title}</h4>
@@ -58,7 +79,6 @@ const PaperBlock = () => {
             })}
         </div>
     );
-
 };
 
 export default PaperBlock;

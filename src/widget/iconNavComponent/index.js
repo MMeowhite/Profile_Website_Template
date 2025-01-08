@@ -3,7 +3,7 @@ import styles from './iconNavComponent.module.css';
 import { Link } from "react-router-dom";
 import { useTheme } from "../../components/themeProvider";
 
-const IconNavComponent = () => {
+const IconNavComponent = (props) => {
     const [linkIconObj, setLinkIcon] = useState([]);
     const { isDarkMode } = useTheme(); // 修改为 isDarkMode
 

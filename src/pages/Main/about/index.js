@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './about.css'
-import aboutMeImg from '../../assets/images/about_me.png'
-import Nav from "../../widget/nav";
-import CommonLeft from "../../components/commonLeft";
-import CommonRight from "../../components/commonRight";
+import aboutMeImg from '../../../assets/images/about_me.png'
+import Nav from "../../../widget/nav";
+import CommonLeft from "../../../components/commonLeft";
+import CommonRight from "../../../components/commonRight";
 
 
 

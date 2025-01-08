@@ -70,7 +70,7 @@
     }
 
     .iconStyle {
-        width: 15px; /* 图标宽度变小 */
-        height: 15px; /* 图标高度变小 */
+        width: 30px; /* 图标宽度变小 */
+        height: 30px; /* 图标高度变小 */
     }
 }

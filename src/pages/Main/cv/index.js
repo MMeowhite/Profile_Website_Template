@@ -1,5 +1,5 @@
 import React from 'react';
-import cvFile from '../../assets/cv/el1.pdf';
+import cvFile from '../../../assets/cv/el1.pdf';
 import './cv.css'; // 确保创建并导入样式文件
 
 // CV pdf页面

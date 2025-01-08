@@ -1,36 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import './nav.css';
 import { Link } from "react-router-dom";
-import {useTheme} from "../../components/themeProvider";
+import { useTheme } from "../../components/themeProvider";
+import useConfig from "../../utils/useConfig";
 
-const Nav = () => {
+const Nav = (props) => {
     const [navItemNames, setNavItemName] = useState([]);
     const [navItemLinks, setNavItemLink] = useState([]);
 
     const { isDarkMode } = useTheme(); // 使用 useTheme 来获取主题状态和切换方法
+
+    // 使用 useConfig 来获取嵌套的 navbar 配置
+    const { configValue: navbarConfig, loading, error } = useConfig('widgets.navbar');
+
     // 解析 json 文件中的 Nav 名称
     useEffect(() => {
-        const fetchConfig = async () => {
-            try {
-                const response = await fetch("/config.json");
-                const data = await response.json();
+        if (navbarConfig) {
+            const navItems = Object.keys(navbarConfig);
+            const navItemNames = navItems.map(item => navbarConfig[item].name);
+            const navItemLinks = navItems.map(item => navbarConfig[item].link);
 
-                const navItems = data.widgets.navbar ? Object.keys(data.widgets.navbar) : [];
-                const navItemNames = navItems.map(item => data.widgets.navbar[item].name);
-                const navItemLinks = navItems.map(item => data.widgets.navbar[item].link);
+            setNavItemName(navItemNames);
+            setNavItemLink(navItemLinks);
+        }
+    }, [navbarConfig]); // 当 navbarConfig 更新时重新运行
 
-                setNavItemName(navItemNames);
-                setNavItemLink(navItemLinks);
-            } catch (error) {
-                console.error('Error loading the config:', error);
-            }
-        };
-        fetchConfig();
-    }, []);
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
+    if (error) {
+        return <div>Error loading configuration: {error}</div>;
+    }
 
-    // 如果button点击后刷新主题模式
-
+    // 平滑滚动到目标位置
     const smoothScrollTo = (targetId, duration = 1000) => {
         const targetElement = document.getElementById(targetId);
         if (!targetElement) return;
@@ -69,8 +72,8 @@ const Nav = () => {
 
     return (
         <div>
-            <nav className="navigate uppercase html-bottom">
-                <ul>
+            <nav className="navigate uppercase html-bottom" style={props.style}>
+                <ul style={{ marginBottom: 0 }}>
                     {navItemNames.length > 0 && navItemNames.map((item, index) => (
                         <li key={index}>
                             <Link
