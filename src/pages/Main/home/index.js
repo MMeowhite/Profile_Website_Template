@@ -7,6 +7,7 @@ import Image from 'react-bootstrap/Image';
 import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { useTheme } from '../../../components/themeProvider';
+import useConfig from "../../../utils/useConfig";
 
 const Home = () => {
     const [avatar, setAvatar] = useState('');
@@ -18,6 +19,7 @@ const Home = () => {
     const [profile, setProfile] = useState('');
     const [isMobile, setIsMobile] = useState(false); // 用来判断是否为手机屏幕
     const { isDarkMode } = useTheme();
+    const { configValue: quote,error,loading } = useConfig('pages.home.quote');
 
     useEffect(() => {
         const fetchConfig = async () => {
@@ -66,6 +68,14 @@ const Home = () => {
             ? '0 8px 12px rgba(255, 255, 255, 0.5)' // 深色模式下的阴影
             : '0 8px 12px rgba(0, 0, 0, 0.5)', // 浅色模式下的阴影
     };
+
+    if (error){
+        return <div>Loading homeConfiguration error: {error}</div>
+    }
+
+    if (loading){
+        return <div>Loading...</div>
+    }
 
     return (
         <Container
@@ -128,8 +138,7 @@ const Home = () => {
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                                posuere erat a ante.
+                                {quote ? quote : "please input your own quote"}
                             </p>
                             <footer className="blockquote-footer">
                                 Someone famous in <cite title="Source Title">Source Title</cite>

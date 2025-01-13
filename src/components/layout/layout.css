@@ -1,7 +1,13 @@
 /* Layout 全局样式 */
 .layout {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.layout main {
+    flex-grow: 1; /* 主内容区域会占用剩余空间 */
 }
 
 /* 浅色模式 */
