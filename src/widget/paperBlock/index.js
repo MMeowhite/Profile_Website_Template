@@ -3,8 +3,10 @@ import styles from './paperBlock.module.css';
 import { parseReferenceContent } from "../../utils/referencesParser";
 import { Link } from "react-router-dom";
 import useConfig from "../../utils/useConfig";
+import {useTheme} from "../../components/themeProvider";
 
 const PaperBlock = () => {
+    const { isDarkMode } = useTheme();
     const [references, setReferences] = useState([]);
     const { configValue: referenceConfig, loading, error } = useConfig('references');
 
@@ -55,7 +57,7 @@ const PaperBlock = () => {
                 const imageSrc = reference.image || '/images/avatar.png'; // 图片，如果没有则使用默认图片
 
                 return (
-                    <div key={index} className={styles.referenceItemFrame}>
+                    <div key={index} className={styles.referenceItemFrame} style={{background: "inherit"}}>
                         {/* Image Section */}
                         <div className={styles.imgContainer}>
                             <img src={imageSrc} alt="Author" className={styles.referenceImage} />
@@ -63,7 +65,7 @@ const PaperBlock = () => {
 
                         {/* Content Section */}
                         <div className={styles.contentContainer}>
-                            <div className={styles.referenceItem}>
+                            <div className={styles.referenceItem} >
                                 <h4 className={styles.referenceTitle}>{reference.title}</h4>
                                 <h5 className={styles.referenceAuthors}>{authors}</h5>
                                 <p className={styles.referenceAbstract}>{reference.abstract}</p>

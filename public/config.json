@@ -28,7 +28,7 @@
     "blog": [
       {
         "title": "🎉 Easily create your own simple yet highly customizable blog",
-        "description": "Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!",
+        "description": "Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!Take full control of your personal brand and privacy by migrating away from the big tech platforms!",
         "date": "Oct 27, 2023",
         "link": "",
         "imageSrc": "/images/avatar.png",
@@ -207,35 +207,31 @@
 
     "topNavBar": [
       {
-        "title": "Welcome To My Home!(Still developing)",
+        "title": "MMeowhite",
         "link": [
           {
             "name": "Bio",
             "link": "/"
           },
           {
-            "name": "experience",
+            "name": "Experience",
             "link": "/exprience"
           },
           {
-            "name": "research",
+            "name": "Research",
             "link": "/research"
           },
           {
-            "name": "publication",
+            "name": "Publication",
             "link": "/publication"
           },
           {
-            "name": "blog",
+            "name": "Blog",
             "link": "/blog"
           }
         ]
       }
     ],
-
-    "floatBtn": {
-      "icon": "/path/to/icon"
-    },
 
     "iconNavComponent": [
       {

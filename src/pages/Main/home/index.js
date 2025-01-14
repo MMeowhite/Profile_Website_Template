@@ -132,9 +132,13 @@ const Home = () => {
             {/* Quote 区域 */}
             <Row xs={12} md={6} className="justify-content-center w-100 mt-5 mb-5">
                 <Card style={cardStyles}>
-                    <Card.Header style={{borderBottom: `1px solid ${isDarkMode ? '#cccccc' : '#444444'}`, boxShadow: isDarkMode
+                    <Card.Header style={{
+                        borderBottom: `1px solid ${isDarkMode ? '#cccccc' : '#444444'}`,
+                        boxShadow: isDarkMode
                             ? '0 8px 12px rgba(255, 255, 255, 0.1)' // 深色模式下的阴影
-                            : '0 8px 12px rgba(0, 0, 0, 0.1)',}}>Quote</Card.Header>
+                            : '0 8px 12px rgba(0, 0, 0, 0.1)'}}>
+                        Quote
+                    </Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             <p>

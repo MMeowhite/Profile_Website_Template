@@ -1,0 +1,24 @@
+/* Masonry Grid 容器 */
+.masonry-grid {
+    column-count: 2;
+    column-gap: 5rem;
+}
+
+/* Masonry Item 子项 */
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 5rem;
+}
+
+/* 响应式调整列数 */
+@media (min-width: 768px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}

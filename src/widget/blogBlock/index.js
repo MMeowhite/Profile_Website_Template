@@ -1,27 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useTheme } from "../../components/themeProvider";
 import { generateTagColors } from "../../utils/generateTagColors";
+import Image from "react-bootstrap/Image";
+import useConfig from "../../utils/useConfig";
 
 const BlogCard = ({ blogItem }) => {
+    const [avatar, setAvatar] = useState("");
+    const [isMobile, setIsMobile] = useState(false); // 判断是否为手机屏幕
+    const [hoveredAvatar, setHoveredAvatar] = useState("");
+    const [defaultAvatar, setDefaultAvatar] = useState("");
+    const [name, setName] = useState('');
+
+    const [boxShadowStyle, setBoxShadowStyle] = useState({})
     const { isDarkMode } = useTheme();
     const tagColors = generateTagColors(blogItem.tags);
 
+    const { configValue: avatarObj, error, loading } = useConfig("pages.home.avatar");
+    const { configValue: nameObj} = useConfig("pages.home.name");
+
+    // 设置头像和屏幕尺寸
+    useEffect(() => {
+        if (avatarObj) {
+            setAvatar(avatarObj.init);
+            setHoveredAvatar(avatarObj.hovered);
+            setDefaultAvatar(avatarObj.init);
+        }
+        setName(nameObj);
+
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // 假设 768px 为手机设备
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize(); // 初始时判断一次
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [avatarObj, nameObj]);
+
+    if (error) {
+        return <div>Error loading blog: {error}</div>;
+    }
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div
-            className="group cursor-pointer overflow-hidden rounded-md transition-all hover:scale-105"
+            id="blog-box"
+            className="group cursor-pointer overflow-hidden rounded-md transition-transform hover:scale-105"
             style={{
                 display: "flex",
                 flexDirection: "column",
-                border: "none",
                 width: "100%",
-                height: "100%",
                 backgroundColor: "transparent",
+                borderRadius: '12px',
                 fontFamily: "inherit",
+                ...boxShadowStyle,
             }}
+            onMouseEnter={() =>
+                setBoxShadowStyle({
+                    boxShadow: isDarkMode
+                        ? '0 0 24px 12px rgba(255, 255, 255, 0.1)' // 深色模式下的阴影
+                        : '0 0 24px 12px rgba(0, 0, 0, 0.1)',
+                })
+            }
+            onMouseLeave={() => setBoxShadowStyle({})} // Remove shadow on mouse leave
         >
             {/* 图片部分 */}
-            <a href={blogItem.link} className="relative block">
+            <a id="box-img" href={blogItem.link} className="relative block">
                 <img
                     alt={blogItem.title}
                     src={blogItem.imageSrc}
@@ -29,24 +80,29 @@ const BlogCard = ({ blogItem }) => {
                     loading="lazy"
                     style={{
                         width: "100%",
-                        height: "400px",
+                        // height: "400px",
+                        // minHeight: "200px",
                         objectFit: "cover",
+                        aspectRatio: "16/9",
+                        maxHeight: "300px"
                     }}
                 />
             </a>
 
             {/* 内容部分 */}
             <div
+                id="box-content"
                 style={{
+                    minHeight: "200px", // 最小高度
                     padding: "1rem",
-                    flex: "1",
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "space-between",
+                    gap: "0.75rem",
+                    // flex: "1"
                 }}
             >
                 {/* 标签部分 */}
-                <div className="flex gap-3">
+                <div id="tags" style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                     {blogItem.tags.map((tag, index) => (
                         <a
                             key={index}
@@ -54,11 +110,10 @@ const BlogCard = ({ blogItem }) => {
                             className="text-uppercase font-weight-bold text-decoration-none"
                             style={{
                                 fontSize: "1rem",
-                                marginRight: "0.5rem",
                                 textTransform: "uppercase",
                                 color: isDarkMode
-                                    ? tagColors[tag.name].dark
-                                    : tagColors[tag.name].light,
+                                    ? tagColors[tag.name]?.dark || "#ffffff"
+                                    : tagColors[tag.name]?.light || "#000000",
                             }}
                         >
                             {tag.name}
@@ -68,7 +123,7 @@ const BlogCard = ({ blogItem }) => {
 
                 {/* 标题部分 */}
                 <h2
-                    className="mt-2"
+                    id="title"
                     style={{
                         fontSize: "1.3rem",
                         fontWeight: "700",
@@ -89,30 +144,85 @@ const BlogCard = ({ blogItem }) => {
 
                 {/* 描述部分 */}
                 <p
-                    className="mt-2"
+                    id="description"
                     style={{
                         fontSize: "1rem",
                         lineHeight: "1.5",
                         color: isDarkMode ? "#9ca3af" : "#6b7280",
-                        maxHeight: "4.5rem", // 显示行数=maxHeight / lineHeight
-                        overflowY: "auto", // 超出部分用滚轮
-                        display: "-webkit-box",
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: "vertical",
+                        maxHeight: "15rem",
+                        // WebkitLineClamp: 9, // 显示行数
+                        // WebkitBoxOrient: "vertical",
+                        overflowY: "auto", // 超出显示行数的时候滑动显示
+                        display: "block",
                     }}
                 >
                     {blogItem.description}
                 </p>
 
-                {/* 时间部分 */}
-                <time
+                {/* 头像与时间 */}
+                <div
+                    id="box-footer"
                     style={{
-                        fontSize: "0.9rem",
-                        color: isDarkMode ? "#9ca3af" : "#6b7280",
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between", // 左右两侧对齐
+                        alignItems: "center", // 确保所有子项垂直居中
+                        gap: "1rem", // 调整间距，使其更紧凑
                     }}
                 >
-                    {blogItem.date}
-                </time>
+                    <div
+                        id="box-footer-avatar"
+                        style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center", // 确保所有子项垂直居中
+                        gap: "1rem", // 调整间距，使其更紧凑
+                    }}>
+                        {/* Avatar */}
+                        <Image
+                            src={avatar}
+                            alt="avatar"
+                            className="img-fluid rounded-circle"
+                            style={{
+                                width: "3rem",
+                                height: "3rem",
+                                objectFit: "cover",
+                            }}
+                            onMouseEnter={() => setAvatar(hoveredAvatar)} // 鼠标悬停切换头像
+                            onMouseLeave={() => setAvatar(defaultAvatar)} // 鼠标移开恢复默认头像
+                            onClick={
+                                isMobile ? () => setAvatar(avatar === defaultAvatar ? hoveredAvatar : defaultAvatar) : null
+                            }
+                        />
+
+                        {/*  Name  */}
+                        <div
+                            id="box-footer-name"
+                            style={{
+                            fontSize: "0.9rem",
+                            color: isDarkMode ? "#9ca3af" : "#6b7280",
+                            lineHeight: "2rem", // 与头像高度一致
+                            fontWeight: "800",
+                        }}>
+                            {name}
+                        </div>
+                    </div>
+
+
+
+                    {/* recorded time */}
+                    <time
+                        id="box-footer-time"
+                        style={{
+                            fontSize: "0.9rem",
+                            fontStyle: "italic", // 设置斜体
+                            color: isDarkMode ? "#9ca3af" : "#6b7280",
+                            lineHeight: "2rem", // 与头像高度一致
+                        }}
+                    >
+                        {blogItem.date}
+                    </time>
+                </div>
             </div>
         </div>
     );

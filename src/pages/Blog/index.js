@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
 import BlogCard from '../../widget/blogBlock';
 import useConfig from "../../utils/useConfig";
+import './blog.css'
+
 
 const Blog = () => {
     const [blogItems, setBlogItems] = useState([]);
@@ -23,15 +24,20 @@ const Blog = () => {
     }
 
     return (
-        <Container style={{ marginTop: '12rem' }}>
-            <Row className="g-4">
+        <div id="blog-page" className="container mt-5">
+            {/* 瀑布流布局容器 */}
+            <div id="blog-cards" className="masonry-grid" style={{marginTop: "10rem", marginBottom: "10rem"}}>
                 {blogItems.map((blogItem, index) => (
-                    <Col md={12} lg={6} key={index} style={{marginBottom: '3rem'}}>
+                    <div
+                        id={`blog-card${index}`}
+                        className="masonry-item"
+                        key={index}
+                    >
                         <BlogCard blogItem={blogItem} />
-                    </Col>
+                    </div>
                 ))}
-            </Row>
-        </Container>
+            </div>
+        </div>
     );
 };
 

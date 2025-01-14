@@ -1,4 +1,4 @@
-import colorMapping from './arco-palette.json'; // 导入 JSON 文件
+import colorMapping from './arco-palette.json'; // import color-mapping file in dark and light mode (generate by https://arco.design/react/docs/palette)
 
 // 创建一个索引状态，用于循环使用颜色类别
 const colorIndexes = Object.keys(colorMapping.light).reduce((acc, key) => {

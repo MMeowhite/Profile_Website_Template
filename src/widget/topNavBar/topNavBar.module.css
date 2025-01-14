@@ -1,27 +1,15 @@
 /* 导航栏基础样式 */
 .navbar {
-    position: fixed; /* 固定显示 */
+    position: fixed;
     top: 0;
-    width: 100%; /* 宽度为100% */
+    width: 100%;
     height: 100px;
+    padding: 0 1.5rem; /* 添加左右内边距 */
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease; /* 平滑过渡效果 */
-    z-index: 1000; /* 确保导航栏在最前 */
-}
-
-/* 浅色模式样式 */
-.lightMode {
-    background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.9),
-            rgba(255, 255, 255, 0.3)
-    );
-    color: #000000;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* 深色模式样式 */
@@ -32,45 +20,61 @@
             rgba(0, 0, 0, 0.3)
     );
     color: #ffffff;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
-/* 左侧样式 */
-.left {
-    width: 30%;
-    align-items: center;
+/* 浅色模式样式 */
+.lightMode {
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.3)
+    );
+    color: #000000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.title {
-    font-size: 2rem;
-    font-weight: bold;
-    font-style: normal;
-    text-decoration: none;
-    color: inherit;
-}
-
-/* 右侧链接容器 */
-.right {
-    width: 70%;
-    display: flex;
-    gap: 10rem;
-    align-items: center;
-}
 
 /* 链接样式 */
 .link {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    color: inherit;
     transition: color 0.3s ease;
 }
 
-/* 浅色模式下的链接颜色 */
+.link:hover {
+    transform: scale(1.1);
+}
+
+/* 链接颜色 */
 .lightMode .link {
     color: #000000;
 }
 
-/* 深色模式下的链接颜色 */
 .darkMode .link {
     color: #ffffff;
+}
+
+.lightMode .link:hover {
+    color: #007bff; /* 鼠标悬停效果 */
+}
+
+.darkMode .link:hover{
+    color: #007bff; /* 鼠标悬停效果 */
+}
+
+/* 按钮样式 */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
 
 /* 主题切换按钮样式 */
@@ -87,3 +91,46 @@
 .themeToggle:hover {
     transform: scale(1.2); /* 鼠标悬停时放大效果 */
 }
+
+
+
+.navbar-toggler {
+    background-color: #000000; /* 透明背景 */
+    border: none; /* 去掉默认边框 */
+    padding: 0.5rem; /* 控制间距 */
+}
+
+.navbar-toggler:hover {
+    background-color: #007bff; /* 鼠标悬停时的背景色 */
+    transform: scale(1.1); /* 添加悬停动画 */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-toggler-icon {
+    background-image: none; /* 移除默认图标 */
+    content: ""; /* 自定义图标样式 */
+    width: 20px;
+    height: 2px;
+    background-color: #000; /* 自定义图标颜色 */
+    display: block;
+    position: relative;
+}
+
+.navbar-toggler-icon::after,
+.navbar-toggler-icon::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+}
+
+.navbar-toggler-icon::before {
+    top: -6px; /* 上部横线 */
+}
+
+.navbar-toggler-icon::after {
+    top: 6px; /* 下部横线 */
+}
+
