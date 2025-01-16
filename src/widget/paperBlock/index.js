@@ -3,10 +3,10 @@ import styles from './paperBlock.module.css';
 import { parseReferenceContent } from "../../utils/referencesParser";
 import { Link } from "react-router-dom";
 import useConfig from "../../utils/useConfig";
-import {useTheme} from "../../components/themeProvider";
+// import {useTheme} from "../../components/themeProvider";
 
 const PaperBlock = () => {
-    const { isDarkMode } = useTheme();
+    // const { isDarkMode } = useTheme();
     const [references, setReferences] = useState([]);
     const { configValue: referenceConfig, loading, error } = useConfig('references');
 

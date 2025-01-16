@@ -1,0 +1,105 @@
+/* 样式调整区域 */
+.markdown {
+    max-width: 70%;
+}
+
+.markdown p {
+    font-size: 1.5rem; /* 设置字体大小 */
+    line-height: 1.5; /* 设置行高 */
+    color: inherit; /* 设置字体颜色 */
+    margin-bottom: 1rem; /* 设置段落之间的间距 */
+    text-align: justify; /* 设置段落文本对齐 */
+}
+
+.markdown h2 {
+    font-size: 2rem;
+    color: inherit;
+    margin: 0 2rem;
+}
+
+.markdown pre {
+    background: inherit;
+
+    font-size: 1.3rem;
+    margin-left: auto; /* 居中 */
+    margin-right: auto; /* 居中 */
+}
+
+/* 代码块的整体容器样式 */
+.code-block {
+    position: relative; /* 让复制按钮可以定位 */
+    padding: 1.2rem;
+    border-radius: 8px; /* 圆角设计 */
+    background-color: inherit; /* 深色背景，适合代码高亮 */
+    color: inherit; /* 默认字体颜色 */
+    margin-bottom: 1rem; /* 每个代码块之间的间距 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+
+}
+
+/* <code> 标签内的文本样式 */
+.code-block code {
+    font-family: inherit;
+    font-size: 1.2rem; /* 适中的字体大小 */
+    color: inherit; /* 字体颜色 */
+    background: inherit;
+}
+
+.markdown .span{
+    font-size: 2rem;
+}
+
+/* 悬浮时显示复制按钮 */
+pre:hover .copy-button {
+    display: block;
+}
+
+/* 复制按钮样式 */
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none; /* 默认隐藏 */
+}
+/* pre 样式 */
+.code-block {
+    position: relative;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #282c34;
+    color: #ffffff;
+    overflow-x: auto;
+}
+
+/* 复制按钮 */
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none; /* 默认隐藏 */
+}
+
+/* 悬浮显示复制按钮 */
+.code-block:hover .copy-button {
+    display: block;
+}
+
+/* 按钮交互效果 */
+.copy-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
