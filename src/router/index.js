@@ -5,7 +5,7 @@ import Main from "../pages/Main";
 import Publication from "../pages/Publication"
 import Blog from "../pages/Blog";
 import BlogBlocks from "../pages/Blog/blockBlocks";
-import BlogTemplate from "../pages/Blog/blogTemplate"
+import BlogPage from "../pages/Blog/blogPage"
 
 
 
@@ -23,7 +23,7 @@ const routers = [
                 element: <Blog />,
                 children:[
                     {index: true, element: <BlogBlocks />},
-                    {path: ":id", element: <BlogTemplate /> }
+                    {path: ":slug", element: <BlogPage /> }
                 ]
             }
         ]

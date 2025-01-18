@@ -5,19 +5,32 @@ import { generateTagColors } from "../../utils/generateTagColors";
 import Image from "react-bootstrap/Image";
 import useConfig from "../../utils/useConfig";
 
+// 图片路径处理函数
+const dynamicImportImagePath = (imagePath) => {
+    return import(`../../${imagePath}`).then((imageModule) => {
+        return imageModule.default;  // Webpack 会处理并返回图片路径
+    });
+};
+
+
 const BlogCard = ({ blogItem }) => {
     const [avatar, setAvatar] = useState("");
     const [isMobile, setIsMobile] = useState(false); // 判断是否为手机屏幕
     const [hoveredAvatar, setHoveredAvatar] = useState("");
     const [defaultAvatar, setDefaultAvatar] = useState("");
+    const [featuredImage, setFeaturedImage] = useState("");  // 新增 state 来存储图片路径
     const [name, setName] = useState('');
-
     const [boxShadowStyle, setBoxShadowStyle] = useState({})
     const { isDarkMode } = useTheme();
     const tagColors = generateTagColors(blogItem.tags);
 
     const { configValue: avatarObj, error, loading } = useConfig("pages.home.avatar");
     const { configValue: nameObj} = useConfig("pages.home.name");
+
+    const paths = window.location.pathname.split("/"); // 拆分路径为数组
+    const blogPath = paths[1]; // 提取第二部分（假设 /blog 是第一级路径）
+
+    const baseURL = `${window.location.protocol}//${window.location.host}/${blogPath}/`;
 
     // 设置头像和屏幕尺寸
     useEffect(() => {
@@ -28,6 +41,10 @@ const BlogCard = ({ blogItem }) => {
         }
         setName(nameObj);
 
+        // 动态加载图片
+        dynamicImportImagePath(blogItem.featuredImage).then((imagePath) => {
+            setFeaturedImage(imagePath);  // 更新图片路径
+        });
 
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768); // 假设 768px 为手机设备
@@ -39,7 +56,9 @@ const BlogCard = ({ blogItem }) => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [avatarObj, nameObj]);
+
+
+    }, [blogItem.featuredImage, avatarObj, nameObj]);
 
     if (error) {
         return <div>Error loading blog: {error}</div>;
@@ -72,10 +91,11 @@ const BlogCard = ({ blogItem }) => {
             onMouseLeave={() => setBoxShadowStyle({})} // Remove shadow on mouse leave
         >
             {/* 图片部分 */}
-            <a id="box-img" href={blogItem.link} className="relative block">
+            <a id="box-img" href={`${baseURL}${blogItem.slug}`} className="relative block">
                 <img
+                    id={blogItem.id}
                     alt={blogItem.title}
-                    src={blogItem.imageSrc}
+                    src={featuredImage}
                     className="rounded-md w-100"
                     loading="lazy"
                     style={{
@@ -112,11 +132,24 @@ const BlogCard = ({ blogItem }) => {
                                 fontSize: "1rem",
                                 textTransform: "uppercase",
                                 color: isDarkMode
-                                    ? tagColors[tag.name]?.dark || "#ffffff"
-                                    : tagColors[tag.name]?.light || "#000000",
+                                    ? tagColors[tag.name.toLowerCase()]?.dark || "#ffffff"
+                                    : tagColors[tag.name.toLowerCase()]?.light || "#000000",
                             }}
                         >
                             {tag.name}
+                            {/* 仅在不是最后一个标签时显示 / */}
+                            {index < blogItem.tags.length - 1 && (
+                                <span
+                                    style={{
+                                        color: isDarkMode ? "#ffffff" : "#000000",
+                                        fontSize: "1rem",
+                                        fontWeight: "800",
+                                        marginLeft: "0.5rem"
+                                    }}
+                                >
+                                /
+                                </span>
+                            )}
                         </a>
                     ))}
                 </div>
@@ -156,7 +189,7 @@ const BlogCard = ({ blogItem }) => {
                         display: "block",
                     }}
                 >
-                    {blogItem.description}
+                    {blogItem.abstract}
                 </p>
 
                 {/* 头像与时间 */}
@@ -204,7 +237,7 @@ const BlogCard = ({ blogItem }) => {
                             lineHeight: "2rem", // 与头像高度一致
                             fontWeight: "800",
                         }}>
-                            {name}
+                            {blogItem.author ? blogItem.author : name}
                         </div>
                     </div>
 
@@ -220,7 +253,7 @@ const BlogCard = ({ blogItem }) => {
                             lineHeight: "2rem", // 与头像高度一致
                         }}
                     >
-                        {blogItem.date}
+                        {blogItem.updatedTime}
                     </time>
                 </div>
             </div>

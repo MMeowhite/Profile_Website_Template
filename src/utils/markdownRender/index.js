@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import "highlight.js/styles/github.css"; // 代码高亮样式
 import "./markdownRender.css";
 
-const MarkdownRender = () => {
+const MarkdownRender = ({ markdownPath }) => {
     const [markdown, setMarkdownFile] = useState(""); // Markdown 内容
     const [error, setError] = useState(null); // 错误信息
     const [outputs, setOutputs] = useState({}); // 存储代码块的执行结果
@@ -40,7 +40,7 @@ const MarkdownRender = () => {
     useEffect(() => {
         const fetchMarkdown = async () => {
             try {
-                const response = await fetch("/2024_11.md");
+                const response = await fetch(markdownPath);
                 if (!response.ok) {
                     throw new Error(`Failed to fetch markdown file: ${response.status}`);
                 }
@@ -51,51 +51,17 @@ const MarkdownRender = () => {
             }
         };
         fetchMarkdown();
-    }, []);
+    }, [markdownPath]);
 
     // 执行 Python 代码块
     const executeCode = async (code) => {
         if (!pyodideRef.current) {
-            console.log("Python runtime is not ready. Waiting for it to load...");
-
-            // 等待 Pyodide 加载完成
-            await new Promise((resolve) => {
-                const interval = setInterval(() => {
-                    if (pyodideRef.current) {
-                        clearInterval(interval);
-                        resolve();
-                    }
-                }, 100); // 每 100ms 检查一次 Pyodide 的状态
-            });
+            return "Python runtime is still loading. Please wait.";
         }
 
-        console.log("Pyodide initialized:", pyodideRef.current);
-        console.log("Running Python code:", code);
         try {
-            console.log("Executing pyodide.runPythonAsync!");
-            // 使用 Pyodide 的 `console` API 来捕获输出
-            const result = await pyodideRef.current.runPythonAsync(`
-import sys\n
-import builtins\n
-from io import StringIO\n
-
-# 创建一个 StringIO 对象来捕获 print 输出\n
-output_buffer = StringIO()\n
-sys.stdout = output_buffer\n
-
-# 执行用户的 Python 代码\n
-${code}\n
-
-# 获取捕获的输出\n
-output = output_buffer.getvalue()\n
-
-# 恢复标准输出\n
-sys.stdout = sys.__stdout__\n
-
-output, result\n
-        `);
-            console.log("result after runPythonAsync: ", result);
-            return result || "Execution completed without output...";
+            const result = await pyodideRef.current.runPythonAsync(code);
+            return result;
         } catch (error) {
             return `Error: ${error.message}`;
         }
@@ -112,7 +78,7 @@ output, result\n
         }).join(""); // 合并为单个字符串
 
         const language = className ? className.replace("hljs language-", "") : null;
-        console.log(code)
+        // console.log(code)
 
         if (!outputs[code] && language === "python") {
             executeCode(code).then((result) => {
@@ -137,6 +103,7 @@ output, result\n
             </div>
         );
     };
+
 
     if (error) {
         return (
