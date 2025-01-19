@@ -32,6 +32,8 @@ const BlogPage = () => {
 
     return (
         <div className="blog" style={{ marginTop: "10rem" }}>
+            <h1>{blogItem.title}</h1>
+
             <MarkdownRender
                 id={blogItem.id}
                 key={blogItem.slug}

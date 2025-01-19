@@ -103,3 +103,9 @@ pre:hover .copy-button {
     background-color: rgba(255, 255, 255, 0.8);
     color: #000;
 }
+
+.output {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
