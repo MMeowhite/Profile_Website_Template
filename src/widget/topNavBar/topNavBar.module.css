@@ -1,15 +1,23 @@
 /* 导航栏基础样式 */
 .navbar {
     position: fixed;
-    top: 0;
     width: 100%;
     height: 100px;
     padding: 0 1.5rem; /* 添加左右内边距 */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 999999;
+    transition: background-color 0.3s ease, color 0.3s ease, top 0.3s ease-in-out;
+    top: 0px;
+}
+
+.navbar-show {
+    opacity: 0;
+}
+
+.navbar-hide {
+    opacity: 1;
 }
 
 /* 深色模式样式 */

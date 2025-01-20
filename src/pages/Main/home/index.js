@@ -105,11 +105,11 @@ const Home = () => {
                 <Col xs={12} md={6} className="d-flex flew-column align-items-center justify-content-center" >
                     <Card style={{...cardStyles, flexGrow: 1, padding: 5}} className="mb-4">
                         <Card.Body>
-                            <Card.Title style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>
-                                About Me
+                            <Card.Title style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>
+                                <Image src="/img.png" className="img-fluid rounded-circle" style={{width: '2.5rem', height: '2.5rem', objectFit: 'cover'}} /> Hello, I'm MMeowhite!
                             </Card.Title>
                             <Card.Subtitle className="mt-2 mb-3" style={{ fontSize: '1.2rem' }}>
-                                Introduction
+                                I'd like to say something...
                             </Card.Subtitle>
                             <Card.Text className="text-start" style={{
                                 fontSize: '1rem',

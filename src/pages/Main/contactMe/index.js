@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
-import BaiduMap from "../../utils/baiduMap";
+import BaiduMap from "../../../utils/baiduMap";
 
 
 
@@ -31,7 +31,7 @@ const ContactMe = () => {
                             <Form>
                                 <Form.Group controlId="formName" className="mb-3">
                                     <Form.Label>Name *</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter your name" required />
+                                    <Form.Control type="text" placeholder="Enter your name" required/>
                                 </Form.Group>
 
                                 <Form.Group controlId="formEmail" className="mb-3">

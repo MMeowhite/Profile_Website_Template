@@ -10,12 +10,15 @@
 Here is your Python code running in web
 ```python
 import numpy as np
+import pandas as pd
+import time
 
 x = 10
 y = 20
-x + y
-z = np.array([1, 2, 3])
-z
+
+df = pd.DataFrame({'A': [1, 2, 3]})
+time.sleep(5)
+print(df)
 ```
 
 
@@ -26,8 +29,18 @@ Here is a another code for your code:
 def add(a, b):
     return a + b
     
-add(x,y)   
+print(add(x,y))
 ```
+
+
+Here is r code for code test:
+```r
+x <- c(1, 2, 3)
+mean(x)
+max(x)
+min(x)
+```
+
 
 ---
 
@@ -64,8 +77,7 @@ Embedding external youtube video:
 
 https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
-here is bilibili video:
+bilibili video:
 
-https://www.bilibili.com/video/BV1Sz411e7XX
+[here is bilibili video](https://www.bilibili.com/video/BV1Sz411e7XX)
 
-### *Test was done, Thanks!*

@@ -6,6 +6,7 @@ import Publication from "../pages/Publication"
 import Blog from "../pages/Blog";
 import BlogBlocks from "../pages/Blog/blockBlocks";
 import BlogPage from "../pages/Blog/blogPage"
+import Experience from "../pages/Experience";
 
 
 
@@ -17,6 +18,7 @@ const routers = [
         children: [
             // 通过Layout设置的Outlet组件渲染子路由
             {path:"/", element: <Main />},
+            {path: "/experience", element: <Experience />},
             {path:"/publication", element: <Publication />},
             {
                 path:"/blog",

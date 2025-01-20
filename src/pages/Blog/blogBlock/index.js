@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useTheme } from "../../components/themeProvider";
-import { generateTagColors } from "../../utils/generateTagColors";
+import { useTheme } from "../../../components/themeProvider";
+import { generateTagColors } from "../../../utils/generateTagColors";
 import Image from "react-bootstrap/Image";
-import useConfig from "../../utils/useConfig";
+import useConfig from "../../../utils/useConfig";
 
 // 图片路径处理函数
 const dynamicImportImagePath = (imagePath) => {
-    return import(`../../${imagePath}`).then((imageModule) => {
+    return import(`/src/${imagePath}`).then((imageModule) => {
         return imageModule.default;  // Webpack 会处理并返回图片路径
     });
 };

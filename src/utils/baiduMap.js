@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from "react";
-
-
+import React, { useEffect } from "react";
 
 const BaiduMap = ({ address }) => {
-    const [center, setCenter] = useState({ lng: 104.068, lat: 30.623 }); // 默认的经纬度
-
     useEffect(() => {
         // 确保百度地图 API 加载完成后执行地图初始化
         const initMap = () => {
@@ -18,7 +14,6 @@ const BaiduMap = ({ address }) => {
             geocoder.getPoint(address, (point) => {
                 if (point) {
                     // 地址成功转换为经纬度
-                    setCenter({ lng: point.lng, lat: point.lat }); // 更新经纬度
                     map.centerAndZoom(point, 15); // 设置地图中心和缩放级别
 
                     // 在地图上添加一个标注

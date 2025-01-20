@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogCard from "../../../widget/blogBlock";
+import BlogCard from "../blogBlock";
 import blogItemsConfig from "../blog_config.json"
 
 const BlogBlocks = () => {
