@@ -1,14 +1,12 @@
 import React from 'react';
-import About from './about';
-import Skill from "./skills";
 import Home from "./home";
+import ContactMe from "../../widget/contactMe";
 
 const Main = () => {
     return (
         <React.Fragment>
             <Home />
-            <About />
-            <Skill />
+            <ContactMe />
         </React.Fragment>
     );
 };

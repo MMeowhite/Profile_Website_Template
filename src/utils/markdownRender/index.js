@@ -2,18 +2,21 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkToc from "remark-toc";
 import rehypeKatex from "rehype-katex";
 import "highlight.js/styles/github.css"; // 代码高亮样式
 import "./markdownRender.css";
 import "katex/dist/katex.min.css";
 import {useTheme} from "../../components/themeProvider";
 
-const MarkdownRender = ({ markdownPath }) => {
+
+
+const MarkdownRender = React.memo(({ markdownPath, onTocUpdate }) => {
     const [markdown, setMarkdownFile] = useState(""); // Markdown 内容
     const [error, setError] = useState(null); // 错误信息
-    const [outputs, setOutputs] = useState({}); // 存储代码块的执行结果
     const [pyodideLoading, setPyodideLoading] = useState(false); // Pyodide 加载状态
     const pyodideRef = useRef(null); // 使用 useRef 保存全局 Pyodide 实例
     const { isDarkMode } = useTheme();
@@ -52,13 +55,46 @@ const MarkdownRender = ({ markdownPath }) => {
                     throw new Error(`Failed to fetch markdown file: ${response.status}`);
                 }
                 const text = await response.text();
-                setMarkdownFile(text);
+
+                if (text !== markdown) {
+                    setMarkdownFile(text); // 更新 Markdown 状态
+
+                    if (onTocUpdate) {
+                        // 生成 ToC 数据
+                        const lines = text.split("\n");
+                        const toc = [];
+                        let inCodeBlock = false;
+
+                        lines.forEach((line) => {
+                            if (line.trim().startsWith("```")) inCodeBlock = !inCodeBlock; // 跳过代码块
+                            if (inCodeBlock) return;
+
+                            const match = /^(#{1,6})\s+(.+)$/.exec(line.trim());
+                            if (match) {
+                                const [, hashes, title] = match;
+                                const level = hashes.length;
+                                const id = title
+                                    .toLowerCase()
+                                    .replace(/[^\w]+/g, "-")
+                                    .replace(/^-+|-+$/g, "");
+                                toc.push({ level, title, id });
+                            }
+                        });
+
+                        onTocUpdate(toc); // 调用父组件的回调
+                    }
+                }
             } catch (error) {
                 setError("Failed to load Markdown content.");
             }
         };
-        fetchMarkdown();
-    }, [markdownPath]);
+
+        if (markdownPath) {
+            fetchMarkdown();
+        }
+    }, [markdown, markdownPath, onTocUpdate]); // 仅依赖 markdownPath 和 onTocUpdate
+
+
 
     // 执行 Python 代码块
     const executeCode = useCallback(async (code) => {
@@ -115,24 +151,20 @@ const MarkdownRender = ({ markdownPath }) => {
     }, []);
 
     // 自定义代码块组件
-    const CodeBlock = ({ children, className, ...props }) => {
+    const CodeBlock = React.memo(({ children, className, ...props }) => {
         const code = Array.isArray(children)
             ? children.map((child) => (typeof child === "object" ? child.props.children : String(child))).join("")
             : String(children);
 
         const language = className?.startsWith("hljs language-") ? className.replace("hljs language-", "") : null;
-        const [localOutput, setLocalOutput] = useState(() => outputs[code]);
+        const [localOutput, setLocalOutput] = useState(""); // 只更新当前代码块的 output
         const [loading, setLoading] = useState(false); // 单独的执行状态
 
         const handleExecute = useCallback(async () => {
             setLoading(true);
             try {
-                const result = await executeCode(code);
-                setOutputs((prevOutputs) => ({
-                    ...prevOutputs,
-                    [code]: result || "Execution completed without output.",
-                }));
-                setLocalOutput(result || "Execution completed without output.");
+                const result = await executeCode(code);  // 执行代码
+                setLocalOutput(result || "Execution completed without output.");  // 只更新当前 output
             } catch (error) {
                 console.error("Execution error:", error);
                 setLocalOutput(`Error: ${error.message}`);
@@ -144,22 +176,22 @@ const MarkdownRender = ({ markdownPath }) => {
         if (language !== "python") {
             return (
                 <div className="code-container">
-          <pre className="code-block">
-            <code className={className} {...props}>
-              {children}
-            </code>
-          </pre>
+                <pre className="code-block">
+                    <code className={className} {...props}>
+                        {children}
+                    </code>
+                </pre>
                 </div>
             );
         }
 
         return (
             <div className="code-container">
-        <pre className="code-block">
-          <code className={className} {...props}>
-            {children}
-          </code>
-        </pre>
+            <pre className="code-block">
+                <code className={className} {...props}>
+                    {children}
+                </code>
+            </pre>
                 <div className="execution-controls">
                     <button
                         onClick={handleExecute}
@@ -170,15 +202,15 @@ const MarkdownRender = ({ markdownPath }) => {
                         {loading ? "Running..." : pyodideLoading ? "Loading Runtime..." : "Run Code"}
                     </button>
                     {localOutput && (
-                        <div className="output" style={{backgroundColor: isDarkMode ? "#334155" : "#fafafa"}}>
-                            <strong style={{ color: isDarkMode? "lightgreen" : "darkgreen" }}>Output:</strong>
+                        <div className="output" style={{ backgroundColor: isDarkMode ? "#334155" : "#fafafa" }}>
+                            <strong style={{ color: isDarkMode ? "lightgreen" : "darkgreen" }}>Output:</strong>
                             <pre>{localOutput}</pre>
                         </div>
                     )}
                 </div>
             </div>
         );
-    };
+    });
 
     // 视频嵌入组件
     const getVideoEmbedUrl = (url) => {
@@ -204,7 +236,7 @@ const MarkdownRender = ({ markdownPath }) => {
         return null;
     };
 
-    const VideoBlock = (props) => {
+    const VideoBlock = React.memo((props) => {
         const url = props.href;
         const embedUrl = getVideoEmbedUrl(url);
 
@@ -214,7 +246,6 @@ const MarkdownRender = ({ markdownPath }) => {
                     width="640"
                     height="360"
                     src={embedUrl}
-                    frameBorder="0"
                     allow="autoplay; fullscreen"
                     allowFullScreen
                     title="Video"
@@ -223,7 +254,7 @@ const MarkdownRender = ({ markdownPath }) => {
         }
 
         return <a {...props}>cannot loading video block...</a>;
-    };
+    });
 
     // 错误信息展示
     if (error) {
@@ -239,8 +270,8 @@ const MarkdownRender = ({ markdownPath }) => {
         <div className="markdown-container markdown-body markdown">
             {markdown ? (
                 <ReactMarkdown
-                    remarkPlugins={[remarkGfm, remarkMath]}
-                    rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeKatex]}
+                    remarkPlugins={[remarkGfm, remarkMath, [remarkToc, { tight: true }]]}
+                    rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeKatex, rehypeSlug]}
                     components={{
                         code: CodeBlock, // 自定义代码块渲染
                         a: VideoBlock,   // 自定义视频链接渲染
@@ -255,6 +286,6 @@ const MarkdownRender = ({ markdownPath }) => {
             )}
         </div>
     );
-};
+});
 
 export default MarkdownRender;
