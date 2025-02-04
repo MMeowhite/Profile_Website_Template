@@ -7,6 +7,7 @@ import Blog from "../pages/Blog";
 import BlogBlocks from "../pages/Blog/blockBlocks";
 import BlogPage from "../pages/Blog/blogPage"
 import Experience from "../pages/Experience";
+import Research from "../pages/Research";
 
 
 
@@ -20,6 +21,7 @@ const routers = [
             {path:"/", element: <Main />},
             {path: "/experience", element: <Experience />},
             {path:"/publication", element: <Publication />},
+            {path:"/research", element: <Research />},
             {
                 path:"/blog",
                 element: <Blog />,

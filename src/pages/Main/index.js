@@ -1,13 +1,15 @@
 import React from 'react';
 import Home from "./home";
 import ContactMe from "./contactMe";
-import FeaturedPublication from "./publicationSection/featuredPublication";
+import PublicationSection from "./publicationSection";
+import ExperienceSection from "./experienceSection";
 
 const Main = () => {
     return (
         <React.Fragment>
             <Home />
-            <FeaturedPublication />
+            <ExperienceSection />
+            <PublicationSection />
             <ContactMe />
         </React.Fragment>
     );

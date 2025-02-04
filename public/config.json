@@ -15,11 +15,229 @@
       "institution": "Sichuan University",
       "field": "MEDICINE / BIOINFORMATICS / MATHEMATICS / PHYSICS",
       "profile": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!",
-      "quote": "What hinders learning is absolutely not the difficulty of the knowledge itself, but the unreasonable design of the learning gradient and the lack of prerequisite knowledge."
+      "quote": "What hinders learning is absolutely not the difficulty of the knowledge itself, but the unreasonable design of the learning gradient and the lack of prerequisite knowledge.",
+      "experienceSection": {
+        "title": "Education",
+        "edu": [
+          {
+            "period": "2018.09-2023.06",
+            "university": "Chongqing Medical University",
+            "degree": "Bachelor in Clinical Medicine (Direction: Radiology)"
+          },
+          {
+            "period": "2023.07-Present",
+            "university": "Sichuan University",
+            "degree": "Master in Basic Medicine (Direction: Biochemistry and Molecular Biology )"
+          }
+        ]
+      },
+      "featuredPublications": [
+        {
+          "authors": " John Doe, Jane Smith ",
+          "date": "May 30, 2020",
+          "journal": "Nature",
+          "featuredImages": [
+            {
+              "src": "/images/featuredImages/img.png",
+              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-1."
+            },
+            {
+              "src": "/images/featuredImages/img_1.png",
+              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-2."
+            },
+            {
+              "src": "/images/featuredImages/img_2.png",
+              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-3."
+            }
+          ],
+          "title": "here is your paper title1",
+          "abstract": "here is your paper abstract1",
+          "buttons": [
+            {
+              "name": "PDF",
+              "link": ""
+            },
+            {
+              "name": "CODE",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "authors": " MMeowhite ",
+          "date": "66666",
+          "journal": "Nature",
+          "featuredImages": [
+            {
+              "src": "/images/featuredImages/img.png",
+              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-1."
+            },
+            {
+              "src": "/images/featuredImages/img_1.png",
+              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-2."
+            },
+            {
+              "src": "/images/featuredImages/img_2.png",
+              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-3."
+            }
+          ],
+          "title": "Here is your paper title2",
+          "abstract": "here is your paper abstract2",
+          "buttons": [
+            {
+              "name": "PDF",
+              "link": ""
+            },
+            {
+              "name": "CODE",
+              "link": ""
+            }
+          ]
+        }
+      ]
     },
     "experience": {
-      "icons": "",
-      "widgets": ""
+      "education": [
+        {
+          "university": {
+           "name": "Chongqing Medical University",
+           "url": "https://www.cqmu.edu.cn/",
+           "logo": ""
+          },
+          "time": "September 2018 - July 2023",
+          "major": "Bachelor of Medicine in Medical Imaging (Radiology and Diagnostic Technology)",
+          "GPA": "3.6 / 5.0",
+          "course": "Radiology, Internal medicine"
+        },
+        {
+          "university": {
+            "name": "Sichuan university",
+            "url": "https://www.scu.edu.cn/",
+            "logo": ""
+          },
+          "time": "July 2023 - Present",
+          "major": "Master of Medicine in Basic Medicine (Chemistry and Molecular Biology)",
+          "GPA": "3.5 / 4.0",
+          "course": "Biochemistry, Advance Science"
+        }
+      ],
+      "internshipsAndVolunteering": [
+        {
+          "location":{
+            "name": "The Beibei Affiliated Hospital of Chongqing Medical University",
+            "url": "https://www.cq9yuan.com/",
+            "logo": ""
+          },
+          "time": "Jan 2022 - Jun 2022",
+          "work": "work experience..."
+        },
+        {
+          "location": {
+            "name": "The Second Affiliated Hospital of Chongqing Medical University",
+            "url": "https://www.sahcqmu.com/",
+            "logo": ""
+          },
+          "time": "Jun 2022 - Jan 2023",
+          "work": "work experience..."
+        },
+        {
+          "location": {
+            "name": "The University-Town Affiliated Hospital of Chongqing Medical University",
+            "url": "http://www.uhcmu.com/",
+            "logo": ""
+          },
+          "time": "Jan 2023 - Jun 2023",
+          "work": "work experience..."
+        }
+      ],
+      "researchProjects" : [
+        {
+          "time": "Jan 2020 - Jan 2022",
+          "location": {
+            "name": "Institute Brain Science and Disease of Chongqing Medical University",
+            "url": "https://brain.cqmu.edu.cn/index.htm",
+            "logo": ""
+          },
+          "directors": [
+            {
+              "name": "Assoc.Prof.Xiu Yun",
+              "link": "https://brain.cqmu.edu.cn/info/1026/1632.htm"
+            }
+          ],
+          "work": "work experience..."
+        },
+        {
+          "location": {
+            "name": "West China school of Basic Medical Sciences & Forensic Medicine of Sichuan University",
+            "url": "https://jcfy.scu.edu.cn/",
+            "logo": ""
+          },
+          "time": "",
+          "directors": [
+            {
+              "name": "Prof.Canhua Huang",
+              "link": "http://hcanhua.cn/"
+            }
+          ],
+          "work": "work experience..."
+        },
+        {
+          "location": {
+            "name": "State Key Laboratory of Biotherapy of Sichuan University / Frontiers Medical Center, Tianfu Jincheng Laboratory",
+            "url": "https://sklb.scu.edu.cn/index.html",
+            "url2": "http://www.tfjcl.ac.cn/#/home",
+            "logo": "",
+            "director": [
+              {
+                "name": "Prof.Canhua Huang",
+                "link": "http://hcanhua.cn/"
+              }
+            ]
+          },
+          "time": "",
+          "work": "work experience..."
+        }
+      ],
+      "skills": [
+        {
+         "field": "Computer Science",
+         "list": {
+           "Programming Languages": ["C", "Java", "Bash", "Python", "R", "MATLAB", "Javascript", "MySQL"],
+           "Framework and libraries": {
+             "Bioinformatics": [
+               "RNA-Seq quality control and data preprocessing: Trimming, Filtering, Alignment (STAR, HISAT2)",
+               "Variant calling and annotation: SNPs, Indels, CNVs",
+               "Bulk RNA-seq: Differential gene expression analysis, Alternative splicing analysis, GO/KEGG/GSEA enrichment analysis",
+               "Single-cell RNA-Seq analysis (scRNA-Seq): Seurat V5, Monocle, Scanpy, Celltree",
+               "Visualization of omics data: Heatmaps, Volcano plots, PCA, t-SNE, UMAP, Circos plots",
+               "Multi-omics data integration analysis: WGS, WES, GWAS, RNA-Seq, ChIP-Seq, ATAC-seq, Metabolomics, Proteomics",
+               "Machine learning in bioinformatics: Predictive models, Clustering algorithms (K-means, Hierarchical)"
+             ],
+             "Web development": "Full stack development: React, Bootstrap, Flask, Node.js"
+           }
+         }
+        },
+        {
+          "field": "Medicine",
+          "list": {
+            "Clinical Skills": "History taking, Physical Examination, Vital Signs Monitoring, Emergency Skills etc.",
+            "Molecular Biology Techniques": ["PCR", "qPCR", "RT-PCR", "Western Blot", "ELISA"],
+            "Cell Biology Techniques": ["Cell Culture", "Cell Transfection", "Immunofluorescence", "Flow Cytometry"],
+            "Animal Models": ["Mouse Models construction", "Pharmacological Studies"],
+            "Scientific Writing": ["Scientific Paper Writing", "Literature Review", "Research Proposal Preparation"]
+          }
+        }
+      ],
+      "awardsAndHonors": [
+        {
+          "name": "123",
+          "time": "456"
+        },
+        {
+          "name": "`456",
+          "time": "789"
+        }
+      ]
     },
     "research": {
       "icons": "",
