@@ -29,10 +29,9 @@ const Experience = () => {
                             {edu.university.logo ? edu.university.logo : ""}
                             <h3>{edu.university.name}</h3>
                         </a>
-                        <p>{edu.time}</p>
+                        <p><strong>Time:</strong>{edu.time} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {edu.GPA}</p>
                         <p><strong>Major:</strong> {edu.major}</p>
-                        <p><strong>GPA:</strong> {edu.GPA}</p>
-                        <p><strong>Course:</strong> {edu.course}</p>
+                        <p><strong>Main Course:</strong> {edu.course}</p>
                     </div>
                 ))}
             </section>
@@ -72,10 +71,52 @@ const Experience = () => {
 
             <section>
                 <h2>Skills</h2>
-                {skills.map((skill, index) => (
+                {skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} style={{ marginBottom: "20px" }}>
+                        <h4>Field: {skill.field}</h4>
+                        {Object.entries(skill.list).map(([key, value], index) => (
+                            Array.isArray(value) ? (
+                                <div key={index}>
+                                    <strong>{key}:</strong>
+                                    <ul>
+                                        {value.map((item, itemIndex) => (
+                                            <li key={itemIndex}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ) : (typeof value === 'object' ? (
+                                <div key={index}>
+                                    <strong>{key}:</strong>
+                                    {Object.entries(value).map(([subKey, subValue], subIndex) => (
+                                        <div key={subIndex}>
+                                            <strong>{subKey}:</strong>
+                                            <ul>
+                                                {Array.isArray(subValue) ? (
+                                                    subValue.map((subItem, subItemIndex) => (
+                                                        <li key={subItemIndex}>{subItem}</li>
+                                                    ))
+                                                ) : (
+                                                    <li>{subValue}</li>
+                                                )}
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p key={index}>
+                                    <strong>{key}:</strong> {value}
+                                </p>
+                            ))
+                        ))}
+                    </div>
+                ))}
+            </section>
+
+            <section>
+                <h2>Awards & Honors</h2>
+                {awardsAndHonors.map((item, index) => (
                     <div key={index} style={{ marginBottom: "20px" }}>
-                        <h4>Field:{skill.field}</h4>
-                        {console.log(skill.list)}
+                        <p><strong>{item.name}:</strong>{item.time}</p>
                     </div>
                 ))}
             </section>
