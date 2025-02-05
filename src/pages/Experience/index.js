@@ -116,7 +116,9 @@ const Experience = () => {
                 <h2>Awards & Honors</h2>
                 {awardsAndHonors.map((item, index) => (
                     <div key={index} style={{ marginBottom: "20px" }}>
-                        <p><strong>{item.name}:</strong>{item.time}</p>
+                        <p><strong>{item.name}</strong></p>
+                        <p>{item.unit} · {item.time}</p>
+                        <p dangerouslySetInnerHTML={{ __html: item.desc }} />
                     </div>
                 ))}
             </section>
