@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import useConfig from "../../../utils/useConfig"
 import {useTheme} from "../../../components/themeProvider";
+import Timeline from "./timeline"; // 引入时间轴组件
 
 
 const ExperienceSection = () => {
@@ -40,6 +41,7 @@ const ExperienceSection = () => {
     }
 
     return (
+        <>
         <section id="experience-section" className="d-flex flex-row">
             {/* education part */}
             <div id="education" className="d-flex flex-column justify-content-between" style={{gap: "50px"}}>
@@ -57,6 +59,8 @@ const ExperienceSection = () => {
                 <span style={{fontSize: "5rem", fontWeight: "800"}}>{experienceObj.title ? experienceObj.title : "Education"}</span>
             </div>
         </section>
+            <Timeline/>
+        </>
     )
 }
 

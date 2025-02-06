@@ -1,8 +1,5 @@
 {
   "website_title": "Cat",
-  "icons": {
-
-  },
   "markdown": "/2024_11.md",
   "references": "/references.bib",
   "pages": {
@@ -237,9 +234,39 @@
         }
       ]
     },
-    "research": {
-      "icons": "",
-      "widgets": ""
+    "projects": {
+      "title": "Selected Projects",
+      "desc": "I enjoy making things. Here are a selection of projects that I have worked on over the years.",
+      "list": [
+        {
+          "img": "/images/projects/img.png",
+          "title": "Python project",
+          "url": "https://www.bilibili.com/",
+          "desc": "This is the python project published in github website",
+          "time": "Jan 1, 2025"
+        },
+        {
+          "img": "/images/projects/img_1.png",
+          "title": "Pytorch project",
+          "url": "https://www.bilibili.com/opus/914638849347420177?from=search&spm_id_from=333.337.0.0",
+          "desc": "This is the Pytorch project",
+          "time": "Oct 25, 2022"
+        },
+        {
+          "img": "/images/projects/img_2.png",
+          "title": "Python project",
+          "url": "https://www.bilibili.com/",
+          "desc": "This is the python project published in github website",
+          "time": "Jan 1, 2025"
+        },
+        {
+          "img": "/images/projects/img_2.png",
+          "title": "Python project",
+          "url": "https://www.bilibili.com/",
+          "desc": "This is the python project published in github website",
+          "time": "Jan 1, 2025"
+        }
+      ]
     },
     "publication": {},
     "blog": {}
@@ -281,12 +308,12 @@
             "link": "/experience"
           },
           {
-            "name": "Research",
-            "link": "/research"
-          },
-          {
             "name": "Publication",
             "link": "/publication"
+          },
+          {
+            "name": "Projects",
+            "link": "/projects"
           },
           {
             "name": "Blog",
