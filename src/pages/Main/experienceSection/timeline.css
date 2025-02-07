@@ -5,24 +5,12 @@ body {
 #timeline {
     background-color: #6ab0de;
     margin-top: 150px;
-    position: relative;
     border-radius: 5px;
 }
 
 /* Horizontal Timeline (for desktop) */
 #timeline.horizontal {
-    height: 10px;
     width: 100%;
-}
-
-/* 添加垂直时间轴线 */
-.timeline-line {
-    position: absolute;
-    background-color: #000;
-    width: 2px;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 #timeline.horizontal .dot {
@@ -47,27 +35,6 @@ body {
     margin-top: 10px;
 }
 
-/* 确保 Mobile 端的点不会乱跑 */
-.mobile-dot {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px; /* 间隔 */
-}
-
-#timeline.horizontal .dot:hover {
-    transform: scale(1.2);
-}
-
-#timeline.horizontal .dot date {
-    font-family: roboto;
-    font-size: 1.1rem;
-    display: block;
-    position: relative;
-    top: -60px;
-    text-align: center;
-}
 
 /* Vertical Timeline (for mobile) */
 #timeline.vertical {
@@ -105,12 +72,6 @@ body {
     display: none;
 }
 
-@media (min-width: 768px) {
-    .modal-container {
-        display: block;
-    }
-}
-
 /* Modal for smaller screens (card style) */
 .content-cards {
     display: block;
@@ -127,8 +88,14 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
+@media (min-width: 768px) {
+    .modal-container {
+        display: block;
+    }
+}
+
 /* Modal Styles for Small Screens */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .content-cards {
         display: block;
     }

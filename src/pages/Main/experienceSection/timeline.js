@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Row, Col } from 'react-bootstrap';
 import './timeline.css';
-import {useTheme} from "../../../components/themeProvider";
+import { useTheme } from "../../../components/themeProvider";
+import useConfig from "../../../utils/useConfig";
 
 const Timeline = () => {
     const { isDarkMode } = useTheme();
@@ -9,44 +10,11 @@ const Timeline = () => {
     const [width, setWidth] = useState('0%');
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
-    const [isMobile, setIsMobile] = useState(false); // 判断是否为手机屏幕
-
-    const timelineData = [
-        {
-            "id": "one",
-            "year": "1280",
-            "color": "#2c3e50",
-            "percentage": 20,
-            "content": "Content for 1280"
-        },
-        {
-            "id": "two",
-            "year": "1649",
-            "color": "#e74c3c",
-            "percentage": 40,
-            "content": "Content for 1649"
-        },
-        {
-            "id": "three",
-            "year": "1831",
-            "color": "#7b3",
-            "percentage": 60,
-            "content": "Content for 1831"
-        },
-        {
-            "id": "four",
-            "year": "1992",
-            "color": "#20638f",
-            "percentage": 80,
-            "content": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. "
-        }
-    ]
-
+    const [isMobile, setIsMobile] = useState(false);
+    const { configValue: timelineData } = useConfig('pages.home.experienceSection.timeline');
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 767);
-        };
+        const handleResize = () => setIsMobile(window.innerWidth <= 767);
         window.addEventListener('resize', handleResize);
         handleResize();
         return () => window.removeEventListener('resize', handleResize);
@@ -55,62 +23,67 @@ const Timeline = () => {
     const handleDotClick = (contentId) => {
         if (isMobile) {
             setModalContent(contentId);
-            setShowModal(true); // 手机屏幕，直接显示卡片样式的Modal
+            setShowModal(true);
         } else {
-            setWidth(`${timelineData.find(dot => dot.id === contentId).percentage}%`);
-            setModalContent(contentId);
-            setShowModal(true); // 电脑屏幕，显示Modal
+            const selectedDot = timelineData.find(dot => dot.id === contentId);
+            if (selectedDot) {
+                setWidth(`${selectedDot.percentage}%`);
+                setModalContent(contentId);
+                setShowModal(true);
+            }
         }
     };
 
     return (
         <div className="container mt-5 d-flex flex-column align-items-center">
-            {/* Timeline title */}
             <div>
-                <h1 style={{fontSize: "5rem", fontWeight:"800"}}>Experience</h1>
+                <h1 style={{ fontSize: "5rem", fontWeight: "800" }}>Time line</h1>
             </div>
 
-            {/* Timeline */}
+            {/* 时间轴 */}
             <div
                 id="timeline"
                 className={`position-relative ${isMobile ? 'vertical' : 'horizontal'}`}
                 style={{ height: isMobile ? 'auto' : '10px' }}
             >
-                {/* inside bar */}
+                {/* 进度条 */}
                 <div
                     className="inside"
                     style={{
                         width: width,
-                        backgroundColor: isDarkMode ? "#000": "#fff",
+                        backgroundColor: isDarkMode ? "#000" : "#fff",
                         position: 'absolute',
                         height: '4px',
                         top: '3px',
-                        left: '0'
+                        left: '0',
+                        transition: 'width 0.3s ease-in-out'
                     }}
                 ></div>
 
-                {/* Dots */}
-                {timelineData.map((dot, index) => (
+                {/* 时间轴点 */}
+                {timelineData && Array.isArray(timelineData) && timelineData.map((dot) => (
                     <div
                         key={dot.id}
-                        className={`dot ${isMobile ? 'mobile-dot' : 'desktop-dot'}`}
+                        className="align-items-center"
                         style={{
                             left: isMobile ? '50%' : `${dot.percentage}%`,
-                            top: isMobile ? 'unset' : '-15px', // 在桌面端使用绝对定位
+                            top: isMobile ? 'unset' : '-15px',
                             backgroundColor: dot.color,
                             width: '40px',
                             height: '40px',
                             borderRadius: '50%',
-                            textAlign: 'center',
                             cursor: 'pointer',
-                            transform: isMobile ? 'translateX(-50%)' : 'none', // 让 mobile 端点居中
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            position: isMobile ? 'relative' : 'absolute', // mobile 端相对定位
-                            marginBottom: isMobile ? '30px' : '0', // 确保 mobile 端间隔正确
+                            position: isMobile ? 'relative' : 'absolute',
+                            marginBottom: isMobile ? '30px' : '0',
+                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+                            transition: 'transform 0.2s ease-in-out'
                         }}
                         onClick={() => handleDotClick(dot.id)}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.15)"}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
                     >
                         {/* 内部的小圆点 */}
                         <span
@@ -120,6 +93,8 @@ const Timeline = () => {
                                 height: '20px',
                                 backgroundColor: isDarkMode ? "#000" : "#fff",
                                 borderRadius: '50%',
+                                boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
+                                transition: 'background-color 0.3s ease-in-out'
                             }}
                         />
 
@@ -128,10 +103,12 @@ const Timeline = () => {
                             style={{
                                 fontFamily: 'inherit',
                                 fontSize: '1.1rem',
+                                fontWeight: '600',
                                 position: 'absolute',
-                                top: isMobile ? '50px' : '-60px',
+                                top: isMobile ? '50px' : '-40px',
                                 textAlign: 'center',
-                                width: '100px' // 确保对齐
+                                width: '100px',
+                                whiteSpace: 'nowrap'
                             }}
                         >
                             {dot.year}
@@ -140,33 +117,31 @@ const Timeline = () => {
                 ))}
             </div>
 
-            {/* Modals for Computers (For Larger Screens) */}
+            {/* 电脑端显示内容 */}
             {!isMobile && (
                 <div className="content-cards">
-            {timelineData.map(dot => (
-                <div key={dot.id} className={`content-card ${dot.id}`} style={{ display: modalContent === dot.id ? 'block' : 'none' }}>
-            <p>{dot.content}</p>
-        </div>
-    ))}
-</div>
+                    {timelineData && Array.isArray(timelineData) && timelineData.map(dot => (
+                        <div key={dot.id} className={`content-card ${dot.id}`} style={{ display: modalContent === dot.id ? 'block' : 'none' }}>
+                            <p>{dot.content}</p>
+                        </div>
+                    ))}
+                </div>
             )}
 
-            {/* Modals for Mobile (Card Style) */}
-            {isMobile && (
-                <div className="modal-container">
-                    <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-                        <Modal.Header closeButton>
-                            <Modal.Title>{modalContent ? modalContent.toUpperCase() : ""}</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Row>
-                                <Col>
-                                    <p>{timelineData.find(dot => dot.id === modalContent)?.content}</p>
-                                </Col>
-                            </Row>
-                        </Modal.Body>
-                    </Modal>
-                </div>
+            {/* 手机端弹窗 */}
+            {isMobile && showModal && (
+                <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{modalContent ? modalContent.toUpperCase() : ""}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Row>
+                            <Col>
+                                <p>{timelineData?.find(dot => dot.id === modalContent)?.content}</p>
+                            </Col>
+                        </Row>
+                    </Modal.Body>
+                </Modal>
             )}
         </div>
     );

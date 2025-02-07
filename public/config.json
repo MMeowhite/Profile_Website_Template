@@ -26,6 +26,43 @@
             "university": "Sichuan University",
             "degree": "Master in Basic Medicine (Direction: Biochemistry and Molecular Biology )"
           }
+        ],
+        "timeline": [
+          {
+            "id": "one",
+            "year": "1280",
+            "color": "#2c3e50",
+            "percentage": 20,
+            "content": "Content for 1280"
+          },
+          {
+            "id": "two",
+            "year": "1649",
+            "color": "#e74c3c",
+            "percentage": 40,
+            "content": "Content for 1649"
+          },
+          {
+            "id": "three",
+            "year": "1831",
+            "color": "#7b3",
+            "percentage": 60,
+            "content": "Content for 1831"
+          },
+          {
+            "id": "four",
+            "year": "1992",
+            "color": "#20638f",
+            "percentage": 80,
+            "content": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. "
+          },
+          {
+            "id": "five",
+            "year": "2025",
+            "color": "#20638f",
+            "percentage": 90,
+            "content": "Content for 2025"
+          }
         ]
       },
       "featuredPublications": [
