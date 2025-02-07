@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#timeline {
+    background-color: #6ab0de;
+    margin-top: 150px;
+    position: relative;
+    border-radius: 5px;
+}
+
+/* Horizontal Timeline (for desktop) */
+#timeline.horizontal {
+    height: 10px;
+    width: 100%;
+}
+
+/* 添加垂直时间轴线 */
+.timeline-line {
+    position: absolute;
+    background-color: #000;
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#timeline.horizontal .dot {
+    z-index: 99;
+    transition: 0.3s ease-in-out;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 桌面端时间轴 */
+.desktop-dot {
+    position: absolute;
+}
+
+/* 修复日期显示 */
+.mobile-dot date {
+    margin-top: 10px;
+}
+
+/* 确保 Mobile 端的点不会乱跑 */
+.mobile-dot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px; /* 间隔 */
+}
+
+#timeline.horizontal .dot:hover {
+    transform: scale(1.2);
+}
+
+#timeline.horizontal .dot date {
+    font-family: roboto;
+    font-size: 1.1rem;
+    display: block;
+    position: relative;
+    top: -60px;
+    text-align: center;
+}
+
+/* Vertical Timeline (for mobile) */
+#timeline.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+#timeline.vertical .dot {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#timeline.vertical .dot date {
+    font-size: 1.1rem;
+    display: block;
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+
+#timeline .dot span {
+    display: inline-block;
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal for larger screens */
+.modal-container {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .modal-container {
+        display: block;
+    }
+}
+
+/* Modal for smaller screens (card style) */
+.content-cards {
+    display: block;
+}
+
+.content-card {
+    display: none;
+    position: relative;
+    top: 30px;
+    max-width: 960px;
+    background-color: #fff;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styles for Small Screens */
+@media (max-width: 767px) {
+    .content-cards {
+        display: block;
+    }
+
+    #timeline .dot {
+        position: relative;
+    }
+
+    #timeline .dot:hover {
+        transform: none;
+    }
+}
