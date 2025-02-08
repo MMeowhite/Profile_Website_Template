@@ -1,149 +1,70 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Row, Col } from 'react-bootstrap';
-import './timeline.css';
-import { useTheme } from "../../../components/themeProvider";
+import React, { useEffect, useRef } from "react";
+import "./timeline.css";
 import useConfig from "../../../utils/useConfig";
+import {useTheme} from "../../../components/themeProvider";
 
 const Timeline = () => {
+    const { configValue: timelineData } = useConfig("pages.home.experienceSection.timeline");
+    const timelineRef = useRef(null);
     const { isDarkMode } = useTheme();
 
-    const [width, setWidth] = useState('0%');
-    const [showModal, setShowModal] = useState(false);
-    const [modalContent, setModalContent] = useState(null);
-    const [isMobile, setIsMobile] = useState(false);
-    const { configValue: timelineData } = useConfig('pages.home.experienceSection.timeline');
-
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth <= 767);
-        window.addEventListener('resize', handleResize);
-        handleResize();
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        if (!timelineData?.length) return; // 确保数据已加载
+        console.log("Timeline Data Loaded:", timelineData);
 
-    const handleDotClick = (contentId) => {
-        if (isMobile) {
-            setModalContent(contentId);
-            setShowModal(true);
-        } else {
-            const selectedDot = timelineData.find(dot => dot.id === contentId);
-            if (selectedDot) {
-                setWidth(`${selectedDot.percentage}%`);
-                setModalContent(contentId);
-                setShowModal(true);
-            }
-        }
-    };
+        const items = timelineRef.current.querySelectorAll(".timeline li");
+
+        const isElementInViewport = (el) => {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        };
+
+        const callbackFunc = () => {
+            console.log("Scroll detected");
+            items.forEach((item) => {
+                if (isElementInViewport(item)) {
+                    item.classList.add("in-view");
+                    console.log("Element in view:", item);
+                }
+            });
+        };
+
+        // 立即执行一次，确保初始状态正确
+        callbackFunc();
+
+        window.addEventListener("scroll", callbackFunc);
+        window.addEventListener("resize", callbackFunc);
+
+        return () => {
+            window.removeEventListener("scroll", callbackFunc);
+            window.removeEventListener("resize", callbackFunc);
+        };
+    }, [timelineData]); // 依赖 `timelineData`，确保数据更新后执行
 
     return (
-        <div className="container mt-5 d-flex flex-column align-items-center">
-            <div>
-                <h1 style={{ fontSize: "5rem", fontWeight: "800" }}>Time line</h1>
-            </div>
+        <section className={`timeline ${isDarkMode ? "dark" : "light"}`} ref={timelineRef}>
 
-            {/* 时间轴 */}
-            <div
-                id="timeline"
-                className={`position-relative ${isMobile ? 'vertical' : 'horizontal'}`}
-                style={{ height: isMobile ? 'auto' : '10px' }}
-            >
-                {/* 进度条 */}
-                <div
-                    className="inside"
-                    style={{
-                        width: width,
-                        backgroundColor: isDarkMode ? "#000" : "#fff",
-                        position: 'absolute',
-                        height: '4px',
-                        top: '3px',
-                        left: '0',
-                        transition: 'width 0.3s ease-in-out'
-                    }}
-                ></div>
-
-                {/* 时间轴点 */}
-                {timelineData && Array.isArray(timelineData) && timelineData.map((dot) => (
-                    <div
-                        key={dot.id}
-                        className="align-items-center"
-                        style={{
-                            left: isMobile ? '50%' : `${dot.percentage}%`,
-                            top: isMobile ? 'unset' : '-15px',
-                            backgroundColor: dot.color,
-                            width: '40px',
-                            height: '40px',
-                            borderRadius: '50%',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            position: isMobile ? 'relative' : 'absolute',
-                            marginBottom: isMobile ? '30px' : '0',
-                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
-                            transition: 'transform 0.2s ease-in-out'
+            <ul>
+                {timelineData?.map((item, index) => (
+                    <li key={index} style={{backgroundColor: isDarkMode ? "#fff" : "#000"}}>
+                        <div style={{
+                            borderWidth: "2px",
+                            borderStyle: "solid", // 指定边框样式
+                            borderColor: isDarkMode ? "#fff" : "#000",  // 确保边框颜色可见, color:
                         }}
-                        onClick={() => handleDotClick(dot.id)}
-                        onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.15)"}
-                        onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
-                    >
-                        {/* 内部的小圆点 */}
-                        <span
-                            className="inner-dot"
-                            style={{
-                                width: '20px',
-                                height: '20px',
-                                backgroundColor: isDarkMode ? "#000" : "#fff",
-                                borderRadius: '50%',
-                                boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
-                                transition: 'background-color 0.3s ease-in-out'
-                            }}
-                        />
-
-                        {/* 时间文本 */}
-                        <div
-                            style={{
-                                fontFamily: 'inherit',
-                                fontSize: '1.1rem',
-                                fontWeight: '600',
-                                position: 'absolute',
-                                top: isMobile ? '50px' : '-40px',
-                                textAlign: 'center',
-                                width: '100px',
-                                whiteSpace: 'nowrap'
-                            }}
                         >
-                            {dot.year}
+                            <time>{item.year}</time>
+                            {item.content}
                         </div>
-                    </div>
+                    </li>
                 ))}
-            </div>
-
-            {/* 电脑端显示内容 */}
-            {!isMobile && (
-                <div className="content-cards">
-                    {timelineData && Array.isArray(timelineData) && timelineData.map(dot => (
-                        <div key={dot.id} className={`content-card ${dot.id}`} style={{ display: modalContent === dot.id ? 'block' : 'none' }}>
-                            <p>{dot.content}</p>
-                        </div>
-                    ))}
-                </div>
-            )}
-
-            {/* 手机端弹窗 */}
-            {isMobile && showModal && (
-                <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{modalContent ? modalContent.toUpperCase() : ""}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Row>
-                            <Col>
-                                <p>{timelineData?.find(dot => dot.id === modalContent)?.content}</p>
-                            </Col>
-                        </Row>
-                    </Modal.Body>
-                </Modal>
-            )}
-        </div>
+            </ul>
+        </section>
     );
 };
 

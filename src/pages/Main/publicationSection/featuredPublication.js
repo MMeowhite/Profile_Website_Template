@@ -9,50 +9,21 @@ import useConfig from "../../../utils/useConfig";
 const FeaturedPublication = () => {
     const { isDarkMode } = useTheme();
     const [isFlexColumn, setIsFlexColumn] = useState(false);
-    const [currentCardIndex, setCurrentCardIndex] = useState(0);  // 当前卡片索引
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);  // 当前图片索引
+    const [currentCardIndex, setCurrentCardIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const navigate = useNavigate();
-    const { configValue: featuredPublicationObjects, error, loading } = useConfig('pages.home.featuredPublications');
+    const { configValue: featuredPublicationObjects } = useConfig('pages.home.featuredPublications');
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsFlexColumn(window.innerWidth <= 996);
-        };
-
+        const handleResize = () => setIsFlexColumn(window.innerWidth <= 996);
         window.addEventListener("resize", handleResize);
         handleResize();
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
-
-    const handleButtonClick = (type) => {
-        if (type === 'pdf') {
-            navigate('/pdf');
-        } else if (type === 'cite') {
-            navigate('/cite');
-        } else if (type === 'doi') {
-            navigate('/doi');
-        }
-    };
-
-    const cardStyles = {
-        backgroundColor: isDarkMode ? '#333333' : '#ffffff',
-        color: isDarkMode ? '#ffffff' : '#000000',
-        border: `2px solid ${isDarkMode ? '#cccccc' : '#444444'}`,
-        borderRadius: '10px',
-        padding: '20px',
-        width: '100%',
-        height: "auto",
-        boxShadow: isDarkMode
-            ? '0 8px 12px rgba(255, 255, 255, 0.5)'
-            : '0 8px 12px rgba(0, 0, 0, 0.1)',
-    };
 
     const handleCardSelect = (selectedIndex) => {
         setCurrentCardIndex(selectedIndex);
-        setCurrentImageIndex(0); // 每次切换卡片时，图片从第一张开始
+        setCurrentImageIndex(0);
     };
 
     const handleImageSelect = (selectedIndex) => {
@@ -67,26 +38,19 @@ const FeaturedPublication = () => {
         <Container
             id="feature-publication-section"
             className="d-flex align-items-center justify-content-center"
-            style={{ marginTop: '110px', width: "100%", height: "100vh" }}
+            style={{ maxWidth: "100vw", padding: "2rem 0" }}
         >
             <Row
                 id="feature-publication"
                 className="d-flex align-items-center"
                 style={{
-                    width: "auto",
+                    width: "100%",
                     flexFlow: isFlexColumn ? "column" : "row",
-                    gap: '8rem',
+                    gap: '4rem',
                 }}
             >
-                <Col
-                    xs={12}
-                    md={4}
-                    className="d-flex flex-column align-items-center"
-                    style={{
-                        textAlign: 'center'
-                    }}
-                >
-                    <h1 className="mb-0" style={{ fontSize: '3rem', fontWeight: '800', lineHeight: '1.2' }}>
+                <Col xs={12} md={4} className="text-center">
+                    <h1 className="mb-0" style={{ fontSize: '3rem', fontWeight: '800' }}>
                         Featured Publications
                     </h1>
                 </Col>
@@ -94,23 +58,33 @@ const FeaturedPublication = () => {
                 <Col
                     xs={12}
                     md={8}
-                    className="d-flex flex-column align-items-center"
-                    style={cardStyles}
+                    className="d-flex flex-column align-items-center justify-content-center"
+                    style={{
+                        backgroundColor: isDarkMode ? '#333' : '#fff',
+                        color: isDarkMode ? '#fff' : '#000',
+                        border: `2px solid ${isDarkMode ? '#aaa' : '#444'}`,
+                        borderRadius: '12px',
+                        padding: '20px',
+                        width: '100%',
+                        maxWidth: '800px',
+                        boxShadow: isDarkMode
+                            ? '0 8px 12px rgba(255, 255, 255, 0.5)'
+                            : '0 8px 12px rgba(0, 0, 0, 0.1)',
+                    }}
                 >
                     {/* 主卡片轮播 */}
                     <Carousel
-                        interval={5000}  // 设置适当的间隔
-                        fade={true}  // 开启淡入淡出效果
+                        interval={5000}
+                        fade
                         activeIndex={currentCardIndex}
-                        onSelect={handleCardSelect}  // 切换卡片时重置图片索引
+                        onSelect={handleCardSelect}
                         style={{ width: '100%' }}
-                        prevIcon={<span style={{ fontSize: '2rem', color: '#ccc' }}> &lt;&lt; </span>}
-                        nextIcon={<span style={{ fontSize: '2rem', color: '#ccc' }}> &gt;&gt; </span>}
+                        prevIcon={<span style={{ fontSize: '2rem', color: 'currentColor' }}> &lt;&lt; </span>}
+                        nextIcon={<span style={{ fontSize: '2rem', color: 'currentColor' }}> &gt;&gt; </span>}
                     >
                         {featuredPublicationObjects.map((featuredPublicationObject, index) => (
                             <Carousel.Item key={index}>
                                 <Row className="d-flex flex-column align-items-center">
-                                    {/* 作者信息 */}
                                     <Row>
                                         <strong>{featuredPublicationObject.authors}</strong>
                                     </Row>
@@ -124,29 +98,31 @@ const FeaturedPublication = () => {
                                         style={{
                                             width: '100%',
                                             height: 'auto',
-                                            maxHeight: '600px',
+                                            maxHeight: '500px',
                                             overflow: 'hidden',
                                             borderRadius: '10px',
                                             marginBottom: '20px',
                                         }}
                                     >
                                         <Carousel
-                                            fade={true}
+                                            fade
                                             activeIndex={currentImageIndex}
-                                            onSelect={handleImageSelect}  // 切换图片时更新索引
+                                            onSelect={handleImageSelect}
                                             style={{ width: '100%' }}
-                                            prevIcon={<span style={{ fontSize: '2rem', color: '#000' }}> &lt; </span>}
-                                            nextIcon={<span style={{ fontSize: '2rem', color: '#000' }}> &gt; </span>}
+                                            prevIcon={<span style={{ fontSize: '2rem', color: 'currentColor' }}> &lt; </span>}
+                                            nextIcon={<span style={{ fontSize: '2rem', color: 'currentColor' }}> &gt; </span>}
                                         >
                                             {featuredPublicationObject.featuredImages && featuredPublicationObject.featuredImages.length > 0 ? (
                                                 featuredPublicationObject.featuredImages.map((item, idx) => (
                                                     <Carousel.Item key={idx}>
                                                         <Image
                                                             src={item.src}
+                                                            alt={item.caption}
                                                             style={{
                                                                 width: '100%',
-                                                                maxHeight: '500px',
+                                                                maxHeight: '450px',
                                                                 objectFit: 'contain',
+                                                                borderRadius: '8px',
                                                             }}
                                                         />
                                                         <Carousel.Caption>
@@ -162,16 +138,16 @@ const FeaturedPublication = () => {
 
                                     {/* 文章标题与摘要 */}
                                     <Row className="text-center mb-3" style={{ width: '100%' }}>
-                                        <h5 style={{ fontSize: '1.2rem', fontWeight: '600', color: '#333' }}>
+                                        <h5 style={{ fontSize: '1.2rem', fontWeight: '600', color: isDarkMode ? '#fff' : '#333' }}>
                                             {featuredPublicationObject.title || "No Title Available"}
                                         </h5>
-                                        <p style={{ fontSize: '1rem', color: '#555' }}>
+                                        <p style={{ fontSize: '1rem', color: isDarkMode ? '#ccc' : '#555' }}>
                                             {featuredPublicationObject.abstract || "No abstract available."}
                                         </p>
                                     </Row>
 
                                     {/* 按钮区域 */}
-                                    <div className="d-flex justify-content-center flex-row" style={{ gap: '20px' }}>
+                                    <div className="d-flex justify-content-center flex-wrap" style={{ gap: '15px' }}>
                                         {featuredPublicationObject.buttons && featuredPublicationObject.buttons.map((button, idx) => (
                                             <Button
                                                 key={idx}

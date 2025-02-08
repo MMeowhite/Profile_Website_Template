@@ -9,6 +9,8 @@ const ExperienceSection = () => {
     const [educationData, setEducationData] = useState(null);
     const { isDarkMode } = useTheme();
 
+
+
     useEffect(()=>{
         if (experienceObj){
             setEducationData(experienceObj.edu)
@@ -41,26 +43,36 @@ const ExperienceSection = () => {
     }
 
     return (
-        <>
-        <section id="experience-section" className="d-flex flex-row">
-            {/* education part */}
-            <div id="education" className="d-flex flex-column justify-content-between" style={{gap: "50px"}}>
-            {educationData.map((item, index)=>(
-                <div className="d-flex flex-column" style={{...cardStyles}}>
-                    <span>{item.period}</span>
-                    <span>{item.university}</span>
-                    <span>{item.degree}</span>
+        <div
+            id="experience-section"
+            className="d-flew flex-column"
+            style={{
+                width: "100vw",
+                height: "100vh",
+            }}
+        >
+            <section id="experience-edu-section"  className="d-flex flex-row">
+                {/* education part */}
+                <div id="education" className="d-flex flex-column justify-content-between" style={{gap: "50px"}}>
+                {educationData.map((item, index)=>(
+                    <div className="d-flex flex-column" style={{...cardStyles}}>
+                        <span>{item.period}</span>
+                        <span>{item.university}</span>
+                        <span>{item.degree}</span>
+                    </div>
+                ))}
                 </div>
-            ))}
-            </div>
 
-            {/* education part */}
-            <div>
-                <span style={{fontSize: "5rem", fontWeight: "800"}}>{experienceObj.title ? experienceObj.title : "Education"}</span>
-            </div>
-        </section>
-            <Timeline/>
-        </>
+                {/* education part */}
+                <div>
+                    <span style={{fontSize: "5rem", fontWeight: "800"}}>{experienceObj.title ? experienceObj.title : "Education"}</span>
+                </div>
+            </section>
+            <section id="experience-timeline-section" className="d-flex flex-column align-items-center">
+                <h1 style={{fontWeight: "800", fontSize: "5rem"}}>Experience</h1>
+                <Timeline/>
+            </section>
+        </div>
     )
 }
 

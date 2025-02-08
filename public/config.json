@@ -10,7 +10,7 @@
       },
       "name": "MMeowhite",
       "institution": "Sichuan University",
-      "field": "MEDICINE / BIOINFORMATICS / MATHEMATICS / PHYSICS",
+      "field": "MEDICINE / Computer Science / MATHEMATICS / PHYSICS",
       "profile": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!",
       "quote": "What hinders learning is absolutely not the difficulty of the knowledge itself, but the unreasonable design of the learning gradient and the lack of prerequisite knowledge.",
       "experienceSection": {
@@ -57,10 +57,24 @@
             "content": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. "
           },
           {
-            "id": "five",
+            "id": "six",
             "year": "2025",
             "color": "#20638f",
             "percentage": 90,
+            "content": "Content for 2025"
+          },
+          {
+            "id": "seven",
+            "year": "2025",
+            "color": "#20638f",
+            "percentage": 120,
+            "content": "Content for 2025"
+          },
+          {
+            "id": "eight",
+            "year": "2025",
+            "color": "#20638f",
+            "percentage": 150,
             "content": "Content for 2025"
           }
         ]

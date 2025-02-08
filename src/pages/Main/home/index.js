@@ -80,7 +80,7 @@ const Home = () => {
     return (
         <Container
             className="d-flex flex-column justify-content-evenly align-items-center"
-            style={{ minHeight: '100vh', paddingTop: '10rem'}}
+            style={{ minHeight: '100vh'}}
         >
             <Row className="d-flex flex-row align-items-stretch text-center w-100">
                 {/* 图片和文字区域 */}

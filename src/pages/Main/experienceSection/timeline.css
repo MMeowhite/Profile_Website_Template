@@ -1,110 +1,233 @@
-body {
-    font-family: Arial, sans-serif;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#timeline {
-    background-color: #6ab0de;
-    margin-top: 150px;
-    border-radius: 5px;
+a {
+    color: inherit;
 }
 
-/* Horizontal Timeline (for desktop) */
-#timeline.horizontal {
-    width: 100%;
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul {
+    background: inherit;
+    padding: 50px 0;
 }
 
-#timeline.horizontal .dot {
-    z-index: 99;
-    transition: 0.3s ease-in-out;
+.timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 6px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.timeline ul li::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: inherit;
+    z-index: 1;
+}
+
+.timeline ul li div {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 15px;
+}
+
+.timeline ul li div::before {
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) div {
+    left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+    left: -17px;
+    border-width: 8px 16px 8px 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline.dark ul li:nth-child(odd) div::before {
+    border-color: transparent #fff transparent transparent;
+}
+
+.timeline.light ul li:nth-child(odd) div::before {
+    border-color: transparent #000 transparent transparent;
+}
+
+
+.timeline ul li:nth-child(even) div {
+    left: -439px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+    right: -17px;
+    border-width: 8px 0 8px 16px;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline.dark ul li:nth-child(even) div::before {
+    border-color: transparent transparent transparent #fff;
+}
+
+.timeline.light ul li:nth-child(even) div::before {
+    border-color: transparent transparent transparent #000;
+}
+
+time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul li::after {
+    transition: background 0.5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline.light ul li.in-view::after {
+    background: #fff;
+    border: 2px solid #000;
+}
+
+.timeline.dark ul li.in-view::after {
+    background: #000;
+    border: 2px solid #fff;
+}
+
+.timeline ul li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-child(odd) div {
+    transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li:nth-child(even) div {
+    transform: translate3d(-200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+    .timeline ul li div {
+        width: 250px;
+    }
+    .timeline ul li:nth-child(even) div {
+        left: -289px;
+        /*250+45-6*/
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timeline ul li {
+        margin-left: 20px;
+    }
+    .timeline ul li div {
+        width: calc(100vw - 91px);
+    }
+    .timeline ul li:nth-child(even) div {
+        left: 45px;
+    }
+    .timeline ul li:nth-child(even) div::before {
+        left: -17px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent #000 transparent transparent;
+    }
+}
+
+
+/* EXTRA/CLIP PATH STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline-clippy ul li::after {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    top: -15px;
-    text-align: center;
-    cursor: pointer;
+    border-radius: 0;
 }
 
-/* 桌面端时间轴 */
-.desktop-dot {
-    position: absolute;
+.timeline-rhombus ul li::after {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
-/* 修复日期显示 */
-.mobile-dot date {
-    margin-top: 10px;
+.timeline-rhombus ul li div::before {
+    bottom: 12px;
 }
 
-
-/* Vertical Timeline (for mobile) */
-#timeline.vertical {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-#timeline.vertical .dot {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-#timeline.vertical .dot date {
-    font-size: 1.1rem;
-    display: block;
-    text-align: center;
-    position: relative;
-    top: 20px;
+.timeline-star ul li::after {
+    clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+    );
 }
 
-#timeline .dot span {
-    display: inline-block;
-    margin-top: 10px;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    position: relative;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.timeline-heptagon ul li::after {
+    clip-path: polygon(
+            50% 0%,
+            90% 20%,
+            100% 60%,
+            75% 100%,
+            25% 100%,
+            0% 60%,
+            10% 20%
+    );
 }
 
-/* Modal for larger screens */
-.modal-container {
-    display: none;
+.timeline-infinite ul li::after {
+    animation: scaleAnimation 2s infinite;
 }
 
-/* Modal for smaller screens (card style) */
-.content-cards {
-    display: block;
-}
-
-.content-card {
-    display: none;
-    position: relative;
-    top: 30px;
-    max-width: 960px;
-    background-color: #fff;
-    padding: 20px;
-    margin: auto;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-}
-
-@media (min-width: 768px) {
-    .modal-container {
-        display: block;
+@keyframes scaleAnimation {
+    0% {
+        transform: translateX(-50%) scale(1);
     }
-}
-
-/* Modal Styles for Small Screens */
-@media (max-width: 768px) {
-    .content-cards {
-        display: block;
+    50% {
+        transform: translateX(-50%) scale(1.25);
     }
-
-    #timeline .dot {
-        position: relative;
-    }
-
-    #timeline .dot:hover {
-        transform: none;
+    100% {
+        transform: translateX(-50%) scale(1);
     }
 }
