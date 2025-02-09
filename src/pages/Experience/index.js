@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTheme } from "../../components/themeProvider";
 import useConfig from "../../utils/useConfig";
-import { Container, Row, Col, Card, ListGroup, Button } from 'react-bootstrap';
+import { Card, ListGroup } from 'react-bootstrap';
+import AOS from 'aos'; // 引入AOS库
 
 const Experience = () => {
     const { isDarkMode } = useTheme();
     const { configValue: experienceData, error, loading } = useConfig('pages.experience');
+
+    // 初始化AOS动画
+    useEffect(() => {
+        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
+    }, []);
 
     if (loading) {
         return (<div style={{ textAlign: "center", marginTop: "50px", fontSize: "18px" }}>Loading Experience Data...</div>);
@@ -18,127 +24,356 @@ const Experience = () => {
     const { education, internshipsAndVolunteering, researchProjects, skills, awardsAndHonors } = experienceData;
 
     return (
-        <div id="experience-page" style={{ background: "inherit", marginTop: "110px" }}>
-            <Container>
-                <h1 className="my-4">Experience</h1>
+        <div id="experience-page" className="d-flex flex-column align-items-center justify-content-center" style={{ background: "inherit", marginTop: "110px" }}>
 
-                {/* Education Section */}
-                <section>
-                    <h2>Education</h2>
-                    {education.map((edu, index) => (
-                        <Card key={index} className="mb-4">
-                            <Card.Body>
-                                <a href={edu.university.url} target="_blank" rel="noopener noreferrer">
-                                    {edu.university.logo && <img src={edu.university.logo} alt="University Logo" style={{ width: "50px", marginRight: "10px" }} />}
-                                    <Card.Title>{edu.university.name}</Card.Title>
+            <h1 id="experience-page-title" style={{ fontWeight: "800", fontSize: "6rem" }} data-aos="zoom-in">Experience</h1>
+
+            {/* Education Section */}
+            <section id="experience-page-education" className="d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+                <h2 style={{ fontWeight: "600", fontSize: "4rem" }}>Education</h2>
+                <div className="d-flex flex-column align-items-center justify-content-center" style={{ margin: "100px 0px" }}>
+                    {education?.map((edu, index) => (
+                        <div key={index} data-aos="fade-up" style={{ width: "60%", margin: "0 100px", position: "relative" }}>
+                            <span
+                                className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
+                                style={{
+                                    height: "40px",
+                                    width: "40px",
+                                    transform: "translate(-50%, -25%)",
+                                    backgroundColor: "#dbeafe", // 可以修改颜色，确保显示正确
+                                }}
+                            >
+                                <svg
+                                    fill="#1e50af"
+                                    viewBox="0 0 256 256"
+                                    className="w-75 h-75 text-white"
+                                >
+                                    <path
+                                        d="M251.76 88.94l-120-64a8 8 0 00-7.52.0l-120 64a8 8 0 000 14.12L32 117.87v48.42a15.91 15.91.0 004.06 10.65C49.16 191.53 78.51 216 128 216a130 130 0 0048-8.76V240a8 8 0 0016 0V199.51a115.63 115.63.0 0027.94-22.57A15.91 15.91.0 00224 166.29V117.87l27.76-14.81a8 8 0 000-14.12zM128 2e2c-43.27.0-68.72-21.14-80-33.71V126.4l76.24 40.66a8 8 0 007.52.0L176 143.47v46.34C163.4 195.69 147.52 2e2 128 2e2zm80-33.75a97.83 97.83.0 01-16 14.25V134.93l16-8.53zm-20-47.31-.22-.13-56-29.87a8 8 0 00-7.52 14.12L171 128l-43 22.93L25 96 128 41.07 231 96z"
+                                    ></path>
+                                </svg>
+                            </span>
+
+                            <div className="d-flex flex-column" style={{ padding: index === education.length - 1 ? "0 40px 0px 30px" : "0 40px 40px 30px", borderLeft: "1px solid #e5e7eb", gap: "10px" }}>
+                                <div><strong style={{ fontSize: "1.3rem" }}>{edu.major}</strong></div>
+                                <a href={edu.university.url} target="_blank" rel="noopener noreferrer" style={{textDecoration: "none"}}>
+                                    <div style={{ fontSize: "1.2rem" }}>{edu.university.name}</div>
                                 </a>
-                                <Card.Text><strong>Time:</strong> {edu.time} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {edu.GPA}</Card.Text>
-                                <Card.Text><strong>Major:</strong> {edu.major}</Card.Text>
-                                <Card.Text><strong>Main Course:</strong> {edu.course}</Card.Text>
-                            </Card.Body>
-                        </Card>
+                                <div style={{ fontSize: "1.1rem" }}><strong>Time:</strong> {edu.time} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {edu.GPA}</div>
+                                <div style={{ fontSize: "1rem" }}><strong>Main Course:</strong> {edu.course}</div>
+                            </div>
+                        </div>
                     ))}
-                </section>
+                </div>
+            </section>
 
-                {/* Internships & Volunteering Section */}
-                <section>
-                    <h2>Internships & Volunteering</h2>
-                    {internshipsAndVolunteering.map((internship, index) => (
-                        <Card key={index} className="mb-4">
-                            <Card.Body>
-                                <a href={internship.location.url ? internship.location.url : ""} target="_blank" rel="noopener noreferrer">
-                                    {internship.location.logo && <img src={internship.location.logo} alt="Internship Logo" style={{ width: "50px", marginRight: "10px" }} />}
-                                    <Card.Title>{internship.location.name}</Card.Title>
+            {/* Internships & Volunteering Section */}
+            <section id="experience-page-interships" className="d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+                <h2 style={{ fontWeight: "600", fontSize: "4rem" }}>Internships</h2>
+                <div className="d-flex flex-column align-items-center justify-content-center" style={{ margin: "100px 0px" }}>
+                    {internshipsAndVolunteering?.map((internship, index) => (
+                        <div key={index} data-aos="fade-up" style={{width: "60%", margin: "0 100px", position: "relative" }}>
+                            <span
+                                className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
+                                style={{
+                                    height: "40px",
+                                    width: "40px",
+                                    transform: "translate(-50%, -25%)",
+                                    backgroundColor: "#dbeafe", // 可以修改颜色，确保显示正确
+                                }}
+                            >
+                                <svg
+                                    fill="#1e50af"
+                                    viewBox="0 0 256 256"
+                                    className="w-75 h-75"><path
+                                    d="M216 56H176V48a24 24 0 00-24-24H104A24 24 0 0080 48v8H40A16 16 0 0024 72V2e2a16 16 0 0016 16H216a16 16 0 0016-16V72A16 16 0 00216 56zM96 48a8 8 0 018-8h48a8 8 0 018 8v8H96zM216 72v41.61A184 184 0 01128 136a184.07 184.07.0 01-88-22.38V72zm0 128H40V131.64A200.19 200.19.0 00128 152a200.25 200.25.0 0088-20.37V2e2zM104 112a8 8 0 018-8h32a8 8 0 010 16H112a8 8 0 01-8-8z"></path></svg>
+                            </span>
+
+                            <div className="d-flex flex-column" style={{ padding: index === internshipsAndVolunteering.length - 1 ? "0 40px 0px 30px" : "0 40px 40px 30px", borderLeft: "1px solid #e5e7eb", gap: "10px"}}>
+                                <a href={internship.location.url ? internship.location.url : ""} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "400", fontSize: "1.5rem", textDecoration: "none" }}>
+                                    <div >{internship.location.name}</div>
                                 </a>
-                                <Card.Text>{internship.time}</Card.Text>
-                                <Card.Text>{internship.work}</Card.Text>
-                            </Card.Body>
-                        </Card>
+                                <div>{internship.time}</div>
+                                <div>{internship.work}</div>
+                            </div>
+                        </div>
                     ))}
-                </section>
+                </div>
+            </section>
 
-                {/* Research Projects Section */}
-                <section>
-                    <h2>Research Projects</h2>
-                    {researchProjects.map((project, index) => (
-                        <Card key={index} className="mb-4">
-                            <Card.Body>
-                                <a href={project.location.url} target="_blank" rel="noopener noreferrer">
-                                    {project.location.logo && <img src={project.location.logo} alt="Research Logo" style={{ width: "50px", marginRight: "10px" }} />}
-                                    <Card.Title>{project.location.name}</Card.Title>
+            {/* research Section */}
+            <section id="experience-page-research" className="d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+                <h2 style={{ fontWeight: "600", fontSize: "4rem" }}>Research</h2>
+                <div className="d-flex flex-column align-items-center justify-content-center" style={{ margin: "100px 0px" }}>
+                    {researchProjects?.map((research, index) => (
+                        <div key={index} data-aos="fade-up" style={{width: "60%", margin: "0 100px", position: "relative" }}>
+                            <span
+                                className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
+                                style={{
+                                    height: "40px",
+                                    width: "40px",
+                                    transform: "translate(-50%, -25%)",
+                                    backgroundColor: "#dbeafe", // 可以修改颜色，确保显示正确
+                                }}
+                            >
+                                <svg
+                                    fill="#1e50af"
+                                    viewBox="0 0 256 256"
+                                    className="w-75 h-75">
+    <path d="
+        M 136 32
+        H 120
+        a 16 16 0 0 0-16 16
+        v 16
+        H 40
+        A 16 16 0 0 0 24 80
+        v 136
+        a 16 16 0 0 0 16 16
+        h 176
+        a 16 16 0 0 0 16-16
+        V 80
+        a 16 16 0 0 0-16-16
+        h-64
+        V 48
+        a 16 16 0 0 0-16-16
+        z
+        M 120 64
+        h 16
+        v 16
+        h-16
+        z
+        M 216 80
+        v 48
+        a 160 160 0 0 1-80 19
+        a 160 160 0 0 1-80-19
+        V 80
+        h 160
+        z
+        M 128 192
+        a 144 144 0 0 0 72-18
+        v 34
+        H 56
+        v-34
+        a 144 144 0 0 0 72 18
+        z
+        M 112 152
+        h 32
+        a 8 8 0 0 1 0 16
+        H 112
+        a 8 8 0 0 1 0-16
+        z
+    "/>
+</svg>
+
+                            </span>
+
+                            <div className="d-flex flex-column" style={{ padding: index === researchProjects.length - 1 ? "0 40px 0px 30px" : "0 40px 40px 30px", borderLeft: "1px solid #e5e7eb", gap: "10px"}}>
+                                <a href={research.location.url ? research.location.url : ""} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "400", fontSize: "1.5rem", textDecoration: "none" }}>
+                                    <div >{research.location.name}</div>
                                 </a>
-                                <Card.Text>{project.time}</Card.Text>
-                                <Card.Text><strong>Director:</strong> {Array.isArray(project.directors) ? project.directors.map((director, index) => (
-                                    <a key={index} href={director.link} target="_blank" rel="noopener noreferrer">
+                                <div style={{fontWeight: "600", fontSize:"1.3rem"}}>{research.time}</div>
+                                <div><strong>Supervisor: </strong> {research.directors?.map((director, index)=>(
+                                    <a href={director.link ? director.link : ""} target="_blank" rel="noopener noreferrer" style={{textDecoration: "none"}}>
                                         {director.name}
                                     </a>
-                                )) : null}</Card.Text>
-                                <Card.Text>{project.work}</Card.Text>
-                            </Card.Body>
-                        </Card>
+                                ))}</div>
+                                <div>{research.work}</div>
+                            </div>
+                        </div>
                     ))}
-                </section>
+                </div>
+            </section>
 
-                {/* Skills Section */}
-                <section>
-                    <h2>Skills</h2>
+            {/* Skills Section */}
+            <section
+                id="experience-page-skills"
+                className="d-flex flex-column align-items-center justify-content-center"
+                data-aos="fade-up"
+                style={{ margin: "50px 0px 100px 0px" }}
+            >
+                <h2
+                    style={{
+                        fontWeight: "600",
+                        fontSize: "3.5rem",
+                        color: "#343a40",
+                        letterSpacing: "1px",
+                        marginBottom: "50px",
+                    }}
+                >
+                    Skills
+                </h2>
+                <div className="d-flex flex-column align-items-center justify-content-center w-100" style={{gap: "50px"}}>
                     {skills.map((skill, skillIndex) => (
-                        <Card key={skillIndex} className="mb-4">
-                            <Card.Body>
-                                <Card.Title>{skill.field}</Card.Title>
+                        <Card
+                            key={skillIndex}
+                            className="mb-4 w-75 shadow-lg rounded-lg"
+                            data-aos="fade-up"
+                            style={{
+                                border: isDarkMode ? "1px solid #fff" : "1px solid #ddd",
+                                borderRadius: "15px",
+                                transition: "transform 0.3s ease-in-out",
+                                background: "inherit",
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = "scale(1.05)";
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = "scale(1)";
+                            }}
+                        >
+                            <Card.Body style={{ padding: "30px" }}>
+                                <Card.Title
+                                    style={{
+                                        fontSize: "1.8rem",
+                                        fontWeight: "500",
+                                        color: "#007bff",
+                                        marginBottom: "20px",
+                                    }}
+                                >
+                                    {skill.field}
+                                </Card.Title>
                                 {Object.entries(skill.list).map(([key, value], index) => (
                                     Array.isArray(value) ? (
-                                        <div key={index}>
-                                            <strong>{key}:</strong>
-                                            <ListGroup variant="flush">
+                                        <div key={index} className="mb-3">
+                                            <span
+                                                style={{
+                                                    fontSize: "1.6rem",
+                                                    color: isDarkMode ? "#CCC" : "#000",
+                                                }}
+                                            >
+                                                {key}:
+                                            </span>
+                                            <ListGroup variant="flush" style={{ marginTop: "10px" }}>
                                                 {value.map((item, itemIndex) => (
-                                                    <ListGroup.Item key={itemIndex}>{item}</ListGroup.Item>
+                                                    <ListGroup.Item
+                                                        key={itemIndex}
+                                                        style={{
+                                                            backgroundColor: "#f1f3f5",
+                                                            color: "#495057",
+                                                            fontSize: "1.1rem",
+                                                            border: "1px solid #ddd",
+                                                            borderRadius: "10px",
+                                                            marginBottom: "10px",
+                                                        }}
+                                                    >
+                                                        {item}
+                                                    </ListGroup.Item>
                                                 ))}
                                             </ListGroup>
                                         </div>
                                     ) : (typeof value === 'object' ? (
-                                        <div key={index}>
-                                            <strong>{key}:</strong>
+                                        <div key={index} className="mb-3">
+                                            <strong
+                                                style={{
+                                                    fontSize: "1.2rem",
+                                                    color: isDarkMode ? "#ccc" : "#000",
+                                                }}
+                                            >
+                                                {key}:
+                                            </strong>
                                             {Object.entries(value).map(([subKey, subValue], subIndex) => (
-                                                <div key={subIndex}>
-                                                    <strong>{subKey}:</strong>
-                                                    <ListGroup variant="flush">
+                                                <div key={subIndex} className="mb-2">
+                                                    <strong
+                                                        style={{
+                                                            fontSize: "1.1rem",
+                                                            color: "#6c757d",
+                                                        }}
+                                                    >
+                                                        {subKey}:
+                                                    </strong>
+                                                    <ListGroup variant="flush" style={{ marginTop: "10px" }}>
                                                         {Array.isArray(subValue) ? (
                                                             subValue.map((subItem, subItemIndex) => (
-                                                                <ListGroup.Item key={subItemIndex}>{subItem}</ListGroup.Item>
+                                                                <ListGroup.Item
+                                                                    key={subItemIndex}
+                                                                    style={{
+                                                                        backgroundColor: isDarkMode ? "#666666" : "#f1f3f5",
+                                                                        color: isDarkMode ? "#fff" : "#495057",
+                                                                        fontSize: "1rem",
+                                                                        border: "1px solid #ddd",
+                                                                        borderRadius: "10px",
+                                                                        marginBottom: "8px",
+                                                                    }}
+                                                                >
+                                                                    {subItem}
+                                                                </ListGroup.Item>
                                                             ))
                                                         ) : (
-                                                            <ListGroup.Item>{subValue}</ListGroup.Item>
+                                                            <ListGroup.Item
+                                                                style={{
+                                                                    backgroundColor: isDarkMode ? "#666666" : "#f1f3f5",
+                                                                    color: isDarkMode ? "#fff" : "#495057",
+                                                                    fontSize: "1rem",
+                                                                    border: "1px solid #ddd",
+                                                                    borderRadius: "10px",
+                                                                }}
+                                                            >
+                                                                {subValue}
+                                                            </ListGroup.Item>
                                                         )}
                                                     </ListGroup>
                                                 </div>
                                             ))}
                                         </div>
                                     ) : (
-                                        <Card.Text key={index}>
-                                            <strong>{key}:</strong> {value}
+                                        <Card.Text key={index} style={{ marginBottom: "15px" }}>
+                                            <strong
+                                                style={{
+                                                    fontSize: "1.2rem",
+                                                    color: isDarkMode ? "#ccc" : "#000",
+                                                }}
+                                            >
+                                                {key}:
+                                            </strong>{" "}
+                                            <span
+                                                style={{
+                                                    color: "#007bff",
+                                                    fontSize: "1.1rem",
+                                                }}
+                                            >
+                                    {value}
+                                </span>
                                         </Card.Text>
                                     ))
                                 ))}
                             </Card.Body>
                         </Card>
                     ))}
-                </section>
+                </div>
+            </section>
 
-                {/* Awards & Honors Section */}
-                <section>
-                    <h2>Awards & Honors</h2>
+
+            {/* Awards & Honors Section */}
+            <section id="experience-page-awards" className="d-flex flex-column align-items-center justify-content-center" data-aos="fade-up" style={{width: "60%", margin: "0 100px", position: "relative" }}>
+                <h2 style={{ fontWeight: "600", fontSize: "4rem" }}>Awards & Honors</h2>
+                <div style={{ margin: "50px 0px 100px 0px"}}>
                     {awardsAndHonors.map((item, index) => (
-                        <Card key={index} className="mb-4">
-                            <Card.Body>
+                        <Card
+                            key={index}
+                            className="mb-4 shadow-lg rounded-lg"
+                            data-aos="fade-up"
+                            style={{
+                            border: isDarkMode ? "1px solid #fff" : "1px solid #ddd",
+                            borderRadius: "15px",
+                            transition: "transform 0.3s ease-in-out",
+                            background: "inherit"
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = "scale(1.05)";
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = "scale(1)";
+                            }}
+                        >
+                            <Card.Body style={{color: isDarkMode ? "#fff" : "#000"}}>
                                 <Card.Text><strong>{item.name}</strong></Card.Text>
                                 <Card.Text>{item.unit} · {item.time}</Card.Text>
                                 <Card.Text dangerouslySetInnerHTML={{ __html: item.desc }} />
                             </Card.Body>
                         </Card>
                     ))}
-                </section>
-            </Container>
+                </div>
+            </section>
         </div>
     );
 }

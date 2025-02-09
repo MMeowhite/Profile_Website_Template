@@ -1,10 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import useConfig from "../../utils/useConfig";
 import { useTheme } from "../../components/themeProvider";
+import AOS from 'aos'; // 引入AOS库
 
 const Projects = () => {
     const { isDarkMode } = useTheme();
     const { configValue: projectsData, error, loading } = useConfig("pages.projects");
+
+    // 初始化AOS动画
+    useEffect(() => {
+        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
+    }, []);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading projects: {error.message}</p>;
@@ -50,7 +56,7 @@ const Projects = () => {
             </p>
 
             {/* 项目列表 */}
-            <div className="row g-5">
+            <div className="row g-5" data-aos="fade-in">
                 {list &&
                     list.map((item, index) => (
                         <div className="col-12 col-sm-6 col-lg-4" key={index}>

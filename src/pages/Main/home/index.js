@@ -8,6 +8,8 @@ import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { useTheme } from '../../../components/themeProvider';
 import useConfig from "../../../utils/useConfig";
+import AOS from "aos";
+
 
 const Home = () => {
     const [avatar, setAvatar] = useState('');
@@ -21,7 +23,11 @@ const Home = () => {
     const { isDarkMode } = useTheme();
     const { configValue: quote,error,loading } = useConfig('pages.home.quote');
 
+
+
     useEffect(() => {
+        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
+
         const fetchConfig = async () => {
             try {
                 const response = await fetch('/config.json');
@@ -82,14 +88,18 @@ const Home = () => {
             className="d-flex flex-column justify-content-evenly align-items-center"
             style={{ minHeight: '100vh'}}
         >
-            <Row className="d-flex flex-row align-items-stretch text-center w-100">
+            <Row className="d-flex flex-column flex-md-row align-items-center justify-content-center text-center w-100" style={{marginBottom: "50px"}} data-aos="zoom-in">
                 {/* 图片和文字区域 */}
-                <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center gap-2">
+                <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center g-3 mb-4 mb-md-0">
                     <Image
                         src={avatar}
                         alt="avatar"
                         className="img-fluid rounded-circle mb-3"
-                        style={{ width: '200px', height: '200px', objectFit: 'cover' }} // 图片变大
+                        style={{
+                            width: '400px', // 在移动端缩小头像尺寸
+                            height: '400px',
+                            objectFit: 'cover',
+                        }}
                         onMouseEnter={() => setAvatar(hoveredAvatar)} // 鼠标悬停切换头像
                         onMouseLeave={() => setAvatar(defaultAvatar)} // 鼠标移开恢复默认头像
                         onClick={isMobile ? () => setAvatar(avatar === defaultAvatar ? hoveredAvatar : defaultAvatar) : null}
@@ -98,39 +108,48 @@ const Home = () => {
                     <h3>{institution}</h3>
                     <p id="field">{field}</p>
                     <IconNavComponent />
-                    <Nav style={{marginBottom: 0 , padding: 0}}/>
+                    <Nav style={{ marginBottom: 0, padding: 0 }} />
                 </Col>
 
                 {/* About Me 区域 */}
-                <Col xs={12} md={6} className="d-flex flew-column align-items-center justify-content-center" >
-                    <Card style={{...cardStyles, flexGrow: 1, padding: 5}} className="mb-4">
+                <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center">
+                    <Card style={{ ...cardStyles, flexGrow: 1, padding: 5 }} className="mb-4" >
                         <Card.Body>
-                            <Card.Title style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>
-                                <Image src="/img.png" className="img-fluid rounded-circle" style={{width: '2.5rem', height: '2.5rem', objectFit: 'cover'}} /> Hello, I'm MMeowhite!
+                            <Card.Title style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>
+                                <Image
+                                    src="/img.png"
+                                    className="img-fluid rounded-circle"
+                                    style={{ width: '2rem', height: '2rem', objectFit: 'cover' }}
+                                />
+                                Hello, I'm MMeowhite!
                             </Card.Title>
-                            <Card.Subtitle className="mt-2 mb-3" style={{ fontSize: '1.2rem' }}>
+                            <Card.Subtitle className="mt-2 mb-3" style={{ fontSize: '1rem' }}>
                                 I'd like to say something...
                             </Card.Subtitle>
-                            <Card.Text className="text-start" style={{
-                                fontSize: '1rem',
-                                lineHeight: '1.5',
-                                maxHeight: '20rem', // 限制最大高度，出现滚动条
-                                overflowY: 'auto', // 垂直滚动条
-                                }}>
+                            <Card.Text
+                                className="text-start"
+                                style={{
+                                    fontSize: '1.3rem',
+                                    lineHeight: '1.5',
+                                    maxHeight: '600px', // 限制最大高度，出现滚动条
+                                    overflowY: 'auto', // 垂直滚动条
+                                }}
+                            >
                                 {profile}
                             </Card.Text>
-                            <Card.Link href="/" style={{ fontSize: '1rem', marginRight: '10px', textDecoration: 'none' }}>
+                            <Card.Link href="/" style={{ fontSize: '1.1rem', marginRight: '10px', textDecoration: 'none' }}>
                                 Learn More
                             </Card.Link>
-                            <Card.Link href="/" style={{ fontSize: '1rem', textDecoration: 'none' }}>
+                            <Card.Link href="/" style={{ fontSize: '1.1rem', textDecoration: 'none' }}>
                                 Contact Me
                             </Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
+
             {/* Quote 区域 */}
-            <Row xs={12} md={6} className="justify-content-center w-100 mt-5 mb-5">
+            <Row xs={12} md={6} className="justify-content-center w-100" style={{marginBottom: "200px"}} data-aos="fade-up">
                 <Card style={cardStyles}>
                     <Card.Header style={{
                         borderBottom: `1px solid ${isDarkMode ? '#cccccc' : '#444444'}`,
