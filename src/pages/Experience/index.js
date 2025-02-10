@@ -195,7 +195,7 @@ const Experience = () => {
                     style={{
                         fontWeight: "600",
                         fontSize: "3.5rem",
-                        color: "#343a40",
+                        color: isDarkMode ? "#fff" : "#000",
                         letterSpacing: "1px",
                         marginBottom: "50px",
                     }}

@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'; // 引入Boostrap的依赖
 import 'normalize.css'; // 统一浏览器的样式
 import 'aos/dist/aos.css'; // 引入aos样式
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 
 

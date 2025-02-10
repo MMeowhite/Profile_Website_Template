@@ -1,13 +1,17 @@
-/*#feature-publication-carousel .carousel-item {*/
-/*    height: 500px; !* 设置固定高度，值可以根据需求调整 *!*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    overflow: hidden; !* 防止超出部分显示 *!*/
-/*}*/
+.outer {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 10px auto;
+    padding: 0;
+    height: auto;
+}
 
-/*#feature-publication-carousel .carousel-item img {*/
-/*    max-height: 100%;*/
-/*    max-width: 100%;*/
-/*    object-fit: cover; !* 保证图片缩放比例 *!*/
-/*}*/
+.inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}

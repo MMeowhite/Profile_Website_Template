@@ -16,11 +16,11 @@
     "tags": [
   {
     "name": "Single-Cell Sequencing",
-    "link": "/tags/single-cell-sequencing"
+    "link": "single-cell-sequencing"
   },
   {
     "name": "Genomics",
-    "link": "/tags/genomics"
+    "link": "genomics"
   }
   ],
     "isFeatured": false,
@@ -49,11 +49,11 @@
     "tags": [
       {
         "name": "Single-Cell Sequencing",
-        "link": "/tags/single-cell-sequencing"
+        "link": "single-cell-sequencing"
       },
       {
         "name": "Genomics",
-        "link": "/tags/genomics"
+        "link": "genomics"
       }
     ],
     "isFeatured": false,
@@ -82,15 +82,15 @@
     "tags": [
       {
         "name": "Single-Cell Sequencing",
-        "link": "/tags/single-cell-sequencing"
+        "link": "single-cell-sequencing"
       },
       {
         "name": "Genomics",
-        "link": "/tags/genomics"
+        "link": "genomics"
       },
       {
         "name": "RNA-bulk",
-        "link": "/tags/rna-bulk"
+        "link": "rna-bulk"
       }
     ],
     "isFeatured": false,

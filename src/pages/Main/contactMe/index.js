@@ -8,12 +8,14 @@ const ContactMe = () => {
     const { isDarkMode } = useTheme();
 
     return (
-        <div className="contact-container d-flex justify-content-center align-items-center"
+        <div className="contact-container d-flex flex-column justify-content-center align-items-center"
              style={{
                  width: "100vw",
-                 marginTop: "200px"
+                 margin: "50px 0"
         }}
         >
+            <h1 style={{fontWeight: "800", fontSize: "4rem"}}>Contact Me</h1>
+
             {/* Card 组件 */}
             <Card className="p-4" style={{
                 border: "none",

@@ -1,79 +1,49 @@
-.navigate{
+/* 样式修改 */
+.navigate {
     color: inherit;
     font-size: 16px;
     cursor: pointer;
-    padding: 10px; /* 内边距 */
+    padding: 10px;
 }
 
 .navigate ul {
-    display: flex;
-    justify-content: center; /* 均匀分布 li 元素 */
-    list-style: none; /* 去掉 li 的默认样式 */
-    padding: 0 25px; /* 给每个 li 加上内边距，确保与圆点间距一致 */
-    margin: 0 0 30px 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
+/* 原本水平的排列方式修改为垂直布局 */
 .navigate ul li {
-    position: relative;
-    margin: 0 15px; /* 适当增加 li 元素之间的间距 */
-    line-height: 20px; /* 设置行高 */
-}
-
-/* 显示列表与列表之间小圆点的显示 */
-.navigate ul li::before {
-    content: "•"; /* 使用圆点作为伪元素内容 */
-    position: absolute; /* 绝对定位 */
-    left: -20px;
-    top: 45%; /* 垂直居中 */
-    transform: translateY(-50%); /* 向上移动圆点一半的高度 */
-    color: inherit; /* 设置圆点的颜色 */
-    font-size: 20px; /* 设置圆点的大小 */
-}
-
-.navigate ul li:first-child::before {
-    content: ""; /* 第一个 li 前不显示圆点 */
+    margin-bottom: 15px; /* 增加每个导航项之间的间距 */
+    text-align: center; /* 居中对齐 */
 }
 
 .navigate ul li a {
-    background-color: transparent;
-    text-decoration: none; /* 去掉链接的下划线 */
-    color: inherit; /* 调整字体颜色 */
-    font-size: 25px; /* 调衡字体大小 */
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
     font-weight: 700;
 }
 
-.navigate ul li a::after {
-    content: ''; /* 创建伪元素 */
-    display: block; /* 使其为块元素 */
-    width: 100%; /* 宽度与链接相同 */
-    height: 2px; /* 下划线高度 */
-    position: absolute; /* 绝对定位 */
-    left: 0; /* 与链接左对齐 */
-    bottom: 0; /* 距离底部0像素 */
-    transform: scaleX(0); /* 初始状态为隐藏 */
-    transition: transform 0.3s ease; /* 添加过渡效果 */
-}
-
-.navigate ul li a.light::after {
-    background: #000000; /* Light 模式下的下划线颜色 */
-}
-
-.navigate ul li a.dark::after {
-    background: #ffffff; /* Dark 模式下的下划线颜色 */
-}
-
-.navigate ul li a:hover::after {
-    transform: scaleX(1); /* 鼠标悬停时显示下划线 */
-}
-
-
-
-.html-bottom {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    /* 你可以根据需要调整其他样式 */
+/* 通过图标控制导航的显示与隐藏 */
+.toggle-button {
+    display: block;
     text-align: center;
-    margin: 0 auto;
-    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.toggle-button svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* 针对小屏幕时，导航栏会变为纵向展示 */
+@media (max-width: 768px) {
+    .navigate {
+        display: none;
+    }
+    .navigate.vertical-nav {
+        display: block;
+    }
 }

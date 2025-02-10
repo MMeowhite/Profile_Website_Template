@@ -10,7 +10,6 @@ const Timeline = () => {
 
     useEffect(() => {
         if (!timelineData?.length) return; // 确保数据已加载
-        console.log("Timeline Data Loaded:", timelineData);
 
         const items = timelineRef.current.querySelectorAll(".timeline li");
 
@@ -25,11 +24,9 @@ const Timeline = () => {
         };
 
         const callbackFunc = () => {
-            console.log("Scroll detected");
             items.forEach((item) => {
                 if (isElementInViewport(item)) {
                     item.classList.add("in-view");
-                    console.log("Element in view:", item);
                 }
             });
         };
@@ -55,7 +52,11 @@ const Timeline = () => {
                         <div style={{
                             borderWidth: "2px",
                             borderStyle: "solid", // 指定边框样式
-                            borderColor: isDarkMode ? "#fff" : "#000",  // 确保边框颜色可见, color:
+                            borderColor: isDarkMode ? "#fff" : "#000",
+                            borderRadius: '10px', // 可选圆角
+                            boxShadow: isDarkMode
+                                ? '0 8px 12px rgba(255, 255, 255, 0.5)' // 深色模式下的阴影
+                                : '0 8px 12px rgba(0, 0, 0, 0.5)', // 浅色模式下的阴影
                         }}
                         >
                             <time>{item.year}</time>

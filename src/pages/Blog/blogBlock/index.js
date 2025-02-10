@@ -126,7 +126,7 @@ const BlogCard = ({ blogItem }) => {
                     {blogItem.tags.map((tag, index) => (
                         <a
                             key={index}
-                            href={`/tag/${tag.link}`}
+                            href={tag.link? `/tags/${tag.link}` : ""}
                             className="text-uppercase font-weight-bold text-decoration-none"
                             style={{
                                 fontSize: "1rem",

@@ -63,7 +63,7 @@ const Home = () => {
 
     // 设置card的样式
     const cardStyles = {
-        backgroundColor: isDarkMode ? '#333333' : '#ffffff',
+        background: "inherit",
         color: isDarkMode ? '#ffffff' : '#000000',
         border: `2px solid ${isDarkMode ? '#cccccc' : '#444444'}`, // 卡片边框
         borderRadius: '10px', // 可选圆角
@@ -85,6 +85,7 @@ const Home = () => {
 
     return (
         <Container
+            id="#home"
             className="d-flex flex-column justify-content-evenly align-items-center"
             style={{ minHeight: '100vh'}}
         >
@@ -131,7 +132,7 @@ const Home = () => {
                                 style={{
                                     fontSize: '1.3rem',
                                     lineHeight: '1.5',
-                                    maxHeight: '600px', // 限制最大高度，出现滚动条
+                                    maxHeight: '400px', // 限制最大高度，出现滚动条
                                     overflowY: 'auto', // 垂直滚动条
                                 }}
                             >
@@ -149,7 +150,7 @@ const Home = () => {
             </Row>
 
             {/* Quote 区域 */}
-            <Row xs={12} md={6} className="justify-content-center w-100" style={{marginBottom: "200px"}} data-aos="fade-up">
+            <Row xs={12} md={6} className="justify-content-center w-100" style={{marginBottom: "100px"}} data-aos="fade-up">
                 <Card style={cardStyles}>
                     <Card.Header style={{
                         borderBottom: `1px solid ${isDarkMode ? '#cccccc' : '#444444'}`,
