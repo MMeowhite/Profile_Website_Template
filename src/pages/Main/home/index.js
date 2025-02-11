@@ -85,7 +85,7 @@ const Home = () => {
 
     return (
         <Container
-            id="#home"
+            id="home"
             className="d-flex flex-column justify-content-evenly align-items-center"
             style={{ minHeight: '100vh'}}
         >

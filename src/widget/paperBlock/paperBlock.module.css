@@ -7,7 +7,6 @@
     padding: 20px;
     background-color: inherit;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 单条文献的外框 */
@@ -19,17 +18,17 @@
     padding: 10px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 24px 12px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.2s ease-in-out;
 }
 
 .referenceItemFrame:hover {
-    box-shadow: 0 0 24px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 24px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* 图片部分的容器 */
 .imgContainer {
-    flex: 0 0 30%; /* 固定图片区域占父容器的25%宽度 */
+    flex: 0 0 30%; /* 固定图片区域占父容器的30%宽度 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +64,6 @@
 .referenceTitle {
     font-size: 1.6em;
     font-weight: bold;
-    color: #333;
     margin: 0;
 }
 
@@ -73,7 +71,6 @@
 .referenceAuthors {
     font-size: 1.2em;
     font-style: italic;
-    color: #555;
     margin: 0;
 }
 

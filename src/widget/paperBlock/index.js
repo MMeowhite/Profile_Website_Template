@@ -3,10 +3,12 @@ import styles from './paperBlock.module.css';
 import { parseReferenceContent } from "../../utils/referencesParser";
 import { Link } from "react-router-dom";
 import useConfig from "../../utils/useConfig";
-// import {useTheme} from "../../components/themeProvider";
+import AOS from "aos";
+import {useTheme} from "../../components/themeProvider";
+
 
 const PaperBlock = () => {
-    // const { isDarkMode } = useTheme();
+    const { isDarkMode } = useTheme();
     const [references, setReferences] = useState([]);
     const { configValue: referenceConfig, loading, error } = useConfig('references');
 
@@ -21,6 +23,10 @@ const PaperBlock = () => {
             console.error("Error loading reference file:", error);
         }
     };
+
+    useEffect(()=>{
+        AOS.init({ duration: 1000, once: true })
+    },[])
 
     // 使用 useEffect 来获取引用文件的 URL 或直接的引用数据
     useEffect(() => {
@@ -57,22 +63,22 @@ const PaperBlock = () => {
                 const imageSrc = reference.image || '/images/avatar.png'; // 图片，如果没有则使用默认图片
 
                 return (
-                    <div key={index} className={styles.referenceItemFrame} style={{background: "inherit"}}>
+                    <div key={index} className={styles.referenceItemFrame} style={{background: "inherit", boxShadow: isDarkMode ? "0 4px 8px rgba(255, 255, 255, 0.1)" : "0 4px 8px rgba(0, 0, 0, 0.1)"}} data-aos="fade-up">
                         {/* Image Section */}
                         <div className={styles.imgContainer}>
-                            <img src={imageSrc} alt="Author" className={styles.referenceImage} />
+                            <img src={imageSrc} alt="Author" className={styles.referenceImage}/>
                         </div>
 
                         {/* Content Section */}
                         <div className={styles.contentContainer}>
                             <div className={styles.referenceItem} >
-                                <h4 className={styles.referenceTitle}>{reference.title}</h4>
-                                <h5 className={styles.referenceAuthors}>{authors}</h5>
+                                <h4 className={styles.referenceTitle} style={{font: isDarkMode ? "#666" : "#333"}}>{reference.title}</h4>
+                                <h5 className={styles.referenceAuthors} style={{font: isDarkMode ? "#777" : "#555"}}>{authors}</h5>
                                 <p className={styles.referenceAbstract}>{reference.abstract}</p>
                                 <p className={styles.referenceIntro}>
-                                    <b>Journal: </b>  {reference.journal} &emsp;
-                                    <b>DOI:</b>  <Link to={reference.doi} className={styles.referenceLink}>{reference.doi}</Link> &emsp;
-                                    <b>Year:</b>  {reference.year}
+                                    <strong>Journal: </strong>  {reference.journal} &emsp;
+                                    <strong>DOI:</strong>  <Link to={reference.doi} className={styles.referenceLink}>{reference.doi}</Link> &emsp;
+                                    <strong>Year:</strong>  {reference.year}
                                 </p>
                             </div>
                         </div>

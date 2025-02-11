@@ -1,22 +1,25 @@
 /* 导航栏基础样式 */
 .navbar {
     position: fixed;
-    width: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100px;
     padding: 0 1.5rem; /* 添加左右内边距 */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    white-space: nowrap;
     z-index: 999999;
     transition: background-color 0.3s ease, color 0.3s ease, top 0.3s ease-in-out;
-    top: 0px;
 }
 
-.navbar-show {
+
+.navbarShow {
     opacity: 0;
 }
 
-.navbar-hide {
+.navbarHide {
     opacity: 1;
 }
 
@@ -141,4 +144,76 @@ button:hover {
 .navbar-toggler-icon::after {
     top: 6px; /* 下部横线 */
 }
+
+
+/* 以下是全屏nav的样式控制
+ --------------------------------------------*/
+.fullScreenNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    color: inherit;
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+/* 假设 styles.fullScreenNav 是全屏菜单的容器 */
+.fullScreenNav {
+    position: relative;
+    /* 其他样式 */
+}
+
+/* 关闭按钮样式 */
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: inherit; /* 或根据背景颜色设置关闭按钮颜色 */
+}
+
+/*搜索栏
+----------*/
+.container {
+    position: fixed;
+    bottom: 0;
+    top:100px;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+    height: 20px;
+}
+
+.input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 300px
+}
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 

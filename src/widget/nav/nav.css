@@ -6,19 +6,34 @@
     padding: 10px;
 }
 
-.navigate ul {
+.horizontal-nav ul {
+    display: flex;
+    flex-flow: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-nav ul {
+    display: flex;
+    flex-flow: column;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 /* 原本水平的排列方式修改为垂直布局 */
-.navigate ul li {
+.horizontal-nav ul li {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 15px; /* 增加每个导航项之间的间距 */
     text-align: center; /* 居中对齐 */
 }
 
 .navigate ul li a {
+    white-space: nowrap;
     text-decoration: none;
     color: inherit;
     font-size: 25px;
@@ -36,14 +51,4 @@
 .toggle-button svg {
     width: 30px;
     height: 30px;
-}
-
-/* 针对小屏幕时，导航栏会变为纵向展示 */
-@media (max-width: 768px) {
-    .navigate {
-        display: none;
-    }
-    .navigate.vertical-nav {
-        display: block;
-    }
 }

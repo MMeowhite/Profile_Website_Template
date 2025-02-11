@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Nav, Button, Col, Row } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import styles from "./topNavBar.module.css";
 import icons from "../../assets/icons";
 import useConfig from "../../utils/useConfig";
+import throttle from 'lodash/throttle';
 
 const TopNavBar = ({ isDarkMode, toggleTheme }) => {
     const { configValue: topNavBarItemObject, loading, error } = useConfig("widgets.topNavBar");
     const [topNavItem, setTopNavItem] = useState({ title: "", link: [] });
     const isSmallScreen = useMediaQuery({ maxWidth: 768 });
-    const [isClosed, setIsClosed] = useState(false); // 汉堡菜单的显示与隐藏
 
     const [lastScrollY, setLastScrollY] = useState(0); // 记录上次的y轴位置
     const [isVisible, setIsVisible] = useState(true); // 状态控制Navbar显示与否
     const [timer, setTimer] = useState(null); // 自动隐藏定时器
     const [isScrollingDown, setIsScrollingDown] = useState(false); // 判断是否向下滚动
+    const [isNavOpen, setIsNavOpen] = useState(false); // 控制全屏导航是否打开
+
+    const [isSearchOpen, setIsSearchOpen] = useState(false); //控制搜索是否打开
+    const [searchTerm, setSearchTerm] = useState('');
+    const handleInputChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+    const handleSearch = () => {
+        console.log('Searching for:', searchTerm);
+        // 这里可以添加实际的搜索逻辑，比如调用API
+    };
 
     // 获取字体大小
     const getFontSize = () => {
@@ -53,6 +64,7 @@ const TopNavBar = ({ isDarkMode, toggleTheme }) => {
         resetAutoHideTimer(); // 每次滚动时重置定时器
     };
 
+
     // 鼠标悬停处理：鼠标悬停到指定区域时，显示Navbar
     const handleMouseEnter = () => {
         if (window.scrollY < 100) {
@@ -86,7 +98,7 @@ const TopNavBar = ({ isDarkMode, toggleTheme }) => {
 
     // 自动隐藏Navbar功能
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", throttle(handleScroll, 200));
         window.addEventListener("click", handleUserInteraction); // 监听点击事件
         window.addEventListener("mousemove", handleUserInteraction); // 监听鼠标移动事件
 
@@ -95,7 +107,7 @@ const TopNavBar = ({ isDarkMode, toggleTheme }) => {
         document.addEventListener("mouseleave", handleMouseLeave);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", throttle(handleScroll, 200));
             window.removeEventListener("click", handleUserInteraction); // 清理点击事件监听
             window.removeEventListener("mousemove", handleUserInteraction); // 清理鼠标移动事件监听
             document.removeEventListener("mouseenter", handleMouseEnter);
@@ -118,93 +130,137 @@ const TopNavBar = ({ isDarkMode, toggleTheme }) => {
     }
 
     return (
-        <Navbar
-            expand="lg"
-            className={`${styles.navbar} ${isDarkMode ? styles.darkMode : styles.lightMode} ${isVisible ? styles.navbarShow : styles.navbarHide}`}
-            style={{
-                transition: "top 0.3s ease-in-out, opacity 0.3s ease", // 添加平滑动画
-                opacity: isVisible ? 1 : 0, // 添加渐变效果
-                top: isVisible ? "0" : "-100px", // 控制navbar位置
-                position: "fixed"
-            }}
-            onMouseEnter={handleMouseEnter} // 鼠标悬浮时显示Navbar
-            onMouseLeave={handleMouseLeave} // 鼠标离开时隐藏Navbar
-        >
-            <Row className="align-items-center w-100 px-3">
-                {/* 左侧标题部分 */}
-                <Col xs="auto" className="text-start">
-                    <Navbar.Brand
-                        href="/"
-                        style={{
-                            color: isDarkMode ? "#ffffff" : "#000000", // 根据主题动态设置颜色
-                            fontSize: getFontSize(),
-                            fontWeight: "bold",
-                            transition: "font-size 0.3s ease",
-                            marginLeft: "2rem"
-                        }}
-                    >
-                        {topNavItem.title}
-                    </Navbar.Brand>
-                </Col>
-
-                {/* 中间导航部分 */}
-                <Col className="text-center">
-                    <Navbar.Collapse id="navbar-content" className="justify-content-center">
-                        <Nav style={{ gap: "5rem" }} className="d-flex flex-row justify-content-center align-items-center">
-                            {topNavItem.link.map((link, index) => (
-                                <Nav.Link
-                                    key={index}
-                                    href={link.link}
-                                    className={`${styles.link}`}
-                                    style={{ fontSize: "1.5rem", fontWeight: "500" }}
-                                >
-                                    {link.name}
-                                </Nav.Link>
-                            ))}
-                        </Nav>
-                    </Navbar.Collapse>
-                </Col>
-
-                {/* 右侧按钮部分 */}
-                <Col xs="auto" className="d-flex flex-row align-items-center gap-3 text-end">
-                    {/* 搜索按钮 */}
-                    <Button
-                        variant="outline-secondary"
-                        className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none" }}
-                    >
-                        {icons.search()}
-                    </Button>
-
-                    {/* 主题切换按钮 */}
-                    <Button
-                        variant="outline-secondary"
-                        onClick={toggleTheme}
-                        className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none" }}
-                    >
-                        {isDarkMode ? icons.moon() : icons.sun()}
-                    </Button>
-
-                    <Navbar.Toggle
-                        aria-controls="navbar-content"
-                        className={`${isDarkMode ? "text-white" : "text-dark"}`}
-                        style={{ border: "none" }}
-                    >
-                        <Button
-                            style={{ boxShadow: "none" }}
-                            variant="outline-secondary"
-                            className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                            onClick={() => {
-                                setIsClosed(!isClosed);
+            <Navbar
+                id="topNavBar"
+                expand="lg"
+                className={`${styles.navbar} ${isDarkMode ? styles.darkMode : styles.lightMode} ${isVisible ? styles.navbarShow : styles.navbarHide}`}
+                style={{
+                    transition: "top 0.3s ease-in-out, opacity 0.3s ease", // 添加平滑动画
+                    opacity: isVisible ? 1 : 0, // 添加渐变效果
+                    top: isVisible ? "0" : "-100px", // 控制navbar位置
+                    position: "fixed",
+                }}
+                onMouseEnter={handleMouseEnter} // 鼠标悬浮时显示Navbar
+                onMouseLeave={handleMouseLeave} // 鼠标离开时隐藏Navbar
+            >
+                <div className="d-flex flex-row align-items-center justify-content-between" style={{whiteSpace: "nowrap", width: "100%", margin: "auto 0", height: "100px"}}>
+                    {/* 左侧标题部分 */}
+                    <div>
+                        <Navbar.Brand
+                            href="/"
+                            style={{
+                                color: isDarkMode ? "#ffffff" : "#000000", // 根据主题动态设置颜色
+                                fontSize: getFontSize(),
+                                fontWeight: "bold",
+                                transition: "font-size 0.3s ease",
+                                marginLeft: "2rem"
                             }}
                         >
-                            {isClosed ? icons.close() : icons.open()}
+                            {topNavItem.title}
+                        </Navbar.Brand>
+                    </div>
+
+                    {/* 中间导航部分 */}
+                    <div>
+                        <Navbar.Collapse id="navbar-content" className="justify-content-center">
+                            <Nav style={{ gap: "5rem" }} className="d-flex flex-row justify-content-center align-items-center">
+                                {topNavItem.link.map((link, index) => (
+                                    <Nav.Link
+                                        key={index}
+                                        href={link.link}
+                                        className={`${styles.link}`}
+                                        style={{ fontSize: "1.5rem", fontWeight: "500" }}
+                                    >
+                                        {link.name}
+                                    </Nav.Link>
+                                ))}
+                            </Nav>
+                        </Navbar.Collapse>
+                    </div>
+
+                    {/* 右侧按钮部分 */}
+                    <div className="d-flex flex-row align-items-center gap-3 text-end" style={{marginRight: "2rem"}}>
+                        {/* 搜索按钮 */}
+                        <Button
+                            aria-label="Toggle theme"
+                            variant="outline-secondary"
+                            className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
+                            style={{ boxShadow: "none" }}
+                            onClick={() => {
+                                setIsSearchOpen(!isSearchOpen)
+                                setIsVisible(true)
+                                setTimer()
+                            }}
+                        >
+                            {icons.search()}
                         </Button>
-                    </Navbar.Toggle>
-                </Col>
-            </Row>
-        </Navbar>
+
+                        {/* 主题切换按钮 */}
+                        <Button
+                            aria-label="Toggle theme"
+                            variant="outline-secondary"
+                            onClick={toggleTheme}
+                            className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
+                            style={{ boxShadow: "none" }}
+                        >
+                            {isDarkMode ? icons.moon() : icons.sun()}
+                        </Button>
+
+                        {/* 全局汉堡按钮 */}
+                        {isSmallScreen && (
+                            <Button
+                                aria-label="Toggle theme"
+                                style={{ boxShadow: "none" }}
+                                variant="outline-secondary"
+                                className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
+                                onClick={() => {
+                                    setIsNavOpen(!isNavOpen)
+                                }}
+                            >
+                                {isNavOpen ? icons.close() : icons.open()}
+                            </Button>
+                        )}
+                    </div>
+                </div>
+                {/* 搜索按钮 */}
+                { isSearchOpen && (
+                    <div className={styles.container}>
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={searchTerm}
+                            onChange={handleInputChange}
+                            className={styles.input}
+                        />
+                        <Button onClick={handleSearch} className={styles.button}>
+                            Search
+                        </Button>
+                    </div>
+                )}
+
+
+                {/* 全屏导航菜单 */}
+                {isNavOpen && isSmallScreen && (
+                    <div className={styles.fullScreenNav} style={{background: isDarkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)"}}>
+                        <div className={`${styles.navContent}`}>
+                            <Nav className="d-flex flex-column align-items-center justify-content-center">
+                                {topNavItem.link.map((link, index) => (
+                                    <Nav.Link
+                                        key={index}
+                                        href={link.link}
+                                        className={`${styles.link}`}
+                                        style={{ fontSize: "2rem", fontWeight: "500", padding: "1rem" }}
+                                        onClick={() => setIsNavOpen(false)} // 点击链接后关闭菜单
+                                    >
+                                        {link.name}
+                                    </Nav.Link>
+                                ))}
+                            </Nav>
+                        </div>
+                    </div>
+                )}
+            </Navbar>
+
     );
 };
 

@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 import BaiduMap from "../../../utils/baiduMap";
 import {useTheme} from "../../../components/themeProvider";
+import AOS from "aos";
 
 const ContactMe = () => {
 
     const { isDarkMode } = useTheme();
+
+    useEffect(()=>{
+        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
+    },[])
 
     return (
         <div className="contact-container d-flex flex-column justify-content-center align-items-center"
@@ -14,16 +19,20 @@ const ContactMe = () => {
                  margin: "50px 0"
         }}
         >
-            <h1 style={{fontWeight: "800", fontSize: "4rem"}}>Contact Me</h1>
+            <h1 style={{fontWeight: "800", fontSize: "4rem"}} data-aos="fade-up">Contact Me</h1>
 
             {/* Card 组件 */}
-            <Card className="p-4" style={{
+            <Card
+                className="p-4"
+                style={{
                 border: "none",
                 height: "auto",
                 width: "80vw",
                 background: "inherit",
                 color: "inherit"
-            }}>
+                }}
+                data-aos="fade-up"
+            >
 
                 {/* 使用 Bootstrap 的 Row + Col 实现响应式布局 */}
                 <Card.Body className="d-flex flex-column">

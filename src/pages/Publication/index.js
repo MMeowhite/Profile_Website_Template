@@ -3,6 +3,8 @@ import PaperBlock from "../../widget/paperBlock";
 
 
 const Publication = () => {
+
+
     return (
         <div style={{
             marginTop: "8rem",
@@ -13,7 +15,7 @@ const Publication = () => {
             <p style={{
                 fontFamily: "inherit", // 继承父级字体
                 fontStyle: "inherit",   // 正常字体样式（或 italic/oblique）
-                fontWeight: "900",
+                fontWeight: "800",
                 fontSize: "5rem",   // 字体大小设为 20rem
             }}>
                 Publication List

@@ -48,7 +48,7 @@ const ExperienceSection = () => {
 
     return (
         <div
-            id="#education"
+            id="education"
             className="d-flex flex-column justify-content-center align-items-center"
             style={{
                 width: "100vw",

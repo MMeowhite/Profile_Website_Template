@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Row } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 import Slider from 'react-slick'; // 导入 react-slick
 import Image from 'react-bootstrap/Image';
 import { useTheme } from '../../../components/themeProvider';
-import { useNavigate } from 'react-router-dom';
 import useConfig from "../../../utils/useConfig";
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import './publicationSection.css';
+import AOS from "aos";
 
 
 const PublicationSection = () => {
@@ -14,8 +14,11 @@ const PublicationSection = () => {
     const [isFlexColumn, setIsFlexColumn] = useState(false);
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const navigate = useNavigate();
     const { configValue: featuredPublicationObjects } = useConfig('pages.home.featuredPublications');
+
+    useEffect(()=>{
+        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
+    },[])
 
     useEffect(() => {
         const handleResize = () => setIsFlexColumn(window.innerWidth <= 996);
@@ -128,6 +131,7 @@ const PublicationSection = () => {
                                 fontWeight: '800',
                                 marginBottom: '2rem', // 给标题下方加一些空间
                             }}
+                            data-aos="zoom-in"
                         >
                             Featured <br /> Publications
                         </h1>
@@ -149,6 +153,7 @@ const PublicationSection = () => {
                                 maxHeight: "80vh",
                                 ...cardStyles,
                             }}
+                            data-aos="zoom-in"
                         >
                             {/* 作者、日期、期刊 */}
                             {featuredPublicationObjects?.map((featuredPublicationObject, index) => {
