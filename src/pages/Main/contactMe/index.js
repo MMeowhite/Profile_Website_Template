@@ -3,9 +3,10 @@ import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 import BaiduMap from "../../../utils/baiduMap";
 import {useTheme} from "../../../components/themeProvider";
 import AOS from "aos";
+import {useMediaQuery} from "react-responsive";
 
 const ContactMe = () => {
-
+    const isSmallScreen = useMediaQuery({maxWidth : 768})
     const { isDarkMode } = useTheme();
 
     useEffect(()=>{
@@ -15,11 +16,13 @@ const ContactMe = () => {
     return (
         <div className="contact-container d-flex flex-column justify-content-center align-items-center"
              style={{
-                 width: "100vw",
-                 margin: "50px 0"
+                 width: "100%",
+                 height: "auto",
+                 gap: "25px",
+                 marginBottom: "110px"
         }}
         >
-            <h1 style={{fontWeight: "800", fontSize: "4rem"}} data-aos="fade-up">Contact Me</h1>
+            <h1 style={{fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px"}} data-aos="fade-up">Contact Me</h1>
 
             {/* Card 组件 */}
             <Card
@@ -29,7 +32,7 @@ const ContactMe = () => {
                 height: "auto",
                 width: "80vw",
                 background: "inherit",
-                color: "inherit"
+                color: "inherit",
                 }}
                 data-aos="fade-up"
             >
@@ -39,7 +42,7 @@ const ContactMe = () => {
                     <Row className="d-flex align-items-stretch">
                         {/* 左侧 表单 */}
                         <Col xs={12} md={5} className="mb-4 mb-md-0">
-                            <Card.Header className="text-center" style={{ fontSize: '2rem', fontWeight: '700', background: isDarkMode ? "lightgray" :"darkgray" }}>
+                            <Card.Header className="text-center" style={{ fontSize: isSmallScreen ? "24px" : "26px" , fontWeight: '600', background: isDarkMode ? "lightgray" :"darkgray" }}>
                                 Let's stay connected !
                             </Card.Header>
                             <strong className="text-center d-block mb-3" style={{ color: "darkblue" }}>

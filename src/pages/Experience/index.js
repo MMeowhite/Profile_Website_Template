@@ -59,7 +59,7 @@ const Experience = () => {
                                 <a href={edu.university.url} target="_blank" rel="noopener noreferrer" style={{textDecoration: "none"}}>
                                     <div style={{ fontSize: "1.2rem" }}>{edu.university.name}</div>
                                 </a>
-                                <div style={{ fontSize: "1.1rem" }}><strong>Time:</strong> {edu.time} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {edu.GPA}</div>
+                                <div style={{ fontSize: "1.1rem", whiteSpace: "nowrap" }}><strong>Time:</strong> {edu.time} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {edu.GPA}</div>
                                 <div style={{ fontSize: "1rem" }}><strong>Main Course:</strong> {edu.course}</div>
                             </div>
                         </div>

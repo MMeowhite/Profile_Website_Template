@@ -18,10 +18,10 @@ const routers = [
         element: <Layout />,
         children: [
             // 通过Layout设置的Outlet组件渲染子路由
-            {path:"/", element: <Main />},
+            {path: "/", element: <Main />},
             {path: "/experience", element: <Experience />},
-            {path:"/publication", element: <Publication />},
-            {path:"/projects", element: <Projects />},
+            {path: "/publication", element: <Publication />},
+            {path: "/projects", element: <Projects />},
             {
                 path:"/blog",
                 element: <Blog />,

@@ -7,7 +7,7 @@ import useConfig from "./utils/useConfig"
 
 
 function App() {
-    const { configValue: website_title} = useConfig('website_title');
+    const { configValue: website_title} = useConfig('websiteTitle');
 
     // setting website title
     document.title = website_title

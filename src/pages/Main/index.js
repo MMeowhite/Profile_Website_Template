@@ -1,19 +1,23 @@
-import React from 'react';
-import Home from "./home";
-import ContactMe from "./contactMe";
-import PublicationSection from "./publicationSection";
-import ExperienceSection from "./experienceSection";
-import CV from "./cv";
+import React, { lazy, Suspense } from 'react';
+
+// 进行懒加载
+const Home = lazy(()=>import ("./home"))
+const ExperienceSection = lazy(() => import("./experienceSection"))
+const PublicationSection = lazy(()=>import("./publicationSection"))
+const CV = lazy(()=>import("./cv"))
+const ContactMe = lazy(()=>import("./contactMe"))
 
 const Main = () => {
     return (
-        <div id="main-page" className="d-flex flex-column align-items-center" style={{marginTop: "110px"}}>
-            <Home />
-            <ExperienceSection />
-            <PublicationSection />
-            <CV />
-            <ContactMe />
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+            <div id="main-page" className="d-flex flex-column align-items-center" style={{marginTop: "110px", width: "100vw", gap: "100px"}}>
+                <Home />
+                <ExperienceSection />
+                <PublicationSection />
+                <CV />
+                <ContactMe />
+            </div>
+        </Suspense>
     );
 };
 

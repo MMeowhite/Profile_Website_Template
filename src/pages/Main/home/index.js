@@ -4,76 +4,50 @@ import IconNavComponent from '../../../widget/iconNavComponent';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { useTheme } from '../../../components/themeProvider';
 import useConfig from "../../../utils/useConfig";
 import AOS from "aos";
+import {useMediaQuery} from "react-responsive";
+
 
 
 const Home = () => {
-    const [avatar, setAvatar] = useState('');
-    const [hoveredAvatar, setHoveredAvatar] = useState('');
-    const [defaultAvatar, setDefaultAvatar] = useState('');
-    const [name, setName] = useState('');
-    const [institution, setInstitution] = useState('');
-    const [field, setField] = useState('');
-    const [profile, setProfile] = useState('');
-    const [isMobile, setIsMobile] = useState(false); // 用来判断是否为手机屏幕
+    const { configValue: homeData,error,loading } = useConfig('pages.home');
+    const [  avatarImg, setAvatarImg ] = useState(null)
+    const isSmallScreen = useMediaQuery({ maxWidth: 768 }); // 记录是否为小屏
     const { isDarkMode } = useTheme();
-    const { configValue: quote,error,loading } = useConfig('pages.home.quote');
-
-
-
-    useEffect(() => {
-        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
-
-        const fetchConfig = async () => {
-            try {
-                const response = await fetch('/config.json');
-                const data = await response.json();
-                setAvatar(data.pages.home.avatar.init);
-                setDefaultAvatar(data.pages.home.avatar.init); // 保存默认头像
-                setHoveredAvatar(data.pages.home.avatar.hovered); // 保存悬停头像
-                setName(data.pages.home.name);
-                setInstitution(data.pages.home.institution);
-                setField(data.pages.home.field);
-                setProfile(data.pages.home.profile);
-            } catch (error) {
-                console.error('Error fetching config:', error);
-            }
-        };
-        fetchConfig();
-    }, []);
-
-
-    // 监听窗口大小变化
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768); // 假设 768px 以内为手机设备
-        };
-
-        window.addEventListener('resize', handleResize);
-        handleResize(); // 初始时判断一次
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     // 设置card的样式
-    const cardStyles = {
+    const aboutCardStyles = {
+        background: "inherit",
+        color: isDarkMode ? '#ffffff' : '#000000',
+        padding: '20px', // 内边距
+        width: '100%', // 卡片填充整个Col
+        height: '100%',
+    };
+
+    const quoteCardStyles = {
         background: "inherit",
         color: isDarkMode ? '#ffffff' : '#000000',
         border: `2px solid ${isDarkMode ? '#cccccc' : '#444444'}`, // 卡片边框
         borderRadius: '10px', // 可选圆角
-        padding: '20px', // 内边距
         width: '100%', // 卡片填充整个Col
         height: '100%',
         boxShadow: isDarkMode
             ? '0 8px 12px rgba(255, 255, 255, 0.5)' // 深色模式下的阴影
             : '0 8px 12px rgba(0, 0, 0, 0.5)', // 浅色模式下的阴影
     };
+
+    useEffect(() => {
+        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
+    }, []);
+
+    useEffect(()=>{
+        if (homeData && homeData.avatar) {
+            setAvatarImg(homeData.avatar.init)
+        }
+    },[homeData])
 
     if (error){
         return <div>Loading homeConfiguration error: {error}</div>
@@ -83,75 +57,82 @@ const Home = () => {
         return <div>Loading...</div>
     }
 
+    const { avatar, name, institution, field, greeting, quote} = homeData
+
+
     return (
-        <Container
+        <div
             id="home"
             className="d-flex flex-column justify-content-evenly align-items-center"
-            style={{ minHeight: '100vh'}}
+            style={{ height: '100%', gap: "25px" ,width: "100vw"}}
         >
-            <Row className="d-flex flex-column flex-md-row align-items-center justify-content-center text-center w-100" style={{marginBottom: "50px"}} data-aos="zoom-in">
+            <Row className="d-flex flex-column flex-md-row align-items-center justify-content-center text-center w-100" data-aos="zoom-in">
                 {/* 图片和文字区域 */}
                 <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center g-3 mb-4 mb-md-0">
                     <Image
-                        src={avatar}
+                        src={ avatarImg }
                         alt="avatar"
                         className="img-fluid rounded-circle mb-3"
                         style={{
-                            width: '400px', // 在移动端缩小头像尺寸
-                            height: '400px',
+                            width: isSmallScreen ? "300px" : '400px',
+                            height: isSmallScreen ? "300px" : '400px',
                             objectFit: 'cover',
                         }}
-                        onMouseEnter={() => setAvatar(hoveredAvatar)} // 鼠标悬停切换头像
-                        onMouseLeave={() => setAvatar(defaultAvatar)} // 鼠标移开恢复默认头像
-                        onClick={isMobile ? () => setAvatar(avatar === defaultAvatar ? hoveredAvatar : defaultAvatar) : null}
+                        onMouseEnter={() => setAvatarImg(avatar.hovered)} // 鼠标悬停切换头像
+                        onMouseLeave={() => setAvatarImg(avatar.init)} // 鼠标移开恢复默认头像
+                        onClick={isSmallScreen ? () => setAvatarImg(avatarImg === avatar.init ? avatar.hovered : avatar.init) : null}
                     />
-                    <h2 className="mt-3">{name}</h2>
-                    <h3>{institution}</h3>
-                    <p id="field">{field}</p>
-                    <IconNavComponent />
-                    <Nav style={{ marginBottom: 0, padding: 0 }} />
+                    <div id="name"style={{fontSize: isSmallScreen ? "clamp(1rem, 10vw, 4rem)" : "clamp(1rem, 6vw, 3rem)", fontWeight: "900",  marginBottom: "1.5rem", whiteSpace: "nowrap", overflow: "hidden", width: "100vw"}}>
+                        <div>{name.nickName}</div>
+                        <div>{name.realName}</div>
+                    </div>
+                    <div style={{fontSize: isSmallScreen ? "2rem" : "1.5rem", fontWeight: "400", marginBottom: "1.5rem", whiteSpace: "nowrap"}}>{institution}</div>
+                    <p id="field" style={{fontSize: "fit-content", fontWeight: "400",  marginBottom: "1.5rem", whiteSpace: "nowrap", overflow: "hidden", width: "100vw"}}>{field}</p>
                 </Col>
 
                 {/* About Me 区域 */}
-                <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center">
-                    <Card style={{ ...cardStyles, flexGrow: 1, padding: 5 }} className="mb-4" >
-                        <Card.Body>
-                            <Card.Title style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>
-                                <Image
-                                    src="/img.png"
-                                    className="img-fluid rounded-circle"
-                                    style={{ width: '2rem', height: '2rem', objectFit: 'cover' }}
-                                />
-                                Hello, I'm MMeowhite!
-                            </Card.Title>
-                            <Card.Subtitle className="mt-2 mb-3" style={{ fontSize: '1rem' }}>
-                                I'd like to say something...
-                            </Card.Subtitle>
-                            <Card.Text
+                <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center" >
+                    <div style={{ ...aboutCardStyles, flexGrow: 1, padding: 5 }} className="mb-4" >
+                        <div>
+                            <div className="d-flex flex-fow align-items-center justify-content-center" style={{gap: "16px"}}>
+                                { greeting.img && (
+                                    <Image
+                                        src={greeting.img}
+                                        className="img-fluid rounded-circle"
+                                        style={{ width: '2rem', height: '2rem', objectFit: 'cover' }}
+                                    />
+                                )}
+                                <div style={{ fontSize: isSmallScreen ? "2rem" : '1.5rem', fontWeight: 'bold' }}>
+                                    {greeting.title}
+                                </div>
+                            </div>
+
+                            <div className="mt-2 mb-3" style={{ fontSize: '1rem' }}>
+                                {greeting.subtitle}
+                            </div>
+                            <div
                                 className="text-start"
                                 style={{
                                     fontSize: '1.3rem',
                                     lineHeight: '1.5',
-                                    maxHeight: '400px', // 限制最大高度，出现滚动条
+                                    maxHeight: '500px', // 限制最大高度，出现滚动条
                                     overflowY: 'auto', // 垂直滚动条
+                                    padding: "0 60px"
                                 }}
+                                dangerouslySetInnerHTML={{ __html: greeting.profile }}
                             >
-                                {profile}
-                            </Card.Text>
-                            <Card.Link href="/" style={{ fontSize: '1.1rem', marginRight: '10px', textDecoration: 'none' }}>
-                                Learn More
-                            </Card.Link>
-                            <Card.Link href="/" style={{ fontSize: '1.1rem', textDecoration: 'none' }}>
-                                Contact Me
-                            </Card.Link>
-                        </Card.Body>
-                    </Card>
+                            </div>
+                        </div>
+                    </div>
+                    <IconNavComponent />
                 </Col>
             </Row>
-
+            <Row data-aos="fade-up">
+                <Nav style={{ marginTop: "0", marginBottom: "0", padding: "0" }} />
+            </Row>
             {/* Quote 区域 */}
-            <Row xs={12} md={6} className="justify-content-center w-100" style={{marginBottom: "100px"}} data-aos="fade-up">
-                <Card style={cardStyles}>
+            <Row xs={12} md={6} className="justify-content-center w-100" style={{padding: isSmallScreen ? "0 50px" : "0 100px"}} data-aos="fade-up">
+                <Card style={{...quoteCardStyles}}>
                     <Card.Header style={{
                         borderBottom: `1px solid ${isDarkMode ? '#cccccc' : '#444444'}`,
                         boxShadow: isDarkMode
@@ -173,7 +154,7 @@ const Home = () => {
             </Row>
 
 
-        </Container>
+        </div>
     );
 };
 
