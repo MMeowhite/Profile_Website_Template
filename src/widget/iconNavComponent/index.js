@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './iconNavComponent.module.css';
 import { Link } from "react-router-dom";
-import { useTheme } from "../../components/themeProvider";
+import { useTheme } from "../../utils/themeProvider";
 
 const IconNavComponent = (props) => {
     const [linkIconObj, setLinkIcon] = useState([]);

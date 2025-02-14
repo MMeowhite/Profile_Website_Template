@@ -7,17 +7,17 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import rehypeKatex from 'rehype-katex';
-import { useTheme } from '../../components/themeProvider';
 import useMarkdownData from './useMarkdownData';
 import CodeBlock from './codeBlock/codeBlock';
 import VideoBlock from './videoBlock/videoBlock';
 import 'highlight.js/styles/github.css';
 import 'katex/dist/katex.min.css';
 import './markdownRender.css';
+import {useTheme} from "../themeProvider";
 
 const MarkdownRender = ({ markdownPath, onTocUpdate }) => {
+    const { isDarkMode } = useTheme()
     const { markdown, error } = useMarkdownData(markdownPath, onTocUpdate);
-    const { isDarkMode } = useTheme();
 
     if (error) {
         return (
@@ -29,7 +29,7 @@ const MarkdownRender = ({ markdownPath, onTocUpdate }) => {
     }
 
     return (
-        <div className="markdown-container markdown-body markdown" style={{ font: `${isDarkMode ? "#ffffff" : "#000000"}` }}>
+        <div className={`markdown-container markdown-body markdown ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
             {markdown ? (
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm, remarkMath, [remarkToc, { tight: true }]]}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './nav.css';
 import { Link } from "react-router-dom";
-import { useTheme } from "../../components/themeProvider";
+import { useTheme } from "../../utils/themeProvider";
 import useConfig from "../../utils/useConfig";
 import icons from "../../assets/icons";
 

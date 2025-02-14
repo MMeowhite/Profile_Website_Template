@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useTheme } from "../../components/themeProvider";
+import { useTheme } from "../../utils/themeProvider";
 import useConfig from "../../utils/useConfig";
 import { Card, ListGroup } from 'react-bootstrap';
 import AOS from 'aos'; // 引入AOS库

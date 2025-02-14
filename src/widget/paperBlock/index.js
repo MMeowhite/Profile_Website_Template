@@ -4,7 +4,7 @@ import { parseReferenceContent } from "../../utils/referencesParser";
 import { Link } from "react-router-dom";
 import useConfig from "../../utils/useConfig";
 import AOS from "aos";
-import {useTheme} from "../../components/themeProvider";
+import {useTheme} from "../../utils/themeProvider";
 
 
 const PaperBlock = () => {

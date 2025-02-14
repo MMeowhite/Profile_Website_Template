@@ -1,8 +1,14 @@
 import React from 'react';
 import { Button, Spinner } from 'react-bootstrap'; // 引入 Spinner
 import useExecuteCode from './useExecuteCode';
+import { useTheme } from "../../themeProvider";
 
 const CodeBlock = ({ children, className, ...props }) => {
+    const { isDarkMode } = useTheme();
+
+    // 根据 isDarkMode 来添加 class
+    const blockClass = `code-block ${isDarkMode ? 'dark-mode' : 'light-mode'} ${className || ''}`;
+
     const code = Array.isArray(children)
         ? children.map((child) => (typeof child === 'object' ? child.props.children : String(child))).join('')
         : String(children);
@@ -20,14 +26,13 @@ const CodeBlock = ({ children, className, ...props }) => {
         r_language: language === "r" ? code : ""
     };
 
-    console.log(languageParams)
 
     const { loading, localOutput, executeCode } = useExecuteCode(code, languageParams);
 
     return (
         <div className="code-container">
-            <pre className="code-block">
-                <code className={className} {...props}>
+            <pre className={blockClass}>
+                <code className={className} {...props} style={{color: isDarkMode ? "#fff" : "#000"}}>
                     {children}
                 </code>
             </pre>

@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
-import { useTheme } from '../../../components/themeProvider';
+import { useTheme } from '../../../utils/themeProvider';
 import useConfig from "../../../utils/useConfig";
 import AOS from "aos";
 import {useMediaQuery} from "react-responsive";

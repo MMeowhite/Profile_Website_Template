@@ -16,7 +16,7 @@ This part indicates each file in `src` directory and its subdirectory.
 
 ## 3.`/src/router`
 ***
-### 3.1 `/src/router/index.js`
+### 3.1 `/src/router/themeProvider.js`
 #### This file is used for router configuration.
 ***
 ### 3.1 `widget`

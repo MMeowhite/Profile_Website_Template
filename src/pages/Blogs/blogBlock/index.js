@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useTheme } from "../../../components/themeProvider";
+import { useTheme } from "../../../utils/themeProvider";
 import { generateTagColors } from "../../../utils/generateTagColors";
 import Image from "react-bootstrap/Image";
 import useConfig from "../../../utils/useConfig";

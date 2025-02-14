@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 import BaiduMap from "../../../utils/baiduMap";
-import {useTheme} from "../../../components/themeProvider";
+import {useTheme} from "../../../utils/themeProvider";
 import AOS from "aos";
 import {useMediaQuery} from "react-responsive";
 

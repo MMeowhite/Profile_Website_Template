@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { RouterProvider } from "react-router-dom"
 import routers from "./router";
-import {ThemeProvider} from "./components/themeProvider";
+import {ThemeProvider} from "./utils/themeProvider";
 import useConfig from "./utils/useConfig"
 
 

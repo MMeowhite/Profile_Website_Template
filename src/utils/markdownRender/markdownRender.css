@@ -1,14 +1,37 @@
 /* 样式调整区域 */
 .markdown {
-
+    width: 100%;
 }
 
 .markdown p {
-    font-size: 1.5rem; /* 设置字体大小 */
-    line-height: 1.5; /* 设置行高 */
+    font-size: 1.5rem; /* 默认字体大小 */
+    line-height: 1.6; /* 设置行高 */
     color: inherit; /* 设置字体颜色 */
-    margin-bottom: 1rem; /* 设置段落之间的间距 */
+    margin-bottom: 10px; /* 设置段落之间的间距 */
     text-align: justify; /* 设置段落文本对齐 */
+}
+
+/* 响应式字体大小调整 */
+@media (max-width: 1200px) {
+    .markdown p {
+        font-size: 1.3rem; /* 屏幕宽度小于1200px时的字体大小 */
+    }
+}
+
+@media (max-width: 768px) {
+    .markdown p {
+        font-size: 1.1rem; /* 屏幕宽度小于768px时的字体大小 */
+    }
+}
+
+@media (max-width: 480px) {
+    .markdown p {
+        font-size: 1rem; /* 屏幕宽度小于480px时的字体大小 */
+    }
+}
+
+.katex-html {
+    overflow-x: scroll;
 }
 
 .markdown h2 {
@@ -17,9 +40,15 @@
     margin: 0 2rem;
 }
 
+/* 响应式调整h2大小 */
+@media (max-width: 768px) {
+    .markdown h2 {
+        font-size: 1.7rem; /* 屏幕宽度小于768px时的h2字体大小 */
+    }
+}
+
 .markdown pre {
     background: inherit;
-
     font-size: 1.3rem;
     margin-left: auto; /* 居中 */
     margin-right: auto; /* 居中 */
@@ -30,22 +59,45 @@
     position: relative; /* 让复制按钮可以定位 */
     padding: 1.2rem;
     border-radius: 8px; /* 圆角设计 */
-    background-color: inherit; /* 深色背景，适合代码高亮 */
     color: inherit; /* 默认字体颜色 */
     margin-bottom: 1rem; /* 每个代码块之间的间距 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-
 }
 
 /* <code> 标签内的文本样式 */
 .code-block code {
     font-family: inherit;
     font-size: 1.2rem; /* 适中的字体大小 */
-    color: inherit; /* 字体颜色 */
-    background: inherit;
 }
 
-.markdown .span{
+/* 响应式调整代码块字体大小 */
+@media (max-width: 1200px) {
+    .code-block code {
+        font-size: 1.1rem; /* 屏幕宽度小于1200px时的代码字体大小 */
+    }
+}
+
+@media (max-width: 768px) {
+    .code-block code {
+        font-size: 1rem; /* 屏幕宽度小于768px时的代码字体大小 */
+    }
+}
+
+@media (max-width: 480px) {
+    .code-block code {
+        font-size: 0.9rem; /* 屏幕宽度小于480px时的代码字体大小 */
+    }
+}
+
+/* 代码块颜色模式 */
+.code-block.dark-mode code{
+    background: rgba(51, 65, 85, 1); /* 深色模式代码块背景 */
+}
+
+.code-block.light-mode code{
+    background: rgba(250, 250, 250, 1); /* 浅色模式代码块背景 */
+}
+
+.markdown .span {
     font-size: 2rem;
 }
 
@@ -68,7 +120,14 @@ pre:hover .copy-button {
     cursor: pointer;
     display: none; /* 默认隐藏 */
 }
-/* pre 样式 */
+
+/* 复制按钮悬浮样式 */
+.copy-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+/* 代码块预览的整体样式 */
 .code-block {
     position: relative;
     padding: 1rem;
@@ -78,34 +137,35 @@ pre:hover .copy-button {
     overflow-x: auto;
 }
 
-/* 复制按钮 */
-.copy-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: none; /* 默认隐藏 */
-}
-
-/* 悬浮显示复制按钮 */
+/* 复制按钮悬浮时显示 */
 .code-block:hover .copy-button {
     display: block;
 }
 
-/* 按钮交互效果 */
-.copy-button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #000;
-}
-
+/* 输出文本样式 */
 .output {
     margin-top: 10px;
     padding: 10px;
     border-radius: 4px;
 }
+
+/* 更改pre标签样式 */
+.code-block pre {
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+/* 响应式调整代码块pre的字体大小 */
+@media (max-width: 768px) {
+    .code-block pre {
+        font-size: 1rem; /* 屏幕宽度小于768px时的字体大小 */
+    }
+}
+
+@media (max-width: 480px) {
+    .code-block pre {
+        font-size: 0.9rem; /* 屏幕宽度小于480px时的字体大小 */
+    }
+}
+

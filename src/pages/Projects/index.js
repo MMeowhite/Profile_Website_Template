@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import useConfig from "../../utils/useConfig";
-import { useTheme } from "../../components/themeProvider";
+import { useTheme } from "../../utils/themeProvider";
 import AOS from 'aos'; // 引入AOS库
 
 const Projects = () => {

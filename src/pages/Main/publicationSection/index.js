@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 import { Button, Row } from 'react-bootstrap';
 import Slider from 'react-slick'; // 导入 react-slick
 import Image from 'react-bootstrap/Image';
-import { useTheme } from '../../../components/themeProvider';
+import { useTheme } from '../../../utils/themeProvider';
 import useConfig from "../../../utils/useConfig";
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import './publicationSection.css';

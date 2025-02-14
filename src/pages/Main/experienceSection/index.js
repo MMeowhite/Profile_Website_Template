@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import useConfig from "../../../utils/useConfig"
-import { useTheme } from "../../../components/themeProvider";
+import { useTheme } from "../../../utils/themeProvider";
 import Timeline from "./timeline"; // 引入时间轴组件
 import AOS from 'aos'
 import {useMediaQuery} from "react-responsive";
