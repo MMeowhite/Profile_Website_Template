@@ -3,9 +3,9 @@ import { createBrowserRouter } from 'react-router-dom'
 import Layout from "../components/layout";
 import Main from "../pages/Main";
 import Publication from "../pages/Publication"
-import Blog from "../pages/Blog";
-import BlogBlocks from "../pages/Blog/blockBlocks";
-import BlogPage from "../pages/Blog/blogPage"
+import Blogs from "../pages/Blogs";
+import BlogBlocks from "../pages/Blogs/blockBlocks";
+import BlogPage from "../pages/Blogs/blogPage"
 import Experience from "../pages/Experience";
 import Projects from "../pages/Projects";
 
@@ -23,8 +23,8 @@ const routers = [
             {path: "/publication", element: <Publication />},
             {path: "/projects", element: <Projects />},
             {
-                path:"/blog",
-                element: <Blog />,
+                path:"/blogs",
+                element: <Blogs />,
                 children:[
                     {index: true, element: <BlogBlocks />},
                     {path: ":slug", element: <BlogPage /> }

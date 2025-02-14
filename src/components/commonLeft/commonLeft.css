@@ -1,9 +1,0 @@
-.left-container {
-    flex: 1;
-    padding: 20px;
-    background-color: #008080; /* 左侧容器的背景色，浅灰色 */
-    display: flex; /* 使用 Flexbox 布局 */
-    flex-direction: column; /* 设置为列方向布局 */
-    justify-content: space-between; /* 将内容均匀分配并将导航推到底部 */
-    align-items: center;
-}

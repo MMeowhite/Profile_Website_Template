@@ -3,7 +3,7 @@ import './blog.css'
 import {Outlet} from "react-router-dom";
 
 
-const Blog = () => {
+const Blogs = () => {
     return (
         <div id="blog-page" className="container mt-5">
             <Outlet/>
@@ -11,4 +11,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default Blogs;

@@ -5,14 +5,6 @@ import { generateTagColors } from "../../../utils/generateTagColors";
 import Image from "react-bootstrap/Image";
 import useConfig from "../../../utils/useConfig";
 
-// 图片路径处理函数
-const dynamicImportImagePath = (imagePath) => {
-    return import(`/src/${imagePath}`).then((imageModule) => {
-        return imageModule.default;  // Webpack 会处理并返回图片路径
-    });
-};
-
-
 const BlogCard = ({ blogItem }) => {
     const [avatar, setAvatar] = useState("");
     const [isMobile, setIsMobile] = useState(false); // 判断是否为手机屏幕
@@ -40,11 +32,8 @@ const BlogCard = ({ blogItem }) => {
             setDefaultAvatar(avatarObj.init);
         }
         setName(nameObj);
+        setFeaturedImage(blogItem.featuredImage)
 
-        // 动态加载图片
-        dynamicImportImagePath(blogItem.featuredImage).then((imagePath) => {
-            setFeaturedImage(imagePath);  // 更新图片路径
-        });
 
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768); // 假设 768px 为手机设备

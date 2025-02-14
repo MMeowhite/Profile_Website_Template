@@ -1,30 +1,23 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
-import { useTheme } from "../../../components/themeProvider"
 import MarkdownRender from "../../../utils/markdownRender";
-import blogConfig from "../blog_config.json";
-import "./blogPage.css"
-
-
-// 图片路径处理函数
-const dynamicImportPath = (Path) => {
-    return import(`/src/${Path}`).then((module) => {
-        return module.default; // Webpack 会处理并返回路径
-    });
-};
+import { useParams } from "react-router-dom";
+import { useTheme } from "../../../components/themeProvider";
+import "./blogPage.css";
 
 const BlogPage = () => {
     const { isDarkMode } = useTheme();
     const { slug } = useParams(); // 从路由参数中获取 slug
-    const blogItem = blogConfig.find((item) => item.slug === slug); // 根据 slug 找到对应的博客数据
-    const [markdownPath, setMarkdownPath] = useState("");
-
-    const blogIndex = blogConfig.findIndex((item) => item.slug === slug); // 找到当前博客的索引
-    // 计算前一篇和后一篇博客
-    const previousBlog = blogIndex > 0 ? blogConfig[blogIndex - 1] : null;
-    const nextBlog = blogIndex < blogConfig.length - 1 ? blogConfig[blogIndex + 1] : null;
-
+    const [blogItems, setBlogItems] = useState([]); // 用于存储所有博客内容
+    const [blogItem, setBlogItem] = useState(null); // 用于存储当前博客内容
+    const [markdownPath, setMarkdownPath] = useState(""); // 用于存储 Markdown 文件路径
     const [toc, setToc] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const blogIndex = blogItems.findIndex((item) => item.slug === slug); // 找到当前博客的索引
+    const previousBlog = blogIndex > 0 ? blogItems[blogIndex - 1] : null; // 计算前一篇博客
+    const nextBlog = blogIndex < blogItems.length - 1 ? blogItems[blogIndex + 1] : null; // 计算后一篇博客
 
     const handleTocUpdate = useCallback((toc) => {
         setToc(toc); // 缓存 ToC 数据
@@ -35,7 +28,7 @@ const BlogPage = () => {
         const targetElement = document.getElementById(id);
         if (targetElement) {
             const navbarHeight = document.querySelector(".navbar").offsetHeight || 50;
-            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
             const offsetPosition = elementPosition - navbarHeight;
 
             window.scrollTo({
@@ -46,34 +39,59 @@ const BlogPage = () => {
     };
 
     useEffect(() => {
-        if (!blogItem) return;
-        let isMounted = true;
+        // 假设你有一个方法加载所有博客项
+        const loadBlogItems = async () => {
+            try {
+                const response = await fetch('/blogs/blog_config.json'); // 假设配置在此路径
+                const data = await response.json();
+                setBlogItems(data); // 存储所有博客项
 
-        dynamicImportPath(blogItem.resource)
-            .then((path) => {
-                if (isMounted) setMarkdownPath(path);
-            })
-            .catch((err) => console.error("Error loading markdown file:", err));
-
-        return () => {
-            isMounted = false; // 防止内存泄漏
+                // 查找匹配的当前博客项
+                const currentBlogItem = data.find((item) => item.slug === slug);
+                if (currentBlogItem) {
+                    setMarkdownPath(currentBlogItem.resource);
+                    setLoading(true);
+                    fetch(currentBlogItem.resource)
+                        .then((response) => response.text())
+                        .then((text) => {
+                            setBlogItem({ ...currentBlogItem, content: text });
+                            setLoading(false);
+                        })
+                        .catch((error) => {
+                            setError("Failed to load the blog content.");
+                            setLoading(false);
+                        });
+                } else {
+                    setError("Blog not found!");
+                    setLoading(false);
+                }
+            } catch (err) {
+                setError("Failed to load blog items.");
+                setLoading(false);
+            }
         };
-    }, [blogItem]);
 
-    if (!blogItem) {
-        return <div>Blog not found!</div>;
+        loadBlogItems(); // 加载博客数据
+    }, [slug]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
     }
 
     return (
         <div className="blog" style={{ marginTop: "10rem" }}>
-            <h1 style={{fontWeight: "800"}}>{blogItem.title}</h1>
-            <hr style={{height: "1rem"}}/>
+            <h1 style={{ fontWeight: "800" }}>{blogItem.title}</h1>
+            <hr style={{ height: "1rem" }} />
             <div id="blog-page-intro">
                 {blogItem.publishDate} &nbsp; · &nbsp; {blogItem.author} &nbsp; · &nbsp; {blogItem.readingTime} read
             </div>
 
-            <div className="d-flex flex-row" style={{gap: "8rem"}}>
-                <div id="blog-page-content" style={{ display: "flex", flexDirection: "column"}}>
+            <div className="d-flex flex-row" style={{ gap: "8rem" }}>
+                <div id="blog-page-content" style={{ display: "flex", flexDirection: "column" }}>
                     <MarkdownRender
                         id={blogItem.id}
                         key={blogItem.slug}
@@ -81,28 +99,27 @@ const BlogPage = () => {
                         onTocUpdate={handleTocUpdate}
                     />
                     <div id="blog-page-footer" style={{ textAlign: "right" }}> Last updated on {blogItem.updatedTime}</div>
-                    <hr/>
+                    <hr />
                     <div id="blog-page-reference">
                         References: <br />
-                        {blogItem.references.map((reference, index) => {
-                            // 获取对象的键值对
+                        {blogItem ? blogItem.references.map((reference, index) => {
                             const [key, url] = Object.entries(reference)[0]; // 获取对象中的第一个键值对
                             return (
                                 <div key={index}>
-                                    <a href={url} target="_blank" rel="noopener noreferrer" style={{textDecoration: "none"}}>
+                                    <a href={url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
                                         [{key}] {`${url}`}
                                     </a>
                                 </div>
                             );
-                        })}
+                        }) : null}
                     </div>
-                    <hr/>
+                    <hr />
                     <div
                         id="blog-page-pre-next-reading"
                         className="d-flex flex-row justify-content-between align-items-start"
                     >
                         {/* Previous Blog */}
-                        <div style={{ display: "flex", alignItems: "center", maxWidth: "45%"}}>
+                        <div style={{ display: "flex", alignItems: "center", maxWidth: "45%" }}>
                             {previousBlog ? (
                                 <>
                                     <a
@@ -163,7 +180,7 @@ const BlogPage = () => {
                             )}
                         </div>
                     </div>
-                    <hr/>
+                    <hr />
                 </div>
 
                 <div>
@@ -226,15 +243,10 @@ const BlogPage = () => {
                             ))}
                         </ul>
                     </aside>
-
                 </div>
             </div>
 
-
-            <div id="blog-page-recommend-reading">
-
-            </div>
-
+            <div id="blog-page-recommend-reading"></div>
         </div>
     );
 };

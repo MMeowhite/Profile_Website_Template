@@ -3,18 +3,21 @@ import { useState, useEffect } from 'react';
 
 const useMarkdownData = (markdownPath, onTocUpdate) => {
     const [markdown, setMarkdownFile] = useState('');
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         const fetchMarkdown = async () => {
             try {
+                // 根据markdownPath解析markdown文件
                 const response = await fetch(markdownPath);
+                console.log(markdownPath)
                 if (!response.ok) {
                     throw new Error(`Failed to fetch markdown file: ${response.status}`);
                 }
-                const text = await response.text();
+                const text = await response.text()
                 setMarkdownFile(text);
 
+                // 目录生成
                 if (onTocUpdate) {
                     // Generate ToC (Table of Contents)
                     const lines = text.split("\n");
