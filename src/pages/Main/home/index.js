@@ -93,7 +93,8 @@ const Home = () => {
                 {/* About Me 区域 */}
                 <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center" >
                     <div style={{ ...aboutCardStyles, flexGrow: 1, padding: 5 }} className="mb-4" >
-                        <div>
+                        <div className="d-flex flex-column align-items-center">
+                            {/* 打招呼部分 */}
                             <div className="d-flex flex-fow align-items-center justify-content-center" style={{gap: "16px"}}>
                                 { greeting.img && (
                                     <Image
@@ -107,9 +108,12 @@ const Home = () => {
                                 </div>
                             </div>
 
+                            {/* 副标题 */}
                             <div className="mt-2 mb-3" style={{ fontSize: '1rem' }}>
                                 {greeting.subtitle}
                             </div>
+
+                            {/* 介绍部分 */}
                             <div
                                 className="text-start"
                                 style={{
@@ -122,9 +126,13 @@ const Home = () => {
                                 dangerouslySetInnerHTML={{ __html: greeting.profile }}
                             >
                             </div>
+
+                            {/* 这里需要修改 */}
+                            <div className="d-flex flex-row align-items-center justify-content-center" style={{width: "100%", marginTop: "30px", transform: "translateX(-65px)"}}>
+                                <IconNavComponent/>
+                            </div>
                         </div>
                     </div>
-                    <IconNavComponent />
                 </Col>
             </Row>
             <Row data-aos="fade-up">

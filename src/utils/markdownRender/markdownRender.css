@@ -1,15 +1,77 @@
-/* 样式调整区域 */
 .markdown {
     width: 100%;
 }
 
+.markdown * {
+    padding-bottom: 10px;
+}
+
+.katex-html {
+    overflow-x: scroll;
+}
+
+.markdown h1, h2, h3, h4, h5, h6 {
+    margin-top: 50px; /* 设置 h2 后面跟着 p 或 div 标签时的间距 */
+}
+
+.markdown h1 {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.markdown h2 {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.markdown h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.markdown .h4 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
 .markdown p {
-    font-size: 1.5rem; /* 默认字体大小 */
-    line-height: 1.6; /* 设置行高 */
+    font-family: inherit;
+    font-size: 22px; /* 默认字体大小 */
+    line-height: 1.5; /* 设置行高 */
     color: inherit; /* 设置字体颜色 */
-    margin-bottom: 10px; /* 设置段落之间的间距 */
     text-align: justify; /* 设置段落文本对齐 */
 }
+
+.markdown ul {
+    margin: 0;
+}
+
+.markdown li {
+    font-family: inherit;
+    font-size: 22px; /* 默认字体大小 */
+    line-height: 1.5; /* 设置行高 */
+    color: inherit; /* 设置字体颜色 */
+    text-align: justify; /* 设置段落文本对齐 */
+    margin: 0;
+    padding: 0;
+}
+
+.markdown pre {
+    background: inherit;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.markdown blockquote {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-style: italic;
+    border-left: 5px solid red;
+    padding-left: 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 
 /* 响应式字体大小调整 */
 @media (max-width: 1200px) {
@@ -30,15 +92,6 @@
     }
 }
 
-.katex-html {
-    overflow-x: scroll;
-}
-
-.markdown h2 {
-    font-size: 2rem;
-    color: inherit;
-    margin: 0 2rem;
-}
 
 /* 响应式调整h2大小 */
 @media (max-width: 768px) {
@@ -47,17 +100,10 @@
     }
 }
 
-.markdown pre {
-    background: inherit;
-    font-size: 1.3rem;
-    margin-left: auto; /* 居中 */
-    margin-right: auto; /* 居中 */
-}
-
 /* 代码块的整体容器样式 */
 .code-block {
     position: relative; /* 让复制按钮可以定位 */
-    padding: 1.2rem;
+    padding: 20px;
     border-radius: 8px; /* 圆角设计 */
     color: inherit; /* 默认字体颜色 */
     margin-bottom: 1rem; /* 每个代码块之间的间距 */
@@ -66,7 +112,7 @@
 /* <code> 标签内的文本样式 */
 .code-block code {
     font-family: inherit;
-    font-size: 1.2rem; /* 适中的字体大小 */
+    font-size: 20px; /* 适中的字体大小 */
 }
 
 /* 响应式调整代码块字体大小 */

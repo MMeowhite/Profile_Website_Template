@@ -3,7 +3,7 @@ import styles from './iconNavComponent.module.css';
 import { Link } from "react-router-dom";
 import { useTheme } from "../../utils/themeProvider";
 
-const IconNavComponent = (props) => {
+const IconNavComponent = ({ props, style }) => {
     const [linkIconObj, setLinkIcon] = useState([]);
     const { isDarkMode } = useTheme(); // 修改为 isDarkMode
 
@@ -28,16 +28,16 @@ const IconNavComponent = (props) => {
 
     return (
         <nav className={styles.nav}>
-            <ul className={styles.navList}>
+            <ul className={styles.navList} style={{ gap: style?.gap || "40px" }}>
                 {linkIconObj.map((item, index) => (
-                    <li key={index} className={styles.navItem}>
+                    <li key={index} className={styles.navItem} >
                         <Link to={item.link} className={styles.navLink}>
                             {item.icon.endsWith('.svg') ? (
                                 <img
                                     src={item.icon}
                                     alt={item.type}
                                     className={styles.iconStyle}
-                                    style={{ filter: isDarkMode ? "invert(1)" : "invert(0)" }} // 使用反转颜色
+                                    style={{ filter: isDarkMode ? "invert(1)" : "invert(0)", ...style }} // 使用反转颜色
                                 />
                             ) : (
                                 <img src={item.icon} alt={item.type} className={styles.iconStyle} />

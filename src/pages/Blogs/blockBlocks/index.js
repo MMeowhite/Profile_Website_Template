@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import BlogCard from "../blogBlock";
+import BlogBlock from "../blogBlock";
 
 const BlogBlocks = () => {
     const [blogItemsConfig, setBlogItemsConfig] = useState([]);
@@ -42,7 +42,7 @@ const BlogBlocks = () => {
                         className="masonry-item"
                         key={index}
                     >
-                        <BlogCard blogItem={blogItem} />
+                        <BlogBlock blogItem={blogItem} />
                     </div>
                 ))
             ) : (

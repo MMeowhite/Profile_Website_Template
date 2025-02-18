@@ -1,24 +1,21 @@
 /* Masonry Grid 容器 */
 .masonry-grid {
-    column-count: 2;
-    column-gap: 5rem;
+    display: flex; /* 使用 flexbox 布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 1rem; /* 元素之间的间隙 */
+    margin-top: 10rem;
+    margin-bottom: 3rem;
 }
 
 /* Masonry Item 子项 */
 .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 5rem;
+    flex: 1 1 calc(50% - 1rem); /* 每个子项占据 50% 的宽度，减去间隙 */
+    margin-bottom: 1rem; /* 设置子项底部间距 */
 }
 
 /* 响应式调整列数 */
-@media (min-width: 768px) {
-    .masonry-grid {
-        column-count: 2;
-    }
-}
-
 @media (max-width: 768px) {
-    .masonry-grid {
-        column-count: 1;
+    .masonry-item {
+        flex: 1 1 100%; /* 小屏幕下每行只显示 1 个元素 */
     }
 }

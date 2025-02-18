@@ -1,13 +1,10 @@
 /* 基本布局 */
 .nav {
     background-color: transparent; /* 背景颜色：透明 */
-    padding: 10px 20px; /* 上下和左右内边距 */
     max-width: 200px; /* 设置最大宽度 */
-    margin: 0 auto; /* 居中显示 */
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    height: 80px; /* 设置固定高度 */
+    align-items: center;
+    width: 400px
 }
 
 /* 无序列表样式 */
@@ -16,7 +13,6 @@
     display: flex; /* 使用 flexbox 布局 */
     justify-content: center; /* 水平居中对齐 */
     align-items: center; /* 垂直居中对齐 */
-    gap: 20px; /* 项目之间的间距 */
     padding: 0; /* 去除默认的 padding */
     margin: 0; /* 去除默认的 margin */
 }
@@ -36,9 +32,6 @@
     justify-content: center; /* 水平居中对齐 */
     text-decoration: none; /* 去除链接下划线 */
     color: inherit; /* 保持继承颜色 */
-    width: 50px; /* 给链接设置固定宽度 */
-    height: 50px; /* 给链接设置固定高度 */
-    border: 2px solid transparent; /* 给链接加框，方便调试 */
     border-radius: 8px; /* 如果需要可以加圆角 */
 }
 

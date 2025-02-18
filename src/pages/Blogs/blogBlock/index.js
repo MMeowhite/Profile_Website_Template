@@ -5,7 +5,7 @@ import { generateTagColors } from "../../../utils/generateTagColors";
 import Image from "react-bootstrap/Image";
 import useConfig from "../../../utils/useConfig";
 
-const BlogCard = ({ blogItem }) => {
+const BlogBlock = ({ blogItem }) => {
     const [avatar, setAvatar] = useState("");
     const [isMobile, setIsMobile] = useState(false); // 判断是否为手机屏幕
     const [hoveredAvatar, setHoveredAvatar] = useState("");
@@ -16,8 +16,9 @@ const BlogCard = ({ blogItem }) => {
     const { isDarkMode } = useTheme();
     const tagColors = generateTagColors(blogItem.tags);
 
+    console.log(blogItem)
+
     const { configValue: avatarObj, error, loading } = useConfig("pages.home.avatar");
-    const { configValue: nameObj} = useConfig("pages.home.name");
 
     const paths = window.location.pathname.split("/"); // 拆分路径为数组
     const blogPath = paths[1]; // 提取第二部分（假设 /blog 是第一级路径）
@@ -31,7 +32,7 @@ const BlogCard = ({ blogItem }) => {
             setHoveredAvatar(avatarObj.hovered);
             setDefaultAvatar(avatarObj.init);
         }
-        setName(nameObj);
+        setName(blogItem.authorWeb);
         setFeaturedImage(blogItem.featuredImage)
 
 
@@ -47,7 +48,7 @@ const BlogCard = ({ blogItem }) => {
         };
 
 
-    }, [blogItem.featuredImage, avatarObj, nameObj]);
+    }, [blogItem.featuredImage, avatarObj]);
 
     if (error) {
         return <div>Error loading blog: {error}</div>;
@@ -65,6 +66,7 @@ const BlogCard = ({ blogItem }) => {
                 display: "flex",
                 flexDirection: "column",
                 width: "100%",
+                maxWidth: "600px",
                 backgroundColor: "transparent",
                 borderRadius: '12px',
                 fontFamily: "inherit",
@@ -80,7 +82,7 @@ const BlogCard = ({ blogItem }) => {
             onMouseLeave={() => setBoxShadowStyle({})} // Remove shadow on mouse leave
         >
             {/* 图片部分 */}
-            <a id="box-img" href={`${baseURL}${blogItem.slug}`} className="relative block">
+            <a id="box-img" href={`${baseURL}${blogItem.slug}`} className="relative block w-100">
                 <img
                     id={blogItem.id}
                     alt={blogItem.title}
@@ -93,7 +95,8 @@ const BlogCard = ({ blogItem }) => {
                         // minHeight: "200px",
                         objectFit: "cover",
                         aspectRatio: "16/9",
-                        maxHeight: "300px"
+                        maxHeight: "300px",
+                        imageRendering: "high-quality"
                     }}
                 />
             </a>
@@ -250,4 +253,4 @@ const BlogCard = ({ blogItem }) => {
     );
 };
 
-export default BlogCard;
+export default BlogBlock;
