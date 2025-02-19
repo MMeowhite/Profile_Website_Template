@@ -152,6 +152,7 @@ const PublicationSection = () => {
                                 </div>
                             );
                         }
+                        return null
                     })}
 
                     {/* 主卡片轮播 */}
@@ -277,6 +278,7 @@ const PublicationSection = () => {
                                     </Row>
                                 );
                             }
+                            return null
                         })}
                     </div>
                 </div>
