@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useTheme } from "../../../utils/themeProvider";
 import { generateTagColors } from "../../../utils/generateTagColors";
 import Image from "react-bootstrap/Image";
@@ -16,7 +15,6 @@ const BlogBlock = ({ blogItem }) => {
     const { isDarkMode } = useTheme();
     const tagColors = generateTagColors(blogItem.tags);
 
-    console.log(blogItem)
 
     const { configValue: avatarObj, error, loading } = useConfig("pages.home.avatar");
 
@@ -25,6 +23,8 @@ const BlogBlock = ({ blogItem }) => {
 
     const baseURL = `${window.location.protocol}//${window.location.host}/${blogPath}/`;
 
+
+
     // 设置头像和屏幕尺寸
     useEffect(() => {
         if (avatarObj) {
@@ -32,6 +32,7 @@ const BlogBlock = ({ blogItem }) => {
             setHoveredAvatar(avatarObj.hovered);
             setDefaultAvatar(avatarObj.init);
         }
+
         setName(blogItem.authorWeb);
         setFeaturedImage(blogItem.featuredImage)
 
@@ -48,7 +49,7 @@ const BlogBlock = ({ blogItem }) => {
         };
 
 
-    }, [blogItem.featuredImage, avatarObj]);
+    }, [blogItem.featuredImage, blogItem.authorWeb, avatarObj]);
 
     if (error) {
         return <div>Error loading blog: {error}</div>;
@@ -91,8 +92,6 @@ const BlogBlock = ({ blogItem }) => {
                     loading="lazy"
                     style={{
                         width: "100%",
-                        // height: "400px",
-                        // minHeight: "200px",
                         objectFit: "cover",
                         aspectRatio: "16/9",
                         maxHeight: "300px",

@@ -20,7 +20,6 @@ const CodeBlock = ({ inline=true, children, className = ''}) => {
 
     const { loading, localOutput, executeCode } = useExecuteCode(code, languageParams);
 
-    console.log(inline)
     // 处理内联代码
     if (inline) {
         return (

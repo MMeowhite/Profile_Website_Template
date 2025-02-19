@@ -101,7 +101,7 @@ const BlogPage = () => {
     }
 
     return (
-        <div style={{ marginTop: "120px", width: "100%", padding: isSmallScreen ? "0 10px" : "0 30px" }}>
+        <div style={{ marginTop: "120px", width: "100%", padding: isSmallScreen ? "0 20px" : "0 30px" }}>
             {/* 文章标题部分 */}
             <div style={{ width: "100%", textAlign: isSmallScreen ? "center" : "left" }}>
                 <h1 style={{ fontWeight: "800", fontSize: isSmallScreen ? "30px" : "40px" }}>
@@ -233,10 +233,10 @@ const BlogPage = () => {
 
                             {/* 作者信息 */}
                             <div className="d-flex flex-column" style={{gap: "1px", height: "110px", textAlign: "left"}}>
-                                <span style={{fontSize: "24px"}}>{author.name}</span>
+                                <span style={{fontSize: "24px"}}><strong>{author.name}</strong></span>
                                 <span style={{fontSize: "20px"}}>{author.career}</span>
                                 <span style={{fontSize: "16px"}}>{author.organization}</span>
-                                <IconNavComponent style={{height: "20px", width: "20px", gap: "0"}}/>
+                                <IconNavComponent style={{height: "20px", width: "20px", gap: "10px", hoverWidth: "30px", hoverHeight: "30px"}}/>
                             </div>
                         </div>
                     ))}

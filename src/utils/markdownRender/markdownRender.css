@@ -10,8 +10,13 @@
     overflow-x: scroll;
 }
 
-.markdown h1, h2, h3, h4, h5, h6 {
-    margin-top: 50px; /* 设置 h2 后面跟着 p 或 div 标签时的间距 */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    margin-top: 50px;
 }
 
 .markdown h1 {
@@ -45,11 +50,12 @@
 
 .markdown ul {
     margin: 0;
+    font-size: 18px
 }
 
 .markdown li {
     font-family: inherit;
-    font-size: 22px; /* 默认字体大小 */
+    font-size: 18px; /* 默认字体大小 */
     line-height: 1.5; /* 设置行高 */
     color: inherit; /* 设置字体颜色 */
     text-align: justify; /* 设置段落文本对齐 */
@@ -59,7 +65,7 @@
 
 .markdown pre {
     background: inherit;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0 auto;
 }
 
@@ -112,7 +118,7 @@
 /* <code> 标签内的文本样式 */
 .code-block code {
     font-family: inherit;
-    font-size: 20px; /* 适中的字体大小 */
+    font-size: 18px; /* 适中的字体大小 */
 }
 
 /* 响应式调整代码块字体大小 */
@@ -124,13 +130,13 @@
 
 @media (max-width: 768px) {
     .code-block code {
-        font-size: 1rem; /* 屏幕宽度小于768px时的代码字体大小 */
+        font-size: 18px; /* 屏幕宽度小于768px时的代码字体大小 */
     }
 }
 
 @media (max-width: 480px) {
     .code-block code {
-        font-size: 0.9rem; /* 屏幕宽度小于480px时的代码字体大小 */
+        font-size: 18px; /* 屏幕宽度小于480px时的代码字体大小 */
     }
 }
 

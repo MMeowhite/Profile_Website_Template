@@ -68,7 +68,6 @@ const MarkdownRender = ({ markdownPath, onTocUpdate }) => {
                     rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeKatex, rehypeSlug, rehypeCustomSlug]}
                     components={{
                         code({inline, className, children }) {
-                            console.log('inline:', inline); // 检查 inline 的值
                             return (
                                 <CodeBlock
                                     inline={inline}
