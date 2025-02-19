@@ -302,7 +302,7 @@ const BlogPage = () => {
                                             color: "#6c757d",
                                         }}
                                     >
-                                        {previousBlog.author} <br />
+                                        {previousBlog.authorWeb} <br />
                                         {previousBlog.publishDate} <br />
                                         {previousBlog.readingTime} read
                                     </div>
@@ -340,7 +340,7 @@ const BlogPage = () => {
                                             color: "#6c757d",
                                         }}
                                     >
-                                        {nextBlog.author} <br />
+                                        {nextBlog.authorWeb} <br />
                                         {nextBlog.publishDate} <br />
                                         {nextBlog.readingTime} read
                                     </div>
