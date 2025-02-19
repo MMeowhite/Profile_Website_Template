@@ -67,5 +67,74 @@
       {"4": "https://www.clicdata.com/blog/ai-ml-data-science-deep-learning/#artificial-intelligence-ai"},
       {"5": "https://en.wikipedia.org/wiki/MNIST_database"}
     ]
+  },
+  {
+    "id": 1,
+    "abstract": "The article titled \"β2 Adrenergic-Neurotrophin Feedforward Loop Promotes Pancreatic Cancer\" investigates the role of the β2-adrenergic receptor (ADRB2) and neurotrophins in the progression of pancreatic cancer. The study reveals that activation of ADRB2 by catecholamines leads to increased expression of neurotrophins, which in turn stimulate ADRB2 signaling, creating a positive feedback loop that enhances tumor growth and metastasis. This feedforward loop contributes to the aggressive nature of pancreatic cancer by promoting cell proliferation, survival, and invasion. The findings suggest that targeting this ADRB2-neurotrophin axis could offer a novel therapeutic strategy for treating pancreatic cancer.",
+    "title": "Article Share: 《β2 Adrenergic-Neurotrophin Feedforward Loop Promotes Pancreatic Cancer》",
+    "slug": "article-share-1",
+    "authorWeb": "MMeowhite",
+    "authorImg": "/images/avatar_init.jpg",
+    "publishLocation": "Chengdu, China",
+    "resource": "/blogs/resources/2025/02/β2_Adrenergic_Neurotrophin_Feedforward_Loop_Promotes_Pancreatic_Cancer.md",
+    "featuredImage": "/blogs/resources/2025/02/img.jpeg",
+    "readingTime": "1h",
+    "publishDate": "Feb 20, 2025",
+    "updatedTime": "Feb 20, 2025",
+    "category": "Cancer neuroscience",
+    "tags": [
+      {
+        "name": "Cancer",
+        "link": "cancer"
+      },
+      {
+        "name": "neuroscience",
+        "link": "neuroscience"
+      }
+    ],
+    "isFeatured": false,
+    "authorsContent": [
+      {
+        "name": "MMeowhite",
+        "img": "/images/avatar_init.jpg",
+        "website": "https://www.miaopeng.info/",
+        "career": "Bioscience Student",
+        "organization": "Sichuan University",
+        "link": [
+          {
+            "type": "email",
+            "icon": "/images/link_icon/gmail.svg",
+            "link": "mailto:miaopeng@stu.scu.edu.cn"
+          },
+          {
+            "type": "github",
+            "icon": "/images/link_icon/github.svg",
+            "link": "https://github.com/MMeowhite"
+          },
+          {
+            "type": "google_scholar",
+            "icon": "/images/link_icon/googlescholar.svg",
+            "link": "https://scholar.google.com/citations?user=Y5lz1jMAAAAJ&hl=en"
+          },
+          {
+            "type": "linkedin",
+            "icon": "/images/link_icon/linkedin.svg",
+            "link": "https://www.linkedin.com/in/peng-miao-89324a341/"
+          },
+          {
+            "type": "youtube",
+            "icon": "/images/link_icon/youtube.svg",
+            "link": "https://www.youtube.com/@pengmiao-bmm"
+          }
+        ]
+      }
+    ],
+    "references": [
+      {"1": "https://en.wikipedia.org/wiki/Deep_learning"},
+      {"2": "https://stanford-cs221.github.io/autumn2024/"},
+      {"3": "https://cs231n.github.io/python-numpy-tutorial/"},
+      {"4": "https://www.clicdata.com/blog/ai-ml-data-science-deep-learning/#artificial-intelligence-ai"},
+      {"5": "https://en.wikipedia.org/wiki/MNIST_database"}
+    ]
   }
 ]

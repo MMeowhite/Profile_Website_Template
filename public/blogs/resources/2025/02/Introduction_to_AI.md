@@ -501,7 +501,7 @@ This guide will walk you through the basics of writing and using functions in Py
 
 #### 1.4.1. What is function in python?
 
-A **function*** in Python is a block of code that only runs when it is called. You can pass data (known as **parameters**) into a function, and it can return data as well.
+A **function** in Python is a block of code that only runs when it is called. You can pass data (known as **parameters**) into a function, and it can return data as well.
 
 How can we define a function in python? In Python, you define a function using the `def` keyword, followed by the function name, parentheses, and a colon. The body of the function starts on the next line, indented.
 
@@ -605,7 +605,7 @@ print(x) # This will be output 10 correctly because x is local to the entire cod
 
 #### 1.4.6. Advance: lambda expression (Optional)
 
-Python also allows you to define ***\*anonymous functions\**** using the ***\*lambda\**** keyword. These functions are typically used for short-term, one-line operations.
+Python also allows you to define **anonymous functions** using the **lambda** keyword. These functions are typically used for short-term, one-line operations.
 
 ```python
 lambda parameters: expression
@@ -659,7 +659,7 @@ In the last, I recommand you to read this documents Thoroughly [ **Python Numpy 
 
 ## 2.Introduction to the MNIST Dataset
 
-The MNIST (Modified National Institute of Standards and Technology) dataset is a popular dataset in machine learning and computer vision. It consists of **60,000 training images** and **10,000 testing images ** of handwritten digits (0 through 9), each image being a **28x28 pixel grayscale image**.
+The MNIST (Modified National Institute of Standards and Technology) dataset is a popular dataset in machine learning and computer vision. It consists of **60,000 training images** and **10,000 testing images** of handwritten digits (0 through 9), each image being a **28x28 pixel grayscale image**.
 
 ### 2.1 Key Points about MNIST:
 

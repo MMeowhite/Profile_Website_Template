@@ -10,6 +10,7 @@ import rehypeKatex from 'rehype-katex';
 import useMarkdownData from './useMarkdownData';
 import CodeBlock from './codeBlock/codeBlock';
 import VideoBlock from './videoBlock/videoBlock';
+import ImageBlock from './imageBlock'
 import 'highlight.js/styles/github.css';
 import 'katex/dist/katex.min.css';
 import './markdownRender.css';
@@ -81,6 +82,7 @@ const MarkdownRender = ({ markdownPath, onTocUpdate }) => {
                         blockquote({ children }) {
                             return <blockquote style={{ color: isDarkMode ? "#999" : "#555" }}>{children}</blockquote>;
                         },
+                        img: ImageBlock
                     }}
                 >
                     {markdown}
