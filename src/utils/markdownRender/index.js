@@ -82,7 +82,9 @@ const MarkdownRender = ({ markdownPath, onTocUpdate }) => {
                         blockquote({ children }) {
                             return <blockquote style={{ color: isDarkMode ? "#999" : "#555" }}>{children}</blockquote>;
                         },
-                        img: ImageBlock
+                        img: ({ src, alt, width, height }) => (
+                            <ImageBlock markdownPath={markdownPath} src={src} alt={alt} width={width} height={height} />
+                        ),
                     }}
                 >
                     {markdown}
