@@ -80,6 +80,7 @@ const ExperienceSection = () => {
                                           whiteSpace: "wrap", maxWidth: "100%"}}>
 
                         <img src={item.logo ? item.logo : null}
+                             alt="school"
                              style={{ height: "80px", width: "80px", borderRadius: "50%", marginRight: "10px" }} />
 
                         <a href={item.url ? item.url : ""}

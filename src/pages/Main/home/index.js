@@ -99,6 +99,7 @@ const Home = () => {
                                 { greeting.img && (
                                     <Image
                                         src={greeting.img}
+                                        alt="greeting image"
                                         className="img-fluid rounded-circle"
                                         style={{ width: '2rem', height: '2rem', objectFit: 'cover' }}
                                     />

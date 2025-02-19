@@ -159,6 +159,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
     }
 
     // 监听事件
+
     useEffect(() => {
         window.addEventListener("scroll", throttle(handleScroll, 200)); // 监听滚动
         window.addEventListener("click", (event) =>{handleClick(event)}); // 监听点击事件
@@ -170,7 +171,9 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
             window.removeEventListener("click", handleClick); // 清理点击事件监听
             window.removeEventListener("mousemove", throttle(handleMouseMove, 1000)); // 清理鼠标移动事件监听
         };
+        // eslint-disable-next-line
     }, []);
+
     useEffect(() => {
         if (topNavBarItemObject && topNavBarItemObject.length > 0) {
             setTopNavItem(topNavBarItemObject[0]);

@@ -22,7 +22,7 @@ const useExecuteCode = (code, languageParams) => {
             setLocalOutput(`Error executing code: ${error.message}`);
             setLoading(false);
         }
-    }, [code]);
+    }, [code, languageParams]);
 
     return { loading, localOutput, executeCode };
 };
