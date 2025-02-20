@@ -18,11 +18,11 @@ const imageBlock = ({ markdownPath, src, alt, width, height }) => {
 
 
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', width: "100%" }}>
             <img
                 src={imageSrc(markdownPath, src)}
                 alt={alt}
-                style={{ width: width || 'auto', height: height || 'auto' }}
+                style={{ width: "80%", height: "auto" }}
             />
         </div>
     );

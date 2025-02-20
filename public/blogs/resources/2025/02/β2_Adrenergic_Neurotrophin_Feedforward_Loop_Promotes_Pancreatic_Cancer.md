@@ -4,7 +4,7 @@
 
 <br/>
 
-​	In todays blog, I will share the classical article "***β2 Adrenergic-Neurotrophin Feedforward Loop Promotes Pancreatic Cancer***" published by [Timothy C.Wang](https://timothycwanglab.org/), leading expert in gastroenterology cancer research and patient care. It demonstrated the the β2 adrenergic neurotrophin oversecrection, abnormal level of the epinephrine and norepinephrine, stimulated by stress will promote pancreatic cancer iniation, development and progreesion. The graphical abstract of this article was catched in blow picture:
+​	In todays blog, I will make a depth profiling of the classical article "***β2 Adrenergic-Neurotrophin Feedforward Loop Promotes Pancreatic Cancer***" published  in ***《Cancer Cell》*** by [Timothy C.Wang](https://timothycwanglab.org/), leading expert in gastroenterology cancer research and patient care. It demonstrated the the β2 adrenergic neurotrophin oversecrection, abnormal level of the epinephrine and norepinephrine, stimulated by stress will promote pancreatic cancer iniation, development and progreesion. The graphical abstract of this article was catched in blow picture:
 
 <img src="https://www.cell.com/cms/10.1016/j.ccell.2017.11.007/asset/b19d682b-044b-4b40-8367-4f917a322bf3/main.assets/fx1.jpg" alt="graphical abstract" width="300px"/>
 
@@ -12,9 +12,9 @@
 
 - Animal Disease Model
   - Environmal mouse model: Chronic Restraint Stress (CRS) mice;
-  - Genetic mouse model: $\text{LSL-Kras}^{\text{+/G12D}};\text{Pdx1-Cre(KC)}$ mice, ADRB2 knockout mice;
+  - Genetic mouse model: $\text{LSL-Kras}^{\text{+/G12D}};\text{Pdx1-Cre(KC)}$ mice, $\text{LSL-Kras}^{\text{+/G12D}};\text{LSL-Trp53}^{\text{+/R172H}};\text{Pdx1-Cre(KPC)}$ mice, ADRB2 knockout mice;
   - Surgical mouse model: Bilateral Adrenalectomy(ADx) mice;
-  - Drug interruption mouse model: mice injected veinously by ICI118551(selective β2-adrenergic receptor blocker), Isoproterenol(ISO, adrenergic receptor agonoist), atenolol(selective β1-adrenergic receptor blocker), propranolol(non-selective β2-adrenergic receptor blocker).
+  - Drug interruption mouse model: mice injected veinously by ICI118,551(selective β2-adrenergic receptor blocker), Isoproterenol(ISO, adrenergic receptor agonoist), atenolol(selective β1-adrenergic receptor blocker), propranolol(non-selective β2-adrenergic receptor blocker).
 
 In addition, the oganoids derived from pancreatic cancer patient also was performed and validate the view.
 
@@ -28,7 +28,13 @@ In addition, the oganoids derived from pancreatic cancer patient also was perfor
 
 The section provides some basic and necessary research background and intention about this article.
 
-### 1.1 The Poor Progonsis of PDAC
+### 1.1 The Initiation and Poor Progonsis of PDAC
+
+​	The initiation of PDAC have been investigated for many years. A recent review article outline the pancreatic cancer putative cells of origin. Anatomically, The pancreatic cell was divided into two types: **acinar cells** and **ductal cells** according to cell morphology. In early development stage, oncogene mutation and tumor suppressor loss such as KRAS,TP53 drives the precursor lesions of pancreatic tissue from low level to high level. Eventually, The PDAC was formed and classified into three types: classical, basal-like and hybrid types accoding to origin of cancer cells.
+
+<img src="./assets/PDAC_Initiation.png" width="60%"/>
+
+
 
 ​	The reason why average prognosis of PDAC patient is 5 years extremly confused clinical doctor and research scientist. It drives so many groups to explore the underlying reseaon. 
 
@@ -124,9 +130,57 @@ Understanding the role of the nervous system in PDAC opens avenues for novel the
 
 ## Results
 
-For this article, it proves the several results by this logical.
-
 ### Chronic Neuropsychological Stress Promotes Kras-Induced Pancreatic Tumorigenesis, which is regulated by ADRB2
+
+​	The begining of the story is from the finding that **upregulated the level of epinephrine** and **higher sroces of PanINs** in CRS mice model (mice treated by chronic restraint stress in 14 weeks, 6 hr/day - 5 days/week). Because of the upregulated epinephrine and β2-adrenergic receptor (ADRB2) is reported to be the major mediator for chronic-stress-induced cancers, including PDAC, the authors investigated the effects of ADRB2 in stressed or unstressed mice by receptor agonist(ISO injection), receptor antagonist(ICI injection), ADRB2 knouck-out, bilateral adrenalectomy(ADx). The pathogical pancreatic H&E images demonstrated the disoganization of the pancreas and recoveried morph change i
+
+<img src="./assets/stress_tumorigenesis.png" alt="QQ_1740014954609" style="zoom:25%;" />
+
+Subsequently, quantitative measurement of ADRB family genes includes ADRB1, ADRB2, ADRB3 were performed. The qPCR outcomes indicated the ADRB2 is higher expression in KC mice and validated in ADRB2 IHC in these mouse.
+
+<img src="./assets/qPCR_HE_ADRB.png" alt="QQ_1740016293063" style="zoom:25%;" />
+
+​	In the next step, the authors infer that whether percentage of neural components secreting Epi is cosistent with observation above. The peripherin IHC was tested:
+
+<img src="./assets/peripherin_IHC.png" alt="QQ_1740016786826" style="zoom:25%;" />
+
+The statistical ratio pattern of peripherin by IHC stain is consistent with incidence of PDAC.
+
+​	Taken together, The authors summary the observation that these results suggest that **chronic stress and increased circulating catecholamines lead to an expansion of intrapancreatic nerves.** But we still don't know the reason why upregulation of ADRB2 expression and neuron density in PDAC sample contribute to transition from early stage PanIN to late stage PanIN.
+
+<img src="./assets/result1.png" alt="result1" style="zoom:25%;" />
+
+
+
+### ADRB2 Blockade Significantly Increases Overall Survival in KPC Mice
+
+​	To further verify the ADRB2 Blockage effects in **spontaneous PDAC model**, authros utilized the **LSL-*Kras*^+/LSL-G12D^;LSL-*Trp53*^+/R172H^;*Pdx1*-Cre (KPC) model**, which develops early PanIN lesions at 7–9 weeks of age, advanced PanIN lesions at 13–15 weeks, and PDAC by 17–19 weeks. The authors design the same experiment(H&E stain, IHC stain, qPCR) to prove the significant neural invasion in the KPC mice model.
+
+<img src="./assets/KPC_HE_IHC.png" alt="QQ_1740031831389" style="zoom:25%;" />
+
+The H&E images and statistics(Nerve number, Peripherin), qPCR gene quantity demonstrate the similar morphylogical and gene change in KPC mice. 
+
+​	While the **Peripherin** is an intermediate filament protein primarily expressed in the **peripheral nervous system**, especially in **sensory neurons**, **motor neurons**, and some **sympathetic neurons**, it is not clear the sensory neurons or motor neurons contribute the efforts. So, the authors use the TH^+^ antibody to stain sympathetic neurons selectively to analyse the whether the sympathetic outputs is enlarge. 
+
+<img src="./assets/TH_IHC_KPC.png" alt="QQ_1740033696811" style="zoom:25%;" />
+
+Labelling sympathetic neurons with TH^+^ antibody have the same representation and statistics in contrast to peripherin distribution pattern.
+
+The pancreatic ADRB2 IHC and qPCR in PDAC from KPC mice was carried out in various treatment group. As expected, ADRB2 is upregulated because of negative feedback regulation of receptors and distributes within ductal cells in PDAC tissue.
+
+<img src="./assets/ADRB2_treatment.png" alt="QQ_1740043518416" style="zoom:25%;" />
+
+For poor prognosis of pancreas of PDAC also be improved in some extent in treatment of ICI and ganglionectomy(Gx).
+
+<img src="./assets/prognosis_improvement.png" alt="QQ_1740043814821" style="zoom:25%;" />
+
+Targeting for inhibiting sympathetic nervous input to tumor significantly increased overall survival and decreased tumor volume, in consistent with reduced neuron density without histopathologic change.
+
+<img src="./assets/result2.png" alt="QQ_1740045087495" style="zoom:25%;" />
+
+
+
+### 
 
 
 

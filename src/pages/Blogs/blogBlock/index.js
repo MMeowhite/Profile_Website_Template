@@ -73,7 +73,7 @@ const BlogBlock = ({ blogItem }) => {
                 fontFamily: "inherit",
                 ...boxShadowStyle,
             }}
-            onMouseEnter={() =>
+            onMouseEnter={(e) =>
                 setBoxShadowStyle({
                     boxShadow: isDarkMode
                         ? '0 0 24px 12px rgba(255, 255, 255, 0.1)' // 深色模式下的阴影
@@ -83,7 +83,7 @@ const BlogBlock = ({ blogItem }) => {
             onMouseLeave={() => setBoxShadowStyle({})} // Remove shadow on mouse leave
         >
             {/* 图片部分 */}
-            <a id="box-img" href={`${baseURL}${blogItem.slug}`} className="relative block w-100">
+            <a id="box-img" href={`${baseURL}${blogItem.slug}`} className="relative block w-100" >
                 <img
                     id={blogItem.id}
                     alt={blogItem.title}
@@ -95,7 +95,14 @@ const BlogBlock = ({ blogItem }) => {
                         objectFit: "cover",
                         aspectRatio: "16/9",
                         maxHeight: "300px",
-                        imageRendering: "high-quality"
+                        imageRendering: "high-quality",
+                        transition: "transform 0.3s ease-in-out"
+                    }}
+                    onMouseEnter={(e) => {
+                        e.target.style.transform = "scale(1.1)"; // 放大
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.transform = "scale(1)"; // 恢复原始大小
                     }}
                 />
             </a>
