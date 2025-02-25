@@ -116,11 +116,48 @@ Understanding these interactions is crucial for developing effective treatments 
 Understanding the role of the nervous system in PDAC opens avenues for novel therapeutic approaches:
 
 - **Targeting Nerve-Cancer Interactions:** Interventions that disrupt the communication between nerves and cancer cells could slow tumor growth and alleviate pain.
-
 - **Modulating Sensory Nerve Activity:** Controlling the activity of sensory nerves, particularly those releasing CGRP, may reduce cancer-related pain and inhibit tumor progression.
 - **Utilizing Mathematical Models:** Computational models can predict the effects of nerve-targeted therapies, aiding in the design of clinical trials and personalized treatment plans.
 
 
+
+### 1.4 Organoids
+
+​	**Organoids** are three-dimensional (3D) clusters of cells that mimic the structure and function of actual organs in the body. These miniaturized, simplified versions of organs are grown in vitro (in a lab) and can replicate key characteristics of the tissues they represent, making them powerful tools for research, drug testing, and disease modeling.
+
+<img src="https://www.amsbio.com/wp//wp-content/uploads/2019/10/Organoids-featured-image.jpg" alt="organoids" width="300px"/>
+
+#### 1.4.1 The Characteristics of organoids
+
+​	The organoids has unique ability to model human diseases more accurately than traditional 2D cultures makes them invaluable for research and personalized medicine. 
+
+- **3D Culture**: Unlike traditional 2D cell cultures, organoids are grown in 3D structures that allow cells to organize themselves into more complex patterns, similar to what happens in vivo (inside the body).
+- **Self-organization**: Organoids develop spontaneously through the ability of stem cells to differentiate into various cell types and self-organize into tissue-like structures. This self-organizing feature is a critical characteristic that distinguishes organoids from simpler cell cultures.
+- **Tissue Resemblance**: They can replicate some of the basic architecture and functionality of organs. For example, brain organoids can mimic neural structures, while intestinal organoids can mimic the function of the human gut.
+- **Stem Cell Derived**: Most organoids are derived from pluripotent stem cells (embryonic stem cells or induced pluripotent stem cells), or adult stem cells, which have the potential to differentiate into a variety of cell types.
+- **Expensive Cost**: organoids technology can be quite expensive, and this cost can be a barrier for widespread adoption in research and clinical applications. Several factors such as stem cell resource,  specialized growth conditions, longer time and maintenance, complexity in scaling, reproducibility and standardization contribute to the high cost of generating and maintaining organoids together.
+
+​	As the technology matures, organoids are becoming an exciting advancement in biomedical research, offering more realistic and functional models of human tissues and organs. They have a broad range of applications in disease modeling, drug development, and potentially even in personalized treatments. However, for now, they remain a premium research tool, especially for applications in drug discovery, disease modeling, and regenerative medicine.
+
+
+
+#### 1.4.2 Common Types of Organoids
+
+​	Up to date, only several types of organoids, brain,intestine, liver, kidney, cancer, have been cultured largely and applied in biomedical research boardly. Each type of organoid have their unique application. **Brain organoids**  mimic aspects of the human brain, including neural development and certain brain functions, useful for studying neurological diseases and brain development. **Intestinal organoids** represent parts of the gut and are used to study digestion, gut diseases, and microbiome interactions. **Liver organoids** replicate the structure of the liver and are used to study liver diseases and drug metabolism. **Kidney organoids** simulate kidney structures, useful for studying renal diseases and kidney development. **Cancer organoids** derived from cancer patients' tissues were used to imitate tumor growth, metastasis, and responses to treatments.
+
+
+
+#### 1.4.3 Applications of Organoids
+
+Actually, the application of organoids is similar to cell experiment. It roughly includes diverse aspects:
+
+- **Disease Modeling**: Organoids can be used to model a variety of diseases, such as cancer, neurodegenerative diseases, or genetic disorders, providing insights into disease mechanisms and progression.
+- **Drug Discovery and Testing**: Organoids are used for high-throughput drug screening and testing, as they provide a more realistic environment for evaluating drug effects than traditional 2D cell cultures.
+- **Personalized Medicine**: Cancer organoids, for example, can be grown from a patient's tumor, allowing researchers to test various drugs and identify the most effective treatment tailored to the individual.
+- **Developmental Biology**: Organoids are valuable for studying how organs develop and form during embryogenesis, helping to answer basic questions in developmental biology.
+- **Tissue Engineering**: In the long term, organoids have the potential to contribute to regenerative medicine and organ transplantation, though they are still in early stages.
+
+​	
 
 ​	In summary, integrating cancer neuroscience into PDAC research enhances our understanding of tumor biology and opens new therapeutic possibilities by targeting the complex interactions between the nervous system and cancer cells.
 
@@ -128,9 +165,11 @@ Understanding the role of the nervous system in PDAC opens avenues for novel the
 
 
 
-## Results
 
-### Chronic Neuropsychological Stress Promotes Kras-Induced Pancreatic Tumorigenesis, which is regulated by ADRB2
+
+## 2 Results
+
+### 2.1 Chronic Neuropsychological Stress Promotes Kras-Induced Pancreatic Tumorigenesis, which is regulated by ADRB2
 
 ​	The begining of the story is from the finding that **upregulated the level of epinephrine** and **higher sroces of PanINs** in CRS mice model (mice treated by chronic restraint stress in 14 weeks, 6 hr/day - 5 days/week). Because of the upregulated epinephrine and β2-adrenergic receptor (ADRB2) is reported to be the major mediator for chronic-stress-induced cancers, including PDAC, the authors investigated the effects of ADRB2 in stressed or unstressed mice by receptor agonist(ISO injection), receptor antagonist(ICI injection), ADRB2 knouck-out, bilateral adrenalectomy(ADx). The pathogical pancreatic H&E images demonstrated the disoganization of the pancreas and recoveried morph change i
 
@@ -146,13 +185,13 @@ Subsequently, quantitative measurement of ADRB family genes includes ADRB1, ADRB
 
 The statistical ratio pattern of peripherin by IHC stain is consistent with incidence of PDAC.
 
-​	Taken together, The authors summary the observation that these results suggest that **chronic stress and increased circulating catecholamines lead to an expansion of intrapancreatic nerves.** But we still don't know the reason why upregulation of ADRB2 expression and neuron density in PDAC sample contribute to transition from early stage PanIN to late stage PanIN.
+​	Taken together, these results suggest that **chronic stress and increased circulating catecholamines lead to an expansion of intrapancreatic nerves.** But we still don't know the reason why upregulation of ADRB2 expression and neuron density in PDAC sample contribute to transition from early stage PanIN to late stage PanIN.
 
 <img src="./assets/result1.png" alt="result1" style="zoom:25%;" />
 
 
 
-### ADRB2 Blockade Significantly Increases Overall Survival in KPC Mice
+### 2.2 ADRB2 Blockade Significantly Increases Overall Survival in KPC Mice
 
 ​	To further verify the ADRB2 Blockage effects in **spontaneous PDAC model**, authros utilized the **LSL-*Kras*^+/LSL-G12D^;LSL-*Trp53*^+/R172H^;*Pdx1*-Cre (KPC) model**, which develops early PanIN lesions at 7–9 weeks of age, advanced PanIN lesions at 13–15 weeks, and PDAC by 17–19 weeks. The authors design the same experiment(H&E stain, IHC stain, qPCR) to prove the significant neural invasion in the KPC mice model.
 
@@ -180,7 +219,56 @@ Targeting for inhibiting sympathetic nervous input to tumor significantly increa
 
 
 
-### 
+### 2.3 Catecholamines Promote Acinar to Ductal Metaplasia and Drive Proliferation
+
+​	From the graphical conclusion of last subchapter, It clarified the logical cycle: **increased TH^+^ neuron density (e.g. place the mouse into stress environment) -> upregulated ADRB2 expression -> Exacerbated PDAC lesions**. However, the downstream event triggerd by upregulated ADRB2 receptor, a member of adrenergic family, is unknown. Therefore, authors investigated the underlying mechanisms by which adrenergic signaling stimulates PDAC development.
+
+​	To discover the downstream of ADRB2, organoids we introduced briefly above was choosen to mimic the tumor environment. Organoids derived from KC mice was deal with the following drugs:
+
+|       Drugs        |                        Efforts                         |
+| :----------------: | :----------------------------------------------------: |
+| Isoproterenol(ISO) |  **Non-selective** β adrenergic receptor **agnoist**   |
+|    Propranolol     | **Non-selective** β adrenergic receptor **antagnoist** |
+|      Atenolol      |  **Selective** β1 adrenergic receptor **antagnoist**   |
+|  ICI118,551(ICI)   |  **Selective** β2 adrenergic receptor **antagnoist**   |
+
+<img src="./assets/oganoids_KC_mice.png" alt="QQ_1740054166390" style="zoom:25%;" />
+
+The bright field images and statistics of number and diameter of organoids validate the molecular efforts triggered by ADRB2 adrenergic pathway shown in figure above. Though recovery organoids experiment deleted ADRB2 gene derived from KC-ADRB2 KO mice, authors confirmed ADRB2 adrenergic efforts in other side.
+
+<img src="./assets/KC_ADRB2_KO.png" alt="QQ_1740115670762" style="zoom:25%;" />
+
+Furthemore, to investigate the reason why the organoids number not diameter increased by ISO, stemness-related genes *Pou5f1*, *Sox9* were measured. It indicates the potential stemness ability was elevated, which hinted the potential molecular mechanism underly the finding.
+
+​	Previous finding indicates the underlying downstream of ADRB2 receptor encompass numerous pathway: cAMP-PKA, MAPK/ERK *etc*. To further explore potential downstream molecular signaling pathways activated by ADRB2 receptor, 
+
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; height: auto;">
+  <img src="./assets/PKA_MEK_1.png" alt="PKA_MEK_1" width="300px" />
+  <img src="./assets/PKA_MEK_2.png" alt="PKA_MEK_2" width="300px" />
+</div>
+
+
+​	Next,the elative quantification of ADRB1-3 mRNA expression and ADRB2  fluorescence co-location were prepared in human pancreatic cancer cell lines AsPC-1, BxPC-3, Mia PaCa-2 and Panc-1. Also, the similar block effects exhibits in these cell lines treated by agnoist and antagnoist.
+
+<img src="./assets/PDAC_cell_line_effects.png" alt="QQ_1740120499683" style="zoom:25%;" />
+
+​	In addition, authors design the co-culture model to explore whether the small mocule derived from DRGs has the similar effects to spheres. Obviously, it is true! It demostrate the another endogenous source of except by autocrine mechanism.
+
+<img src="./assets/co_culture_model.png" alt="QQ_1740121638919" style="zoom:25%;" />
+
+
+
+​	As a result, 
+
+<img src="./assets/result3.png" alt="QQ_1740122307114" style="zoom:25%;" />
+
+
+
+### Adrenergic Signaling Increases Neurotrophin Secretion and Promotes PDAC Development through Tumor-Associated Axonogenesis
+
+​	
+
+
 
 
 

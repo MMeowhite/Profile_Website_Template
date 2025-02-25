@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import TopNavBar from '../widget/topNavBar';
-import { useTheme } from './themeProvider'; // 使用 ThemeContext
+import { useTheme } from './themeProvider';
 
 const Layout = () => {
     const { isDarkMode, toggleTheme } = useTheme(); // 使用 useTheme 来获取主题状态和切换方法

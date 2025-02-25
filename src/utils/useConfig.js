@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from "./languageProvider";
 
 /**
  * 深度获取嵌套的对象属性
@@ -16,10 +17,12 @@ const useConfig = (key) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+
+
     useEffect(() => {
         const loadConfig = async () => {
             try {
-                const response = await fetch('/config.json');
+                const response = await fetch(`/configs/config_en.json`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch config');
                 }
