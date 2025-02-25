@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useLanguage } from "./languageProvider";
 
 /**
  * 深度获取嵌套的对象属性
