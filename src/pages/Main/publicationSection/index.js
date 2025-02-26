@@ -3,11 +3,12 @@ import { useMediaQuery } from 'react-responsive'
 import { Button, Row } from 'react-bootstrap';
 import Slider from 'react-slick'; // 导入 react-slick
 import Image from 'react-bootstrap/Image';
-import { useTheme } from '../../../utils/themeProvider';
-import useConfig from "../../../utils/useConfig";
+import { useTheme } from '../../../utils/Provider/themeProvider';
+import { useConfig } from "../../../utils/Provider/ConfigProvider";
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import './publicationSection.css';
 import AOS from "aos";
+import {useLanguage} from "../../../utils/Provider/languageProvider";
 
 
 const PublicationSection = () => {
@@ -16,6 +17,7 @@ const PublicationSection = () => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const { configValue: featuredPublicationObjects } = useConfig('pages.home.featuredPublications');
+    const { isEnglish } = useLanguage();
 
     useEffect(()=>{
         AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
@@ -122,7 +124,7 @@ const PublicationSection = () => {
                 }}
                 data-aos="zoom-in"
             >
-                Featured Publications
+                {isEnglish ? "Featured Publication" : "论文"}
             </h1>
 
             <div className="d-flex flex-column"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Spinner } from 'react-bootstrap';
 import useExecuteCode from './useExecuteCode';
-import { useTheme } from "../../themeProvider";
+import { useTheme } from "../../Provider/themeProvider";
 
 const CodeBlock = ({ inline=true, children, className = ''}) => {
     const { isDarkMode } = useTheme();

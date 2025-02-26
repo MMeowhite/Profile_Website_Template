@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./timeline.css";
 import useConfig from "../../../utils/useConfig";
-import {useTheme} from "../../../utils/themeProvider";
+import {useTheme} from "../../../utils/Provider/themeProvider";
 
 const Timeline = () => {
     const { configValue: timelineData } = useConfig("pages.home.experienceSection.timeline");

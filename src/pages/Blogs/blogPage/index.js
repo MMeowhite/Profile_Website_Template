@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import MarkdownRender from "../../../utils/markdownRender";
 import { useMediaQuery } from "react-responsive";
 import { useParams } from "react-router-dom";
-import { useTheme } from "../../../utils/themeProvider";
+import { useTheme } from "../../../utils/Provider/themeProvider";
 import { AiOutlineUnorderedList, AiOutlineClose } from "react-icons/ai";
 import IconNavComponent from "../../../widget/iconNavComponent";
 import { FcAlarmClock, FcPlanner, FcGlobe } from "react-icons/fc";

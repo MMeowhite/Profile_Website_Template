@@ -5,14 +5,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
-import { useTheme } from '../../../utils/themeProvider';
-import useConfig from "../../../utils/useConfig";
+import { useTheme } from '../../../utils/Provider/themeProvider';
+import { useConfig }from "../../../utils/Provider/ConfigProvider";
 import AOS from "aos";
 import {useMediaQuery} from "react-responsive";
+import {useLanguage} from "../../../utils/Provider/languageProvider";
 
 
 
 const Home = () => {
+    const { isEnglish } = useLanguage();
     const { configValue: homeData,error,loading } = useConfig('pages.home');
     const [  avatarImg, setAvatarImg ] = useState(null)
     const isSmallScreen = useMediaQuery({ maxWidth: 768 }); // 记录是否为小屏
@@ -147,16 +149,19 @@ const Home = () => {
                         boxShadow: isDarkMode
                             ? '0 8px 12px rgba(255, 255, 255, 0.1)' // 深色模式下的阴影
                             : '0 8px 12px rgba(0, 0, 0, 0.1)'}}>
-                        Quote
+                        {isEnglish ? "Quote" : "引言"}
                     </Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             <p>
-                                {quote ? quote : "please input your own quote"}
+                                {quote ? quote.words : "please input your own quote"}
                             </p>
-                            <footer className="blockquote-footer">
-                                Someone famous in <cite title="Source Title">Source Title</cite>
-                            </footer>
+                            <footer
+                                dangerouslySetInnerHTML={{ __html: quote?.author ?  quote.author: isEnglish ? 'Someone famous in <cite title="Source Title">Source Title</cite>' : "匿名"}}
+                                className="blockquote-footer"
+                                style={{ textAlign: 'right' }}
+                            />
+
                         </blockquote>
                     </Card.Body>
                 </Card>

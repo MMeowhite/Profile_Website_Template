@@ -1,6 +1,5 @@
 {
   "websiteTitle": "MMeowhite",
-  "markdown": "/2024_11.md",
   "references": "/references.bib",
   "pages": {
     "home": {
@@ -9,40 +8,42 @@
         "hovered": "/images/avatar_hover.jpg"
       },
       "name": {
-        "nickName": "MMeowhite",
-        "realName": "(Peng, Miao)"
+        "nickName": "白喵喵",
+        "realName": ""
       },
-      "institution": "Sichuan University",
-      "field": "MEDICINE / COMPUTER SCIENCE / MATHEMATICS / PHYSICS",
+      "institution": "四川大学",
+      "field": "医学 / 计算机 / 数学 / 物理",
       "greeting" : {
         "img": "/images/featuredImages/img.png",
-        "title": "Hello, I'm MMeowhite (Peng, Miao)",
-        "subtitle": "I'd like to say something...",
-        "profile": "Hi! I am MMeowhite, a second-year Master's student advised by Professor Canhua Huang in State Key Laboratory of Biotherapy at Sichuan University. My major is all of things in the world. <br/><br/>My goal is to push the boundaries of human knowledge and capabilities in Medicine, Computer Science, Mathematics, and Physics. I aspire to develop innovative and intelligent solutions that integrate principles from these fields to tackle complex real-world challenges. Specifically, I am interested in exploring methods that effectively and efficiently leverage multimodal data, advanced computational models, and mathematical frameworks to enhance understanding, decision-making, and problem-solving in science and healthcare. I am also passionate about discovering new interdisciplinary approaches that drive meaningful advancements.<br/><br/> News: I am currently researching on cancer neuroscience. Actively looking for communication and collaboration!"
+        "title": "你好，我是白喵喵！",
+        "subtitle": "简介",
+        "profile": "你好！我是白喵喵，四川大学基础医学院与法医学院/生物治疗国家重点实验室的二年级硕士研究生，导师是黄灿华教授。我的专业涉及所有领域。<br/><br/>我的目标是推动人类在医学、计算机科学、数学和物理学方面的知识和能力的边界。我渴望开发创新和智能的解决方案，整合这些领域的原理，以应对复杂的现实挑战。具体来说，我对探索有效高效地利用多模态数据、先进的计算模型和数学框架，以增强科学和医疗领域的理解、决策和问题解决能力感兴趣。我也热衷于发现新的跨学科方法，以推动有意义的进展。<br/><br/>最新动态：我目前正在进行交叉领域（数学/物理/医学/计算机）的研究，积极寻求交流与合作!"
       },
-      "quote": "What hinders learning is absolutely not the difficulty of the knowledge itself, but the unreasonable design of the learning gradient and the lack of prerequisite knowledge.",
+      "quote": {
+        "words": "阻碍学习的绝对不是知识本身的难度，而是学习梯度的不合理设计和缺乏先备知识",
+        "author": "<cite>白喵喵</cite>"
+      },
       "experienceSection": {
-        "title": "Education",
         "edu": [
           {
             "period": "2018.09-2023.06",
-            "university": "Chongqing Medical University",
+            "university": "重庆医科大学",
             "logo": "/images/experience/ChongqingMedicalUniversity.jpg",
             "url": "https://www.scu.edu.cn",
-            "degree": "Bachelor in Clinical Medicine (Direction: Radiology)",
+            "degree": "专业：医学影像学",
             "gpa": "3.6 / 5.0",
-            "course": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology",
-            "additionalCourse": "Math"
+            "course": "医学影像与放射诊断、超声诊断、介入放射学、核医学、内科学、外科学、妇产科学、儿科学、生理学、生物化学与分子生物学、病理学、免疫学与细胞生物学。",
+            "additionalCourse": "数学分析，线性代数，概率论与数理统计"
           },
           {
-            "period": "2023.07-Present",
+            "period": "2023.07-现在",
             "logo": "/images/experience/SichuanUniversity.jpg",
             "url": "https://www.cqmu.edu.cn",
-            "university": "Sichuan University",
-            "degree": "Master in Basic Medicine (Direction: Biochemistry and Molecular Biology )",
+            "university": "四川大学",
+            "degree": "专业：基础医学",
             "gpa": "3.6 / 4.0",
-            "course": "The Basic Cellular and Molecular Principles of Pathogenesis, Medical Molecular Biology, Medicinal Biotechnology Frontier, Seperation and Purification Technology of Protein and Enzyme, Nucleic Acid Molecular Cloning Technique, Practical Histological Technique",
-            "additionalCourse": "Physics"
+            "course": "疾病发病机制、医学分子生物学、医药生物技术前沿、蛋白质和酶的分离纯化技术、核酸分子克隆技术、实用组织学技术",
+            "additionalCourse": "机器学习与深度学习，算法"
           }
         ],
         "timeline": [
@@ -172,14 +173,24 @@
           ]
         }
       ],
-      "cv": "/el1.pdf"
+      "cv": "/cv.pdf",
+      "contact" : {
+        "title": "请联系我！",
+        "subtitle": "欢迎随时来交流问题、想法、建议，或者只是打个招呼!",
+        "location": "<br />四川大学华西校区<br />成都市人民南路三段17号<br />四川省 610041 <br />中华人民共和国",
+        "api": {
+          "name": "baidu",
+          "address": "中国四川省成都市武侯区人民南路三段17号四川大学华西校区",
+          "key": ""
+        }
+      }
     },
     "experience": {
       "education": [
         {
           "university": {
-           "name": "Chongqing Medical University",
-           "url": "https://www.cqmu.edu.cn/"
+            "name": "Chongqing Medical University",
+            "url": "https://www.cqmu.edu.cn/"
           },
           "time": "September 2018 - July 2023",
           "major": "Bachelor of Medicine in Medical Imaging (Radiology and Diagnostic Technology)",
@@ -271,22 +282,22 @@
       ],
       "skills": [
         {
-         "field": "Computer Science",
-         "list": {
-           "Programming Languages": "C, Java, Linux, Python, R, MATLAB, Javascript, MySQL",
-           "Framework and libraries": {
-             "Bioinformatics": [
-               "RNA-Seq quality control and data preprocessing: Trimming, Filtering, Alignment (STAR, HISAT2)",
-               "Variant calling and annotation: SNPs, Indels, CNVs",
-               "Bulk RNA-seq: Differential gene expression analysis, Alternative splicing analysis, GO/KEGG/GSEA enrichment analysis",
-               "Single-cell RNA-Seq analysis (scRNA-Seq): Seurat V5, Monocle, Scanpy, Celltree",
-               "Visualization of omics data: Heatmaps, Volcano plots, PCA, t-SNE, UMAP, Circos plots",
-               "Multi-omics data integration analysis: WGS, WES, GWAS, RNA-Seq, ChIP-Seq, ATAC-seq, Metabolomics, Proteomics",
-               "Machine learning in bioinformatics: Predictive models, Clustering algorithms (K-means, Hierarchical)"
-             ],
-             "Web development": "Full stack development: React, Bootstrap, Flask, Node.js"
-           }
-         }
+          "field": "Computer Science",
+          "list": {
+            "Programming Languages": "C, Java, Linux, Python, R, MATLAB, Javascript, MySQL",
+            "Framework and libraries": {
+              "Bioinformatics": [
+                "RNA-Seq quality control and data preprocessing: Trimming, Filtering, Alignment (STAR, HISAT2)",
+                "Variant calling and annotation: SNPs, Indels, CNVs",
+                "Bulk RNA-seq: Differential gene expression analysis, Alternative splicing analysis, GO/KEGG/GSEA enrichment analysis",
+                "Single-cell RNA-Seq analysis (scRNA-Seq): Seurat V5, Monocle, Scanpy, Celltree",
+                "Visualization of omics data: Heatmaps, Volcano plots, PCA, t-SNE, UMAP, Circos plots",
+                "Multi-omics data integration analysis: WGS, WES, GWAS, RNA-Seq, ChIP-Seq, ATAC-seq, Metabolomics, Proteomics",
+                "Machine learning in bioinformatics: Predictive models, Clustering algorithms (K-means, Hierarchical)"
+              ],
+              "Web development": "Full stack development: React, Bootstrap, Flask, Node.js"
+            }
+          }
         },
         {
           "field": "Medicine",
@@ -342,33 +353,32 @@
         }
       ]
     },
-    "publication": {},
-    "blog": {}
+    "publication": {}
   },
   "widgets": {
     "navbar": {
       "item1": {
-        "name": "Home",
+        "name": "主页",
         "link": "#home"
       },
       "item2": {
-        "name": "Education",
+        "name": "教育",
         "link": "#education"
       },
       "item3": {
-        "name": "Experience",
+        "name": "经历",
         "link": "#experience"
       },
       "item4": {
-        "name": "Publication",
+        "name": "论文",
         "link": "#publication"
       },
       "item6" : {
-        "name": "CV",
+        "name": "简历",
         "link": "#cv"
       },
       "item5": {
-        "name": "Contact",
+        "name": "联系",
         "link": "#contact"
       }
     },
@@ -378,23 +388,23 @@
         "title": "MMeowhite",
         "link": [
           {
-            "name": "Bio",
+            "name": "首页",
             "link": "/"
           },
           {
-            "name": "Experience",
+            "name": "经历",
             "link": "/experience"
           },
           {
-            "name": "Publication",
+            "name": "论文",
             "link": "/publication"
           },
           {
-            "name": "Projects",
+            "name": "项目",
             "link": "/projects"
           },
           {
-            "name": "Blogs",
+            "name": "博客",
             "link": "/blogs"
           }
         ]

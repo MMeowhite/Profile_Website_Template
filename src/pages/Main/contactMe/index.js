@@ -1,11 +1,16 @@
 import React, {useEffect} from 'react';
 import { Form, Button, Card, Row, Col } from 'react-bootstrap';
 import BaiduMap from "../../../utils/baiduMap";
-import {useTheme} from "../../../utils/themeProvider";
+import { useTheme } from "../../../utils/Provider/themeProvider";
 import AOS from "aos";
-import {useMediaQuery} from "react-responsive";
+import { useMediaQuery } from "react-responsive";
+import {useConfig} from "../../../utils/Provider/ConfigProvider";
+import {useLanguage} from "../../../utils/Provider/languageProvider";
 
 const ContactMe = () => {
+    const {configValue: contactObj} = useConfig("pages.home.contact")
+    console.log(contactObj)
+    const { isEnglish } = useLanguage();
     const isSmallScreen = useMediaQuery({maxWidth : 768})
     const { isDarkMode } = useTheme();
 
@@ -22,7 +27,7 @@ const ContactMe = () => {
                  marginBottom: "110px"
         }}
         >
-            <h1 style={{fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px"}} data-aos="fade-up">Contact Me</h1>
+            <h1 style={{fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px"}} data-aos="fade-up">{isEnglish ? "Contact Me" : "联系"}</h1>
 
             {/* Card 组件 */}
             <Card
@@ -43,51 +48,44 @@ const ContactMe = () => {
                         {/* 左侧 表单 */}
                         <Col xs={12} md={5} className="mb-4 mb-md-0">
                             <Card.Header className="text-center" style={{ fontSize: isSmallScreen ? "24px" : "26px" , fontWeight: '600', background: isDarkMode ? "lightgray" :"darkgray" }}>
-                                Let's stay connected !
+                                {contactObj.title}
                             </Card.Header>
-                            <strong className="text-center d-block mb-3" style={{ color: "darkblue" }}>
-                                Drop in for questions, ideas, suggestions or just to say Hi
+                            <strong className="text-center d-block mb-3" style={{ color: "darkblue", padding: "5px 10px"}}>
+                                {contactObj.subtitle}
                             </strong>
                             <div className="d-flex flex-column h-100">
                                 <Card.Text className="text-center mb-3">
-                                    <strong>Address:</strong>
-                                    <br />
-                                    West China Campus, Sichuan University
-                                    <br />
-                                    No. 17 Section 3, South Renmin Road
-                                    <br />
-                                    Chengdu, Sichuan 610041
-                                    <br />
-                                    P.R. China
+                                    <strong>{isEnglish ? "Address:": "地址："}</strong>
+                                    <span dangerouslySetInnerHTML={{__html: contactObj.location}}/>
                                 </Card.Text>
                                 <Form className="flex-grow-1">
                                     <Form.Group controlId="formName" className="mb-3">
                                         <Form.Label>
-                                            Name <span style={{ color: "red", verticalAlign: "middle" }}>*</span>
+                                            {isEnglish ? "Name" : "姓名"} <span style={{ color: "red", verticalAlign: "middle" }}>*</span>
                                         </Form.Label>
-                                        <Form.Control type="text" placeholder="Enter your name" required />
+                                        <Form.Control type="text" placeholder={isEnglish ? "Enter your name" : "请输入你的姓名"} required />
                                     </Form.Group>
 
                                     <Form.Group controlId="formEmail" className="mb-3">
                                         <Form.Label>
-                                            Email <span style={{ color: "red", verticalAlign: "middle" }}>*</span>
+                                            {isEnglish ? "Email" : "邮箱"} <span style={{ color: "red", verticalAlign: "middle" }}>*</span>
                                         </Form.Label>
-                                        <Form.Control type="email" placeholder="Enter your email" required />
+                                        <Form.Control type="email" placeholder={isEnglish ? "Enter your email" : "请输入你的邮箱"} required />
                                     </Form.Group>
 
                                     <Form.Group controlId="formSubject" className="mb-3">
-                                        <Form.Label>Subject</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter subject" />
+                                        <Form.Label>{isEnglish ? "Title" : "标题"}</Form.Label>
+                                        <Form.Control type="text" placeholder={isEnglish ? "Enter title" : "请输入标题"} />
                                     </Form.Group>
 
                                     <Form.Group controlId="formMessage" className="mb-3">
-                                        <Form.Label>Message</Form.Label>
-                                        <Form.Control as="textarea" rows={4} placeholder="Enter your message" />
+                                        <Form.Label>{isEnglish ? "Message" : "信息"}</Form.Label>
+                                        <Form.Control as="textarea" rows={4} placeholder={isEnglish ? "Enter your message" : "请输入信息"} />
                                     </Form.Group>
 
                                     <div className="text-center">
                                         <Button variant="primary" type="submit" style={{ padding: '10px 40px', fontSize: '1.2rem' }}>
-                                            Send
+                                            {isEnglish ? "Send" : "发送"}
                                         </Button>
                                     </div>
                                 </Form>
@@ -106,7 +104,7 @@ const ContactMe = () => {
                                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                             }}
                             >
-                                <BaiduMap address="中国四川省成都市武侯区人民南路三段17号四川大学华西校区" />
+                                <BaiduMap address={contactObj.api.address} />
                             </div>
                         </Col>
                     </Row>

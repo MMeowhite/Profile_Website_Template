@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import { RouterProvider } from "react-router-dom"
 import routers from "./router";
-import {ThemeProvider} from "./utils/themeProvider";
+import { ThemeProvider } from "./utils/Provider/themeProvider";
 import useConfig from "./utils/useConfig"
-import {LanguageProvider} from "./utils/languageProvider";
+import { LanguageProvider } from "./utils/Provider/languageProvider";
+import {ConfigProvider} from "./utils/Provider/ConfigProvider";
 
 
 function App() {
@@ -14,11 +15,11 @@ function App() {
     document.title = website_title
 
   return (
-      // global theme setting
       <ThemeProvider>
         <LanguageProvider>
-          {/* router setting*/}
-          <RouterProvider router={routers} />
+            <ConfigProvider>
+                <RouterProvider router={routers} />
+            </ConfigProvider>
         </LanguageProvider>
       </ThemeProvider>
       )

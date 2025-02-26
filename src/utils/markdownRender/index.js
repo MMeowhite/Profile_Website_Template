@@ -14,7 +14,7 @@ import ImageBlock from './imageBlock'
 import 'highlight.js/styles/github.css';
 import 'katex/dist/katex.min.css';
 import './markdownRender.css';
-import { useTheme } from "../themeProvider";
+import { useTheme } from "../Provider/themeProvider";
 import PropTypes from 'prop-types'
 import Placeholder from 'react-bootstrap/Placeholder';
 import { visit } from 'unist-util-visit';

@@ -105,3 +105,18 @@
     color: #0056b3; /* 鼠标悬停时颜色变化 */
     text-decoration: none; /* 可选：去掉默认的下划线 */
 }
+
+@media screen and (max-width: 768px) {
+    /* 单条文献的外框 */
+    .referenceItemFrame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 24px 12px rgba(0, 0, 0, 0.5);
+        transition: box-shadow 0.2s ease-in-out;
+    }
+}

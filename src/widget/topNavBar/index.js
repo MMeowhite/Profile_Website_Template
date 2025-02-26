@@ -3,8 +3,9 @@ import { Navbar, Nav, Button } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import styles from "./topNavBar.module.css";
 import icons from "../../assets/icons";
-import useConfig from "../../utils/useConfig";
+import { useConfig } from "../../utils/Provider/ConfigProvider";
 import throttle from 'lodash/throttle';
+import { useLanguage } from "../../utils/Provider/languageProvider";
 
 // 初始状态
 const initialState = {
@@ -62,7 +63,8 @@ const topNavBarReducer = (state, action) => {
 }
 
 const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
-    const { configValue: topNavBarItemObject, loading, error } = useConfig("widgets.topNavBar");
+    const  { configValue:topNavBarItemObject, error ,loading }  = useConfig("widgets.topNavBar");
+
     const [topNavItem, setTopNavItem] = useState({ title: "", link: [] });
 
     const isSmallScreen = useMediaQuery({ maxWidth: 768 }); // 记录是否为小屏幕
@@ -73,6 +75,8 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const [state, dispatch] = useReducer(topNavBarReducer, initialState);
+
+    const { isEnglish, switchLanguage } = useLanguage();
 
     const handleSearch = () => {
         // 这里可以添加实际的搜索逻辑，比如调用API
@@ -188,6 +192,8 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
         return <div>Error loading configuration: {error}</div>;
     }
 
+
+
     return (
         <Navbar
             id="topNavBar"
@@ -247,6 +253,17 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
 
                 {/* 右侧按钮部分 */}
                 <div className="d-flex flex-row align-items-center gap-3 text-end" style={{marginRight: "2rem"}}>
+                    {/* 语言切换按钮 */}
+                    <Button
+                        aria-label="Toggle language"
+                        variant="outline-secondary"
+                        className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
+                        style={{ boxShadow: "none", fontSize: "20px" }}
+                        onClick={switchLanguage}
+                    >
+                        {isEnglish ? "Zh" : "英"}
+                    </Button>
+
                     {/* 搜索按钮 */}
                     <Button
                         aria-label="Toggle theme"

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react"
-import useConfig from "../../../utils/useConfig"
-import { useTheme } from "../../../utils/themeProvider";
+import { useConfig } from "../../../utils/Provider/ConfigProvider"
+import { useTheme } from "../../../utils/Provider/themeProvider";
+import {useMediaQuery} from "react-responsive";
+import {useLanguage} from "../../../utils/Provider/languageProvider";
 import Timeline from "./timeline"; // 引入时间轴组件
 import AOS from 'aos'
-import {useMediaQuery} from "react-responsive";
 
 
 const ExperienceSection = () => {
     const { configValue: experienceObj, error, loading } = useConfig("pages.home.experienceSection")
+    const { isEnglish } = useLanguage()
     const isSmallScreen = useMediaQuery({ maxWidth: 768 })
     const [educationData, setEducationData] = useState(null);
     const { isDarkMode } = useTheme();
@@ -62,7 +64,7 @@ const ExperienceSection = () => {
                      data-aos="fade-left"
                 >
         <span style={{ fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px", textAlign: 'center' }}>
-            {experienceObj.title ? experienceObj.title : "Education"}
+            {isEnglish ? "Education" : "教育"}
         </span>
                 </div>
 
@@ -94,14 +96,14 @@ const ExperienceSection = () => {
 
                                 {/* 时间以及GPA */}
                                 <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}>
-                        <strong>Time:</strong> {item.period} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {item.gpa}
+                        <strong>{isEnglish ? "Time:" : "时间："}</strong> {item.period} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {item.gpa}
                     </span>
 
                                 {/* 学位课程 */}
-                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong>Degree Courses:</strong> {item.course}</span>
+                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong>{isEnglish ? "Degree Courses:" : "学位课程："}</strong> {item.course}</span>
 
                                 {/* 附加课程 */}
-                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong>Additional Courses:</strong> {item.additionalCourse}</span>
+                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong>{isEnglish ? "Additional Courses:" : "课外课程："}</strong> {item.additionalCourse}</span>
                             </div>
                         </div>
                     ))}
@@ -111,8 +113,10 @@ const ExperienceSection = () => {
 
             {/* Timeline Section */}
             <div id="experience" className="d-flex flex-column align-items-center" style={{ width: "100%" }}>
-                <h1 style={{ fontWeight: "800", fontSize: isSmallScreen?  "40px" : "60px", textAlign: 'center' }}>Experience</h1>
-                <Timeline />
+                <h1 style={{ fontWeight: "800", fontSize: isSmallScreen?  "40px" : "60px", textAlign: 'center' }}>{isEnglish ? "Experience" : "经历"}</h1>
+                <div style={{width: "90%"}}>
+                    <Timeline />
+                </div>
             </div>
         </div>
     )

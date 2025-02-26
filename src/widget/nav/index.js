@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './nav.css';
 import { Link } from "react-router-dom";
-import { useTheme } from "../../utils/themeProvider";
-import useConfig from "../../utils/useConfig";
+import { useTheme } from "../../utils/Provider/themeProvider";
+import { useConfig }from "../../utils/Provider/ConfigProvider";
 import icons from "../../assets/icons";
 
 // 平滑滚动到目标位置
@@ -126,7 +126,7 @@ const Nav = (props) => {
                             <ul>
                                 {navItemNames?.length > 0 &&
                                     navItemNames.map((item, index) => (
-                                        <li key={index} className="m-2">
+                                        <li key={index} className="m-2 d-flex flex-column align-items-center">
                                             <Link
                                                 to={`#${item.toLowerCase()}`}
                                                 onClick={(e) => handleClick(e, navItemLinks[index])}

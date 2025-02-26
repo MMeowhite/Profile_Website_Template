@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from './iconNavComponent.module.css';
 import { Link } from "react-router-dom";
-import { useTheme } from "../../utils/themeProvider";
+import { useTheme } from "../../utils/Provider/themeProvider";
+import {useConfig} from "../../utils/Provider/ConfigProvider";
 
 const IconNavComponent = ({ style }) => {
     const [linkIconObj, setLinkIcon] = useState([]);
     const { isDarkMode } = useTheme();
     const [hoveredIndex, setHoveredIndex] = useState(null); // 追踪悬停项的索引
+    const { configValue: iconNavComponent } = useConfig("widgets.iconNavComponent")
 
     useEffect(() => {
-        const fetchConfig = async () => {
-            try {
-                const response = await fetch("/config.json");
-                const data = await response.json();
-                const iconNavComponent = data.widgets.iconNavComponent || [];
-                setLinkIcon(iconNavComponent);
-            } catch (error) {
-                console.log('Error loading the config', error);
-            }
-        };
-
-        fetchConfig();
-    }, []);
+        setLinkIcon(iconNavComponent);
+    }, [iconNavComponent]);
 
     return (
         <nav className={styles.nav}>

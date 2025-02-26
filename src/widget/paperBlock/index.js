@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from './paperBlock.module.css';
 import { parseReferenceContent } from "../../utils/referencesParser";
 import { Link } from "react-router-dom";
-import useConfig from "../../utils/useConfig";
+import { useConfig } from "../../utils/Provider/ConfigProvider"
 import AOS from "aos";
-import {useTheme} from "../../utils/themeProvider";
+import {useTheme} from "../../utils/Provider/themeProvider";
 
 
 const PaperBlock = () => {
@@ -60,7 +60,7 @@ const PaperBlock = () => {
             {references.map((reference, index) => {
                 // 安全检查作者字段
                 const authors = Array.isArray(reference.authors) ? reference.authors.join(", ") : "Unknown Authors";
-                const imageSrc = reference.image || '/images/avatar.png'; // 图片，如果没有则使用默认图片
+                const imageSrc = reference.image || "/images/avatar.png";
 
                 return (
                     <div key={index} className={styles.referenceItemFrame} style={{background: "inherit", boxShadow: isDarkMode ? "0 4px 8px rgba(255, 255, 255, 0.1)" : "0 4px 8px rgba(0, 0, 0, 0.1)"}} data-aos="fade-up">
