@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import BlogBlock from "../blogBlock";
+import {useLanguage} from "../../../utils/Provider/languageProvider";
 
 const BlogBlocks = () => {
     const [blogItemsConfig, setBlogItemsConfig] = useState([]);
     const [err, setError] = useState(false);
     const [loading, setLoading] = useState(true);
+    const { isEnglish } = useLanguage();
 
     useEffect(() => {
         const loadConfig = async () => {
             try {
-                const response = await fetch('/blogs/blog_config.json');
+                const response = await fetch(`/blogs/configs/${isEnglish ? "en" : "zh"}.json`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch config');
                 }
@@ -23,7 +25,7 @@ const BlogBlocks = () => {
         };
 
         loadConfig();
-    }, []); // 空数组，确保只在组件挂载时加载一次配置
+    }, [isEnglish]);
 
     if (loading) {
         return <div>Loading...</div>; // 加载时显示加载状态

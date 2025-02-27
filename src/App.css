@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 100%; /* 设置基础字体大小 */
+  font-size: 16px; /* 设置基础字体大小 */
 }
 
 *::before,
@@ -12,28 +12,29 @@
 
 
 html, body{
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   font-family: "Arial", sans-serif;
   scroll-behavior: smooth;
   background-color: #ffffff;
-  line-height: 1.5;  /* 统一行高 */
+  line-height: 1;  /* 统一行高 */
   font-weight: normal;  /* 统一字体粗细 */
 }
 
 html{
-  font-size: 15px
+  font-size: 16px
 }
 
 body {
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 
 .App {
   text-align: center;
-  height: 100%; /* 确保主应用占满视口 */
+  width: 100vw;
+  height: 100vh; /* 确保主应用占满视口 */
   display: flex;
   flex-direction: column;
 }

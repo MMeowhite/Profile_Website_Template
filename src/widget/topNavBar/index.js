@@ -67,7 +67,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
 
     const [topNavItem, setTopNavItem] = useState({ title: "", link: [] });
 
-    const isSmallScreen = useMediaQuery({ maxWidth: 768 }); // 记录是否为小屏幕
+    const isSmallScreen = useMediaQuery({ maxWidth: 768 });
 
 
     const [timer, setTimer] = useState(null); // 自动隐藏定时器
@@ -264,7 +264,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                         aria-label="Toggle language"
                         variant="outline-secondary"
                         className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px", color: isDarkMode ? "#fff" : "#000" }}
+                        style={{ boxShadow: "none", fontSize: "22.5px", color: isDarkMode ? "#fff" : "#000" }}
                         onClick={switchLanguage}
                     >
                         {isEnglish ? "中" : "En"}
@@ -275,7 +275,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                         aria-label="Toggle theme"
                         variant="outline-secondary"
                         className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px", height: "auto", width: "auto"}}
+                        style={{ boxShadow: "none", fontSize: "22.5px", height: "auto", width: "auto"}}
                         onClick={() => {
                             dispatch({type: "CLICK_SEARCH"})
                         }}
@@ -289,7 +289,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                         variant="outline-secondary"
                         onClick={toggleTheme}
                         className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px" }}
+                        style={{ boxShadow: "none", fontSize: "22.5px" }}
                     >
                         {isDarkMode ? <BsSun style={{color: isDarkMode ? "#fff" : "#000"}}/> : <BsMoon style={{color: isDarkMode ? "#fff" : "#000"}}/>}
                     </Button>
@@ -298,7 +298,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                     {isSmallScreen && (
                         <Button
                             aria-label="Toggle theme"
-                            style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px"}}
+                            style={{ boxShadow: "none", fontSize: "22.5px"}}
                             variant="outline-secondary"
                             className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
                             onClick={() => {
@@ -349,7 +349,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                                     key={index}
                                     href={link.link}
                                     className={`${styles.link}`}
-                                    style={{ fontSize: "40px", fontWeight: "800", padding: "1rem", color: isDarkMode ? "#fff" : "#000" }}
+                                    style={{ fontSize: isSmallScreen ?  "30px" : "40px", fontWeight: "800", padding: "1rem", color: isDarkMode ? "#fff" : "#000" }}
                                     onClick={() => state.isToggleActive = true} // 点击链接后关闭菜单
                                     onMouseEnter={(e)=> e.target.style.color="#007bff"}
                                     onMouseLeave={(e)=>e.target.style.color= isDarkMode ? "#fff" : "#000"}

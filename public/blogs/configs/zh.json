@@ -1,0 +1,140 @@
+[
+  {
+    "id": 0,
+    "abstract": "该博客简要介绍Python语法和用于深度学习的MNIST数据集，内容包括三个部分：Python学习路径、Python介绍和MNIST数据集介绍。",
+    "title": "\uD83C\uDF89 Python及MNIST数据集简要介绍",
+    "slug": "introduction-to-python-and-mnist-dataset",
+    "authorWeb": "白喵喵",
+    "authorImg": "/images/avatar_init.jpg",
+    "publishLocation": "成都, 重庆",
+    "resource": "/blogs/resources/2025/02/Introduction_to_AI_zh.md",
+    "featuredImage": "/blogs/resources/2025/02/img.jpeg",
+    "readingTime": "40分钟",
+    "publishDate": "2025年2月18日",
+    "updatedTime": "2025年2月18日",
+    "category": "AI",
+    "tags": [
+      {
+        "name": "AI",
+        "link": "ai"
+      },
+      {
+        "name": "Python",
+        "link": "python"
+      }
+    ],
+    "isFeatured": false,
+    "authorsContent": [
+      {
+        "name": "白喵喵",
+        "img": "/images/avatar_init.jpg",
+        "website": "https://www.miaopeng.info/",
+        "career": "医学硕士",
+        "organization": "四川大学",
+        "link": [
+          {
+            "type": "email",
+            "icon": "/images/link_icon/gmail.svg",
+            "link": "mailto:miaopeng@stu.scu.edu.cn"
+          },
+          {
+            "type": "github",
+            "icon": "/images/link_icon/github.svg",
+            "link": "https://github.com/MMeowhite"
+          },
+          {
+            "type": "google_scholar",
+            "icon": "/images/link_icon/googlescholar.svg",
+            "link": "https://scholar.google.com/citations?user=Y5lz1jMAAAAJ&hl=en"
+          },
+          {
+            "type": "linkedin",
+            "icon": "/images/link_icon/linkedin.svg",
+            "link": "https://www.linkedin.com/in/peng-miao-89324a341/"
+          },
+          {
+            "type": "youtube",
+            "icon": "/images/link_icon/youtube.svg",
+            "link": "https://www.youtube.com/@pengmiao-bmm"
+          }
+        ]
+      }
+    ],
+    "references": [
+      {"1": "https://en.wikipedia.org/wiki/Deep_learning"},
+      {"2": "https://stanford-cs221.github.io/autumn2024/"},
+      {"3": "https://cs231n.github.io/python-numpy-tutorial/"},
+      {"4": "https://www.clicdata.com/blog/ai-ml-data-science-deep-learning/#artificial-intelligence-ai"},
+      {"5": "https://en.wikipedia.org/wiki/MNIST_database"}
+    ]
+  },
+  {
+    "id": 1,
+    "abstract": "题为《β2肾上腺素能-神经生长因子正反馈环促进胰腺癌》的文章探讨了β2-肾上腺素受体（ADRB2）和神经生长因子在胰腺癌进展中的作用。研究发现，儿茶酚胺通过激活ADRB2，导致神经生长因子的表达增加，而这些神经生长因子又刺激ADRB2信号通路，从而形成一个正反馈环路，增强肿瘤的生长和转移。这个正反馈环路通过促进细胞增殖、存活和侵袭，助长了胰腺癌的侵袭性。研究结果表明，靶向这一ADRB2-神经生长因子通路可能为胰腺癌治疗提供一种新的治疗策略。",
+    "title": "文献分享《β2 Adrenergic-Neurotrophin Feedforward Loop Promotes Pancreatic Cancer》",
+    "slug": "article-share-1",
+    "authorWeb": "白喵喵",
+    "authorImg": "/images/avatar_init.jpg",
+    "publishLocation": "成都, 中国",
+    "resource": "/blogs/resources/2025/02/β2_Adrenergic_Neurotrophin_Feedforward_Loop_Promotes_Pancreatic_Cancer.md",
+    "featuredImage": "/blogs/resources/2025/02/assets/cancer_neuroscience_cover.png",
+    "readingTime": "1小时",
+    "publishDate": "2025年2月20日",
+    "updatedTime": "2025年2月20日",
+    "category": "Cancer neuroscience",
+    "tags": [
+      {
+        "name": "Cancer",
+        "link": "cancer"
+      },
+      {
+        "name": "neuroscience",
+        "link": "neuroscience"
+      }
+    ],
+    "isFeatured": false,
+    "authorsContent": [
+      {
+        "name": "白喵喵",
+        "img": "/images/avatar_init.jpg",
+        "website": "https://www.miaopeng.info/",
+        "career": "Bioscience Student",
+        "organization": "Sichuan University",
+        "link": [
+          {
+            "type": "email",
+            "icon": "/images/link_icon/gmail.svg",
+            "link": "mailto:miaopeng@stu.scu.edu.cn"
+          },
+          {
+            "type": "github",
+            "icon": "/images/link_icon/github.svg",
+            "link": "https://github.com/MMeowhite"
+          },
+          {
+            "type": "google_scholar",
+            "icon": "/images/link_icon/googlescholar.svg",
+            "link": "https://scholar.google.com/citations?user=Y5lz1jMAAAAJ&hl=en"
+          },
+          {
+            "type": "linkedin",
+            "icon": "/images/link_icon/linkedin.svg",
+            "link": "https://www.linkedin.com/in/peng-miao-89324a341/"
+          },
+          {
+            "type": "youtube",
+            "icon": "/images/link_icon/youtube.svg",
+            "link": "https://www.youtube.com/@pengmiao-bmm"
+          }
+        ]
+      }
+    ],
+    "references": [
+      {"1": "https://en.wikipedia.org/wiki/Deep_learning"},
+      {"2": "https://stanford-cs221.github.io/autumn2024/"},
+      {"3": "https://cs231n.github.io/python-numpy-tutorial/"},
+      {"4": "https://www.clicdata.com/blog/ai-ml-data-science-deep-learning/#artificial-intelligence-ai"},
+      {"5": "https://en.wikipedia.org/wiki/MNIST_database"}
+    ]
+  }
+]

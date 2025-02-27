@@ -209,7 +209,7 @@
           "course": "The Basic Cellular and Molecular Principles of Pathogenesis, Medical Molecular Biology, Medicinal Biotechnology Frontier, Seperation and Purification Technology of Protein and Enzyme, Nucleic Acid Molecular Cloning Technique, Practical Histological Technique"
         }
       ],
-      "internshipsAndVolunteering": [
+      "internships": [
         {
           "location":{
             "name": "The Beibei Affiliated Hospital of Chongqing Medical University",
@@ -235,7 +235,7 @@
           "work": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
         }
       ],
-      "researchProjects" : [
+      "research" : [
         {
           "time": "Jan 2020 - Jan 2022",
           "location": {

@@ -13,6 +13,7 @@ const Layout = () => {
                 display:"flex",
                 flexDirection: "column",
                 minHeight: "100vh",
+                width: "100vw",
                 transition: "background-color 0.3s ease, color 0.3s ease",
                 background: "#2c2c2c",
                 color: "#f1f1f1"
@@ -20,6 +21,7 @@ const Layout = () => {
                 display:"flex",
                 flexDirection: "column",
                 minHeight: "100vh",
+                width: "100vw",
                 transition: "background-color 0.3s ease, color 0.3s ease",
                 background: "#fff",
                 color: "#000"

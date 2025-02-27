@@ -2,6 +2,10 @@
 
 In todays lecture, we will study the Python and MNIST dataset used in deep learning.
 
+A quick video to learn the MNIST dataset:
+
+![video](https://www.bilibili.com/video/BV17m41127Kh)
+
 > "The question is not, 'Can machines think?' but 'Can machines do what we (as thinking beings) can do?'" <br/><span style="display: block; text-align: right; font-weight: bold;">- <strong>Alan Turing</strong></span>
 
 ## 0 Python Learning Path

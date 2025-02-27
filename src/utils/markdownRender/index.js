@@ -82,9 +82,22 @@ const MarkdownRender = ({ markdownPath, onTocUpdate }) => {
                         blockquote({ children }) {
                             return <blockquote style={{ color: isDarkMode ? "#999" : "#555" }}>{children}</blockquote>;
                         },
-                        img: ({ src, alt, width, height }) => (
-                            <ImageBlock markdownPath={markdownPath} src={src} alt={alt} width={width} height={height} />
-                        ),
+                        img: ({ src, alt, width, height }) => {
+                            if (alt === 'video') {
+                                return (
+                                    <VideoBlock href={src}/>
+                                );
+                            }
+                            return (
+                                <ImageBlock
+                                    markdownPath={markdownPath}
+                                    src={src}
+                                    alt={alt}
+                                    width={width}
+                                    height={height}
+                                />
+                            );
+                        },
                     }}
                 >
                     {markdown}

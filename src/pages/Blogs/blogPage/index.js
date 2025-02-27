@@ -6,11 +6,13 @@ import { useTheme } from "../../../utils/Provider/themeProvider";
 import { AiOutlineUnorderedList, AiOutlineClose } from "react-icons/ai";
 import IconNavComponent from "../../../widget/iconNavComponent";
 import { FcAlarmClock, FcPlanner, FcGlobe } from "react-icons/fc";
+import {useLanguage} from "../../../utils/Provider/languageProvider";
 
 
 const BlogPage = () => {
     const { isDarkMode } = useTheme();
     const isSmallScreen = useMediaQuery({ maxWidth: 768 });
+    const { isEnglish } = useLanguage();
     const { slug } = useParams(); // 从路由参数中获取 slug
     const [blogItems, setBlogItems] = useState([]); // 用于存储所有博客内容
     const [blogItem, setBlogItem] = useState(null); // 用于存储当前博客内容
@@ -34,7 +36,6 @@ const BlogPage = () => {
 
     // 跳转到指定锚点
     const handleAnchorClick = (id) => {
-        console.log("Jumping to:", id);
         const targetElement = document.getElementById(id);
 
         if (targetElement) {
@@ -61,7 +62,7 @@ const BlogPage = () => {
     useEffect(() => {
         const loadBlogItems = async () => {
             try {
-                const response = await fetch("/blogs/blog_config.json");
+                const response = await fetch(`/blogs/configs/${isEnglish ? "en" : "zh"}.json`);
                 const data = await response.json();
                 setBlogItems(data);
 
@@ -90,7 +91,12 @@ const BlogPage = () => {
         };
 
         loadBlogItems(); // 加载博客数据
-    }, [slug]);
+    }, [slug, isEnglish]);
+
+    const getReadingTimeDisplay = (readingTime, isEnglish) => {
+        const readingTimeText = isEnglish ? "read" : "阅读时间：";
+        return `${isEnglish ? "" : readingTimeText}${readingTime} ${isEnglish ? readingTimeText : ""}`;
+    };
 
     if (loading) {
         return <div>Loading...</div>;
@@ -147,7 +153,7 @@ const BlogPage = () => {
                         {blogItem.authorWeb}
                     </div>
                     <span>·</span>
-                    <div className="d-flex flex-row align-items-center"><FcAlarmClock/>&nbsp;{blogItem.readingTime} read</div>
+                    <div className="d-flex flex-row align-items-center"><FcAlarmClock/>&nbsp;&nbsp;{getReadingTimeDisplay(blogItem.readingTime, isEnglish)}</div>
                 </div>
 
                 <div
