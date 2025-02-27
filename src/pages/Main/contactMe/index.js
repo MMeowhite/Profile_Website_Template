@@ -4,12 +4,11 @@ import BaiduMap from "../../../utils/baiduMap";
 import { useTheme } from "../../../utils/Provider/themeProvider";
 import AOS from "aos";
 import { useMediaQuery } from "react-responsive";
-import {useConfig} from "../../../utils/Provider/ConfigProvider";
+import { useConfig } from "../../../utils/Provider/ConfigProvider";
 import {useLanguage} from "../../../utils/Provider/languageProvider";
 
 const ContactMe = () => {
     const {configValue: contactObj} = useConfig("pages.home.contact")
-    console.log(contactObj)
     const { isEnglish } = useLanguage();
     const isSmallScreen = useMediaQuery({maxWidth : 768})
     const { isDarkMode } = useTheme();

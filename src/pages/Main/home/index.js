@@ -84,17 +84,17 @@ const Home = () => {
                         onMouseLeave={() => setAvatarImg(avatar.init)} // 鼠标移开恢复默认头像
                         onClick={isSmallScreen ? () => setAvatarImg(avatarImg === avatar.init ? avatar.hovered : avatar.init) : null}
                     />
-                    <div id="name"style={{fontSize: isSmallScreen ? "clamp(1rem, 10vw, 4rem)" : "clamp(1rem, 6vw, 3rem)", fontWeight: "900",  marginBottom: "1.5rem", whiteSpace: "nowrap", overflow: "hidden", width: "100vw"}}>
+                    <div id="name"style={{fontSize: isSmallScreen ? "clamp(1rem, 10vw, 4rem)" : "clamp(1rem, 6vw, 3rem)", fontWeight: "800",  marginBottom: "1.5rem", whiteSpace: "pre", overflow: "hidden", width: "100vw"}}>
                         <div>{name.nickName}</div>
                         <div>{name.realName}</div>
                     </div>
-                    <div style={{fontSize: isSmallScreen ? "2rem" : "1.5rem", fontWeight: "400", marginBottom: "1.5rem", whiteSpace: "nowrap"}}>{institution}</div>
-                    <p id="field" style={{fontSize: "fit-content", fontWeight: "400",  marginBottom: "1.5rem", whiteSpace: "nowrap", overflow: "hidden", width: "100vw"}}>{field}</p>
+                    <div style={{fontSize: isSmallScreen ? "20px" : "25px", fontWeight: "600", marginBottom: "1.5rem", whiteSpace: "nowrap"}}>{institution}</div>
+                    <p id="field" style={{fontSize: isSmallScreen ? "12px" : "20px", fontWeight: "400",  marginBottom: "1.5rem", whiteSpace: "auto", width: "100vw", padding: "0 5px"}}>{field}</p>
                 </Col>
 
                 {/* About Me 区域 */}
                 <Col xs={12} md={6} className="d-flex flex-column align-items-center justify-content-center" >
-                    <div style={{ ...aboutCardStyles, flexGrow: 1, padding: 5 }} className="mb-4" >
+                    <div style={{ ...aboutCardStyles, flexGrow: 1, padding: 5 }}>
                         <div className="d-flex flex-column align-items-center">
                             {/* 打招呼部分 */}
                             <div className="d-flex flex-fow align-items-center justify-content-center" style={{gap: "16px"}}>
@@ -131,7 +131,7 @@ const Home = () => {
                             </div>
 
                             {/* 这里需要修改 */}
-                            <div className="d-flex flex-row align-items-center justify-content-center" style={{width: "100%", marginTop: "30px", transform: "translateX(-65px)"}}>
+                            <div className="d-flex flex-row align-items-center justify-content-center" style={{width: "auto", marginTop: "30px", whiteSpace: "auto"}}>
                                 <IconNavComponent/>
                             </div>
                         </div>

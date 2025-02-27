@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./timeline.css";
-import useConfig from "../../../utils/useConfig";
+import { useConfig } from "../../../utils/Provider/ConfigProvider";
 import {useTheme} from "../../../utils/Provider/themeProvider";
 
 const Timeline = () => {
@@ -46,7 +46,7 @@ const Timeline = () => {
     return (
         <section className={`timeline ${isDarkMode ? "dark" : "light"}`} ref={timelineRef}>
 
-            <ul>
+            <ul style={{width: "100vw"}}>
                 {timelineData?.map((item, index) => (
                     <li key={index} style={{backgroundColor: isDarkMode ? "#fff" : "#000"}}>
                         <div style={{

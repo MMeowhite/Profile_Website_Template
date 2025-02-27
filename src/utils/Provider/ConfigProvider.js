@@ -4,6 +4,12 @@ import { useLanguage } from "./languageProvider";
 const ConfigContext = createContext(null);
 
 // 使用 useConfig 直接获取配置
+/**
+ * 深度获取嵌套的对象属性
+ * @param {Object} obj - 配置对象
+ * @param {string} path - 属性路径，例如 'database.host'
+ * @returns {*} - 返回对应的属性值，如果路径不存在则返回 undefined
+ */
 export const useConfig = (path) => {
     const configContext = useContext(ConfigContext);
 

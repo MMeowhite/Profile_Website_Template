@@ -55,6 +55,7 @@ a {
     border-style: solid;
 }
 
+
 .timeline ul li:nth-child(odd) div {
     left: 45px;
 }
@@ -91,6 +92,7 @@ a {
 .timeline.light ul li:nth-child(even) div::before {
     border-color: transparent transparent transparent #000;
 }
+
 
 time {
     display: block;
@@ -155,7 +157,7 @@ time {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .timeline ul li {
         margin-left: 20px;
     }
@@ -168,6 +170,12 @@ time {
     .timeline ul li:nth-child(even) div::before {
         left: -17px;
         border-width: 8px 16px 8px 0;
+    }
+    .timeline.dark ul li:nth-child(even) div::before {
+        border-color: transparent #fff transparent transparent;
+    }
+
+    .timeline.light ul li:nth-child(even) div::before {
         border-color: transparent #000 transparent transparent;
     }
 }

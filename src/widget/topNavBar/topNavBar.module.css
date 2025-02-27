@@ -5,12 +5,11 @@
     left: 0;
     width: 100vw;
     height: 100px;
-    padding: 0 1.5rem; /* 添加左右内边距 */
     display: flex;
     justify-content: space-between;
     align-items: center;
     white-space: nowrap;
-    z-index: 99999999999;
+    z-index: 9999999;
     transition: background-color 0.3s ease, color 0.3s ease, top 0.3s ease-in-out;
 }
 
@@ -36,7 +35,6 @@
     color: #000000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 
 /* 链接样式 */
 .link {

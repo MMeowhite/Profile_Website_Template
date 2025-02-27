@@ -19,7 +19,10 @@
         "subtitle": "I'd like to say something...",
         "profile": "Hi! I am MMeowhite, a second-year Master's student advised by Professor Canhua Huang in State Key Laboratory of Biotherapy at Sichuan University. My major is all of things in the world. <br/><br/>My goal is to push the boundaries of human knowledge and capabilities in Medicine, Computer Science, Mathematics, and Physics. I aspire to develop innovative and intelligent solutions that integrate principles from these fields to tackle complex real-world challenges. Specifically, I am interested in exploring methods that effectively and efficiently leverage multimodal data, advanced computational models, and mathematical frameworks to enhance understanding, decision-making, and problem-solving in science and healthcare. I am also passionate about discovering new interdisciplinary approaches that drive meaningful advancements.<br/><br/> News: I am currently researching on cancer neuroscience. Actively looking for communication and collaboration!"
       },
-      "quote": "What hinders learning is absolutely not the difficulty of the knowledge itself, but the unreasonable design of the learning gradient and the lack of prerequisite knowledge.",
+      "quote": {
+        "words": "The most important thing in communication is hearing what isn’t said.",
+        "author": "<cite>Claude Shannon</cite>"
+      },
       "experienceSection": {
         "title": "Education",
         "edu": [

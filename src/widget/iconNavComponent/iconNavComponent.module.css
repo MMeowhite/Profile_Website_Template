@@ -1,10 +1,9 @@
 /* 基本布局 */
 .nav {
     background-color: transparent;
-    max-width: 200px;
     display: flex;
     align-items: center;
-    width: 400px;
+    width: auto;
 }
 
 /* 无序列表样式 */

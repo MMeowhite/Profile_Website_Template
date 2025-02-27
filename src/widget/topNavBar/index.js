@@ -2,10 +2,10 @@ import React, { useEffect, useReducer, useState } from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import styles from "./topNavBar.module.css";
-import icons from "../../assets/icons";
 import { useConfig } from "../../utils/Provider/ConfigProvider";
 import throttle from 'lodash/throttle';
 import { useLanguage } from "../../utils/Provider/languageProvider";
+import {BsSun, BsMoon, BsListUl, BsXCircle, BsSearch} from "react-icons/bs";
 
 // 初始状态
 const initialState = {
@@ -198,17 +198,16 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
         <Navbar
             id="topNavBar"
             expand="lg"
-            style={{height: "100px", width: "100vw", position: "fixed", top: "0", left: "0", margin: "0", padding: "0", zIndex: "99999999999999999"}}
-            onMouseMove={handleMouseMove} // 绑定鼠标移动事件
-            onClick={handleClick}
+            style={{height: "100px", width: "100vw", position: "fixed", top: "0", left: "0", right: "0", margin: "0", padding: "0", zIndex: "999999"}}
+            onMouseMove={ handleMouseMove } // 绑定鼠标移动事件
+            onClick={ handleClick }
         >
             <div
                 className={`d-flex flex-row align-items-center justify-content-between ${styles.navbar} ${isDarkMode ? styles.darkMode : styles.lightMode}`}
                 style={{
                     position: "fixed",
                     whiteSpace: "nowrap",
-                    width: "100%",
-                    margin: "auto 0",
+                    width: "100vw",
                     height: "100px",
                     background: `${isDarkMode ? "rgba(255, 255, 255, )" : ""}`,
                     transition: "top 0.3s ease-in-out, opacity 0.3s ease", // 添加平滑动画
@@ -218,25 +217,27 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
             >
 
                 {/* 左侧标题部分 */}
-                <div>
-                    <Navbar.Brand
+                <div style={{marginLeft: isSmallScreen ? "10px" : "30px"}}>
+                    <a
                         href="/"
                         style={{
                             color: isDarkMode ? "#ffffff" : "#000000", // 根据主题动态设置颜色
                             fontSize: getFontSize(),
                             fontWeight: "bold",
                             transition: "font-size 0.3s ease",
-                            marginLeft: "2rem"
+                            textDecoration: "none"
                         }}
+                        onMouseEnter={(e) => e.target.style.color="#007bff"}
+                        onMouseLeave={(e) => e.target.style.color=isDarkMode ? "#ffffff" : "#000000"}
                     >
                         {topNavItem.title}
-                    </Navbar.Brand>
+                    </a>
                 </div>
 
                 {/* 中间导航部分 */}
-                <div>
-                    <Navbar.Collapse id="navbar-content" className="justify-content-center">
-                        <Nav style={{ gap: "5rem" }} className="d-flex flex-row justify-content-center align-items-center">
+                {!isSmallScreen && (
+                    <div id="navbar-content" className="justify-content-center">
+                        <Nav style={{ gap: "20px" }} className="d-flex flex-row justify-content-center align-items-center">
                             {topNavItem.link.map((link, index) => (
                                 <Nav.Link
                                     key={index}
@@ -248,20 +249,25 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                                 </Nav.Link>
                             ))}
                         </Nav>
-                    </Navbar.Collapse>
-                </div>
+                    </div>
+                )}
 
                 {/* 右侧按钮部分 */}
-                <div className="d-flex flex-row align-items-center gap-3 text-end" style={{marginRight: "2rem"}}>
+                <div
+                    className="d-flex flex-row align-items-center gap-1"
+                    style={{
+                        marginRight: isSmallScreen ? "10px" : "30px"
+                    }}
+                >
                     {/* 语言切换按钮 */}
                     <Button
                         aria-label="Toggle language"
                         variant="outline-secondary"
                         className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none", fontSize: "20px" }}
+                        style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px", color: isDarkMode ? "#fff" : "#000" }}
                         onClick={switchLanguage}
                     >
-                        {isEnglish ? "Zh" : "英"}
+                        {isEnglish ? "中" : "En"}
                     </Button>
 
                     {/* 搜索按钮 */}
@@ -269,12 +275,12 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                         aria-label="Toggle theme"
                         variant="outline-secondary"
                         className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none" }}
+                        style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px", height: "auto", width: "auto"}}
                         onClick={() => {
                             dispatch({type: "CLICK_SEARCH"})
                         }}
                     >
-                        {icons.search()}
+                        {<BsSearch style={{color: isDarkMode ? "#fff" : "#000"}}/>}
                     </Button>
 
                     {/* 主题切换按钮 */}
@@ -283,16 +289,16 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                         variant="outline-secondary"
                         onClick={toggleTheme}
                         className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
-                        style={{ boxShadow: "none" }}
+                        style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px" }}
                     >
-                        {isDarkMode ? icons.moon() : icons.sun()}
+                        {isDarkMode ? <BsSun style={{color: isDarkMode ? "#fff" : "#000"}}/> : <BsMoon style={{color: isDarkMode ? "#fff" : "#000"}}/>}
                     </Button>
 
                     {/* 全局汉堡按钮 */}
                     {isSmallScreen && (
                         <Button
                             aria-label="Toggle theme"
-                            style={{ boxShadow: "none" }}
+                            style={{ boxShadow: "none", fontSize: isSmallScreen ? "15px" : "22.5px"}}
                             variant="outline-secondary"
                             className={`border-0 ${isDarkMode ? styles.darkMode : styles.lightMode}`}
                             onClick={() => {
@@ -302,7 +308,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                                 state.isResetTimer = !state.isResetTimer
                             }}
                         >
-                            {state.isToggleClose ? icons.close() : icons.open()}
+                            {state.isToggleClose ? <BsXCircle  style={{color: isDarkMode ? "#fff" : "#000"}}/> : <BsListUl style={{color: isDarkMode ? "#fff" : "#000"}}/>}
                         </Button>
                     )}
                 </div>
@@ -330,7 +336,7 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                     className={styles.fullScreenNav}
                     style={{
                         background: isDarkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)",
-                        zIndex: "999999999"
+                        zIndex: "999999999",
                     }}
                     onClick={() => {
                         dispatch({ type: "CLICK_TOGGLE" }); // 关闭菜单
@@ -343,8 +349,10 @@ const TopNavBar = React.memo(({ isDarkMode, toggleTheme }) => {
                                     key={index}
                                     href={link.link}
                                     className={`${styles.link}`}
-                                    style={{ fontSize: "2rem", fontWeight: "500", padding: "1rem" }}
+                                    style={{ fontSize: "40px", fontWeight: "800", padding: "1rem", color: isDarkMode ? "#fff" : "#000" }}
                                     onClick={() => state.isToggleActive = true} // 点击链接后关闭菜单
+                                    onMouseEnter={(e)=> e.target.style.color="#007bff"}
+                                    onMouseLeave={(e)=>e.target.style.color= isDarkMode ? "#fff" : "#000"}
                                 >
                                     {link.name}
                                 </Nav.Link>

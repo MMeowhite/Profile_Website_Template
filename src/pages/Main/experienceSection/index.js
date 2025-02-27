@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useConfig } from "../../../utils/Provider/ConfigProvider"
 import { useTheme } from "../../../utils/Provider/themeProvider";
-import {useMediaQuery} from "react-responsive";
-import {useLanguage} from "../../../utils/Provider/languageProvider";
+import { useMediaQuery } from "react-responsive";
+import { useLanguage } from "../../../utils/Provider/languageProvider";
 import Timeline from "./timeline"; // 引入时间轴组件
 import AOS from 'aos'
 
@@ -49,21 +49,21 @@ const ExperienceSection = () => {
             id="education"
             className="d-flex flex-column justify-content-center align-items-center"
             style={{
-                width: "100vw",
+                width: "80%",
                 height: "auto",
                 gap: "40px"
             }}
         >
             <div id="edu-card"
                  className={`d-flex flex-column ${isSmallScreen ? "" : "flex-md-row"} align-items-center`}
-                 style={{ padding: isSmallScreen ? "0 20px" : "0 0 0 100px", width: "100vw" }}
+                 style={{ padding: isSmallScreen ? "0" : "0 0 0 100px", width: "100vw", gap: isSmallScreen ? "40px" : "0"}}
             >
                 {/* Experience Title (放在 Education part 之前) */}
                 <div className="d-flex justify-content-center align-items-center"
                      style={{ flex: 1, order: isSmallScreen ? "-1" : "1" }}
                      data-aos="fade-left"
                 >
-        <span style={{ fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px", textAlign: 'center' }}>
+                    <span style={{ fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px", textAlign: 'center' }}>
             {isEnglish ? "Education" : "教育"}
         </span>
                 </div>
@@ -92,7 +92,7 @@ const ExperienceSection = () => {
                     </span>
 
                                 {/* 学位部分 */}
-                                <span style={{ fontSize: isSmallScreen ? "22px" : "26px", color: isDarkMode ? "#fff" : "#333"}}>{item.degree}</span>
+                                <span style={{ fontSize: isSmallScreen ? "22px" : "26px", color: isDarkMode ? "#fff" : "#333", fontWeight: "550"}}>{item.degree}</span>
 
                                 {/* 时间以及GPA */}
                                 <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}>
@@ -112,9 +112,9 @@ const ExperienceSection = () => {
 
 
             {/* Timeline Section */}
-            <div id="experience" className="d-flex flex-column align-items-center" style={{ width: "100%" }}>
+            <div id="experience" className="d-flex flex-column align-items-center" style={{ width: "100vw", padding: "0" }}>
                 <h1 style={{ fontWeight: "800", fontSize: isSmallScreen?  "40px" : "60px", textAlign: 'center' }}>{isEnglish ? "Experience" : "经历"}</h1>
-                <div style={{width: "90%"}}>
+                <div style={{width: "100%"}}>
                     <Timeline />
                 </div>
             </div>

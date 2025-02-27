@@ -117,7 +117,7 @@ const PublicationSection = () => {
             }}
         >
 
-
+            {/* 标题 */}
             <h1
                 style={{
                     fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px", textAlign: 'center'
@@ -127,8 +127,10 @@ const PublicationSection = () => {
                 {isEnglish ? "Featured Publication" : "论文"}
             </h1>
 
-            <div className="d-flex flex-column"
-                 style={{width: "500px" }}>
+            <div
+                className="d-flex flex-column"
+                style={{width: "100%" }}
+            >
                 <div
                     className="d-flex flex-column"
                     style={{
@@ -144,7 +146,7 @@ const PublicationSection = () => {
                     {featuredPublicationObjects?.map((featuredPublicationObject, index) => {
                         if (index === currentCardIndex) {
                             return (
-                                <div className="d-flex flex-column">
+                                <div className="d-flex flex-column" key={featuredPublicationObject.id || index}> {/* Add key here */}
                                     <p style={{ fontSize: '1.5rem' }}>
                                         {featuredPublicationObject.authors}
                                     </p>
@@ -154,11 +156,12 @@ const PublicationSection = () => {
                                 </div>
                             );
                         }
-                        return null
+                        return null;
                     })}
 
                     {/* 主卡片轮播 */}
                     <Slider
+                        key="featuredPublication"
                         id="card-slider"
                         className="d-flex flex-row justify-content-center outer align-items-center"
                         {...sliderOuterSettings}
@@ -168,7 +171,7 @@ const PublicationSection = () => {
                     >
                         {featuredPublicationObjects?.map((featuredPublicationObject, index) => (
                             <div
-                                key={index}
+                                key={`featuredPublication_${index}`} // Add a unique key here
                                 className="d-flex justify-content-center"
                                 style={{
                                     width: '800px',
@@ -178,6 +181,7 @@ const PublicationSection = () => {
                             >
                                 {/* 图片轮播 */}
                                 <Slider
+                                    key={`featuredPublicationImageFrame_${index}`} // Add a unique key here as well
                                     id="img-slider"
                                     className="d-flex flex-row justify-content-center inner align-items-center"
                                     {...sliderInnerSettings}
@@ -188,13 +192,16 @@ const PublicationSection = () => {
                                     featuredPublicationObject.featuredImages.length > 0 ? (
                                         featuredPublicationObject.featuredImages.map((item, idx) => (
                                             <div
-                                                key={idx}
+                                                key={`featuredPublicationImage_${idx}`} // Add a unique key here for images
                                                 id="slider-container"
                                                 className="d-flex align-items-center justify-content-center"
                                             >
-                                                <a href={item.link}>
+                                                <a
+                                                    key={`images_link_${idx}`}
+                                                    href={item.link}>
                                                     {/* 图片 */}
                                                     <Image
+                                                        key={`images_${idx}`}
                                                         src={item.src}
                                                         alt={item.caption}
                                                         style={{
