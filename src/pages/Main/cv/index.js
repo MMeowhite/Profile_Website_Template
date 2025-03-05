@@ -16,7 +16,7 @@ const CV = () => {
         if (cvFile) {
             setCv(cvFile)
         }
-    },[cvFile])
+    },[cvFile, isEnglish])
 
     useEffect(()=>{
         AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
@@ -35,7 +35,8 @@ const CV = () => {
                 style={{
                     width: '80vw',
                     height: '100vh', // 高度限制为视口的80%
-                    margin: "0 auto"
+                    margin: "0 auto",
+                    padding: "0 0 50px 0"
                 }}
                 data-aos="fade-in"
             >

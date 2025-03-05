@@ -8,6 +8,7 @@ import BlogBlocks from "../pages/Blogs/blockBlocks";
 import BlogPage from "../pages/Blogs/blogPage"
 import Experience from "../pages/Experience";
 import Projects from "../pages/Projects";
+import NotFound from "../pages/NotFound";
 
 
 
@@ -29,7 +30,8 @@ const routers = [
                     {index: true, element: <BlogBlocks />},
                     {path: ":slug", element: <BlogPage /> }
                 ]
-            }
+            },
+            {path: "*", element: <NotFound />}
         ]
     },
 ]
