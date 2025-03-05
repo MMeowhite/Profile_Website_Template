@@ -110,17 +110,20 @@ const PublicationSection = () => {
             id="publication"
             className={`d-flex ${isSmallScreen ? "flex-column" : "flex-row"} align-items-center justify-content-center`}
             style={{
-                width: "100%",
+                width: "80vw",
                 height: "auto",
                 gap: "25px",
-                padding: isSmallScreen ? "0 20px" : "0 300px 0 0"
+                padding: isSmallScreen ? "0 20px" : "0 0 0 0"
             }}
         >
 
             {/* 标题 */}
             <h1
                 style={{
-                    fontWeight: "800", fontSize: isSmallScreen ? "40px" : "60px", textAlign: 'center'
+                    fontWeight: "800",
+                    fontSize: isSmallScreen ? "40px" : "60px",
+                    textAlign: 'center',
+                    width: "30%"
                 }}
                 data-aos="zoom-in"
             >
@@ -129,7 +132,7 @@ const PublicationSection = () => {
 
             <div
                 className="d-flex flex-column"
-                style={{width: "100%" }}
+                style={{width: "70%" }}
             >
                 <div
                     className="d-flex flex-column"

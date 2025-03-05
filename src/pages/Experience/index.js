@@ -46,7 +46,7 @@ const Experience = () => {
                             <h2 style={{ fontWeight: "600", fontSize: "40px" }}>{sectionObj ? sectionObj.charAt(0).toUpperCase() + sectionObj.slice(1) : ""}</h2>
                             <div className="d-flex flex-column align-items-center justify-content-center" style={{ margin: "100px 0px" }}>
                                 {sectionValue?.map((edu, eduIndex) => (
-                                    <div key={eduIndex} data-aos="fade-up" style={{ width: "100%", padding: "0 0 0 50px", position: "relative" }}>
+                                    <div key={eduIndex} data-aos="fade-up" style={{ width: isSmallScreen ? "100%" : "70%", padding: "0 0 0 50px", position: "relative" }}>
                                         <span
                                             className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
                                             style={{
@@ -99,7 +99,7 @@ const Experience = () => {
                             <h2 style={{ fontWeight: "600", fontSize: "40px" }}>{sectionObj ? sectionObj.charAt(0).toUpperCase() + sectionObj.slice(1) : ""}</h2>
                             <div className="d-flex flex-column align-items-center justify-content-center" style={{ margin: "100px 0px" }}>
                                 {sectionValue?.map((internship, internshipIndex) => (
-                                    <div key={internshipIndex} data-aos="fade-up" style={{ width: "100%", padding: "0 0 0 50px", position: "relative" }}>
+                                    <div key={internshipIndex} data-aos="fade-up" style={{ width: isSmallScreen ? "100%" : "70%", padding: "0 0 0 50px", position: "relative" }}>
                                         <span
                                             className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
                                             style={{
@@ -135,7 +135,7 @@ const Experience = () => {
                             <h2 style={{ fontWeight: "600", fontSize: "40px" }}>{sectionObj ? sectionObj.charAt(0).toUpperCase() + sectionObj.slice(1) : ""}</h2>
                             <div className="d-flex flex-column align-items-center justify-content-center" style={{ margin: "100px 0px" }}>
                                 {sectionValue?.map((research, index) => (
-                                    <div key={index} data-aos="fade-up" style={{ width: "100%", padding: "0 0 0 50px", position: "relative" }}>
+                                    <div key={index} data-aos="fade-up" style={{ width: isSmallScreen ? "100%" : "70%", padding: "0 0 0 50px", position: "relative" }}>
                                         <span
                                             className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
                                             style={{
@@ -382,9 +382,9 @@ const Experience = () => {
                     return (
                         <section id="experience-page-awards" className="d-flex flex-column align-items-center justify-content-center" data-aos="fade-up" style={{width: "60%", margin: "0 100px", position: "relative" }}>
                             <h2 style={{ fontWeight: "600", fontSize: "40px" }}>{isEnglish ? "Awards & Honors" : "奖励与荣誉"}</h2>
-                            <div style={{ margin: "50px 0px 100px 0px"}}>
+                            <div style={{ margin: "50px 0px 100px 0px", backgroundColor: isDarkMode ? "#2c2c2c" : "#f9f9f9"}}>
                                 {sectionValue.map((item, index) => (
-                                    <Card
+                                    <div
                                         key={index}
                                         className="mb-4 shadow-lg rounded-lg"
                                         data-aos="fade-up"
@@ -401,12 +401,50 @@ const Experience = () => {
                                             e.currentTarget.style.transform = "scale(1)";
                                         }}
                                     >
-                                        <Card.Body style={{color: isDarkMode ? "#fff" : "#000"}}>
-                                            <Card.Text style={{fontSize: "30px"}}><strong>{item.name}</strong></Card.Text>
-                                            <Card.Text style={{fontSize: "25px"}}>{item.unit} · {item.time}</Card.Text>
-                                            <Card.Text style={{fontSize: "20px"}} dangerouslySetInnerHTML={{ __html: item.desc }} />
-                                        </Card.Body>
-                                    </Card>
+                                        <div
+                                            style={{
+                                                color: isDarkMode ? "#fff" : "#000",
+                                                padding: "0 20px 10px 20px",
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                gap: "10px",
+                                                maxWidth: "600px",
+                                                margin: "20px auto"
+                                            }}
+                                            className="d-flex flex-column"
+                                        >
+                                            <span
+                                                style={{
+                                                    fontWeight: "600",
+                                                    fontSize: "32px",
+                                                    paddingBottom: "5px",
+                                                    borderBottom: isDarkMode ? "2px solid rgba(255,255,255,0.3)" : "2px solid rgba(0,0,0,0.1)"
+                                                }}
+                                            >
+                                                {item.name}
+                                            </span>
+
+                                            <span
+                                                style={{
+                                                    fontSize: "22px",
+                                                    color: isDarkMode ? "#bbb" : "#555",
+                                                    fontStyle: "italic"
+                                                }}
+                                            >
+        {item.unit} · {item.time}
+    </span>
+
+                                            <span
+                                                style={{
+                                                    fontSize: "18px",
+                                                    lineHeight: "1.6",
+                                                    paddingTop: "10px"
+                                                }}
+                                                dangerouslySetInnerHTML={{ __html: item.desc }}
+                                            />
+                                        </div>
+
+                                    </div>
                                 ))}
                             </div>
                         </section>
