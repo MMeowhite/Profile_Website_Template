@@ -136,5 +136,70 @@
       {"4": "https://www.clicdata.com/blog/ai-ml-data-science-deep-learning/#artificial-intelligence-ai"},
       {"5": "https://en.wikipedia.org/wiki/MNIST_database"}
     ]
+  },
+  {
+    "id": 2,
+    "abstract": "The beginning of Linux system learning, mainly introducing the definition, history, purposes, working principles, importance, and significance of Linux, as well as guidelines for accessing Linux from different systems (Windows, MacOS, Linux, cloud servers)",
+    "title": "Linux System Learning (I): Beginning and Origin, System Installation",
+    "slug": "linux-system-learning-1",
+    "authorWeb": "MMeowhite",
+    "authorImg": "/images/avatar_init.jpg",
+    "publishLocation": "Chengdu, China",
+    "resource": "/blogs/resources/2025/03/linux_tutorial_1_en.md",
+    "featuredImage": "/blogs/resources/2025/03/assets/linux_tutorial_1/cover.png",
+    "readingTime": "25 minutes",
+    "publishDate": "March 7, 2025",
+    "updatedTime": "March 7, 2025",
+    "category": "Linux",
+    "tags": [
+      {
+        "name": "operating system",
+        "link": "operating system"
+      }
+    ],
+    "isFeatured": false,
+    "authorsContent": [
+      {
+        "name": "Bai Maomao",
+        "img": "/images/avatar_init.jpg",
+        "website": "https://www.miaopeng.info/",
+        "career": "Bioscience Student",
+        "organization": "Sichuan University",
+        "link": [
+          {
+            "type": "email",
+            "icon": "/images/link_icon/gmail.svg",
+            "link": "mailto:miaopeng@stu.scu.edu.cn"
+          },
+          {
+            "type": "github",
+            "icon": "/images/link_icon/github.svg",
+            "link": "https://github.com/MMeowhite"
+          },
+          {
+            "type": "google_scholar",
+            "icon": "/images/link_icon/googlescholar.svg",
+            "link": "https://scholar.google.com/citations?user=Y5lz1jMAAAAJ&hl=en"
+          },
+          {
+            "type": "linkedin",
+            "icon": "/images/link_icon/linkedin.svg",
+            "link": "https://www.linkedin.com/in/peng-miao-89324a341/"
+          },
+          {
+            "type": "youtube",
+            "icon": "/images/link_icon/youtube.svg",
+            "link": "https://www.youtube.com/@pengmiao-bmm"
+          }
+        ]
+      }
+    ],
+    "references": [
+      {"1": "https://www.linux.org/"},
+      {"2": "https://en.wikipedia.org/wiki/History_of_Linux"},
+      {"3": "https://en.wikipedia.org/wiki/Linus_Torvalds"},
+      {"4": "https://learn.microsoft.com/en-us/linux/install"},
+      {"5": "https://www.hellotech.com/guide/for/how-to-install-linux-on-mac"}
+    ]
   }
 ]

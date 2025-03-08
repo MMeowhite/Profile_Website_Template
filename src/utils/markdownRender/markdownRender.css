@@ -2,66 +2,144 @@
     width: 100%;
 }
 
-.markdown * {
-    padding-bottom: 10px;
-}
 
 .katex-html {
     overflow-x: scroll;
 }
 
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5,
-.markdown h6 {
-    margin-top: 50px;
-}
-
-.markdown h1 {
+.markdown h1 * {
     font-size: 40px;
     font-weight: 800;
+    margin-bottom: 60px;
 }
 
-.markdown h2 {
+.markdown h2 * {
     font-size: 35px;
     font-weight: 700;
+    margin-bottom: 50px;
 }
 
-.markdown h3 {
+.markdown h3 * {
     font-size: 30px;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.markdown .h4 {
+.markdown .h4 * {
     font-size: 25px;
     font-weight: 500;
+    margin-bottom: 18px;
 }
+
+.markdown h5 * {
+    margin-bottom: 16px;
+}
+
+.markdown h6 * {
+    margin-bottom: 15px;
+}
+
 
 
 .markdown p {
     font-family: inherit;
-    font-size: 22px; /* 默认字体大小 */
+    font-size: 25px; /* 默认字体大小 */
     line-height: 1.5; /* 设置行高 */
     color: inherit; /* 设置字体颜色 */
     text-align: justify; /* 设置段落文本对齐 */
+    text-indent: 2em; /* 设置首行缩进，2em相当于两个字符的宽度 */
+    margin-bottom: 30px;
 }
 
-.markdown ul {
-    margin: 0;
-    font-size: 18px
+
+
+.markdown ul{
+    list-style-type: none;
+    padding: 0 !important;
+    display: flex; /* 使用flex布局 */
+    flex-direction: column;
+    gap: 10px; /* 设置li之间的间距 */
+
 }
 
-.markdown li {
-    font-family: inherit;
-    font-size: 18px; /* 默认字体大小 */
-    line-height: 1.5; /* 设置行高 */
-    color: inherit; /* 设置字体颜色 */
-    text-align: justify; /* 设置段落文本对齐 */
-    margin: 0;
-    padding: 0;
+.markdown ol{
+    padding-left: 30px !important;
 }
+
+.markdown ul li {
+    padding: 5px 10px;
+    color: #333;
+    border-left: 5px solid #000;
+    margin-bottom: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* 为 ::marker 添加样式 */
+.markdown li::marker {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.markdown li li::marker{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.markdown li li li::marker{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+.markdown ul li p {
+    font-size: 30px;
+    padding: 0 10px;
+    margin: 0
+}
+
+.markdown ul li p strong{
+    font-size: 20px;
+}
+
+
+/* 嵌套列表的样式调整 */
+.markdown ul ul {
+
+}
+
+.markdown ul ul li {
+    border-left: 4px solid #666;
+    background-color: #f8f8f8;
+    box-shadow: none;
+}
+
+.markdown ul ul ul li {
+    border-left: 3px solid #999;
+    background-color: #f0f0f0;
+
+}
+
+/* 移除嵌套列表项前的小黑点 */
+.markdown ul ul li:before {
+    content: "";
+}
+
+/* 为每一级列表添加不同的样式 */
+.markdown ul li ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.markdown ul li ul li {
+    padding: 5px 10px;
+}
+
+.markdown ul li ul li:before {
+    content: "";
+}
+
 
 .markdown pre {
     background: inherit;
@@ -78,23 +156,91 @@
     margin-right: 0;
 }
 
+/* this table css style is cited from https://codepen.io/dudleystorey/full/WNQLyd */
+.markdown table {
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+    font-family: Agenda-Light, sans-serif;
+    font-weight: 100;
+    background: #333;
+    color: #fff;
+    text-rendering: optimizeLegibility;
+    border-radius: 5px;
+}
+
+.markdown table caption {
+    font-size: 20px;
+    color: #444;
+    margin: 1rem;
+}
+
+.markdown table thead th {
+    font-weight: 600;
+}
+
+.markdown table thead th, table tbody td {
+    padding: .8rem;
+    font-size: 18px;
+}
+
+.markdown table tbody td {
+    padding: .8rem;
+    font-size: 16px;
+    color: #444;
+    background: #eee;
+}
+
+.markdown table tbody tr:not(:last-child) {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 为第一列设置最小宽度 */
+.markdown table tbody td:first-child {
+    min-width: 150px; /* 设置第一列的最小宽度 */
+}
+
+@media screen and (max-width: 768px) {
+    table caption {
+        background-image: none;
+    }
+    table thead {
+        display: none;
+    }
+    table tbody td {
+        display: block;
+        padding: .6rem;
+    }
+    table tbody tr td:first-child {
+        background: #666;
+        color: #fff;
+    }
+    table tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 6rem;
+    }
+}
+
+
 
 /* 响应式字体大小调整 */
 @media (max-width: 1200px) {
     .markdown p {
-        font-size: 1.3rem; /* 屏幕宽度小于1200px时的字体大小 */
+        font-size: 25px; /* 屏幕宽度小于1200px时的字体大小 */
     }
 }
 
 @media (max-width: 768px) {
     .markdown p {
-        font-size: 1.1rem; /* 屏幕宽度小于768px时的字体大小 */
+        font-size: 22px; /* 屏幕宽度小于768px时的字体大小 */
     }
 }
 
 @media (max-width: 480px) {
     .markdown p {
-        font-size: 1rem; /* 屏幕宽度小于480px时的字体大小 */
+        font-size: 20px; /* 屏幕宽度小于480px时的字体大小 */
     }
 }
 

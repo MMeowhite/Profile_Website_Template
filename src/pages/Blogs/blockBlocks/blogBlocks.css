@@ -1,16 +1,14 @@
 /* Masonry Grid 容器 */
 .masonry-grid {
-    display: flex; /* 使用 flexbox 布局 */
-    flex-wrap: wrap; /* 允许换行 */
-    gap: 1rem; /* 元素之间的间隙 */
-    margin-top: 10rem;
-    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 100px
 }
 
 /* Masonry Item 子项 */
 .masonry-item {
     flex: 1 1 calc(50% - 1rem); /* 每个子项占据 50% 的宽度，减去间隙 */
-    margin-bottom: 1rem; /* 设置子项底部间距 */
+    margin-bottom: 30px;
 }
 
 /* 响应式调整列数 */

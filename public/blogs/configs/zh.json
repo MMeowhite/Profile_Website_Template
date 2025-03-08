@@ -136,5 +136,70 @@
       {"4": "https://www.clicdata.com/blog/ai-ml-data-science-deep-learning/#artificial-intelligence-ai"},
       {"5": "https://en.wikipedia.org/wiki/MNIST_database"}
     ]
+  },
+  {
+    "id": 2,
+    "abstract": "Linux系统学习的开篇，主要Linux的定义、发展历史、用途、如何工作、重要性与意义，以及如何通过不同系统（Windows、MacOS、Linux、云服务器）访问Linux的指南",
+    "title": "Linux系统学习（一）：开端与起源、系统安装",
+    "slug": "linux-system-learning-1",
+    "authorWeb": "白喵喵",
+    "authorImg": "/images/avatar_init.jpg",
+    "publishLocation": "成都, 中国",
+    "resource": "/blogs/resources/2025/03/linux_tutorial_1_zh.md",
+    "featuredImage": "/blogs/resources/2025/03/assets/linux_tutorial_1/cover.png",
+    "readingTime": "25分钟",
+    "publishDate": "2025年3月7日",
+    "updatedTime": "2025年3月7日",
+    "category": "Linux",
+    "tags": [
+      {
+        "name": "operating system",
+        "link": "operating system"
+      }
+    ],
+    "isFeatured": false,
+    "authorsContent": [
+      {
+        "name": "白喵喵",
+        "img": "/images/avatar_init.jpg",
+        "website": "https://www.miaopeng.info/",
+        "career": "Bioscience Student",
+        "organization": "Sichuan University",
+        "link": [
+          {
+            "type": "email",
+            "icon": "/images/link_icon/gmail.svg",
+            "link": "mailto:miaopeng@stu.scu.edu.cn"
+          },
+          {
+            "type": "github",
+            "icon": "/images/link_icon/github.svg",
+            "link": "https://github.com/MMeowhite"
+          },
+          {
+            "type": "google_scholar",
+            "icon": "/images/link_icon/googlescholar.svg",
+            "link": "https://scholar.google.com/citations?user=Y5lz1jMAAAAJ&hl=en"
+          },
+          {
+            "type": "linkedin",
+            "icon": "/images/link_icon/linkedin.svg",
+            "link": "https://www.linkedin.com/in/peng-miao-89324a341/"
+          },
+          {
+            "type": "youtube",
+            "icon": "/images/link_icon/youtube.svg",
+            "link": "https://www.youtube.com/@pengmiao-bmm"
+          }
+        ]
+      }
+    ],
+    "references": [
+      {"1": "https://www.linux.org/"},
+      {"2": "https://en.wikipedia.org/wiki/History_of_Linux"},
+      {"3": "https://en.wikipedia.org/wiki/Linus_Torvalds"},
+      {"4": "https://learn.microsoft.com/en-us/linux/install"},
+      {"5": "https://www.hellotech.com/guide/for/how-to-install-linux-on-mac"}
+    ]
   }
 ]

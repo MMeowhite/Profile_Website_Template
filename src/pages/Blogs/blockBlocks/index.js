@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import BlogBlock from "../blogBlock";
+import './blogBlocks.css'
 import {useLanguage} from "../../../utils/Provider/languageProvider";
+import Masonry from 'react-masonry-css';
 
 const BlogBlocks = () => {
     const [blogItemsConfig, setBlogItemsConfig] = useState([]);
@@ -27,6 +29,7 @@ const BlogBlocks = () => {
         loadConfig();
     }, [isEnglish]);
 
+
     if (loading) {
         return <div>Loading...</div>; // 加载时显示加载状态
     }
@@ -36,7 +39,13 @@ const BlogBlocks = () => {
     }
 
     return (
-        <div id="blog-cards" className="masonry-grid" style={{ marginTop: "10rem", marginBottom: "3rem" }}>
+        <Masonry
+            id="blog-cards"
+            className="masonry-grid"
+            style={{ marginTop: "130px", marginBottom: "50px" }}
+            breakpointCols={{ default: 2, 768: 1 }}
+
+        >
             {blogItemsConfig.length > 0 ? (
                 blogItemsConfig.map((blogItem, index) => (
                     <div
@@ -50,7 +59,7 @@ const BlogBlocks = () => {
             ) : (
                 <div>No blog items available.</div> // 如果没有配置数据，显示相应提示
             )}
-        </div>
+        </Masonry>
     );
 };
 
