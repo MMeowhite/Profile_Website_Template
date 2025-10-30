@@ -41,7 +41,6 @@ const Map = () => {
             
             // 等待 Globe 渲染
             setTimeout(() => {
-                const children = globeContainerRef.current?.children;
             }, 1000);
         };
 
