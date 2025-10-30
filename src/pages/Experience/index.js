@@ -78,7 +78,7 @@ const Experience = () => {
                                                     <strong>{isEnglish ? "Time:" : "时间："}</strong> {edu.time}
                                                 </span>
                                                 <span>
-                                                   <strong>GPA:</strong> {edu.GPA}
+                                                   <strong>{isEnglish ? "Score:" : "成绩："}</strong> {edu.GPA}
                                                 </span>
                                             </div>
                                             <div style={{ fontSize: "1rem" }}>

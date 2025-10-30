@@ -15,7 +15,6 @@ const PublicationSection = () => {
     const { isDarkMode } = useTheme();
     const isSmallScreen = useMediaQuery({ maxWidth: 768 })
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
-    // 改为数组,每个卡片独立的图片索引
     const { configValue: featuredPublicationObjects } = useConfig('pages.home.featuredPublications');
     const [imageIndexes, setImageIndexes] = useState(
         featuredPublicationObjects ? new Array(featuredPublicationObjects.length).fill(0) : []
@@ -26,7 +25,6 @@ const PublicationSection = () => {
         AOS.init({ duration: 1000, once: true });
     }, [])
 
-    // 当 featuredPublicationObjects 加载后初始化 imageIndexes
     useEffect(() => {
         if (featuredPublicationObjects) {
             setImageIndexes(new Array(featuredPublicationObjects.length).fill(0));
@@ -47,27 +45,25 @@ const PublicationSection = () => {
             >
                 {direction === 'right' ? (
                     RightIcon ? (
-                        <RightIcon color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: '40px' }} />
+                        <RightIcon color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: isSmallScreen ? '30px' : '40px' }} />
                     ) : (
-                        <HiChevronDoubleRight color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: '40px' }} />
+                        <HiChevronDoubleRight color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: isSmallScreen ? '30px' : '40px' }} />
                     )
                 ) : (
                     LeftIcon ? (
-                        <LeftIcon color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: '40px' }} />
+                        <LeftIcon color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: isSmallScreen ? '30px' : '40px' }} />
                     ) : (
-                        <HiChevronDoubleLeft color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: '40px' }} />
+                        <HiChevronDoubleLeft color={isDarkMode ? '#fff' : '#000'} style={{ fontSize: isSmallScreen ? '30px' : '40px' }} />
                     )
                 )}
             </div>
         );
     }
 
-    // 外层卡片切换
     const handleCardChange = (oldIndex, newIndex) => {
         setCurrentCardIndex(newIndex);
     };
 
-    // 内层图片切换 - 需要知道是哪个卡片
     const handleImageChange = (cardIndex, oldIndex, newIndex) => {
         setImageIndexes(prev => {
             const newIndexes = [...prev];
@@ -80,7 +76,6 @@ const PublicationSection = () => {
         return <div>Featured Publication isn't exist!</div>;
     }
 
-    // slick-carousel 的配置
     const sliderOuterSettings = {
         dots: false,
         infinite: true,
@@ -92,7 +87,7 @@ const PublicationSection = () => {
         autoplaySpeed: 15000,
         cssEase: "linear",
         arrows: true,
-        beforeChange: handleCardChange, // 正确使用 beforeChange
+        beforeChange: handleCardChange,
         prevArrow: <Arrow direction="left" LeftIcon={HiChevronDoubleLeft} />,
         nextArrow: <Arrow direction="right" RightIcon={HiChevronDoubleRight} />,
     };
@@ -116,7 +111,7 @@ const PublicationSection = () => {
     const cardStyles = {
         backgroundColor: isDarkMode ? '#333333' : '#ffffff',
         color: isDarkMode ? '#ffffff' : '#000000',
-        padding: '20px',
+        padding: isSmallScreen ? '15px' : '20px',
         width: '100%',
         height: '100%',
     };
@@ -126,19 +121,23 @@ const PublicationSection = () => {
             id="publication"
             className={`d-flex ${isSmallScreen ? "flex-column" : "flex-row"} align-items-center justify-content-center`}
             style={{
-                width: "80vw",
+                width: isSmallScreen ? "100%" : "80vw", // 小屏幕用100%
+                maxWidth: "100%", // 防止溢出
                 height: "auto",
-                gap: "25px",
-                padding: isSmallScreen ? "0 20px" : "0 0 0 0"
+                gap: isSmallScreen ? "15px" : "25px",
+                padding: isSmallScreen ? "20px 15px" : "40px 20px",
+                marginBottom: isSmallScreen ? "40px" : "60px", // 添加底部间距
+                overflow: "hidden", // 防止溢出
             }}
         >
             {/* 标题 */}
             <h1
                 style={{
                     fontWeight: "800",
-                    fontSize: isSmallScreen ? "40px" : "60px",
+                    fontSize: isSmallScreen ? "32px" : "60px",
                     textAlign: 'center',
-                    width: "30%"
+                    width: isSmallScreen ? "100%" : "30%", // 小屏幕占满宽
+                    marginBottom: isSmallScreen ? "20px" : "0",
                 }}
                 data-aos="zoom-in"
             >
@@ -147,16 +146,21 @@ const PublicationSection = () => {
 
             <div
                 className="d-flex flex-column"
-                style={{ width: "70%" }}
+                style={{ 
+                    width: isSmallScreen ? "100%" : "70%",
+                    maxWidth: "100%", // 防止溢出
+                }}
             >
                 <div
                     className="d-flex flex-column"
                     style={{
                         ...cardStyles,
                         width: "100%",
-                        minWidth: "50vw",
-                        maxHeight: "80vh",
-                        padding: isSmallScreen ? "0 20px" : "0 0 0 100px"
+                        minWidth: isSmallScreen ? "auto" : "50vw", // 小屏幕不设最小宽度
+                        maxWidth: "100%", // 防止溢出
+                        maxHeight: isSmallScreen ? "none" : "80vh", // 小屏幕不限高度
+                        padding: isSmallScreen ? "15px" : "20px 20px 20px 100px",
+                        overflow: "hidden", // 防止内容溢出
                     }}
                     data-aos="zoom-in"
                 >
@@ -164,16 +168,29 @@ const PublicationSection = () => {
                     {featuredPublicationObjects?.map((featuredPublicationObject, index) => {
                         if (index === currentCardIndex) {
                             return (
-                                <div className="d-flex flex-column" key={featuredPublicationObject.id || index}>
+                                <div 
+                                    className="d-flex flex-column" 
+                                    key={featuredPublicationObject.id || index}
+                                    style={{
+                                        marginBottom: isSmallScreen ? "15px" : "20px",
+                                        width: "100%",
+                                    }}
+                                >
                                     <div
-                                        style={{ fontSize: "18px" }}
+                                        style={{ 
+                                            fontSize: isSmallScreen ? "14px" : "18px",
+                                            wordBreak: "break-word", // 防止长文本溢出
+                                        }}
                                         className="publication-authors"
                                         dangerouslySetInnerHTML={{
                                             __html: featuredPublicationObject.authors
                                         }}
                                     />
-                                    <strong style={{ fontSize: '20px' }}>
-                                        {featuredPublicationObject.date} · <i style={{ fontSize: '20px' }}>{featuredPublicationObject.journal}</i>
+                                    <strong style={{ 
+                                        fontSize: isSmallScreen ? "16px" : "20px",
+                                        wordBreak: "break-word",
+                                    }}>
+                                        {featuredPublicationObject.date} · <i style={{ fontSize: isSmallScreen ? "16px" : "20px" }}>{featuredPublicationObject.journal}</i>
                                     </strong>
                                 </div>
                             );
@@ -187,7 +204,11 @@ const PublicationSection = () => {
                         id="card-slider"
                         className="d-flex flex-row justify-content-center outer align-items-center"
                         {...sliderOuterSettings}
-                        style={{ width: '100%', height: 'auto' }}
+                        style={{ 
+                            width: '100%', 
+                            height: 'auto',
+                            overflow: 'hidden', // 防止溢出
+                        }}
                     >
                         {featuredPublicationObjects?.map((featuredPublicationObject, index) => (
                             <div
@@ -196,9 +217,10 @@ const PublicationSection = () => {
                                 style={{
                                     width: '100%',
                                     height: 'auto',
+                                    maxWidth: '100%', // 防止溢出
                                 }}
                             >
-                                {/* 图片轮播 - 每个卡片独立配置 */}
+                                {/* 图片轮播 */}
                                 <Slider
                                     key={`featuredPublicationImageFrame_${index}_${imageIndexes[index]}`}
                                     id="img-slider"
@@ -214,32 +236,71 @@ const PublicationSection = () => {
                                                 className="d-flex align-items-center justify-content-center"
                                                 style={{
                                                     width: '100%',
-                                                    height: 'auto',
+                                                    height: isSmallScreen ? '300px' : '500px', // 固定高度
+                                                    maxWidth: '100%',
+                                                    padding: isSmallScreen ? '10px' : '20px',
+                                                    position: 'relative',
                                                 }}
                                             >
-                                                <a href={item.link}>
+                                                <a 
+                                                    href={item.link}
+                                                    style={{
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        maxWidth: '100%',
+                                                        maxHeight: '100%',
+                                                    }}
+                                                >
                                                     <Image
                                                         src={item.src}
-                                                        alt={item.caption}
+                                                        // alt={item.caption}
                                                         style={{
-                                                            width: '100%',
+                                                            width: 'auto',
                                                             height: 'auto',
-                                                            maxWidth: '600px',
-                                                            maxHeight: '600px',
-                                                            objectFit: 'contain', // 改为 contain 保持比例
+                                                            maxWidth: '100%',
+                                                            maxHeight: isSmallScreen ? '280px' : '460px',
+                                                            objectFit: 'contain',
+                                                            display: 'block',
                                                         }}
                                                     />
                                                 </a>
                                                 {/* 描述 */}
                                                 {item.caption && (
-                                                    <div className="carousel-caption">
-                                                        <p style={{ color: '#fff' }}>{item.caption}</p>
+                                                    <div 
+                                                        className="carousel-caption"
+                                                        style={{
+                                                            position: 'absolute',
+                                                            bottom: isSmallScreen ? '5px' : '10px',
+                                                            left: '50%',
+                                                            transform: 'translateX(-50%)',
+                                                            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                                                            padding: isSmallScreen ? '5px 10px' : '8px 16px',
+                                                            borderRadius: '15px',
+                                                            maxWidth: '90%',
+                                                        }}
+                                                    >
+                                                        <p style={{ 
+                                                            color: '#fff',
+                                                            margin: 0,
+                                                            fontSize: isSmallScreen ? '12px' : '14px',
+                                                            wordBreak: 'break-word',
+                                                        }}>
+                                                            {item.caption}
+                                                        </p>
                                                     </div>
                                                 )}
                                             </div>
                                         ))
                                     ) : (
-                                        <div>Loading images...</div>
+                                        <div style={{
+                                            height: isSmallScreen ? '300px' : '500px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}>
+                                            Loading images...
+                                        </div>
                                     )}
                                 </Slider>
                             </div>
@@ -247,20 +308,34 @@ const PublicationSection = () => {
                     </Slider>
 
                     {/* 按钮区域和文章标题 */}
-                    <div style={{ marginTop: '20px' }}>
+                    <div style={{ 
+                        marginTop: isSmallScreen ? '15px' : '20px',
+                        width: '100%',
+                        maxWidth: '100%',
+                    }}>
                         {featuredPublicationObjects?.map((featuredPublicationObject, index) => {
                             if (index === currentCardIndex) {
                                 return (
-                                    <Row key={`content_${index}`} className="text-center mb-3" style={{ width: '100%', gap: "5px" }}>
+                                    <Row 
+                                        key={`content_${index}`} 
+                                        className="text-center mb-3" 
+                                        style={{ 
+                                            width: '100%', 
+                                            gap: "5px",
+                                            margin: 0,
+                                        }}
+                                    >
                                         <a
                                             href={featuredPublicationObject.url}
                                             style={{
-                                                fontSize: isSmallScreen ? "24px" : "26px",
+                                                fontSize: isSmallScreen ? "18px" : "26px",
                                                 fontWeight: '600',
                                                 color: isDarkMode ? '#fff' : '#333',
                                                 textAlign: "left",
                                                 textDecoration: "none",
-                                                width: "100%"
+                                                width: "100%",
+                                                wordBreak: "break-word",
+                                                padding: 0,
                                             }}
                                         >
                                             {featuredPublicationObject.title || 'No Title Available'}
@@ -269,11 +344,14 @@ const PublicationSection = () => {
                                         {/* 文章介绍 */}
                                         <p
                                             style={{
-                                                fontSize: isSmallScreen ? "16px" : "20px",
+                                                fontSize: isSmallScreen ? "14px" : "20px",
                                                 color: isDarkMode ? '#ccc' : '#555',
-                                                maxHeight: '10rem',
+                                                maxHeight: isSmallScreen ? '8rem' : '10rem',
                                                 overflowY: 'auto',
-                                                textAlign: "left"
+                                                textAlign: "left",
+                                                wordBreak: "break-word",
+                                                padding: 0,
+                                                width: '100%',
                                             }}
                                         >
                                             {featuredPublicationObject.abstract || 'No abstract available.'}
@@ -282,7 +360,11 @@ const PublicationSection = () => {
                                         {/* 额外链接 */}
                                         <div
                                             className="d-flex justify-content-center flex-wrap"
-                                            style={{ gap: '15px' }}
+                                            style={{ 
+                                                gap: isSmallScreen ? '10px' : '15px',
+                                                padding: 0,
+                                                width: '100%',
+                                            }}
                                         >
                                             {featuredPublicationObject.buttons &&
                                                 featuredPublicationObject.buttons.map((button, idx) => (
@@ -295,8 +377,11 @@ const PublicationSection = () => {
                                                                     ? 'outline-secondary'
                                                                     : 'outline-info'
                                                         }
-                                                        size="sm"
+                                                        size={isSmallScreen ? "sm" : "md"}
                                                         href={button.link}
+                                                        style={{
+                                                            fontSize: isSmallScreen ? '12px' : '14px',
+                                                        }}
                                                     >
                                                         {button.name}
                                                     </Button>

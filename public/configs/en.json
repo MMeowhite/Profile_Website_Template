@@ -79,17 +79,14 @@
           "featuredImages": [
             {
               "src": "/images/featuredImages/img.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-1.",
               "link": "https://www.sciencedirect.com/user/identity/landing?code=jGe-vRhQMwishoa6V5yfEZklFkX62_14laUrwDwC&state=retryCounter%3D0%26csrfToken%3D2383bc0d-36f5-4667-a650-d8dcad41ddfd%26idpPolicy%3Durn%253Acom%253Aelsevier%253Aidp%253Apolicy%253Aproduct%253Ainst_assoc%26returnUrl%3D%252Fscience%252Farticle%252Fpii%252FS0165032723004305%26prompt%3Dnone%26cid%3Darp-774054fb-f3de-4710-9b5d-0c915f0a68d3"
             },
             {
               "src": "/images/featuredImages/img_1.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-2.",
               "link": "https://www.sciencedirect.com/user/identity/landing?code=jGe-vRhQMwishoa6V5yfEZklFkX62_14laUrwDwC&state=retryCounter%3D0%26csrfToken%3D2383bc0d-36f5-4667-a650-d8dcad41ddfd%26idpPolicy%3Durn%253Acom%253Aelsevier%253Aidp%253Apolicy%253Aproduct%253Ainst_assoc%26returnUrl%3D%252Fscience%252Farticle%252Fpii%252FS0165032723004305%26prompt%3Dnone%26cid%3Darp-774054fb-f3de-4710-9b5d-0c915f0a68d3"
             },
             {
               "src": "/images/featuredImages/img_2.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-3.",
               "link": "https://www.sciencedirect.com/user/identity/landing?code=jGe-vRhQMwishoa6V5yfEZklFkX62_14laUrwDwC&state=retryCounter%3D0%26csrfToken%3D2383bc0d-36f5-4667-a650-d8dcad41ddfd%26idpPolicy%3Durn%253Acom%253Aelsevier%253Aidp%253Apolicy%253Aproduct%253Ainst_assoc%26returnUrl%3D%252Fscience%252Farticle%252Fpii%252FS0165032723004305%26prompt%3Dnone%26cid%3Darp-774054fb-f3de-4710-9b5d-0c915f0a68d3"
             }
           ],
@@ -120,16 +117,13 @@
           "journal": "Nature",
           "featuredImages": [
             {
-              "src": "/images/featuredImages/img.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-1."
+              "src": "/images/featuredImages/img.png"
             },
             {
-              "src": "/images/featuredImages/img_1.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-2."
+              "src": "/images/featuredImages/img_1.png"
             },
             {
-              "src": "/images/featuredImages/img_2.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-3."
+              "src": "/images/featuredImages/img_2.png"
             }
           ],
           "title": "Here is your paper title2",
