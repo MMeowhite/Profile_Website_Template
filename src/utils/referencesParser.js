@@ -10,6 +10,8 @@ const parseBibData = (text) => {
     const journalRegex = /journal\s*=\s*\{(.*?)}/i;
     const yearRegex = /year\s*=\s*\{(\d{4})}/i;
     const doiRegex = /DOI\s*=\s*\{(.*?)}/i;
+    const abstractRegex = /abstract\s*=\s*\{(.*?)}/i
+    const imageRegex =  /image\s*=\s*\{(.*?)}/i
 
     const references = [];
     let match;
@@ -22,6 +24,8 @@ const parseBibData = (text) => {
         const journal = journalRegex.exec(match);
         const year = yearRegex.exec(match);
         const doi = doiRegex.exec(match);
+        const abstract = abstractRegex.exec(match);
+        const image = imageRegex.exec(match);
 
         // 构建参考文献对象
         const reference = {
@@ -30,6 +34,8 @@ const parseBibData = (text) => {
             journal: journal ? journal[1]: "Unknown Journal",
             year: year ? year[1] : "Unknown Year",
             doi: doi ? doi[1]: "Unknown DOI",
+            abstract : abstract ? abstract[1] : "No Abstract Available",
+            image : image ? image[1] : "/images/avatar_init.jpg"
         };
 
         // 将参考文献添加到数组

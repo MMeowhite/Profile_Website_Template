@@ -17,7 +17,7 @@
         "img": "/images/featuredImages/img.png",
         "title": "Hello, I'm MMeowhite (Peng, Miao)",
         "subtitle": "I'd like to say something...",
-        "profile": "Hi! I am MMeowhite, a second-year Master's student advised by Professor Canhua Huang in State Key Laboratory of Biotherapy at Sichuan University. My major is all of things in the world. <br/><br/>My goal is to push the boundaries of human knowledge and capabilities in Medicine, Computer Science, Mathematics, and Physics. I aspire to develop innovative and intelligent solutions that integrate principles from these fields to tackle complex real-world challenges. Specifically, I am interested in exploring methods that effectively and efficiently leverage multimodal data, advanced computational models, and mathematical frameworks to enhance understanding, decision-making, and problem-solving in science and healthcare. I am also passionate about discovering new interdisciplinary approaches that drive meaningful advancements.<br/><br/> News: I am currently researching on cancer neuroscience. Actively looking for communication and collaboration!"
+        "profile": "Hi! I am MMeowhite, a third-year Master's student in State Key Laboratory of Biotherapy at Sichuan University. My major is all of things in the world. <br/><br/>My goal is to push the boundaries of human knowledge and capabilities in Medicine, Computer Science, Mathematics, and Physics. I aspire to develop innovative and intelligent solutions that integrate principles from these fields to tackle complex real-world challenges. Specifically, I am interested in exploring methods that effectively and efficiently leverage multimodal data, advanced computational models, and mathematical frameworks to enhance understanding, decision-making, and problem-solving in science and healthcare. I am also passionate about discovering new interdisciplinary approaches that drive meaningful advancements.<br/><br/> News: I am currently researching on cancer neuroscience. Actively looking for communication and collaboration!"
       },
       "quote": {
         "words": "The most important thing in communication is hearing what isn’t said.",
@@ -32,9 +32,9 @@
             "logo": "/images/experience/ChongqingMedicalUniversity.jpg",
             "url": "https://www.scu.edu.cn",
             "degree": "Bachelor in Clinical Medicine (Direction: Radiology)",
-            "gpa": "3.6 / 5.0",
+            "gpa": "84 / 100",
             "course": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology",
-            "additionalCourse": "Math"
+            "research": "Molecular Mechanisms of Depression"
           },
           {
             "period": "2023.07-Present",
@@ -42,60 +42,32 @@
             "url": "https://www.cqmu.edu.cn",
             "university": "Sichuan University",
             "degree": "Master in Basic Medicine (Direction: Biochemistry and Molecular Biology )",
-            "gpa": "3.6 / 4.0",
+            "gpa": "87 / 100",
             "course": "The Basic Cellular and Molecular Principles of Pathogenesis, Medical Molecular Biology, Medicinal Biotechnology Frontier, Seperation and Purification Technology of Protein and Enzyme, Nucleic Acid Molecular Cloning Technique, Practical Histological Technique",
-            "additionalCourse": "Physics"
+            "research": "Colorectal Cancer Liver Metastasis and Cancer Stem Cell-Targeted Immunotherapy"
           }
         ],
         "timeline": [
           {
             "id": "one",
-            "year": "1280",
+            "year": "Jan 2020 - Jun 2023",
             "color": "#2c3e50",
             "percentage": 20,
-            "content": "Content for 1280"
+            "content": "During my undergraduate research at the Institute of Life Sciences, Chongqing Medical University (Sep 2020 – Jun 2023), under the supervision of Assoc. Prof. Yun Xiu, I investigated the role of the NMDA receptor subunit NR3A in the molecular mechanisms of depression. My work involved performing qPCR, Western blotting, and selected behavioral assays on mouse models to explore gene expression and protein regulation related to depressive phenotypes. This research contributed to publications in the Journal of Affective Disorders."
           },
           {
             "id": "two",
-            "year": "1649",
+            "year": "Jun 2023 - Present",
             "color": "#e74c3c",
             "percentage": 40,
-            "content": "Content for 1649"
+            "content": "Since June 2023, as a graduate researcher under the supervision of Prof. Canhua Huang at the School of Basic Medicine & Forensic Medicine, Sichuan University, and the State Key Laboratory of Biotherapy, I have been conducting independent research on colorectal cancer stem cells and the mechanisms underlying liver metastasis. My work focuses on engineering exosomes that integrate redox disruption and RNA interference strategies to selectively target cancer stem cells for immunotherapy. In parallel, I analyze single-cell sequencing data to explore how colorectal cancer–derived exosomes influence hepatic lipid accumulation and modulate Kupffer cell signaling pathways. This research has led to a first-author manuscript submitted to the Journal of Nanobiotechnology and co-authored publications in Gut and Biomaterials."
           },
           {
             "id": "three",
-            "year": "1831",
+            "year": "Jun 2024 - Present",
             "color": "#7b3",
             "percentage": 60,
-            "content": "Content for 1831"
-          },
-          {
-            "id": "four",
-            "year": "1992",
-            "color": "#20638f",
-            "percentage": 80,
-            "content": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. "
-          },
-          {
-            "id": "six",
-            "year": "2025",
-            "color": "#20638f",
-            "percentage": 90,
-            "content": "Content for 2025"
-          },
-          {
-            "id": "seven",
-            "year": "2025",
-            "color": "#20638f",
-            "percentage": 120,
-            "content": "Content for 2025"
-          },
-          {
-            "id": "eight",
-            "year": "2025",
-            "color": "#20638f",
-            "percentage": 150,
-            "content": "Content for 2025"
+            "content": "Since June 2024, as a graduate researcher at the School of Basic Medicine & Forensic Medicine, Sichuan University, and the State Key Laboratory of Biotherapy, I have been focusing on integrating multi-omics data through artificial intelligence approaches. My research involves combining single-cell, spatial transcriptomics, metabolomics, and microbiome datasets to develop deep learning predictive models using architectures such as Graph Neural Networks (GNNs) and Transformers. In parallel, I am working on predicting post-translational modifications from protein sequences by leveraging pre-trained protein language models (e.g., ESM, ProtBert) alongside CNN, LSTM, and Transformer frameworks. I have completed comprehensive data preprocessing and established the preliminary model framework, with ongoing efforts in model training and optimization."
           }
         ]
       },
@@ -216,7 +188,7 @@
             "url": "https://www.cq9yuan.com/"
           },
           "time": "Jan 2022 - Jun 2022",
-          "work": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
+          "work": "Rotated through the Hepatobiliary Surgery, Rheumatology & Immunology, and Gastroenterology departments, gaining systematic understanding of diagnostic approaches and treatment procedures for common diseases. Participated in case discussions and clinical documentation, improving clinical reasoning and medical record analysis skills."
         },
         {
           "location": {
@@ -224,7 +196,7 @@
             "url": "https://www.sahcqmu.com/"
           },
           "time": "Jun 2022 - Jan 2023",
-          "work": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
+          "work": "Continued clinical training across relevant departments, mastering diagnostic approaches and treatment workflows for common conditions. Engaged in case discussions, clinical documentation, and assisted in certain surgical procedures."
         },
         {
           "location": {
@@ -232,15 +204,15 @@
             "url": "http://www.uhcmu.com/"
           },
           "time": "Jan 2023 - Jun 2023",
-          "work": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
+          "work": "Rotated through the Radiology and Ultrasound departments, assisting attending physicians with image interpretation, ultrasound examinations, and some interventional procedures. Integrated imaging knowledge with research questions to provide clinical insights for subsequent studies."
         }
       ],
       "research" : [
         {
           "time": "Jan 2020 - Jan 2022",
           "location": {
-            "name": "Institute Brain Science and Disease of Chongqing Medical University",
-            "url": "https://brain.cqmu.edu.cn/index.htm"
+            "name": "Life Science Institute of Chongqing Medical University",
+            "url": "https://basic.cqmu.edu.cn/info/1155/5668.htm"
           },
           "directors": [
             {
@@ -248,7 +220,7 @@
               "link": "https://brain.cqmu.edu.cn/info/1026/1632.htm"
             }
           ],
-          "work": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!"
+          "work": "Under the supervision of Assoc. Prof. Xiu Yun, I studied the role of the inhibitory subunit of NMDA receptors, GluN3A, in the pathophysiology of depression. My responsibilities included performing animal behavioral experiments (such as sucrose preference test, forced swim test, and open field test) and recording data, conducting molecular biology assays (protein and RNA extraction, Western Blot, qPCR) to assess synaptic protein levels (e.g., PSD95) and gene expression changes, and participating in project discussions. This work resulted in a publication in the Journal of Affective Disorders. Through this project, I gained systematic experience in linking behavioral and molecular studies, and strengthened my skills in experimental design, data analysis, and scientific writing."
         },
         {
           "location": {
@@ -262,23 +234,21 @@
               "link": "http://hcanhua.cn/"
             }
           ],
-          "work": "Coming Soon..."
+          "work": "Supervised by Prof. Canhua Huang, my research focuses on colorectal cancer stem cells and liver metastasis, aiming to develop immunotherapeutic strategies targeting cancer stem cells. My work involves constructing engineered exosome delivery systems and combining redox disruption with RNA interference to enhance immunotherapy efficacy. Additionally, I investigate the tumor microenvironment in colorectal cancer liver metastasis, analyzing how CRC-derived exosomes influence hepatic lipid accumulation and Kupffer cell-mediated signaling using single-cell sequencing data. I am independently responsible for experimental design and execution, including exosome modification, RNA interference system construction, validation in cell and animal models, molecular assays (Western Blot, qPCR, ELISA), and phenotypic analyses (DNA damage, ROS detection, flow cytometry), as well as leading manuscript preparation and figure production. Research outcomes include a first-author manuscript submitted to Journal of Nanobiotechnology, and co-authorship on publications in Gut and Biomaterials."
         },
         {
-          "location": {
-            "name": "State Key Laboratory of Biotherapy of Sichuan University / Frontiers Medical Center, Tianfu Jincheng Laboratory",
-            "url": "https://sklb.scu.edu.cn/index.html",
-            "url2": "http://www.tfjcl.ac.cn/#/home",
-            "logo": "",
-            "director": [
-              {
-                "name": "Prof.Canhua Huang",
-                "link": "http://hcanhua.cn/"
-              }
-            ]
+          "location" : {
+            "name": "",
+            "url": ""
           },
-          "time": "",
-          "work": "Coming Soon..."
+          "time": "July 2024 - Present",
+          "directors": [
+            {
+              "name": "None",
+              "link": ""
+            }
+          ],
+          "work": "Since July 2024, I have been independently exploring multi-omics data integration using machine learning and deep learning for disease prediction and mechanistic studies. I integrate single-cell RNA-seq, spatial transcriptomics, metabolomics, and host-microbiome data, constructing deep learning predictive models such as graph neural networks (GNNs) and Transformers. For protein sequence analysis, I leverage pre-trained protein language models (ESM, ProtBert) to extract sequence features and apply CNNs, LSTMs, and Transformers for post-translational modification site prediction. The project has completed multi-omics data preprocessing and initial model framework construction, with the next steps involving model fine-tuning and training."
         }
       ],
       "skills": [

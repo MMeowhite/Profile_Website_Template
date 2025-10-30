@@ -1,28 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive'
 import { Button, Row } from 'react-bootstrap';
-import Slider from 'react-slick'; // 导入 react-slick
+import Slider from 'react-slick';
 import Image from 'react-bootstrap/Image';
 import { useTheme } from '../../../utils/Provider/themeProvider';
 import { useConfig } from "../../../utils/Provider/ConfigProvider";
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import './publicationSection.css';
 import AOS from "aos";
-import {useLanguage} from "../../../utils/Provider/languageProvider";
+import { useLanguage } from "../../../utils/Provider/languageProvider";
 
 
 const PublicationSection = () => {
     const { isDarkMode } = useTheme();
     const isSmallScreen = useMediaQuery({ maxWidth: 768 })
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    // 改为数组,每个卡片独立的图片索引
     const { configValue: featuredPublicationObjects } = useConfig('pages.home.featuredPublications');
+    const [imageIndexes, setImageIndexes] = useState(
+        featuredPublicationObjects ? new Array(featuredPublicationObjects.length).fill(0) : []
+    );
     const { isEnglish } = useLanguage();
 
-    useEffect(()=>{
-        AOS.init({ duration: 1000, once: true }); // 设置动画持续时间和是否只触发一次
-    },[])
+    useEffect(() => {
+        AOS.init({ duration: 1000, once: true });
+    }, [])
 
+    // 当 featuredPublicationObjects 加载后初始化 imageIndexes
+    useEffect(() => {
+        if (featuredPublicationObjects) {
+            setImageIndexes(new Array(featuredPublicationObjects.length).fill(0));
+        }
+    }, [featuredPublicationObjects]);
 
     function Arrow(props) {
         const { style, onClick, direction, LeftIcon, RightIcon } = props;
@@ -53,13 +62,18 @@ const PublicationSection = () => {
         );
     }
 
-    const handleCardSelect = (selectedIndex) => {
-        setCurrentCardIndex(selectedIndex);
-        setCurrentImageIndex(0);
+    // 外层卡片切换
+    const handleCardChange = (oldIndex, newIndex) => {
+        setCurrentCardIndex(newIndex);
     };
 
-    const handleImageSelect = (selectedIndex) => {
-        setCurrentImageIndex(selectedIndex);
+    // 内层图片切换 - 需要知道是哪个卡片
+    const handleImageChange = (cardIndex, oldIndex, newIndex) => {
+        setImageIndexes(prev => {
+            const newIndexes = [...prev];
+            newIndexes[cardIndex] = newIndex;
+            return newIndexes;
+        });
     };
 
     if (!featuredPublicationObjects) {
@@ -68,40 +82,42 @@ const PublicationSection = () => {
 
     // slick-carousel 的配置
     const sliderOuterSettings = {
-        dots: false, // 是否显示分页器
-        infinite: true, // 是否无限循环
-        speed: 1000, // 切换速度
-        slidesToShow: 1, // 每次显示一个图片
-        slidesToScroll: 1, // 每次滚动一个
-        fade: true, // 是否开启淡入淡出
+        dots: false,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
         autoplay: true,
-        autoplaySpeed: 1500000,
+        autoplaySpeed: 15000,
         cssEase: "linear",
-        arrows: true, // 是否显示左右箭头
+        arrows: true,
+        beforeChange: handleCardChange, // 正确使用 beforeChange
         prevArrow: <Arrow direction="left" LeftIcon={HiChevronDoubleLeft} />,
         nextArrow: <Arrow direction="right" RightIcon={HiChevronDoubleRight} />,
     };
 
-    const sliderInnerSettings = {
-        dots: false, // 是否显示分页器
-        infinite: true, // 是否无限循环
-        speed: 1000, // 切换速度
-        slidesToShow: 1, // 每次显示一个图片
-        slidesToScroll: 1, // 每次滚动一个
-        fade: true, // 是否开启淡入淡出
+    const getSliderInnerSettings = (cardIndex) => ({
+        dots: false,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
         autoplay: true,
-        autoplaySpeed: 500000,
+        autoplaySpeed: 5000,
         cssEase: "linear",
-        arrows: true, // 是否显示左右箭头
-        prevArrow: <Arrow direction="left" LeftIcon={HiChevronLeft} style={{ transform: "-10px" }} />,
+        arrows: true,
+        beforeChange: (oldIndex, newIndex) => handleImageChange(cardIndex, oldIndex, newIndex),
+        prevArrow: <Arrow direction="left" LeftIcon={HiChevronLeft} />,
         nextArrow: <Arrow direction="right" RightIcon={HiChevronRight} />,
-    };
+    });
 
     const cardStyles = {
         backgroundColor: isDarkMode ? '#333333' : '#ffffff',
         color: isDarkMode ? '#ffffff' : '#000000',
-        padding: '20px', // 内边距
-        width: '100%', // 卡片填充整个Col
+        padding: '20px',
+        width: '100%',
         height: '100%',
     };
 
@@ -116,7 +132,6 @@ const PublicationSection = () => {
                 padding: isSmallScreen ? "0 20px" : "0 0 0 0"
             }}
         >
-
             {/* 标题 */}
             <h1
                 style={{
@@ -132,7 +147,7 @@ const PublicationSection = () => {
 
             <div
                 className="d-flex flex-column"
-                style={{width: "70%" }}
+                style={{ width: "70%" }}
             >
                 <div
                     className="d-flex flex-column"
@@ -149,12 +164,16 @@ const PublicationSection = () => {
                     {featuredPublicationObjects?.map((featuredPublicationObject, index) => {
                         if (index === currentCardIndex) {
                             return (
-                                <div className="d-flex flex-column" key={featuredPublicationObject.id || index}> {/* Add key here */}
-                                    <p style={{ fontSize: '1.5rem' }}>
-                                        {featuredPublicationObject.authors}
-                                    </p>
-                                    <strong style={{ fontSize: '1.3rem' }}>
-                                        {featuredPublicationObject.date} · <i>{featuredPublicationObject.journal}</i>
+                                <div className="d-flex flex-column" key={featuredPublicationObject.id || index}>
+                                    <div
+                                        style={{ fontSize: "18px" }}
+                                        className="publication-authors"
+                                        dangerouslySetInnerHTML={{
+                                            __html: featuredPublicationObject.authors
+                                        }}
+                                    />
+                                    <strong style={{ fontSize: '20px' }}>
+                                        {featuredPublicationObject.date} · <i style={{ fontSize: '20px' }}>{featuredPublicationObject.journal}</i>
                                     </strong>
                                 </div>
                             );
@@ -168,58 +187,55 @@ const PublicationSection = () => {
                         id="card-slider"
                         className="d-flex flex-row justify-content-center outer align-items-center"
                         {...sliderOuterSettings}
-                        activeIndex={currentCardIndex}
-                        beforeChange={(current, next) => handleCardSelect(next)}
                         style={{ width: '100%', height: 'auto' }}
                     >
                         {featuredPublicationObjects?.map((featuredPublicationObject, index) => (
                             <div
-                                key={`featuredPublication_${index}`} // Add a unique key here
+                                key={`featuredPublication_${index}`}
                                 className="d-flex justify-content-center"
                                 style={{
-                                    width: '800px',
+                                    width: '100%',
                                     height: 'auto',
-                                    maxHeight: '500px',
                                 }}
                             >
-                                {/* 图片轮播 */}
+                                {/* 图片轮播 - 每个卡片独立配置 */}
                                 <Slider
-                                    key={`featuredPublicationImageFrame_${index}`} // Add a unique key here as well
+                                    key={`featuredPublicationImageFrame_${index}_${imageIndexes[index]}`}
                                     id="img-slider"
                                     className="d-flex flex-row justify-content-center inner align-items-center"
-                                    {...sliderInnerSettings}
-                                    activeIndex={currentImageIndex}
-                                    beforeChange={(current, next) => handleImageSelect(next)}
+                                    {...getSliderInnerSettings(index)}
                                 >
                                     {featuredPublicationObject.featuredImages &&
-                                    featuredPublicationObject.featuredImages.length > 0 ? (
+                                        featuredPublicationObject.featuredImages.length > 0 ? (
                                         featuredPublicationObject.featuredImages.map((item, idx) => (
                                             <div
-                                                key={`featuredPublicationImage_${idx}`} // Add a unique key here for images
+                                                key={`featuredPublicationImage_${idx}`}
                                                 id="slider-container"
                                                 className="d-flex align-items-center justify-content-center"
+                                                style={{
+                                                    width: '100%',
+                                                    height: 'auto',
+                                                }}
                                             >
-                                                <a
-                                                    key={`images_link_${idx}`}
-                                                    href={item.link}>
-                                                    {/* 图片 */}
+                                                <a href={item.link}>
                                                     <Image
-                                                        key={`images_${idx}`}
                                                         src={item.src}
                                                         alt={item.caption}
                                                         style={{
-                                                            width: '600px',
-                                                            height: "auto",
-                                                            minWidth: '100%',
+                                                            width: '100%',
+                                                            height: 'auto',
+                                                            maxWidth: '600px',
                                                             maxHeight: '600px',
-                                                            objectFit: 'cover',
+                                                            objectFit: 'contain', // 改为 contain 保持比例
                                                         }}
                                                     />
                                                 </a>
                                                 {/* 描述 */}
-                                                <div className="carousel-caption">
-                                                    <p style={{ color: '#fff' }}>{item.caption ? item.caption : ""}</p>
-                                                </div>
+                                                {item.caption && (
+                                                    <div className="carousel-caption">
+                                                        <p style={{ color: '#fff' }}>{item.caption}</p>
+                                                    </div>
+                                                )}
                                             </div>
                                         ))
                                     ) : (
@@ -235,7 +251,7 @@ const PublicationSection = () => {
                         {featuredPublicationObjects?.map((featuredPublicationObject, index) => {
                             if (index === currentCardIndex) {
                                 return (
-                                    <Row className="text-center mb-3" style={{ width: '100%', gap: "5px" }}>
+                                    <Row key={`content_${index}`} className="text-center mb-3" style={{ width: '100%', gap: "5px" }}>
                                         <a
                                             href={featuredPublicationObject.url}
                                             style={{
@@ -250,14 +266,13 @@ const PublicationSection = () => {
                                             {featuredPublicationObject.title || 'No Title Available'}
                                         </a>
 
-
                                         {/* 文章介绍 */}
                                         <p
                                             style={{
                                                 fontSize: isSmallScreen ? "16px" : "20px",
                                                 color: isDarkMode ? '#ccc' : '#555',
-                                                maxHeight: '10rem', // 限制最大高度，出现滚动条
-                                                overflowY: 'auto', // 垂直滚动条
+                                                maxHeight: '10rem',
+                                                overflowY: 'auto',
                                                 textAlign: "left"
                                             }}
                                         >

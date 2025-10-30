@@ -6,6 +6,7 @@ const ExperienceSection = lazy(() => import("./experienceSection"))
 const PublicationSection = lazy(()=>import("./publicationSection"))
 const CV = lazy(()=>import("./cv"))
 const ContactMe = lazy(()=>import("./contactMe"))
+const Map = lazy(()=>import("./map"))
 
 const Main = () => {
     return (
@@ -16,6 +17,7 @@ const Main = () => {
                 <PublicationSection />
                 <CV />
                 <ContactMe />
+                <Map />
             </div>
         </Suspense>
     );

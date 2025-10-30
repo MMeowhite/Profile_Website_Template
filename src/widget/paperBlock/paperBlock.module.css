@@ -80,6 +80,10 @@
     color: #777;
     line-height: 1.6;
     margin: 0;
+    max-height: 8em;           /* 限制最大高度，可自行调整 */
+    overflow-y: auto;          /* 内容超出时出现垂直滚动条 */
+    padding-right: 0.5em;      /* 给滚动条留一点空间 */
+    scrollbar-width: thin;     /* Firefox：细滚动条 */
 }
 
 /* 简介部分样式 */

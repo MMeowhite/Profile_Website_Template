@@ -86,7 +86,7 @@ const ExperienceSection = () => {
                              style={{ height: "80px", width: "80px", borderRadius: "50%", marginRight: "10px" }} />
 
                         <a href={item.url ? item.url : ""}
-                           style={{ fontWeight: "600", textDecoration: "none", color: isDarkMode ? "#fff" : "#333", maxWidth: "100%" }}>
+                           style={{ fontWeight: "600", fontSize: "30px",textDecoration: "none", color: isDarkMode ? "#fff" : "#333", maxWidth: "100%" }}>
                             {item.university}
                         </a>
                     </span>
@@ -96,14 +96,14 @@ const ExperienceSection = () => {
 
                                 {/* 时间以及GPA */}
                                 <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}>
-                        <strong>{isEnglish ? "Time:" : "时间："}</strong> {item.period} &nbsp;&nbsp;&nbsp;&nbsp; <strong>GPA:</strong> {item.gpa}
+                        <strong style={{ fontSize: '20px'}}>{isEnglish ? "Time:" : "时间："}</strong> {item.period} &nbsp;&nbsp;&nbsp;&nbsp; <strong style={{ fontSize: '20px'}}>{isEnglish ? "Score:" : "成绩："}</strong> {item.gpa}
                     </span>
 
                                 {/* 学位课程 */}
-                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong>{isEnglish ? "Degree Courses:" : "学位课程："}</strong> {item.course}</span>
+                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong style={{ fontSize: '20px'}}>{isEnglish ? "Degree Courses:" : "学位课程："}</strong> {item.course}</span>
 
                                 {/* 附加课程 */}
-                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong>{isEnglish ? "Additional Courses:" : "课外课程："}</strong> {item.additionalCourse}</span>
+                                <span style={{ fontSize: "20px", color: isDarkMode ? "#6b7280" : "#9ca3af" }}><strong style={{ fontSize: '20px'}}>{isEnglish ? "Research Interests:" : "研究方向："}</strong> {item.research}</span>
                             </div>
                         </div>
                     ))}

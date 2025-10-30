@@ -17,11 +17,11 @@
         "img": "/images/featuredImages/img.png",
         "title": "你好，我是白喵喵！",
         "subtitle": "简介",
-        "profile": "你好！我是白喵喵，四川大学基础医学院与法医学院/生物治疗国家重点实验室的二年级硕士研究生，导师是黄灿华教授。我的专业涉及所有领域。<br/><br/>我的目标是推动人类在医学、计算机科学、数学和物理学方面的知识和能力的边界。我渴望开发创新和智能的解决方案，整合这些领域的原理，以应对复杂的现实挑战。具体来说，我对探索有效高效地利用多模态数据、先进的计算模型和数学框架，以增强科学和医疗领域的理解、决策和问题解决能力感兴趣。我也热衷于发现新的跨学科方法，以推动有意义的进展。<br/><br/>最新动态：我目前正在进行交叉领域（数学/物理/医学/计算机）的研究，积极寻求交流与合作!"
+        "profile": "你好！我是白喵喵，四川大学基础医学院与法医学院/生物治疗国家重点实验室的三年级硕士研究生。我的专业涉及生物医学、AI4Science等多学科领域。<br/><br/>我的目标是推动人类在医学、计算机科学、数学和物理学方面的知识和能力的边界。我渴望开发创新和智能的解决方案，整合这些领域的原理，以应对复杂的现实挑战。具体来说，我对探索有效高效地利用多模态数据、先进的计算模型和数学框架，以增强科学和医疗领域的理解、决策和问题解决能力感兴趣。我也热衷于发现新的跨学科方法，以推动有意义的进展。<br/><br/>最新动态：我目前正在进行交叉领域（数学/物理/医学/计算机）的研究，积极寻求交流与合作!"
       },
       "quote": {
-        "words": "阻碍学习的绝对不是知识本身的难度，而是学习梯度的不合理设计和缺乏先备知识",
-        "author": "<cite>白喵喵</cite>"
+        "words": "阻碍学习的绝对不是知识本身的难度，而是学习梯度的不合理设计和缺乏先备知识。",
+        "author": "<cite>匿名</cite>"
       },
       "experienceSection": {
         "edu": [
@@ -31,9 +31,9 @@
             "logo": "/images/experience/ChongqingMedicalUniversity.jpg",
             "url": "https://www.scu.edu.cn",
             "degree": "专业：医学影像学",
-            "gpa": "3.6 / 5.0",
+            "gpa": "84 / 100",
             "course": "医学影像与放射诊断、超声诊断、介入放射学、核医学、内科学、外科学、妇产科学、儿科学、生理学、生物化学与分子生物学、病理学、免疫学与细胞生物学。",
-            "additionalCourse": "数学分析，线性代数，概率论与数理统计"
+            "research": "抑郁症的分子生物学发病机制"
           },
           {
             "period": "2023.07-现在",
@@ -41,66 +41,65 @@
             "url": "https://www.cqmu.edu.cn",
             "university": "四川大学",
             "degree": "专业：基础医学",
-            "gpa": "3.6 / 4.0",
+            "gpa": "87 / 100",
             "course": "疾病发病机制、医学分子生物学、医药生物技术前沿、蛋白质和酶的分离纯化技术、核酸分子克隆技术、实用组织学技术",
-            "additionalCourse": "机器学习与深度学习，算法"
+            "research": "结直肠癌肝转移与干细胞靶向免疫治疗研究"
           }
         ],
         "timeline": [
           {
             "id": "one",
-            "year": "1280",
+            "year": "2020年1月 - 2023年6月",
             "color": "#2c3e50",
             "percentage": 20,
-            "content": "Content for 1280"
+            "content": "在重庆医科大学本科阶段，主要研究NMDA受体亚基NR3A在抑郁症发病机制中的作用及调控研究。主要参与部分分子生物学实验操作，包括Western Blot、qPCR，以及部分动物行为学实验的实施与数据记录，并参与实验设计讨论和结果分析。作为共同作者参与相关领域研究成果，已发表于《Journal of Affective Disorders》"
           },
           {
             "id": "two",
-            "year": "1649",
+            "year": "2023年7月 - 至今",
             "color": "#e74c3c",
             "percentage": 40,
-            "content": "Content for 1649"
+            "content": "自2023年6月起，主要围绕结直肠癌干细胞及肝转移相关机制，构建外泌体工程化载体并联合氧化还原破坏与RNA干扰策略，靶向癌症干细胞以增强免疫治疗；同时参与结直肠癌肝转移微环境调控机制研究，通过单细胞测序数据分析CRC外泌体对肝脂质累积及Kupffer细胞介导信号的影响。目前已以第一作者身份向《Journal of Nanobiotechnology》投稿，并以共同作者身份参与发表在《Gut》和《Biomaterials》期刊上的论文。"
           },
           {
             "id": "three",
-            "year": "1831",
+            "year": "2024年7月 - 至今",
             "color": "#7b3",
             "percentage": 60,
-            "content": "Content for 1831"
-          },
-          {
-            "id": "four",
-            "year": "1992",
-            "color": "#20638f",
-            "percentage": 80,
-            "content": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. "
-          },
-          {
-            "id": "six",
-            "year": "2025",
-            "color": "#20638f",
-            "percentage": 90,
-            "content": "Content for 2025"
-          },
-          {
-            "id": "seven",
-            "year": "2025",
-            "color": "#20638f",
-            "percentage": 120,
-            "content": "Content for 2025"
-          },
-          {
-            "id": "eight",
-            "year": "2025",
-            "color": "#20638f",
-            "percentage": 150,
-            "content": "Content for 2025"
+            "content": "从2024年7月起，空闲时间主要研究基于机器、深度学习与多组学数据整合的疾病预测与机制探索。主要基于蛋白质序列开展翻译后修饰预测，利用预训练蛋白语言模型（ESM、ProtBert）提取序列特征，并结合CNN/LSTM/Transformer进行修饰位点识别；整合单细胞测序、空间转录组、代谢组及宿主-微生物组数据，构建深度学习预测模型（GNN、Transformer）。目前代码已经初步完成，下一步进行调试与训练。"
           }
         ]
       },
       "featuredPublications": [
         {
-          "authors": " Mengmeng Zhang, Xiangru Kong, Jing Chen, Wenqin Liu, Can Liu, Xiaoyun Dou, Lin Jiang, Yanmin Luo, Mingrui Song, Peng Miao, Yong Tang, Yun Xiu ",
+          "authors": "Jiangjun Cao, Siyuan Qin, Bowen Li, Zhe Zhang, <b>Peng Miao</b>, Han Yan, Jiufei Duan, Bo He, Kai He, Peilan Peng, Lei Li, Hao Jiang, Zizhuo Xie, Jingwen Jiang, Xia Chen, Hai-Ning Chen, Canhua Huang.",
+          "date": "June 12, 2025",
+          "journal": "Gut",
+          "featuredImages":[
+            {
+              "src": "/images/featuredImages/Gut_1.png",
+              "caption": "Graphical Abstract",
+              "link": ""
+            },
+            {
+              "src": "/images/featuredImages/Gut_2.png",
+              "caption": "Exosomes extraction and identification",
+              "link": ""
+            }
+          ],
+          "title": "Extracellular vesicle-induced lipid dysregulation drives liver premetastatic niche formation in colorectal cancer",
+          "url": "https://gut.bmj.com/content/early/2025/06/25/gutjnl-2025-334851.long",
+          "abstract": "Liver metastasis is a leading cause of death in colorectal cancer (CRC). This study reveals that extracellular vesicles (EVs) from highly metastatic CRC cells promote hepatic premetastatic niche (PMN) formation by inducing lipid accumulation in the liver. Lipidomic and single-cell analyses showed that enhanced fatty acid (FA) synthesis in CRC cells increases prosteatogenic lipids in EVs, which are mainly taken up by Kupffer cells, triggering TNF-α secretion and further lipid accumulation. Inhibition of FA synthesis or hepatic lipid accumulation significantly reduced EV-induced metastasis. Patient-derived organoid experiments confirmed that blocking FA synthesis mitigates hepatic lipid deposition and liver metastasis. These findings identify FA synthesis inhibition as a promising strategy to prevent CRC liver metastasis.",
+          "buttons": [
+            {
+              "name": "LINK",
+              "logo": "",
+              "link": "https://gut.bmj.com/content/early/2025/06/25/gutjnl-2025-334851.long"
+            }
+          ]
+        },
+        {
+          "authors": "Mengmeng Zhang, Xiangru Kong, Jing Chen, Wenqin Liu, Can Liu, Xiaoyun Dou, Lin Jiang, Yanmin Luo, Mingrui Song, <b>Peng Miao</b>, Yong Tang, Yun Xiu ",
           "date": "July 1, 2023",
           "journal": "Journal of Affective Disorders",
           "featuredImages": [
@@ -140,37 +139,6 @@
               "link": "https://www.bilibili.com"
             }
           ]
-        },
-        {
-          "authors": " MMeowhite ",
-          "date": "66666",
-          "journal": "Nature",
-          "featuredImages": [
-            {
-              "src": "/images/featuredImages/img.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-1."
-            },
-            {
-              "src": "/images/featuredImages/img_1.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-2."
-            },
-            {
-              "src": "/images/featuredImages/img_2.png",
-              "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit-3."
-            }
-          ],
-          "title": "Here is your paper title2",
-          "abstract": "here is your paper abstract2",
-          "buttons": [
-            {
-              "name": "PDF",
-              "link": ""
-            },
-            {
-              "name": "CODE",
-              "link": ""
-            }
-          ]
         }
       ],
       "cv": "/cv_zh.pdf",
@@ -194,8 +162,8 @@
           },
           "time": "2018年9月-2023年6月",
           "degree": "Bachelor of Medicine in Medical Imaging (Radiology and Diagnostic Technology)",
-          "GPA": "3.6 / 5.0",
-          "course": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
+          "GPA": "84 / 100",
+          "course": "医学影像诊断学、超声诊断学、介入放射学、核医学、内科学、外科学、妇科学、儿科学、生理学、生物化学与分子生物学、病理学、免疫学、细胞生物学等"
         },
         {
           "university": {
@@ -204,8 +172,8 @@
           },
           "time": "2023年7月-现在",
           "degree": "Master of Medicine in Basic Medicine (Chemistry and Molecular Biology)",
-          "GPA": "3.6 / 4.0",
-          "course": "The Basic Cellular and Molecular Principles of Pathogenesis, Medical Molecular Biology, Medicinal Biotechnology Frontier, Seperation and Purification Technology of Protein and Enzyme, Nucleic Acid Molecular Cloning Technique, Practical Histological Technique"
+          "GPA": "87 / 100",
+          "course": "疾病致病机制、分子生物学、蛋白酶分离技术、实用组织学技术等"
         }
       ],
       "实习": [
@@ -215,7 +183,7 @@
             "url": "https://www.cq9yuan.com/"
           },
           "time": "2022年1月-2022年6月",
-          "work": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
+          "work": "在肝胆外科、风湿免疫科、消化内科等科室轮转，系统掌握常见疾病的诊断思路与治疗流程；参与病例讨论与临床记录撰写，提升病历分析与临床思维能力。"
         },
         {
           "location": {
@@ -223,7 +191,7 @@
             "url": "https://www.sahcqmu.com/"
           },
           "time": "2022年7月-2023年1月",
-          "work": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
+          "work": "继续在相关临床科室学习，掌握常见疾病之诊断思路与治疗流程；参与病例讨论与临床记录撰写，参与部分手术等。"
         },
         {
           "location": {
@@ -231,37 +199,51 @@
             "url": "http://www.uhcmu.com/"
           },
           "time": "2023年1月-2023年6月",
-          "work": "Medical Imaging and Diagnostic Radiology, Ultrasound Diagnostics, Interventional Radiology, Nuclear Medicine, Internal Medicine, Surgery, Obstetrics and Gynecology, Pediatrics, Physiology, Biochemistry and Molecular Biology, Pathology, Immunology, and Cell Biology"
+          "work": "在影像科、超声科轮转，协助主治医师进行影像阅片、超声检查及部分介入操作；同时将影像学知识与科研问题结合，为后续研究提供临床依据。"
         }
       ],
       "研究经历" : [
         {
           "time": "2020年1月-2022年1月",
           "location": {
-            "name": "重庆医科大学 脑科学与脑疾病研究院",
+            "name": "重庆医科大学 生命科学学院",
             "url": "https://brain.cqmu.edu.cn/index.htm"
           },
           "directors": [
             {
-              "name": "修芸 副教授",
-              "link": "https://brain.cqmu.edu.cn/info/1026/1632.htm"
+              "name": "修芸副教授",
+              "link": "https://basic.cqmu.edu.cn/info/1155/5668.htm"
             }
           ],
-          "work": "Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!Hello! I'm Baimiaomiao, a researcher and educator at Sichuan University. My expertise lies in medicine, bioinformatics, mathematics, and physics, with a focus on leveraging computational techniques to solve biomedical challenges. Passionate about interdisciplinary research, I aim to bridge the gap between technology and healthcare to drive innovation. Welcome to my website, where I share my work, ideas, and ongoing projects. Let's connect and explore new possibilities together!"
+          "work": "在该课题中，我学习并参与研究NMDA受体抑制性亚基NR3A（GluN3A）在抑郁症发生中的作用。工作内容包括：参与部分动物行为学实验（如糖水偏好实验、强迫游泳实验、开放场实验）的实施与数据记录；开展分子生物学实验（蛋白和 RNA 提取、Western Blot、qPCR 等）用于检测突触相关蛋白（例如 PSD95）与相关基因表达的改变；参与课题讨论，最终以参与作者身份发表在《Journal of Affective Disorders》。通过该项目我系统掌握了动物行为学与分子水平的联动研究方法，并提升了实验设计、数据解析与科研写作能力。"
         },
         {
           "location": {
             "name": "四川大学 华西基础医学院与法医学院/生物治疗国家重点实验室",
             "url": "https://jcfy.scu.edu.cn/"
           },
-          "time": "2023年7月-2025年4月",
+          "time": "2023年7月-至今",
           "directors": [
             {
-              "name": "黄灿华 教授",
+              "name": "黄灿华教授",
               "link": "http://hcanhua.cn/"
             }
           ],
-          "work": "Coming Soon..."
+          "work": "我的研究主要围绕结直肠癌干细胞及肝转移机制展开，致力于开发靶向癌症干细胞的免疫治疗策略。具体工作包括构建外泌体工程化载体，并结合氧化还原破坏和RNA干扰方法，以增强免疫治疗效果。同时，我参与结直肠癌肝转移微环境的机制研究，利用单细胞测序分析CRC外泌体对肝脂质累积及Kupffer细胞介导信号的影响。在科研过程中，我独立负责实验设计与执行，包括外泌体修饰、RNA 干扰体系构建、细胞及动物肿瘤模型验证，以及分子检测（Western Blot、qPCR、ELISA 等）以及表型检测（DNA损伤、ROS检测、流式分析等），并主导论文撰写和图表制作。研究成果包括作为第一作者投稿至《Journal of Nanobiotechnology》，以及作为共同作者参与发表于《Gut》和《Biomaterials 的相关研究》。"
+        },
+        {
+          "location" : {
+            "name": "",
+            "url": ""
+          },
+          "time": "2024年7月-至今",
+          "directors": [
+            {
+              "name": "无",
+              "link": ""
+            }
+          ],
+          "work": "从 2024 年起，我开始自主探索基于机器学习与深度学习的多组学数据整合，用于疾病预测与机制研究。我整合了单细胞测序、空间转录组、代谢组及宿主-微生物组数据，并构建深度学习预测模型（如 GNN、Transformer）。在蛋白质序列分析方面，我利用预训练蛋白语言模型（ESM、ProtBert）提取序列特征，结合 CNN、LSTM 和 Transformer 进行翻译后修饰位点预测。该项目目前已完成多组学数据预处理和模型框架搭建，下一步将进行模型调试与训练。"
         }
       ],
       "skills": [
@@ -313,6 +295,13 @@
           "url": "https://github.com/MMeowhite/Profile_Website_Template",
           "desc": "这是通过React+Bootstrap+Markdown等一系列技术栈制作而成，目前这个项目已经发布到Github相应的仓库，利用这个项目，你可以通过修改相关配置文件快速进行你的个人定制，同时可以将该项目部署到Netlify网站",
           "time": "2025年2月23日"
+        },
+        {
+          "img": "/images/projects/ai_project.png",
+          "title": "机器学习、深度学习入门与精通",
+          "url": "https://github.com/MMeowhite/Ml-Dl-Fullstack-Guide",
+          "desc": "本课程面向零基础学生，系统讲解所有主流机器学习与深度学习模型，配备讲义（PPT）、代码 Notebook、项目案例，涵盖数学基础、模型原理、实战开发与工程部署",
+          "time": "2025年10月1日"
         }
       ]
     },
