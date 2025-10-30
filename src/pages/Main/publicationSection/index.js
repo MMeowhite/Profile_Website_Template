@@ -39,7 +39,6 @@ const PublicationSection = () => {
                     ...style,
                     display: 'block',
                     cursor: 'pointer',
-                    zIndex: "999",
                 }}
                 onClick={onClick}
             >
@@ -127,7 +126,6 @@ const PublicationSection = () => {
                 gap: isSmallScreen ? "15px" : "25px",
                 padding: isSmallScreen ? "20px 15px" : "40px 20px",
                 marginBottom: isSmallScreen ? "40px" : "60px", // 添加底部间距
-                overflow: "hidden", // 防止溢出
             }}
         >
             {/* 标题 */}
@@ -136,7 +134,7 @@ const PublicationSection = () => {
                     fontWeight: "800",
                     fontSize: isSmallScreen ? "32px" : "60px",
                     textAlign: 'center',
-                    width: isSmallScreen ? "100%" : "30%", // 小屏幕占满宽
+                    width: isSmallScreen ? "100%" : "35%", // 小屏幕占满宽
                     marginBottom: isSmallScreen ? "20px" : "0",
                 }}
                 data-aos="zoom-in"
@@ -366,6 +364,7 @@ const PublicationSection = () => {
                                                 width: '100%',
                                             }}
                                         >
+                                            
                                             {featuredPublicationObject.buttons &&
                                                 featuredPublicationObject.buttons.map((button, idx) => (
                                                     <Button
@@ -387,6 +386,8 @@ const PublicationSection = () => {
                                                     </Button>
                                                 ))}
                                         </div>
+
+
                                     </Row>
                                 );
                             }

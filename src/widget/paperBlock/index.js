@@ -4,7 +4,7 @@ import { parseReferenceContent } from "../../utils/referencesParser";
 import { Link } from "react-router-dom";
 import { useConfig } from "../../utils/Provider/ConfigProvider"
 import AOS from "aos";
-import {useTheme} from "../../utils/Provider/themeProvider";
+import { useTheme } from "../../utils/Provider/themeProvider";
 
 
 const PaperBlock = () => {
@@ -24,9 +24,9 @@ const PaperBlock = () => {
         }
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         AOS.init({ duration: 1000, once: true })
-    },[])
+    }, [])
 
     // 使用 useEffect 来获取引用文件的 URL 或直接的引用数据
     useEffect(() => {
@@ -63,21 +63,30 @@ const PaperBlock = () => {
                 const imageSrc = reference.image || "/images/avatar.png";
                 console.log(reference)
                 return (
-                    <div key={index} className={styles.referenceItemFrame} style={{background: "inherit", boxShadow: isDarkMode ? "0 4px 8px rgba(255, 255, 255, 0.1)" : "0 4px 8px rgba(0, 0, 0, 0.1)"}} data-aos="fade-up">
+                    <div key={index} className={styles.referenceItemFrame} style={{ background: "inherit", boxShadow: isDarkMode ? "0 4px 8px rgba(255, 255, 255, 0.1)" : "0 4px 8px rgba(0, 0, 0, 0.1)" }} data-aos="fade-up">
                         {/* Image Section */}
                         <div className={styles.imgContainer}>
-                            <img src={imageSrc} alt="Author" className={styles.referenceImage}/>
+                            <img src={imageSrc} alt="Author" className={styles.referenceImage} />
                         </div>
 
                         {/* Content Section */}
                         <div className={styles.contentContainer}>
-                            <div className={styles.referenceItem} style={{gap: "15px"}}>
-                                <h4 className={styles.referenceTitle} style={{font: isDarkMode ? "#666" : "#333"}}>{reference.title}</h4>
-                                <h5 className={styles.referenceAuthors} style={{font: isDarkMode ? "#777" : "#555"}}>{authors}</h5>
+                            <div className={styles.referenceItem} style={{ gap: "15px" }}>
+                                <h4 className={styles.referenceTitle} style={{ font: isDarkMode ? "#666" : "#333" }}>{reference.title}</h4>
+                                <h5 className={styles.referenceAuthors} style={{ font: isDarkMode ? "#777" : "#555" }}>{authors}</h5>
                                 <p className={styles.referenceAbstract}>{reference.abstract}</p>
                                 <p className={styles.referenceIntro}>
                                     <strong>Journal: </strong>  {reference.journal} &emsp;
-                                    <strong>DOI:</strong>  <Link to={reference.doi} className={styles.referenceLink}>{reference.doi}</Link> &emsp;
+                                    <strong>DOI:</strong>  <Link
+                                        to={
+                                            reference.doi.startsWith("http")
+                                                ? reference.doi
+                                                : `https://doi.org/${reference.doi}`
+                                        }
+                                        className={styles.referenceLink}
+                                    >
+                                        {reference.doi}
+                                    </Link> &emsp;
                                     <strong>Year:</strong>  {reference.year}
                                 </p>
                             </div>

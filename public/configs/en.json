@@ -13,7 +13,7 @@
       },
       "institution": "Sichuan University",
       "field": "MEDICINE / COMPUTER SCIENCE / MATHEMATICS / PHYSICS",
-      "greeting" : {
+      "greeting": {
         "img": "/images/featuredImages/img.png",
         "title": "Hello, I'm MMeowhite (Peng, Miao)",
         "subtitle": "I'd like to say something...",
@@ -73,7 +73,32 @@
       },
       "featuredPublications": [
         {
-          "authors": " Mengmeng Zhang, Xiangru Kong, Jing Chen, Wenqin Liu, Can Liu, Xiaoyun Dou, Lin Jiang, Yanmin Luo, Mingrui Song, Peng Miao, Yong Tang, Yun Xiu ",
+          "authors": "Jiangjun Cao, Siyuan Qin, Bowen Li, Zhe Zhang, <b>Peng Miao</b>, Han Yan, Jiufei Duan, Bo He, Kai He, Peilan Peng, Lei Li, Hao Jiang, Zizhuo Xie, Jingwen Jiang, Xia Chen, Hai-Ning Chen, Canhua Huang.",
+          "date": "June 12, 2025",
+          "journal": "Gut",
+          "featuredImages":[
+            {
+              "src": "/images/featuredImages/Gut_1.png",
+              "link": ""
+            },
+            {
+              "src": "/images/featuredImages/Gut_2.png",
+              "link": ""
+            }
+          ],
+          "title": "Extracellular vesicle-induced lipid dysregulation drives liver premetastatic niche formation in colorectal cancer",
+          "url": "https://gut.bmj.com/content/early/2025/06/25/gutjnl-2025-334851.long",
+          "abstract": "Liver metastasis is a leading cause of death in colorectal cancer (CRC). This study reveals that extracellular vesicles (EVs) from highly metastatic CRC cells promote hepatic premetastatic niche (PMN) formation by inducing lipid accumulation in the liver. Lipidomic and single-cell analyses showed that enhanced fatty acid (FA) synthesis in CRC cells increases prosteatogenic lipids in EVs, which are mainly taken up by Kupffer cells, triggering TNF-α secretion and further lipid accumulation. Inhibition of FA synthesis or hepatic lipid accumulation significantly reduced EV-induced metastasis. Patient-derived organoid experiments confirmed that blocking FA synthesis mitigates hepatic lipid deposition and liver metastasis. These findings identify FA synthesis inhibition as a promising strategy to prevent CRC liver metastasis.",
+          "buttons": [
+            {
+              "name": "LINK",
+              "logo": "",
+              "link": "https://gut.bmj.com/content/early/2025/06/25/gutjnl-2025-334851.long"
+            }
+          ]
+        },
+        {
+          "authors": "Mengmeng Zhang, Xiangru Kong, Jing Chen, Wenqin Liu, Can Liu, Xiaoyun Dou, Lin Jiang, Yanmin Luo, Mingrui Song, <b>Peng Miao</b>, Yong Tang, Yun Xiu ",
           "date": "July 1, 2023",
           "journal": "Journal of Affective Disorders",
           "featuredImages": [
@@ -110,38 +135,10 @@
               "link": "https://www.bilibili.com"
             }
           ]
-        },
-        {
-          "authors": " MMeowhite ",
-          "date": "66666",
-          "journal": "Nature",
-          "featuredImages": [
-            {
-              "src": "/images/featuredImages/img.png"
-            },
-            {
-              "src": "/images/featuredImages/img_1.png"
-            },
-            {
-              "src": "/images/featuredImages/img_2.png"
-            }
-          ],
-          "title": "Here is your paper title2",
-          "abstract": "here is your paper abstract2",
-          "buttons": [
-            {
-              "name": "PDF",
-              "link": ""
-            },
-            {
-              "name": "CODE",
-              "link": ""
-            }
-          ]
         }
       ],
       "cv": "/cv_en.pdf",
-      "contact" : {
+      "contact": {
         "title": "Let's stay connected !",
         "subtitle": "Welcome to drop in with any questions, ideas, suggestions, or just to say hello!",
         "location": "<br />West China Campus, Sichuan University<br />No. 17 Section 3, South Renmin Road<br />Chengdu, Sichuan 610041 <br /> P.R. China",
@@ -156,8 +153,8 @@
       "education": [
         {
           "university": {
-           "name": "Chongqing Medical University",
-           "url": "https://www.cqmu.edu.cn/"
+            "name": "Chongqing Medical University",
+            "url": "https://www.cqmu.edu.cn/"
           },
           "time": "September 2018 - July 2023",
           "major": "Bachelor of Medicine in Medical Imaging (Radiology and Diagnostic Technology)",
@@ -177,7 +174,7 @@
       ],
       "internships": [
         {
-          "location":{
+          "location": {
             "name": "The Beibei Affiliated Hospital of Chongqing Medical University",
             "url": "https://www.cq9yuan.com/"
           },
@@ -201,7 +198,7 @@
           "work": "Rotated through the Radiology and Ultrasound departments, assisting attending physicians with image interpretation, ultrasound examinations, and some interventional procedures. Integrated imaging knowledge with research questions to provide clinical insights for subsequent studies."
         }
       ],
-      "research" : [
+      "research": [
         {
           "time": "Jan 2020 - Jan 2022",
           "location": {
@@ -231,7 +228,7 @@
           "work": "Supervised by Prof. Canhua Huang, my research focuses on colorectal cancer stem cells and liver metastasis, aiming to develop immunotherapeutic strategies targeting cancer stem cells. My work involves constructing engineered exosome delivery systems and combining redox disruption with RNA interference to enhance immunotherapy efficacy. Additionally, I investigate the tumor microenvironment in colorectal cancer liver metastasis, analyzing how CRC-derived exosomes influence hepatic lipid accumulation and Kupffer cell-mediated signaling using single-cell sequencing data. I am independently responsible for experimental design and execution, including exosome modification, RNA interference system construction, validation in cell and animal models, molecular assays (Western Blot, qPCR, ELISA), and phenotypic analyses (DNA damage, ROS detection, flow cytometry), as well as leading manuscript preparation and figure production. Research outcomes include a first-author manuscript submitted to Journal of Nanobiotechnology, and co-authorship on publications in Gut and Biomaterials."
         },
         {
-          "location" : {
+          "location": {
             "name": "",
             "url": ""
           },
@@ -247,22 +244,22 @@
       ],
       "skills": [
         {
-         "field": "Computer Science",
-         "list": {
-           "Programming Languages": "C, Java, Linux, Python, R, MATLAB, Javascript, MySQL",
-           "Framework and libraries": {
-             "Bioinformatics": [
-               "RNA-Seq quality control and data preprocessing: Trimming, Filtering, Alignment (STAR, HISAT2)",
-               "Variant calling and annotation: SNPs, Indels, CNVs",
-               "Bulk RNA-seq: Differential gene expression analysis, Alternative splicing analysis, GO/KEGG/GSEA enrichment analysis",
-               "Single-cell RNA-Seq analysis (scRNA-Seq): Seurat V5, Monocle, Scanpy, Celltree",
-               "Visualization of omics data: Heatmaps, Volcano plots, PCA, t-SNE, UMAP, Circos plots",
-               "Multi-omics data integration analysis: WGS, WES, GWAS, RNA-Seq, ChIP-Seq, ATAC-seq, Metabolomics, Proteomics",
-               "Machine learning in bioinformatics: Predictive models, Clustering algorithms (K-means, Hierarchical)"
-             ],
-             "Web development": "Full stack development: React, Bootstrap, Flask, Node.js"
-           }
-         }
+          "field": "Computer Science",
+          "list": {
+            "Programming Languages": "C, Java, Linux, Python, R, MATLAB, Javascript, MySQL",
+            "Framework and libraries": {
+              "Bioinformatics": [
+                "RNA-Seq quality control and data preprocessing: Trimming, Filtering, Alignment (STAR, HISAT2)",
+                "Variant calling and annotation: SNPs, Indels, CNVs",
+                "Bulk RNA-seq: Differential gene expression analysis, Alternative splicing analysis, GO/KEGG/GSEA enrichment analysis",
+                "Single-cell RNA-Seq analysis (scRNA-Seq): Seurat V5, Monocle, Scanpy, Celltree",
+                "Visualization of omics data: Heatmaps, Volcano plots, PCA, t-SNE, UMAP, Circos plots",
+                "Multi-omics data integration analysis: WGS, WES, GWAS, RNA-Seq, ChIP-Seq, ATAC-seq, Metabolomics, Proteomics",
+                "Machine learning in bioinformatics: Predictive models, Clustering algorithms (K-means, Hierarchical)"
+              ],
+              "Web development": "Full stack development: React, Bootstrap, Flask, Node.js"
+            }
+          }
         },
         {
           "field": "Medicine",
@@ -289,36 +286,21 @@
       "desc": "I enjoy making things. Here are a selection of projects that I have worked on over the years.",
       "list": [
         {
-          "img": "/images/projects/img.png",
-          "title": "Python project",
-          "url": "https://www.bilibili.com/",
-          "desc": "This is the python project published in github website",
-          "time": "Jan 1, 2025"
+          "img": "/images/projects/personal_website.png",
+          "title": "Personal Website",
+          "url": "https://github.com/MMeowhite/Profile_Website_Template",
+          "desc": "This project is built using React, Bootstrap, and Markdown. It has been published on GitHub and allows for quick personalization through simple configuration file edits. You can also easily deploy it to Netlify to create your own professional personal website.",
+          "time": "February 23, 2025"
         },
         {
-          "img": "/images/projects/img_1.png",
-          "title": "Pytorch project",
-          "url": "https://www.bilibili.com/opus/914638849347420177?from=search&spm_id_from=333.337.0.0",
-          "desc": "This is the Pytorch project",
-          "time": "Oct 25, 2022"
-        },
-        {
-          "img": "/images/projects/img_2.png",
-          "title": "Python project",
-          "url": "https://www.bilibili.com/",
-          "desc": "This is the python project published in github website",
-          "time": "Jan 1, 2025"
-        },
-        {
-          "img": "/images/projects/img_2.png",
-          "title": "Python project",
-          "url": "https://www.bilibili.com/",
-          "desc": "This is the python project published in github website",
-          "time": "Jan 1, 2025"
+          "img": "/images/projects/ai_project.png",
+          "title": "Introduction to Machine Learning and Deep Learning",
+          "url": "https://github.com/MMeowhite/Ml-Dl-Fullstack-Guide",
+          "desc": "This course is designed for beginners, providing a comprehensive introduction to all mainstream machine learning and deep learning models. It includes lecture slides (PPT), code notebooks, and real-world projects, covering mathematical foundations, model principles, practical implementation, and engineering deployment.",
+          "time": "October 1, 2025"
         }
       ]
-    },
-    "publication": {}
+    }
   },
   "widgets": {
     "navbar": {
@@ -338,7 +320,7 @@
         "name": "Publication",
         "link": "#publication"
       },
-      "item6" : {
+      "item6": {
         "name": "CV",
         "link": "#cv"
       },
@@ -347,7 +329,6 @@
         "link": "#contact"
       }
     },
-
     "topNavBar": [
       {
         "title": "MMeowhite",
@@ -375,7 +356,6 @@
         ]
       }
     ],
-
     "iconNavComponent": [
       {
         "type": "email",

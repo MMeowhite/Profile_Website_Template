@@ -9,9 +9,9 @@ export const useLanguage = () => {
 
 export const LanguageProvider = ({ children }) => {
     const [isEnglish, setIsEnglish] = useState(() => {
-        // 读取本地存储的语言设置，默认为英语
+        // 读取本地存储的语言设置，默认为中文
         const savedLanguage = localStorage.getItem('language');
-        return savedLanguage ? savedLanguage === 'en' : true;
+        return savedLanguage ? savedLanguage === 'zh' : true;
     });
 
     // 读取本地存储的语言设置

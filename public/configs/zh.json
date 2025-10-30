@@ -97,6 +97,31 @@
           ]
         },
         {
+          "authors": "Longqin Wang, Wenting Cheng, Siyuan Qin, Hailong Tian, Guowen Liu, Peng Miao, Canhua Huang, Hao Wang, Jing Jing.",
+          "date": "August 11, 2025",
+          "journal": "Biomaterials",
+          "featuredImages":[
+            {
+              "src": "/images/featuredImages/biomaterials.png",
+              "link": ""
+            },
+            {
+              "src": "/images/featuredImages/biomaterials_1.png",
+              "link": ""
+            }
+          ],
+          "title": "Self-assembly driven nano-salinomycin for high-efficiency cancer immunotherapy by reticulum stress mediated stemness suppression",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0142961225005514?via%3Dihub",
+          "abstract": "Cancer cells with stemness characteristics effectively escape the recognition and killing of immune-active cells, such as T cells, which has been considered as the root cause of cancer recurrence and metastasis. To sensitize cancer immunotherapy, we have developed salinomycin-repurposed endoplasmic reticulum (ER) stress nanoinducers (DTSS NPs) to synergistically suppress cancer cell stemness. Salinomycin, as a polyether antibiotic demonstrating robust cytotoxicity against tumor stem cell, is co-assembled with thymopentin (TP5) and ER-targeted phototherapeutic agent s-780, and tailored with DSPE-PEG-biotin to obtain DTSS NPs. This nanoplatform not only improves the bioavailability of TP5 and salinomycin, but also ensures controlled drug release and reduces the side effects of therapeutic agents. Moreover, the hyperpyrexia and ROS produced by s-780 further induced ER stress, which downregulates PD-L1 expression and activates the cGAS-STING pathway, while TP5 significantly promotes the proliferation and differentiation of T lymphocytes, resulting in the augment of the anti-tumor immunity. Importantly, salomycin synergistically boosted s-780-mediated ER stress to effectively inhibit the stemness of cancer cells, thereby enhancing the responsiveness of cancer cells to T cells. As expected, DTSS NPs activate systemic immunity and suppress cancer metastasis and recurrence, providing promising solutions for sensitizing cancer immunotherapy by inhibiting cancer cell stemness.",
+          "buttons": [
+            {
+              "name": "LINK",
+              "logo": "",
+              "link": "https://www.sciencedirect.com/science/article/pii/S0142961225005514?via%3Dihub"
+            }
+          ]
+        },
+        {
           "authors": "Mengmeng Zhang, Xiangru Kong, Jing Chen, Wenqin Liu, Can Liu, Xiaoyun Dou, Lin Jiang, Yanmin Luo, Mingrui Song, <b>Peng Miao</b>, Yong Tang, Yun Xiu ",
           "date": "July 1, 2023",
           "journal": "Journal of Affective Disorders",
@@ -285,7 +310,7 @@
       "desc": "我享受创造新事物的过程，以下是我完成的一些项目",
       "list": [
         {
-          "img": "/images/projects/img_3.png",
+          "img": "/images/projects/personal_website.png",
           "title": "个人简历网站",
           "url": "https://github.com/MMeowhite/Profile_Website_Template",
           "desc": "这是通过React+Bootstrap+Markdown等一系列技术栈制作而成，目前这个项目已经发布到Github相应的仓库，利用这个项目，你可以通过修改相关配置文件快速进行你的个人定制，同时可以将该项目部署到Netlify网站",
@@ -299,8 +324,7 @@
           "time": "2025年10月1日"
         }
       ]
-    },
-    "publication": {}
+    }
   },
   "widgets": {
     "navbar": {
